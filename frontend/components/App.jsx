@@ -1,14 +1,16 @@
 import React from "react";
-import { Route } from "react-router-dom";
 import { AuthRoute, ProtectedRoute } from "../util/route_util";
-import Splash from "./auth/splash";
+
+import SplashContainer from "../components/auth/splash_container";
+import LoginFormContainer from "../components/auth/login_form_container";
 import Browse from "./browse";
 
 // AuthRoutes are for non-logged in users, ProtectedRoutes are for logged-in users.
 
 const App = () => (
     <main>
-        <AuthRoute exact path="/" component={Splash} />
+        <AuthRoute exact path="/" component={SplashContainer} />
+        <AuthRoute exact path="/login" component={LoginFormContainer} />
         <ProtectedRoute exact path="/browse" component={Browse} />
     </main>
 )

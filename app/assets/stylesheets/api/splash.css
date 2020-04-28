@@ -1,0 +1,22 @@
+.landing {
+    /*   scss alternative:
+    background-image: image-url('pictureTitle.png');  
+    */
+    background-image: url("/assets/splash-bg.jpg");
+    background-size: cover;
+    height: 100vh;
+    width: 100vw;
+}
+
+.story-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.story-card {
+    background-color: black;
+    border: 1px solid white;
+    height: 500px;
+    width: 100%;
+}
