@@ -49,11 +49,11 @@ class Splash extends React.Component {
                                 <div className="black-box">
                                     <p className="signup-info">Ready to watch? Enter your email and password to create or restart your membership.</p>
                                     <div className="signup-inputs-container">
-                                        <input className="signup-input" type="text" value={this.state.email} onChange={this.updateEmail} />
-                                        <input className="signup-input" type="password" value={this.state.password} onChange={this.updatePassword} />
+                                        <input className="signup-input" type="text" placeholder="Email Address" value={this.state.email} onChange={this.updateEmail} />
+                                        <input className="signup-input" type="password" placeholder="Password" value={this.state.password} onChange={this.updatePassword} />
                                     </div>
                                 </div>
-                                <input type="submit" value="TRY 30 DAYS FREE" />
+                                <input className="signup-button" type="submit" value="TRY 30 DAYS FREE" />
                             </form>
                         </div>
                     </div>     

@@ -27,9 +27,9 @@ class Nav extends React.Component {
                 {/* Eventually, this area will be made into ternary as well. */}
                 <div className="nav-right">
                     <div className="nav-buttons-box">
-                        <div className="nav-button">Demo Login</div>
+                        <div className="nav-button unselectable-text">Demo Login</div>
                         <Link className="nav-link" to="/login">
-                            <div className="nav-button">Sign In</div>
+                            <div className="nav-button unselectable-text">Sign In</div>
                         </Link>
                     </div>
                 </div>
