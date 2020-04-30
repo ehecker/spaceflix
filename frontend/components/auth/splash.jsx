@@ -36,7 +36,7 @@ class Splash extends React.Component {
     render() {
 
         return (
-            <main>
+            <main className="splash-main">
                 <section className="landing">
                     <div className="splash-main-content">
                         <div className="slogan-container">
@@ -58,10 +58,30 @@ class Splash extends React.Component {
                         </div>
                     </div>     
                 </section>
+
                 <section className="story-container">
-                    <div className="story-card"></div>
-                    <div className="story-card"></div>
-                    <div className="story-card"></div>
+                    <div className="story-card">
+                        <div className="story-text-container">
+                            <h2 className="story-title">Enjoy on your TV.</h2>
+                            <h3 className="story-subtitle">Watch on Smart TVs, Playstation, Xbox, Chromecast, Apple TV, Blu-ray players, and more.</h3>
+                        </div>
+                        <div className="story-media-container">
+                            <div className="story-1-img">
+                                <div className="story-1-video">
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div className="story-card">
+                        <div className="story-media-container"></div>
+                        <div className="story-text-container"></div>
+                    </div>
+                    <div className="story-card">
+                        <div className="story-text-container"></div>
+                        <div className="story-media-container"></div>
+                    </div>
                 </section>
             </main>
         )
