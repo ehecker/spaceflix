@@ -2,11 +2,69 @@
     /*   scss alternative:
     background-image: image-url('pictureTitle.png');  
     */
+    /* background-color: rgba(0, 0, 0, 0.9); */
     background-image: url("/assets/splash-bg.jpg");
     background-size: cover;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     height: 100vh;
     width: 100vw;
+    max-width: 100%;
 }
+
+.splash-main-content {
+    display: flex;
+    flex-direction: column;
+    width: 840px;
+}
+
+.slogan-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+}
+
+.slogan-big {
+    font-size: 64px;
+    font-weight: 600;
+}
+
+.slogan-small {
+    font-size: 24px;
+    margin: 20px 0 20px 0;
+}
+
+.form-container {
+    width: 100%;
+}
+
+.signup-form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+}
+
+.black-box {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+}
+
+.signup-info {
+    font-size: 20px;
+}
+
+.signup-inputs-container {
+    display: flex;
+}
+
+
+/* STORY-CONTAINER ============================================ */
 
 .story-container {
     display: flex;
