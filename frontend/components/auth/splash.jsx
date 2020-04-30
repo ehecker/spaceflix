@@ -67,13 +67,13 @@ class Splash extends React.Component {
                         </div>
                         <div className="story-media-container">
                             <div className="story-1-img">
-                                <div className="story-1-video">
+                                <div className="story-1-gif">
 
                                 </div>
                             </div>
                         </div>
                     </div>
-                    
+
                     <div className="story-card">
                         <div className="story-media-container"></div>
                         <div className="story-text-container"></div>
