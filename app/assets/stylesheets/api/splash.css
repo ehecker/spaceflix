@@ -1,18 +1,3 @@
-/* .landing {
-      scss alternative:
-    background-image: image-url('pictureTitle.png');  
-   
-    background-image: url("/assets/splash-bg.jpg");
-    background-size: cover;
-    color: white;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    height: 100vh;
-    width: 100vw;
-    max-width: 100%;
-} */
-
 .landing {
     position: relative;
     background: black;

@@ -19,17 +19,19 @@ class Nav extends React.Component {
         return(
             <nav className={`nav-main ${navBg}`}>
                 <div className="nav-left">
-                    <Link to="/">
+                    <Link className="logo-box" to="/">
                         {logo}
                     </Link>
                 </div>
 
                 {/* Eventually, this area will be made into ternary as well. */}
                 <div className="nav-right">
-                    <div className="nav-button">Demo Login</div>
-                    <Link className="nav-link" to="/login">
-                        <div className="nav-button">Sign In</div>
-                    </Link>
+                    <div className="nav-buttons-box">
+                        <div className="nav-button">Demo Login</div>
+                        <Link className="nav-link" to="/login">
+                            <div className="nav-button">Sign In</div>
+                        </Link>
+                    </div>
                 </div>
             </nav>
         )

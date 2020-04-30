@@ -23,6 +23,10 @@
     background-color: rgb(20, 20, 20);
 }
 
+.logo-box {
+    margin-left: 70px;
+}
+
 /* LOGGED OUT ===================================================================================*/
 
 
@@ -36,7 +40,7 @@
     background-size: cover;
     height: 40px;
     width: 137px;
-    margin: 15px 0 15px 70px;
+    margin: 15px 0 15px 0px;
 }
 
 .logo-big {
@@ -44,10 +48,15 @@
     background-size: cover;
     height: 67px;
     width: 229px;
-    margin: 20px 0 5px 70px;
+    margin: 20px 0 5px 0px;
 }
 
 /* NAV-RIGHT ================================================== */
+
+.nav-buttons-box {
+    display: flex;
+    margin-right: 30px;
+}
 
 .nav-button {
     background-color: #e50914;
@@ -57,9 +66,9 @@
     font-size: 16px;
     text-align: center;
     padding: 10px 15px 10px 15px;
-    margin-right: 30px;
 }
 
 .nav-link {
     text-decoration: none;
+    margin-left: 20px;
 }
