@@ -66,21 +66,40 @@ class Splash extends React.Component {
                             <h3 className="story-subtitle">Watch on Smart TVs, Playstation, Xbox, Chromecast, Apple TV, Blu-ray players, and more.</h3>
                         </div>
                         <div className="story-media-container">
-                            <div className="story-1-img">
-                                <div className="story-1-gif">
-
+                            <div className="story-1-gif">
+                                <div className="story-1-img">
                                 </div>
                             </div>
                         </div>
                     </div>
 
                     <div className="story-card">
-                        <div className="story-media-container"></div>
-                        <div className="story-text-container"></div>
+                        <div className="story-media-container">
+                            <div className="story-2-img">
+                                <div className="story-2-info-box">
+                                    <div className="story-2-img-2"></div>
+                                    <div className="story-2-text-box">
+                                        <p>Stranger Things</p>
+                                        <p className="story-2-subtext">Downloading...</p>
+                                    </div>
+                                    <div className="story-2-gif"></div>
+                                </div>
+                            </div>
+                        </div>
+                        <div className="story-text-container">
+                            <div className="story-title">Download your shows to watch offline.</div>
+                            <div className="story-subtitle">Save your favorites easily and always have something to watch.</div>
+                        </div>
                     </div>
+
                     <div className="story-card">
-                        <div className="story-text-container"></div>
-                        <div className="story-media-container"></div>
+                        <div className="story-text-container">
+                            <div className="story-title">Watch everywhere.</div>
+                            <div className="story-subtitle">Stream unlimited movies and TV shows on your phone, tablet, laptop, and TV without paying more.</div>
+                        </div>
+                        <div className="story-media-container">
+
+                        </div>
                     </div>
                 </section>
             </main>
