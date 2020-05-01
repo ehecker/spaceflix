@@ -93,12 +93,14 @@ class Splash extends React.Component {
                     </div>
 
                     <div className="story-card">
-                        <div className="story-text-container">
+                        <div className="story-text-container story-last">
                             <div className="story-title">Watch everywhere.</div>
                             <div className="story-subtitle">Stream unlimited movies and TV shows on your phone, tablet, laptop, and TV without paying more.</div>
                         </div>
                         <div className="story-media-container">
-
+                            <div className="story-3-gif">
+                                <div className="story-3-img"></div>
+                            </div>
                         </div>
                     </div>
                 </section>
