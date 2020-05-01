@@ -35,6 +35,10 @@
     background-size: cover;
 }
 
+.landing.extended {
+    height: 100vh;
+}
+
 .splash-main-content {
     display: flex;
     flex-direction: column;
