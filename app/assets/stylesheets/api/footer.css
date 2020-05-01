@@ -1,0 +1,31 @@
+.footer-main {
+    background-color: rgb(20, 20, 20);
+    display: flex;
+}
+
+.footer-left {
+    display: flex;
+    align-items: center;
+    width: 50%;
+}
+
+.footer-text {
+    color: white;
+    font-size: 13px;
+    margin-left: 30px;
+}
+
+.footer-right {
+    display: flex;
+    justify-content: flex-end;
+    width: 50%;
+}
+
+.footer-link {
+    margin: 20px 10px 20px 10px;
+}
+
+.fab {
+    color: white;
+    cursor: pointer;
+}
