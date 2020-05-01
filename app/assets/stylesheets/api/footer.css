@@ -1,6 +1,9 @@
 .footer-main {
     background-color: rgb(20, 20, 20);
     display: flex;
+
+    /* position: relative;
+    bottom: 0; */
 }
 
 .footer-left {
@@ -19,6 +22,7 @@
     display: flex;
     justify-content: flex-end;
     width: 50%;
+    padding-right: 20px;
 }
 
 .footer-link {
@@ -28,4 +32,8 @@
 .fab {
     color: white;
     cursor: pointer;
+}
+
+.fab:hover {
+    opacity: 0.8;
 }
