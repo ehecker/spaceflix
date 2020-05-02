@@ -12,11 +12,17 @@ class Nav extends React.Component {
         
     }
 
+    // componentDidUpdate() {
+    //     this.setState({
+    //         loggedIn: !!this.props.currentUser
+    //     })
+    // }
+
     render() {
 
         let logo;
-        let navRightItems;
         let navBg;
+        let navRightItems;
 
         if (this.state.loggedIn) {
 
@@ -31,6 +37,7 @@ class Nav extends React.Component {
                     <div className="nav-button unselectable-text">Demo Login</div>
                 </div>
             )
+            
         } else {
 
             logo = (<div className="logo-big"></div>);
@@ -42,8 +49,9 @@ class Nav extends React.Component {
                     <div className="nav-button unselectable-text">Demo Login</div>
                 </div>
             )
-
         }
+
+
 
         return (
             <nav className={`nav-main ${navBg}`}>
