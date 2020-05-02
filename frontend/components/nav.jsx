@@ -12,7 +12,7 @@ class Nav extends React.Component {
         
     }
 
-    // componentDidUpdate() {
+    // componentDidUpdate() {*
     //     this.setState({
     //         loggedIn: !!this.props.currentUser
     //     })

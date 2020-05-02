@@ -8,7 +8,7 @@ const msp = (state, ownProps) => ({
 })
 
 const mdp = (dispatch, ownProps) => ({
-    loginUser: user => login(user),
+    loginUser: user => dispatch(login(user)),
     ownProps
 })
 
