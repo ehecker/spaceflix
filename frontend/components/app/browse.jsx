@@ -11,7 +11,9 @@ class Browse extends React.Component {
     render() {
 
         return (
-            <div>This is the Browse</div>
+            <main className="browse-main">
+                <div className="main-body"></div>
+            </main>
         )
     }
 

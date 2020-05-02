@@ -37,19 +37,6 @@
     margin: 20px 0 5px 0px;
 }
 
-/* LOGGED IN */
-
-/* NAV-LEFT =================================================== */
-
-.logo-small {
-    background-image: url("/assets/spaceflix-logo-small.png");
-    background-size: cover;
-    height: 40px;
-    width: 137px;
-    margin: 15px 0 15px 0px;
-}
-
-/* NAV-RIGHT ================================================== */
 
 .nav-buttons-box {
     display: flex;
@@ -69,4 +56,18 @@
 .nav-link {
     text-decoration: none;
     margin-right: 20px;
+}
+
+/* LOGGED IN */
+
+.logo-small {
+    background-image: url("/assets/spaceflix-logo-small.png");
+    background-size: cover;
+    height: 40px;
+    width: 137px;
+    margin: 15px 0 15px 0px;
+}
+
+.logout-button {
+    background-color: #E50914;
 }

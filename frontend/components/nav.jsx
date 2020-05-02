@@ -8,8 +8,11 @@ class Nav extends React.Component {
 
         this.state = {
             loggedIn: !!this.props.currentUser,
+            currentPage: this.props.location
         }
         
+        this.handleDemo = this.handleDemo.bind(this);
+        this.handleLogout = this.handleLogout.bind(this);
     }
 
     // componentDidUpdate() {*
@@ -18,23 +21,43 @@ class Nav extends React.Component {
     //     })
     // }
 
+    handleLogout() {
+        this.props.logoutUser();
+    }
+
+    handleDemo() {
+        const demoUser = {
+            email: "demouser@gmail.com",
+            password: "password321"
+        }
+
+        this.props.loginUser(demoUser)
+    }
+
     render() {
 
         let logo;
         let navBg;
         let navRightItems;
 
+        // Make navRight back into buttonsBox
+
         if (this.state.loggedIn) {
 
             logo = <div className="logo-small"></div>
             navBg = "nav-bg";
+            navRightItems = (
+                <div className="nav-buttons-box">
+                    <div onClick={this.handleLogout} className="nav-button">Logout</div>
+                </div>
+            )
 
-        } else if (this.props.location === "/login") {
+        } else if (this.state.currentPage === "/login") {
 
             logo = <div className="logo-big"></div>;
             navRightItems = (
                 <div className="nav-buttons-box">
-                    <div className="nav-button unselectable-text">Demo Login</div>
+                    <div onClick={this.handleDemo} className="nav-button unselectable-text">Demo Login</div>
                 </div>
             )
             
@@ -46,12 +69,10 @@ class Nav extends React.Component {
                     <Link className="nav-link" to="/login">
                         <div className="nav-button unselectable-text">Sign In</div>
                     </Link>                    
-                    <div className="nav-button unselectable-text">Demo Login</div>
+                    <div onClick={this.handleDemo} className="nav-button unselectable-text">Demo Login</div>
                 </div>
             )
         }
-
-
 
         return (
             <nav className={`nav-main ${navBg}`}>
