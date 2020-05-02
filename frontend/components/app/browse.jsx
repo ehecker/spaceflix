@@ -12,7 +12,16 @@ class Browse extends React.Component {
 
         return (
             <main className="browse-main">
-                <div className="main-body"></div>
+                <section className="browse-hero-container">
+                    <div className="hero-info-container">
+                        
+                    </div>
+                    <div className="hero-video"></div>
+                </section>
+
+                <section className="browse-rows-container">
+
+                </section>
             </main>
         )
     }

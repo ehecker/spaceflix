@@ -1,5 +1,15 @@
-.main-body {
-    height: 700px;
+.browse-main {
     width: 100%;
+}
+
+.browse-hero-container {
     background-color: darkblue;
+    height: 90vh;
+    width: 100vw;
+}
+
+.browse-rows-container {
+    background-color: red;
+    height: 900px;
+    width: 100%;
 }
