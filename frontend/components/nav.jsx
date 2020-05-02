@@ -1,5 +1,5 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 
 class Nav extends React.Component {
 
@@ -7,16 +7,45 @@ class Nav extends React.Component {
         super(props)
 
         this.state = {
-            loggedIn: false
+            loggedIn: !!this.props.currentUser,
         }
+        
     }
 
     render() {
-        
-        const logo = this.state.loggedIn ? <div className="logo-small"></div> : <div className="logo-big"></div>
-        const navBg = this.state.loggedIn ? "nav-bg" : ""
 
-        return(
+        let logo;
+        let navRightItems;
+        let navBg;
+
+        if (this.state.loggedIn) {
+
+            logo = <div className="logo-small"></div>
+            navBg = "nav-bg";
+
+        } else if (this.props.location === "/login") {
+
+            logo = <div className="logo-big"></div>;
+            navRightItems = (
+                <div className="nav-buttons-box">
+                    <div className="nav-button unselectable-text">Demo Login</div>
+                </div>
+            )
+        } else {
+
+            logo = (<div className="logo-big"></div>);
+            navRightItems = (
+                <div className="nav-buttons-box">
+                    <Link className="nav-link" to="/login">
+                        <div className="nav-button unselectable-text">Sign In</div>
+                    </Link>                    
+                    <div className="nav-button unselectable-text">Demo Login</div>
+                </div>
+            )
+
+        }
+
+        return (
             <nav className={`nav-main ${navBg}`}>
                 <div className="nav-left">
                     <Link className="logo-box" to="/">
@@ -24,14 +53,8 @@ class Nav extends React.Component {
                     </Link>
                 </div>
 
-                {/* Eventually, this area will be made into ternary as well. */}
                 <div className="nav-right">
-                    <div className="nav-buttons-box">
-                        <div className="nav-button unselectable-text">Demo Login</div>
-                        <Link className="nav-link" to="/login">
-                            <div className="nav-button unselectable-text">Sign In</div>
-                        </Link>
-                    </div>
+                    {navRightItems}
                 </div>
             </nav>
         )

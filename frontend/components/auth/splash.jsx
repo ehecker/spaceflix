@@ -30,7 +30,7 @@ class Splash extends React.Component {
     handleSubmit() {
         const userInfo = Object.assign({}, this.state);
         this.props.signupUser(userInfo)
-            // .then(() => this.props.history.push("/"))
+        // .then(() => this.props.history.push("/"))
     }
 
     render() {

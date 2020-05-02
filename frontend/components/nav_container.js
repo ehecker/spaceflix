@@ -1,17 +1,17 @@
 import { connect } from "react-redux"
 import Nav from "./nav";
 
-const msp = (state, ownProps) => {
-    debugger
+const mapStateToProps = (state, ownProps) => {
+    return {
+        currentUser: state.session.id,
+        location: ownProps.location.pathname
+    }
+}
+
+const mapDispatchToProps = (dispatch, ownProps) => {
     return {
 
     }
 }
 
-const mdp = (dispatch, ownProps) => {
-    return {
-
-    }
-}
-
-export default connect(msp, mdp)(Nav);
+export default connect(mapStateToProps, mapDispatchToProps)(Nav);
