@@ -15,12 +15,6 @@ class Nav extends React.Component {
         this.handleLogout = this.handleLogout.bind(this);
     }
 
-    // componentDidUpdate() {*
-    //     this.setState({
-    //         loggedIn: !!this.props.currentUser
-    //     })
-    // }
-
     handleLogout() {
         this.props.logoutUser();
     }
@@ -40,9 +34,10 @@ class Nav extends React.Component {
         let navBg;
         let navRightItems;
 
-        // Make navRight back into buttonsBox
+        // Make navRight back into buttonsBox?
+        // It feels wrong to be making these decisions by props here?? Is this bad practice?
 
-        if (this.state.loggedIn) {
+        if (!!this.props.currentUser) {
 
             logo = <div className="logo-small"></div>
             navBg = "nav-bg";
@@ -52,7 +47,7 @@ class Nav extends React.Component {
                 </div>
             )
 
-        } else if (this.state.currentPage === "/login") {
+        } else if (this.props.location === "/login") {
 
             logo = <div className="logo-big"></div>;
             navRightItems = (
