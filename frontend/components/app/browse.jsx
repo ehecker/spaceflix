@@ -1,4 +1,5 @@
 import React from "react";
+import MovieRow from "./movie_row";
 
 class Browse extends React.Component {
 
@@ -6,19 +7,28 @@ class Browse extends React.Component {
         super(props)
 
         this.state = {
-            genres: []
+            genres: this.props.genres
         };
     }
 
-    componentDidMount() {
-        let genres = getGenres(); // Genres Index??
+    // componentDidMount() {
+    //     // let genres = this.props.getGenres(); // Genres Index??
 
-        this.setState({
-            genres
-        })
+    //     // debugger
+
+    //     this.setState({
+    //         genres: this.props.genres
+    //     })
+    // }
+
+    componentDidMount() {
+        this.props.getGenres()
     }
 
     render() {
+
+
+        // debugger
 
         let movieRows = this.state.genres.map(genre => {
             return (

@@ -5,6 +5,7 @@ export const RECEIVE_GENRES = "RECEIVE_GENRES";
 
 // Action Creators
 const receiveGenres = genres => {
+    debugger
     return {
         type: RECEIVE_GENRES,
         genres
