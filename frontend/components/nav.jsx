@@ -43,7 +43,7 @@ class Nav extends React.Component {
             navBg = "nav-bg";
             navRightItems = (
                 <div className="nav-buttons-box">
-                    <div onClick={this.handleLogout} className="nav-button">Logout</div>
+                    <div onClick={this.handleLogout} className="nav-button unselectable-text">Logout</div>
                 </div>
             )
 

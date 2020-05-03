@@ -79,8 +79,8 @@ class Splash extends React.Component {
                                 <div className="story-2-info-box">
                                     <div className="story-2-img-2"></div>
                                     <div className="story-2-text-box">
-                                        <p>Stranger Things</p>
-                                        <p className="story-2-subtext">Downloading...</p>
+                                        <p className="unselectable-text">Stranger Things</p>
+                                        <p className="story-2-subtext unselectable-text">Downloading...</p>
                                     </div>
                                     <div className="story-2-gif"></div>
                                 </div>
