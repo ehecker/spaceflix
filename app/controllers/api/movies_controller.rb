@@ -1,13 +1,6 @@
 class Api::MoviesController < ApplicationController
 
-    def create
-        @movie = Movie.new(movie_params)
-
-        if @movie.save
-            
-        else
-            
-        end
+    def index
 
     end
 

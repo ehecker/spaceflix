@@ -5,10 +5,26 @@ class Browse extends React.Component {
     constructor(props) {
         super(props)
 
-        this.state = {};
+        this.state = {
+            genres: []
+        };
+    }
+
+    componentDidMount() {
+        let genres = getGenres(); // Genres Index??
+
+        this.setState({
+            genres
+        })
     }
 
     render() {
+
+        let movieRows = this.state.genres.map(genre => {
+            return (
+                <MovieRow genre={genre} />
+            )
+        })
 
         return (
             <main className="browse-main">
@@ -20,7 +36,7 @@ class Browse extends React.Component {
                 </section>
 
                 <section className="browse-rows-container">
-
+                    {movieRows}
                 </section>
             </main>
         )

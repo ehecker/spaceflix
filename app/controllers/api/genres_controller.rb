@@ -4,14 +4,8 @@ class Api::GenresController < ApplicationController
 
     end
 
-    def create
-        @genre = Genre.new(genre_params)
+    def show
 
-        if @genre.save
-
-        else
-
-        end
     end
 
     private
