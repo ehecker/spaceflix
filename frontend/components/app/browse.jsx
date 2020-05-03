@@ -30,11 +30,17 @@ class Browse extends React.Component {
 
         // debugger
 
-        let movieRows = this.state.genres.map(genre => {
-            return (
-                <MovieRow genre={genre} />
-            )
-        })
+        let movieRows;
+
+        if (this.state.genres) {
+            movieRows = this.state.genres.map(genre => {
+                return (
+                    <MovieRow genre={genre} />
+                )
+            })
+        }
+
+        
 
         return (
             <main className="browse-main">
