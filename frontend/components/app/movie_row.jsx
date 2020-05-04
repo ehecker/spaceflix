@@ -28,7 +28,9 @@ class MovieRow extends React.Component {
         return (
             <main className="movie-row-main">
                 <h2 className="genre-title" >{name}</h2>
-                {movieItems}
+                <div className="movies-container">
+                    {movieItems}
+                </div>
             </main>
         )
     }

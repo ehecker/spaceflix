@@ -12,12 +12,13 @@ class Movie extends React.Component {
         return (
             <main className="movie-main">
                 {title}
-                {details.description}
-                {details.year}
                 {details.maturity_rating}
                 {details.duration}
+
+                {/* {details.description}
+                {details.year}
                 {details.director}
-                {details.cast}
+                {details.cast} */}
             </main>
         )
     }
