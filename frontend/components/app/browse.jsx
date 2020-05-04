@@ -17,16 +17,26 @@ class Browse extends React.Component {
 
     render() {
 
-        debugger
+        // debugger
 
-        let movieRows;
+        let { genres } = this.props
+        let movieRows = [];
 
-        if (this.props.genres) {
-            movieRows = this.props.genres.map(genre => {
-                return (
-                    <MovieRow genre={genre} />
+        // if (this.props.genres) {
+        //     movieRows = this.props.genres.map(genre => {
+        //         return (
+        //             <MovieRow genre={genre} />
+        //         )
+        //     })
+        // }
+
+        if (genres) {
+            for (let [key, value] of Object.entries(genres)) {
+                let movieRow = (
+                    <MovieRow name={key} movies={value} />
                 )
-            })
+                movieRows.push(movieRow);
+            }
         }
 
         return (

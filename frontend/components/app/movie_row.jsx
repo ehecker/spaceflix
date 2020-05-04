@@ -13,16 +13,28 @@ class MovieRow extends React.Component {
 
     render() {
 
-        let movies = this.props.genre.movies.map(movieInfo => {
-            return(
-                <Movie movie={movieInfo} />
+        // let movies = this.props.genre.movies.map(movieInfo => {
+        //     return(
+        //         <Movie movie={movieInfo} />
+        //     )
+        // })
+        // debugger
+
+        let { name, movies } = this.props;
+
+        let movieItems = [];
+
+        for (let [title, details] of Object.entries(movies)) {
+            let movieItem = (
+                <Movie title={title} details={details} />
             )
-        })
+            movieItems.push(movieItem)
+        }
 
         return(
             <main className="movie-row-main">
-                <h2>{this.props.genre.name}</h2>
-                {movies}
+                <h2>{name}</h2>
+                {movieItems}
             </main>
         )
     }

@@ -7,17 +7,17 @@ class Movie extends React.Component {
     }
 
     render() {
-        let movie = this.props.movie;
+        let { title, details } = this.props;
 
         return(
             <main className="movie-main">
-                {movie.title}
-                {movie.description}
-                {movie.year}
-                {movie.maturity_rating}
-                {movie.duration}
-                {movie.director}
-                {movie.cast}
+                {title}
+                {details.description}
+                {details.year}
+                {details.maturity_rating}
+                {details.duration}
+                {details.director}
+                {details.cast}
             </main>
         )
     }
