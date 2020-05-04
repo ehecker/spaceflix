@@ -1,14 +1,15 @@
 import React from "react";
 import MovieRow from "./movie_row";
+import keyIndex from "react-key-index";
 
 class Browse extends React.Component {
 
     constructor(props) {
         super(props)
 
-        // this.state = {
-        //     genres: this.props.genres
-        // };
+        this.state = {
+
+        }
     }
 
     componentDidMount() {
@@ -17,26 +18,19 @@ class Browse extends React.Component {
 
     render() {
 
-        // debugger
-
         let { genres } = this.props
         let movieRows = [];
 
-        // if (this.props.genres) {
-        //     movieRows = this.props.genres.map(genre => {
-        //         return (
-        //             <MovieRow genre={genre} />
-        //         )
-        //     })
-        // }
-
         if (genres) {
-            for (let [key, value] of Object.entries(genres)) {
+            for (let [name, movies] of genres) {
+                movies = Object.entries(movies)
                 let movieRow = (
-                    <MovieRow name={key} movies={value} />
+                    <MovieRow key={name} name={name} movies={movies} />
                 )
                 movieRows.push(movieRow);
             }
+        } else {
+            return;
         }
 
         return (

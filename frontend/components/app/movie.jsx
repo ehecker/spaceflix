@@ -9,7 +9,7 @@ class Movie extends React.Component {
     render() {
         let { title, details } = this.props;
 
-        return(
+        return (
             <main className="movie-main">
                 {title}
                 {details.description}
