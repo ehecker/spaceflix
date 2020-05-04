@@ -8,7 +8,7 @@ const genresReducer = (oldState = {}, action) => {
 
     switch (action.type) {
         case RECEIVE_GENRES:
-            return Object.assign({}, {genres: action.genres})
+            return Object.assign({}, action.genres)
         default:
             return oldState;
     }

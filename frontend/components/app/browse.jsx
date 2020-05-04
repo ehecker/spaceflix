@@ -6,20 +6,10 @@ class Browse extends React.Component {
     constructor(props) {
         super(props)
 
-        this.state = {
-            genres: this.props.genres
-        };
+        // this.state = {
+        //     genres: this.props.genres
+        // };
     }
-
-    // componentDidMount() {
-    //     // let genres = this.props.getGenres(); // Genres Index??
-
-    //     // debugger
-
-    //     this.setState({
-    //         genres: this.props.genres
-    //     })
-    // }
 
     componentDidMount() {
         this.props.getGenres()
@@ -27,20 +17,17 @@ class Browse extends React.Component {
 
     render() {
 
-
-        // debugger
+        debugger
 
         let movieRows;
 
-        if (this.state.genres) {
-            movieRows = this.state.genres.map(genre => {
+        if (this.props.genres) {
+            movieRows = this.props.genres.map(genre => {
                 return (
                     <MovieRow genre={genre} />
                 )
             })
         }
-
-        
 
         return (
             <main className="browse-main">

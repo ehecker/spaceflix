@@ -1,7 +1,9 @@
 @genres.each do |genre|
-    json.extract! genre, :id, :name
-
-    genre.movies.each do |movie|
-        json.extract! movie, :id, :title, :description, :year, :duration, :maturity_rating, :director, :cast, :genre_id
+    json.set! genre.name do 
+        genre.movies.each do |movie|
+            json.set! movie.title do
+                json.extract! movie, :id, :title, :description, :year, :duration, :maturity_rating, :director, :cast, :genre_id
+            end
+        end
     end
 end

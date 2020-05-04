@@ -5,7 +5,7 @@ export const RECEIVE_GENRES = "RECEIVE_GENRES";
 
 // Action Creators
 const receiveGenres = genres => {
-    debugger
+    // debugger
     return {
         type: RECEIVE_GENRES,
         genres
@@ -16,6 +16,6 @@ const receiveGenres = genres => {
 export const getGenres = () => dispatch => GenresAPIUtil.fetchGenres()
     // .then(genres => dispatch(receiveGenres(genres)), err => console.log(err))
     .then(genres => {
-        debugger
+        // debugger
         dispatch(receiveGenres(genres))
     }, err => console.log(err))

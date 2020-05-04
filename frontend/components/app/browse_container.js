@@ -5,7 +5,7 @@ import { getGenres } from "../../actions/genre_actions";
 
 const msp = (state, ownProps) => {
     return {
-        genres: state.genres
+        genres: state.entities.genres
     }
 }
 

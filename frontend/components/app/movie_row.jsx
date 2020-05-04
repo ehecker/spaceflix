@@ -11,8 +11,6 @@ class MovieRow extends React.Component {
         }
     }
 
-
-
     render() {
 
         let movies = this.props.genre.movies.map(movieInfo => {
