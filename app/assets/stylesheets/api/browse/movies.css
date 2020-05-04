@@ -1,4 +1,11 @@
 .movie-main {
-    background-color: black;
+    background-color: darkblue;
     margin: 20px 50px 20px 50px;
+    height: 140px;
+    width: 240px;
+}
+
+.basics-movie-title {
+    font-size: 18px;
+    font-weight: 500;
 }

@@ -11,9 +11,19 @@ class Movie extends React.Component {
 
         return (
             <main className="movie-main">
-                {title}
-                {details.maturity_rating}
-                {details.duration}
+                
+
+                <div className="movie-trailer-box">
+                    <div className="movie-thumbnail"></div>
+                    <div className="movie-basics">
+                        <h3 className="basics-movie-title">{title}</h3>
+                        {details.maturity_rating}
+                        {details.duration}
+                    </div>
+                    <div className="trailer"></div>
+                </div>
+
+                
 
                 {/* {details.description}
                 {details.year}

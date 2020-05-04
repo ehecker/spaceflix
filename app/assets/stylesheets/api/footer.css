@@ -1,7 +1,7 @@
 .footer-main {
     background-color: rgb(20, 20, 20);
     display: flex;
-
+    border-top: 1px solid darkgray;
     /* position: relative;
     bottom: 0; */
 }
