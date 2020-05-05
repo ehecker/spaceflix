@@ -6,8 +6,10 @@
 .genre-title {
     font-size: 24px;
     font-weight: 600;
+    margin-left: 50px;
 }
 
 .movies-container {
     display: flex;
+    margin-left: 40px;
 }

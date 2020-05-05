@@ -6,24 +6,38 @@ class Movie extends React.Component {
 
     }
 
+
+
+    showThumbnail(event) {
+
+    }
+
+    hideThumbnail(event) {
+
+    }
+
     render() {
         let { title, details } = this.props;
 
         return (
             <main className="movie-main">
-                
 
-                <div className="movie-trailer-box">
-                    <div className="movie-thumbnail"></div>
-                    <div className="movie-basics">
-                        <h3 className="basics-movie-title">{title}</h3>
-                        {details.maturity_rating}
-                        {details.duration}
+                <div className="movie-trailer-box" onMouseEnter={this.hideThumbnail} onMouseLeave={this.showThumbnail} >
+
+                    <img className="thumbnail" src="/assets/rogue_one_thumbnail.jpg" />
+
+                    <div className="details-box">
+                        <div className="details-basic">
+                            <h3 className="basics-movie-title">{title}</h3>
+
+                        </div>
+                        <video className="trailer-small" src="/assets/rogue_one_trailer" />
                     </div>
-                    <div className="trailer"></div>
                 </div>
 
-                
+                <div className="details-full">
+
+                </div>
 
                 {/* {details.description}
                 {details.year}

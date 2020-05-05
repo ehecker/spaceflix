@@ -1,11 +1,28 @@
-.movie-main {
-    background-color: darkblue;
-    margin: 20px 50px 20px 50px;
-    height: 140px;
-    width: 240px;
+.movie-trailer-box {
+    height: 191px;
+    width: 340px;
+    background-color: red;
+    border: 1px solid white;
+    margin: 10px;
 }
 
-.basics-movie-title {
-    font-size: 18px;
-    font-weight: 500;
+.thumbnail {
+    height: 191px;
+    width: 340px;
+    position: absolute;
+    z-index: 1;
+    background-color: blue;
+}
+
+.details-box {
+
+}
+
+.details-basic {
+    position: absolute;
+}
+
+.trailer-small {
+    height: 191px;
+    width: 340px;
 }

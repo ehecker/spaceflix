@@ -10,7 +10,7 @@
 
 .browse-rows-container {
     background-color: #141414;
-    height: 900px;
+    /* height: 900px; */
     width: 100%;
 
     display: flex;
