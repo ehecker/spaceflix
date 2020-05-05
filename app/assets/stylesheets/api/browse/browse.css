@@ -1,17 +1,18 @@
 .browse-main {
     width: 100%;
+    background-color: #141414;
+    /* background-color: black; */
 }
 
 .browse-hero-container {
     background-color: darkblue;
-    height: 90vh;
+    height: 85vh;
     width: 100vw;
 }
 
 .browse-rows-container {
-    background-color: #141414;
-    /* height: 900px; */
     width: 100%;
+    margin-top: 50px;
 
     display: flex;
     flex-direction: column;

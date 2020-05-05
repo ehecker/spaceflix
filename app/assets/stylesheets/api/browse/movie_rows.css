@@ -1,6 +1,7 @@
 .movie-row-main {
     color: white;
     width: 100%;
+    margin-bottom: 50px;
 }
 
 .genre-title {
@@ -11,5 +12,6 @@
 
 .movies-container {
     display: flex;
+    align-items: center;
     margin-left: 40px;
 }

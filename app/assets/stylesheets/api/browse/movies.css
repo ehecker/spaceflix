@@ -1,28 +1,110 @@
 .movie-trailer-box {
     height: 191px;
     width: 340px;
-    background-color: red;
-    border: 1px solid white;
+/* 
+    height: 288px;
+    width: 512px; */
+
     margin: 10px;
+    cursor: pointer;
+}
+
+.movie-trailer-box:hover {
+    animation: 1s ease 0s 1 normal both running zoom;
+}
+
+@keyframes zoom {
+    from {
+        height: 191px;
+        width: 340px;
+    }
+
+    to {
+        height: 288px;
+        width: 512px;
+    }
 }
 
 .thumbnail {
-    height: 191px;
-    width: 340px;
+    height: inherit;
+    width: inherit;
     position: absolute;
     z-index: 1;
-    background-color: blue;
 }
 
 .details-box {
+    height: inherit;
+    width: inherit;
+    display: flex;
+    align-items: flex-end;
 
+    /* visibility: hidden; */
 }
 
 .details-basic {
     position: absolute;
+    padding-bottom: 50px;
+    margin-left: 20px;
+}
+
+.fa-play-circle:hover {
+    opacity: 0.8;
+}
+
+.basics-movie-title {
+    font-size: 26px;
+    font-weight: 600;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+.details-text-container {
+    display: flex;
+    align-items: center;
+}
+
+.rating {
+    font-size: 16px;
+    border: 1px solid white;
+    padding: 2px 5px 2px 5px;
+    margin-right: 12px;
+}
+
+.duration {
+    font-size: 16px;
 }
 
 .trailer-small {
-    height: 191px;
-    width: 340px;
+    height: inherit;
+    width: inherit;
+    /* pointer-events: none; */
+}
+
+.playing img {
+    /* visibility: hidden; */
+    display: none;
+}
+
+/* .playing .details-box {
+    visibility: visible;
+} */
+
+.fade-out .details-basic {
+    /* display: block; */
+    visibility: hidden;
+    opacity: 0;
+    cursor: none;
+
+    -webkit-transition: visibility 1.5s, opacity 1.5s, cursor 1.5s;
+    -moz-transition: visibility 1.5s, opacity 1.5s, cursor 1.5s;
+    -ms-transition: visibility 1.5s, opacity 1.5s, cursor 1.5s;
+    -o-transition: visibility 1.5s, opacity 1.5s, cursor 1.5s;
+    transition: visibility 1.5s, opacity 1.5s, cursor 1.5s;
+
+  /* Wait a moment before fading out */
+    -webkit-transition-delay: 5s;
+    -moz-transition-delay: 5s;
+    -ms-transition-delay: 5s;
+    -o-transition-delay: 5s;
+    transition-delay: 5s;
 }
