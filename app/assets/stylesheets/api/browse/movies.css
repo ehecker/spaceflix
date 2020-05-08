@@ -1,15 +1,22 @@
-.movie-trailer-box {
+/* .movie-trailer-box {
     height: 191px;
     width: 340px;
-/* 
-    height: 288px;
-    width: 512px; */
+    margin: 10px;
+    cursor: pointer;
+} */
 
+.movie-preview {
+    height: 191px;
+    width: 340px;
     margin: 10px;
     cursor: pointer;
 }
 
-.movie-trailer-box:hover {
+/* .movie-trailer-box:hover {
+    animation: 1s ease 0s 1 normal both running zoom;
+} */
+
+.movie-preview:hover {
     animation: 1s ease 0s 1 normal both running zoom;
 }
 
@@ -32,19 +39,29 @@
     z-index: 1;
 }
 
-.details-box {
+/* .details-box {
     height: inherit;
     width: inherit;
     display: flex;
     align-items: flex-end;
+} */
 
-    /* visibility: hidden; */
+.trailer-box {
+    height: inherit;
+    width: inherit;
+    display: flex;
+    align-items: flex-end;
 }
 
 .details-basic {
     position: absolute;
     padding-bottom: 50px;
     margin-left: 20px;
+    /* visibility: hidden; */
+}
+
+.fade-out .details-basic {
+    visibility: visible;
 }
 
 .fa-play-circle:hover {
@@ -77,34 +94,39 @@
 .trailer-small {
     height: inherit;
     width: inherit;
-    /* pointer-events: none; */
+    pointer-events: none;
 }
 
-.playing img {
-    /* visibility: hidden; */
-    display: none;
+.playing .thumbnail {
+    visibility: hidden;
 }
 
-/* .playing .details-box {
-    visibility: visible;
-} */
 
 .fade-out .details-basic {
-    /* display: block; */
     visibility: hidden;
     opacity: 0;
-    cursor: none;
 
-    -webkit-transition: visibility 1.5s, opacity 1.5s, cursor 1.5s;
-    -moz-transition: visibility 1.5s, opacity 1.5s, cursor 1.5s;
-    -ms-transition: visibility 1.5s, opacity 1.5s, cursor 1.5s;
-    -o-transition: visibility 1.5s, opacity 1.5s, cursor 1.5s;
-    transition: visibility 1.5s, opacity 1.5s, cursor 1.5s;
+    -webkit-transition: visibility 1.5s, opacity 1.5s;
+    -moz-transition: visibility 1.5s, opacity 1.5s;
+    -ms-transition: visibility 1.5s, opacity 1.5s;
+    -o-transition: visibility 1.5s, opacity 1.5s;
+    transition: visibility 1.5s, opacity 1.5s;
 
-  /* Wait a moment before fading out */
+  /* Wait before fading out */
     -webkit-transition-delay: 5s;
     -moz-transition-delay: 5s;
     -ms-transition-delay: 5s;
     -o-transition-delay: 5s;
     transition-delay: 5s;
+}
+
+
+/* .movie-show {
+    width: 100%;
+    height: 400px;
+    background-color: green;
+} */
+
+.hidden {
+    visibility: hidden;
 }

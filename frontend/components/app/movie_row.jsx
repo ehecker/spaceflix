@@ -26,9 +26,11 @@ class MovieRow extends React.Component {
 
 
         return (
-            <main className="movie-row-main">
+            <main className="movie-row-main"> 
+            {/* Centers movies container */}
                 <h2 className="genre-title" >{name}</h2>
                 <div className="movies-container">
+                    {/* Flex-starts others */}
                     {movieItems}
                 </div>
             </main>

@@ -4,79 +4,134 @@ class Movie extends React.Component {
     constructor(props) {
         super(props)
 
+        this.state = {
+            hovering: false
+        }
+
+        // this.showThumbnail = this.showThumbnail.bind(this);
+        // this.hideThumbnail = this.hideThumbnail.bind(this);
+
+        this.startHover = this.startHover.bind(this);
+        this.endHover = this.endHover.bind(this);
         this.playVideo = this.playVideo.bind(this);
-        this.stopVideo = this.stopVideo.bind(this);
-        this.showThumbnail = this.showThumbnail.bind(this);
-        this.hideThumbnail = this.hideThumbnail.bind(this);
+        this.pauseVideo = this.pauseVideo.bind(this);
     }
+
+    // showThumbnail(event) {
+    //     event.preventDefault();
+    //     event.currentTarget.classList.remove("playing")
+    // }
+
+    // hideThumbnail(event) {
+    //     event.preventDefault();
+    //     event.currentTarget.classList.add("playing")
+    // }
+
+    // fadeDetails(event) {
+    //     event.currentTarget.classList.add("fade-out")
+    //     event.currentTarget.children[1].play();
+    // }
+
+    // resetDetails(event) {
+    //     event.currentTarget.classList.remove("fade-out")
+    //     event.currentTarget.children[1].pause();
+    // }
 
     playVideo(event) {
-        event.currentTarget.play()
+        console.log("Play fired")
+        event.currentTarget.play();
     }
 
-    stopVideo(event) {
-        event.currentTarget.pause()
+    pauseVideo(event) {
+        console.log("Pause fired")
+        event.currentTarget.pause();
     }
 
-    showThumbnail(event) {
-        event.preventDefault();
-        event.currentTarget.classList.remove("playing")
+    startHover() {
+        this.setState({
+            hovering: true
+        })
     }
 
-    hideThumbnail(event) {
-        event.preventDefault();
-        event.currentTarget.classList.add("playing")
-    }
-
-    fadeDetails(event) {
-        console.log("Fade function fired")
-        event.currentTarget.classList.add("fade-out")
-
-    }
-
-    resetDetails(event) {
-        console.log("Reset function fired")
-        event.currentTarget.classList.remove("fade-out")
+    endHover() {
+        this.setState({
+            hovering: false
+        })
     }
 
     render() {
         let { title, details } = this.props;
+        let { hovering } = this.state
+
+        let trailerDetails;
+        let thumbnail;
+
+        if (hovering) {
+
+            trailerDetails = (
+
+                // <div className="trailer-box">
+
+
+                //     <video 
+                //         className="trailer-small"
+                //         // src="https://spaceflix-seeds.s3-us-west-1.amazonaws.com/rogue_one_trailer.mp4"
+                //         src="/assets/rogue_one_trailer"
+                //         // src = {details.trailer}
+                //         loop
+                //         muted="muted"
+                //     />
+                // </div>
+
+                <div className="details-basic">
+                    <i className="fas fa-play-circle fa-3x"></i>
+                    <h3 className="basics-movie-title">{title}</h3>
+                    <div className="details-text-container">
+                        <p className="rating">{details.maturity_rating}</p>
+                        <p className="duration">{details.duration}</p>
+                    </div>
+                </div>
+            )
+
+        } else {
+
+            thumbnail = (
+                <img
+                    className="thumbnail" 
+                    src="/assets/rogue_one_thumbnail.jpg"
+                />
+            )
+        }
 
         return (
             <main className="movie-main">
 
-                <div className="movie-trailer-box" onMouseEnter={this.hideThumbnail} onMouseLeave={this.showThumbnail} >
+                <section className="movie-preview" onMouseEnter={this.startHover} onMouseLeave={this.endHover}>
+                    {thumbnail}
 
-                    <img className="thumbnail" src="/assets/rogue_one_thumbnail.jpg" />
-
-                    <div className="details-box" onMouseEnter={this.fadeDetails} onMouseLeave={this.resetDetails} >
-                        <div className="details-basic">
-                            <i className="fas fa-play-circle fa-3x"></i>
-                            <h3 className="basics-movie-title">{title}</h3>
-                            <div className="details-text-container">
-                                <p className="rating">{details.maturity_rating}</p>
-                                <p className="duration">{details.duration}</p>
-                            </div>
-                        </div>
-
+                    <div className="trailer-box">
+                        
                         <video 
-                            className="trailer-small" 
-                            src="/assets/rogue_one_trailer" 
-                            loop
+                            className="trailer-small"
+                            src="/assets/rogue_one_trailer"
+                            // src="https://spaceflix-seeds.s3-us-west-1.amazonaws.com/rogue_one_trailer.mp4"
+                            // src = {details.trailer}
                             onMouseEnter={this.playVideo}
-                            onMouseLeave={this.stopVideo} 
+                            onMouseLeave={this.pauseVideo}
+                            loop
+                            muted="muted"
                         />
+                        {trailerDetails}
                     </div>
-                </div>
+                </section>
 
-                <div className="details-full">
+                <section className="movie-show">
+                    {/* {details.description}
+                    {details.year}
+                    {details.director}
+                    {details.cast} */}
+                </section>
 
-                </div>
-
-                {/* {details.description}
-                {details.year}
-                {details.director}
-                {details.cast} */}
             </main>
         )
     }
