@@ -12,7 +12,7 @@ import BrowseContainer from "./app/browse_container";
 // AuthRoutes are for non-logged in users, ProtectedRoutes are for logged-in users.
 
 const App = () => (
-    <main>
+    <main id="app-main">
         <Route path="/" component={NavContainer} />
         <AuthRoute exact path="/" component={SplashContainer} />
         <AuthRoute exact path="/login" component={LoginFormContainer} />

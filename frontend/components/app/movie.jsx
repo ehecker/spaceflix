@@ -38,22 +38,34 @@ class Movie extends React.Component {
     // }
 
     playVideo(event) {
+        debugger
+
         console.log("Play fired")
-        event.currentTarget.play();
+        event.currentTarget.children[0].play();
     }
 
     pauseVideo(event) {
+        debugger
+
         console.log("Pause fired")
-        event.currentTarget.pause();
+        event.currentTarget.children[0].pause();
     }
 
     startHover() {
+        // debugger
+
+        // event.preventDefault();
+        // event.currentTarget.children[0].children[0].play();
+
         this.setState({
             hovering: true
         })
     }
 
     endHover() {
+        // event.preventDefault();
+        // event.currentTarget.children[0].children[0].pause();
+
         this.setState({
             hovering: false
         })
@@ -109,18 +121,19 @@ class Movie extends React.Component {
                 <section className="movie-preview" onMouseEnter={this.startHover} onMouseLeave={this.endHover}>
                     {thumbnail}
 
-                    <div className="trailer-box">
+                    <div className="trailer-box" >
                         
-                        <video 
+                        {/* <video 
                             className="trailer-small"
                             src="/assets/rogue_one_trailer"
                             // src="https://spaceflix-seeds.s3-us-west-1.amazonaws.com/rogue_one_trailer.mp4"
                             // src = {details.trailer}
                             onMouseEnter={this.playVideo}
                             onMouseLeave={this.pauseVideo}
+
                             loop
                             muted="muted"
-                        />
+                        /> */}
                         {trailerDetails}
                     </div>
                 </section>
