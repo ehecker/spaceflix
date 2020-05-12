@@ -9,7 +9,22 @@ class MovieRow extends React.Component {
         this.state = {
 
         }
+
+        this.shiftBack = this.shiftBack.bind(this);
+        this.shiftForward = this.shiftForward.bind(this);
     }
+
+
+
+    shiftBack() {
+
+    }
+
+    shiftForward() {
+        let row = document.getElementById(`${this.props.name}-carousel`)
+        row.classList.add("move-right")
+    }
+
 
     render() {
 
@@ -43,11 +58,13 @@ class MovieRow extends React.Component {
                 <h2 className="genre-title" >{name}</h2>
 
                 <div className="carousel-wrapper">
-                    <div className="carousel-button">Prev</div>
+                    <div className="carousel-button" onClick={this.shiftBack} >Prev</div>
                     <div className="movies-container">
-                        {movieItems}
+                        <div id={`${name}-carousel`} className="carousel">  
+                            {movieItems}
+                        </div>
                     </div>
-                    <div className="carousel-button">Next</div>
+                    <div className="carousel-button" onClick={this.shiftForward} >Next</div>
                 </div>
             </main>
         )

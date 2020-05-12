@@ -14,7 +14,7 @@
     display: flex;
     background-color: blue;
     align-items: center;
-    margin-left: 40px;
+    /* margin-left: 40px; */
     height: 200px;
     width: 90%;
     overflow-x: hidden;
@@ -27,18 +27,21 @@
     justify-content: center;
 }
 
-/* .carousel-button {
-    padding: 10px;
-    background-color: red;
-    text-align: center;
-    width: 80px;
-    height: 50px;
-
-} */
+.carousel {
+    display: flex;
+    background-color: yellow;
+    margin: 10px 0 10px 0;
+}
 
 .carousel-button {
     background-color: red;
     border-radius: 3px;
     padding: 10px;
     cursor: pointer;
+    margin: 5px;
+}
+
+
+.move-right {
+    transform: translate(350px, 0);
 }
