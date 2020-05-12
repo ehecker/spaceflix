@@ -1,0 +1,9 @@
+.movie-main {
+    background-color: green;
+    flex-shrink: 0;
+
+    height: 180px;
+    width: 290px;
+    margin: 10px;
+    cursor: pointer;
+}

@@ -3,6 +3,144 @@ import React from "react";
 class Movie extends React.Component {
     constructor(props) {
         super(props)
+    }
+
+
+    render() {
+        return (
+            <div className="movie-main">
+                <section className="movie-preview">
+
+                </section>
+
+                <div className="movie-show">
+                    
+                </div>
+            </div>
+        )
+    }
+
+}
+
+export default Movie;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*
+
+import React from "react";
+
+class Movie extends React.Component {
+    constructor(props) {
+        super(props)
 
         this.state = {
             hovering: false
@@ -123,7 +261,7 @@ class Movie extends React.Component {
 
                     <div className="trailer-box" >
                         
-                        {/* <video 
+                        <video 
                             className="trailer-small"
                             src="/assets/rogue_one_trailer"
                             // src="https://spaceflix-seeds.s3-us-west-1.amazonaws.com/rogue_one_trailer.mp4"
@@ -133,16 +271,17 @@ class Movie extends React.Component {
 
                             loop
                             muted="muted"
-                        /> */}
+                        />
+                        
                         {trailerDetails}
                     </div>
                 </section>
 
                 <section className="movie-show">
-                    {/* {details.description}
-                    {details.year}
-                    {details.director}
-                    {details.cast} */}
+                   // {details.description}
+                   // {details.year}
+                    // {details.director}
+                    // {details.cast}
                 </section>
 
             </main>
@@ -151,3 +290,5 @@ class Movie extends React.Component {
 }
 
 export default Movie;
+
+*/
