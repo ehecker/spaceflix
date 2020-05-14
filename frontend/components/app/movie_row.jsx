@@ -11,6 +11,7 @@ class MovieRow extends React.Component {
             activeRow: false
         }
 
+        this.closeShow = this.closeShow.bind(this);
         this.setActiveMovie = this.setActiveMovie.bind(this);
         this.shiftBack = this.shiftBack.bind(this);
         this.shiftForward = this.shiftForward.bind(this);
@@ -20,6 +21,13 @@ class MovieRow extends React.Component {
         this.setState({
             activeMovie: movie,
             activeRow: true
+        })
+    }
+
+    closeShow() {
+        this.setState({
+            activeMovie: null,
+            activeRow: false
         })
     }
 
@@ -39,19 +47,19 @@ class MovieRow extends React.Component {
         let { name, movies } = this.props;
         let movieItems = [];    
 
-        for (let i = 0; i < 8; i++) {
-            movies.push([`Fake Movie ${i + 1}`, {
-                id: i - 100,
-                cast: "Fake Actor 1, Fake Actor 2, Fake Actor 3",
-                description: "Fake Description",
-                director: "Fake Director",
-                duration: "2h 0m",
-                genre_id: 1,
-                maturity_rating: "R",
-                title: `Fake Movie ${i + 1}`,
-                year: 2020
-            }])
-        }
+        // for (let i = 0; i < 8; i++) {
+        //     movies.push([`Fake Movie ${i + 1}`, {
+        //         id: i - 100,
+        //         cast: "Fake Actor 1, Fake Actor 2, Fake Actor 3",
+        //         description: "Fake Description",
+        //         director: "Fake Director",
+        //         duration: "2h 0m",
+        //         genre_id: 1,
+        //         maturity_rating: "R",
+        //         title: `Fake Movie ${i + 1}`,
+        //         year: 2020
+        //     }])
+        // }
 
         for (let [title, details] of movies) {
             let movieItem = (
@@ -66,6 +74,7 @@ class MovieRow extends React.Component {
             movieShow = (
                 <div className="movie-show">
                     {this.state.activeMovie.title}
+                    <div className="show-close-btn" onClick={this.closeShow}>Close</div>
                 </div>
             )
         }

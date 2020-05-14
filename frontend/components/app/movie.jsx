@@ -20,27 +20,11 @@ class Movie extends React.Component {
 
         let movieShow;
 
-        // if (this.state.activeMovie) {
-        //     movieShow = (
-        //         <div className="movie-show">
-
-        //         </div>
-        //     )
-        // }
-
-
-
         return (
             <div className="movie-main" onClick={this.setActiveMovie}>
                 <section className="movie-preview">
                     {this.props.title}
                 </section>
-
-
-                {movieShow}
-                {/* <div className="movie-show">
-                    
-                </div> */}
             </div>
         )
     }
