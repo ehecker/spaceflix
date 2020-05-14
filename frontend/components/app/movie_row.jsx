@@ -17,7 +17,9 @@ class MovieRow extends React.Component {
 
 
     shiftBack() {
-
+        let row = document.getElementById(`${this.props.name}-carousel`)
+        // row.classList.add("move-left")
+        row.classList.remove("move-right")
     }
 
     shiftForward() {
@@ -32,7 +34,8 @@ class MovieRow extends React.Component {
         let movieItems = [];    
 
         for (let i = 0; i < 8; i++) {
-            movies.push(["Fake Movie", {
+            movies.push([`Fake Movie ${i + 1}`, {
+                id: i - 100,
                 cast: "Fake Actor 1, Fake Actor 2, Fake Actor 3",
                 description: "Fake Description",
                 director: "Fake Director",
@@ -58,13 +61,13 @@ class MovieRow extends React.Component {
                 <h2 className="genre-title" >{name}</h2>
 
                 <div className="carousel-wrapper">
-                    <div className="carousel-button" onClick={this.shiftBack} >Prev</div>
+                    <div className="carousel-button" onClick={this.shiftBack}>Prev</div>
                     <div className="movies-container">
                         <div id={`${name}-carousel`} className="carousel">  
                             {movieItems}
                         </div>
                     </div>
-                    <div className="carousel-button" onClick={this.shiftForward} >Next</div>
+                    <div className="carousel-button" onClick={this.shiftForward}>Next</div>
                 </div>
             </main>
         )

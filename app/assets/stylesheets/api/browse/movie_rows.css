@@ -31,6 +31,8 @@
     display: flex;
     background-color: yellow;
     margin: 10px 0 10px 0;
+
+    transition: 1s ease all; 
 }
 
 .carousel-button {
@@ -43,5 +45,9 @@
 
 
 .move-right {
-    transform: translate(350px, 0);
+    transform: translate(-50%, 0);
+}
+
+.move-left {
+    transform: translate(50%, 0);
 }

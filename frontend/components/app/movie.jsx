@@ -3,14 +3,22 @@ import React from "react";
 class Movie extends React.Component {
     constructor(props) {
         super(props)
+        
+
+
+        this.setActiveMovie = this.setActiveMovie.bind(this);
     }
 
 
+    setActiveMovie() {
+
+    }
+
     render() {
         return (
-            <div className="movie-main">
+            <div className="movie-main" onClick={this.setActiveMovie}>
                 <section className="movie-preview">
-
+                    {this.props.title}
                 </section>
 
                 <div className="movie-show">
