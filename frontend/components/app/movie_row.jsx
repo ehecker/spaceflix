@@ -7,18 +7,24 @@ class MovieRow extends React.Component {
         super(props);
 
         this.state = {
-
+            activeMovie: null,
+            activeRow: false
         }
 
+        this.setActiveMovie = this.setActiveMovie.bind(this);
         this.shiftBack = this.shiftBack.bind(this);
         this.shiftForward = this.shiftForward.bind(this);
     }
 
-
+    setActiveMovie(movie) {
+        this.setState({
+            activeMovie: movie,
+            activeRow: true
+        })
+    }
 
     shiftBack() {
         let row = document.getElementById(`${this.props.name}-carousel`)
-        // row.classList.add("move-left")
         row.classList.remove("move-right")
     }
 
@@ -42,33 +48,44 @@ class MovieRow extends React.Component {
                 duration: "2h 0m",
                 genre_id: 1,
                 maturity_rating: "R",
-                title: "Fake Movie",
+                title: `Fake Movie ${i + 1}`,
                 year: 2020
             }])
         }
 
         for (let [title, details] of movies) {
             let movieItem = (
-                <Movie key={details.id} title={title} details={details} />
+                <Movie key={details.id} title={title} details={details} setActiveMovie={this.setActiveMovie} />
             )
             movieItems.push(movieItem)
         }
 
+        let movieShow;
+
+        if (this.state.activeRow) {
+            movieShow = (
+                <div className="movie-show">
+                    {this.state.activeMovie.title}
+                </div>
+            )
+        }
 
 
         return (
             <main className="movie-row-main"> 
                 <h2 className="genre-title" >{name}</h2>
 
-                <div className="carousel-wrapper">
+                <div className="movies-container">
                     <div className="carousel-button" onClick={this.shiftBack}>Prev</div>
-                    <div className="movies-container">
+                    <div className="carousel-wrapper">
                         <div id={`${name}-carousel`} className="carousel">  
                             {movieItems}
                         </div>
                     </div>
                     <div className="carousel-button" onClick={this.shiftForward}>Next</div>
                 </div>
+
+                {movieShow}
             </main>
         )
     }

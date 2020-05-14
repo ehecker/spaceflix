@@ -1,4 +1,10 @@
 .movie-main {
+    display: flex;
+    flex-direction: column;
+
+}
+
+.movie-preview {
     background-color: green;
     flex-shrink: 0;
 
@@ -6,5 +12,13 @@
     width: 290px;
     margin: 0 10px 0 10px;
     cursor: pointer;
+}
 
+
+
+
+.movie-show{ 
+    width: 100vw;
+    height: 500px;
+    background-color: red;
 }

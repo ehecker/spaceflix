@@ -4,26 +4,43 @@ class Movie extends React.Component {
     constructor(props) {
         super(props)
         
-
+        this.state = {
+            activeMovie: false
+        }
 
         this.setActiveMovie = this.setActiveMovie.bind(this);
     }
 
 
     setActiveMovie() {
-
+        this.props.setActiveMovie(this.props.details);
     }
 
     render() {
+
+        let movieShow;
+
+        // if (this.state.activeMovie) {
+        //     movieShow = (
+        //         <div className="movie-show">
+
+        //         </div>
+        //     )
+        // }
+
+
+
         return (
             <div className="movie-main" onClick={this.setActiveMovie}>
                 <section className="movie-preview">
                     {this.props.title}
                 </section>
 
-                <div className="movie-show">
+
+                {movieShow}
+                {/* <div className="movie-show">
                     
-                </div>
+                </div> */}
             </div>
         )
     }

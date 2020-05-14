@@ -12,19 +12,17 @@
 
 .movies-container {
     display: flex;
-    background-color: blue;
     align-items: center;
-    /* margin-left: 40px; */
-    height: 200px;
-    width: 90%;
-    overflow-x: hidden;
+    justify-content: center   
 }
-
 
 .carousel-wrapper {
     display: flex;
+    background-color: blue;
     align-items: center;
-    justify-content: center;
+    /* height: 200px; */
+    width: 90%;
+    overflow-x: hidden;
 }
 
 .carousel {
@@ -43,11 +41,6 @@
     margin: 5px;
 }
 
-
 .move-right {
     transform: translate(-50%, 0);
-}
-
-.move-left {
-    transform: translate(50%, 0);
 }
