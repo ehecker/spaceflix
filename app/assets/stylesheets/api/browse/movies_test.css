@@ -2,13 +2,16 @@
     background-color: green;
     flex-shrink: 0;
 
-    height: 168px;
-    width: 300px;
     margin-right: 5px;
     cursor: pointer;
 }
 
-.movie-main:hover {
+.movie-preview-default {
+    height: 168px;
+    width: 300px;
+}
+
+.movie-preview-default:hover {
     animation: 1s ease 0s 1 normal both running zoom;
 }
 
@@ -22,6 +25,16 @@
         height: 280px;
         width: 500px;
     }
+}
+
+.movie-preview-active {
+    height: 168px;
+    width: 300px;
+}
+
+.movie-preview-inactive {
+    height: 168px;
+    width: 300px;
 }
 
 .movie-show { 

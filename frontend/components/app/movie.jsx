@@ -4,25 +4,52 @@ class Movie extends React.Component {
     constructor(props) {
         super(props)
         
-        this.state = {
-            activeMovie: false,
-            activeRow: false
-        }
+        // this.state = {
+        //     activeMovie: false,
+        //     activeRow: false
+        // }
 
         this.setActiveMovie = this.setActiveMovie.bind(this);
     }
 
     setActiveMovie() {
+        console.log("Setting active movie")
         this.props.setActiveMovie(this.props.details);
     }
 
     render() {
 
+        let { activeMovie, activeRow } = this.props;
+        let moviePreview;
 
-        
+        if (!activeRow) {
+            // Default zoom behavior
+
+            moviePreview = (
+                <div className="movie-preview-default">
+                    {this.props.title}
+                </div>
+            )
+        } else if (activeRow && activeMovie) {
+            // thumbnail + play button/link
+            moviePreview = (
+                <div className="movie-preview-active">
+                    Movie Preview ACTIVE
+                </div>
+            )
+
+        } else if (activeRow && !activeMovie) {
+            // thumbnail + down chev/link
+            moviePreview = (
+                <div className="movie-preview-inactive">
+                    Movie Preview INACTIVE
+                </div>
+            )
+        }
+
         return (
             <div className="movie-main" onClick={this.setActiveMovie}>
-                {this.props.title}
+                {moviePreview}
             </div>
         )
     }

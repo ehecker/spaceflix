@@ -53,6 +53,7 @@ class MovieRow extends React.Component {
     render() {
 
         let { name, movies } = this.props;
+        let { activeRow, activeMovie } = this.state;
         let movieItems = [];    
 
         for (let i = 0; i < 10; i++) {
@@ -70,8 +71,21 @@ class MovieRow extends React.Component {
         }
 
         for (let [title, details] of movies) {
+
+
+            let activeStatus;
+            
+            if (activeMovie) {
+                activeStatus = activeMovie.id === details.id;
+            }
+
             let movieItem = (
-                <Movie key={details.id} title={title} details={details} setActiveMovie={this.setActiveMovie} />
+                <Movie key={details.id} 
+                title={title} 
+                details={details} 
+                activeRow={activeRow}
+                activeMovie={activeStatus}
+                setActiveMovie={this.setActiveMovie} />
             )
             movieItems.push(movieItem)
         }
