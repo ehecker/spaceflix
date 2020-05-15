@@ -1,6 +1,5 @@
 import React from "react";
 import MovieRow from "./movie_row";
-import keyIndex from "react-key-index";
 
 class Browse extends React.Component {
 
