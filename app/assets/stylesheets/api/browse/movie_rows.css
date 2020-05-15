@@ -2,6 +2,7 @@
     color: white;
     width: 100%;
     margin-bottom: 50px;
+    /* background-color: red; */
 }
 
 .genre-title {
@@ -21,7 +22,7 @@
     background-color: blue;
     align-items: center;
     /* height: 200px; */
-    width: 90%;
+    width: 95%;
     overflow-x: hidden;
 }
 

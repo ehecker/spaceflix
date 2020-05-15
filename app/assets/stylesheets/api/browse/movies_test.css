@@ -1,7 +1,6 @@
 .movie-main {
     display: flex;
     flex-direction: column;
-
 }
 
 .movie-preview {
@@ -10,8 +9,8 @@
 
     height: 180px;
     width: 290px;
-    margin: 0 10px 0 10px;
     cursor: pointer;
+    margin-right: 5px;
 }
 
 .movie-show { 
