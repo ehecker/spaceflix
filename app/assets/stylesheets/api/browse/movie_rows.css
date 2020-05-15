@@ -1,14 +1,13 @@
 .movie-row-main {
     color: white;
     width: 100%;
-    margin-bottom: 50px;
-    /* background-color: red; */
+    margin-bottom: 55px;
+    /* background-color: orange; */
 }
 
 .genre-title {
     font-size: 24px;
     font-weight: 600;
-    /* margin-left: 50px; */
     margin: 0 0 15px 50px;
 }
 
@@ -16,23 +15,24 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    /* background-color: red;  */
+    /* background-color: purple;  */
+    height: 172px;
 }
 
 .carousel-wrapper {
     /* background-color: blue; */
-    /* height: 200px; */
+    /* height: 220px; */
     display: flex;
     align-items: center;
     width: 95%;
     overflow-x: hidden;
     margin: 0 10px 5px 10px;
-
 }
 
 .carousel {
     display: flex;
     transition: 1s ease all; 
+    align-items: center;
     /* background-color: yellow; */
 }
 

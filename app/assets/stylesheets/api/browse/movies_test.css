@@ -1,22 +1,33 @@
 .movie-main {
-    display: flex;
-    flex-direction: column;
-}
-
-.movie-preview {
     background-color: green;
     flex-shrink: 0;
 
-    height: 180px;
-    width: 290px;
-    cursor: pointer;
+    height: 168px;
+    width: 300px;
     margin-right: 5px;
+    cursor: pointer;
+}
+
+.movie-main:hover {
+    animation: 1s ease 0s 1 normal both running zoom;
+}
+
+@keyframes zoom {
+    from {
+        height: 168px;
+        width: 300px;
+    }
+
+    to {
+        height: 280px;
+        width: 500px;
+    }
 }
 
 .movie-show { 
     width: 100vw;
     height: 500px;
-    background-color: red;
+    background-color: black;
     display: flex;
     justify-content: space-between;
 }

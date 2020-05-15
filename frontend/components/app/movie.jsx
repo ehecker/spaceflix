@@ -5,12 +5,12 @@ class Movie extends React.Component {
         super(props)
         
         this.state = {
-            activeMovie: false
+            activeMovie: false,
+            activeRow: false
         }
 
         this.setActiveMovie = this.setActiveMovie.bind(this);
     }
-
 
     setActiveMovie() {
         this.props.setActiveMovie(this.props.details);
@@ -18,13 +18,11 @@ class Movie extends React.Component {
 
     render() {
 
-        let movieShow;
 
+        
         return (
             <div className="movie-main" onClick={this.setActiveMovie}>
-                <section className="movie-preview">
-                    {this.props.title}
-                </section>
+                {this.props.title}
             </div>
         )
     }
@@ -32,110 +30,6 @@ class Movie extends React.Component {
 }
 
 export default Movie;
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 

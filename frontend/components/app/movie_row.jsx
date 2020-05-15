@@ -44,7 +44,7 @@ class MovieRow extends React.Component {
         const { name } = this.props
         let row = document.getElementById(`${this.props.name}-carousel`)
         let carousel = document.getElementById(`${name}-carousel-btn`)
-        
+
         row.classList.add("move-right")
         carousel.classList.add("unhidden")
     }
@@ -55,7 +55,7 @@ class MovieRow extends React.Component {
         let { name, movies } = this.props;
         let movieItems = [];    
 
-        for (let i = 0; i < 8; i++) {
+        for (let i = 0; i < 10; i++) {
             movies.push([`Fake Movie ${i + 1}`, {
                 id: i - 100,
                 cast: "Fake Actor 1, Fake Actor 2, Fake Actor 3",
