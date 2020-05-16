@@ -1,5 +1,5 @@
 .movie-main {
-    background-color: green;
+    background-color: #555;
     flex-shrink: 0;
 
     margin-right: 5px;
@@ -27,14 +27,62 @@
     }
 }
 
-.movie-preview-active {
+.thumbnail-active {
+    position: absolute;
+    height: 162px;
+    width: 294px;
+    opacity: 0.7;
+}
+
+.thumbnail-inactive {
     height: 168px;
     width: 300px;
+    opacity: 0.7;
+}
+
+.movie-preview-active {
+    height: 162px;
+    width: 294px;
+    border: 3px solid white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.preview-play-button {
+    position: absolute;
+    visibility: hidden;
+}
+
+.preview-play-button:hover {
+    opacity: 0.7;
+}
+
+.chev-down {
+    background-image: url("/assets/chev-down-white");
+    background-size: cover;
+    position: absolute;
+    height: 16px;
+    width: 55px;
+    visibility: hidden;
+    opacity: 0;
+    margin-top: 40px;
+    
+}
+
+.movie-preview-inactive:hover .chev-down {
+    transition: 500ms ease all;
+    transform: translate(0, 25px);
+    opacity: 1;
 }
 
 .movie-preview-inactive {
     height: 168px;
     width: 300px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
 }
 
 .movie-show { 
@@ -53,4 +101,8 @@
     margin: 20px;
     cursor: pointer;
     text-align: center;
+}
+
+.playing .hov-button {
+    visibility: visible;
 }

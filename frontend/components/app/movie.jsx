@@ -10,6 +10,18 @@ class Movie extends React.Component {
         // }
 
         this.setActiveMovie = this.setActiveMovie.bind(this);
+        this.togglePlayOn = this.togglePlayOn.bind(this);
+        this.togglePlayOff = this.togglePlayOff.bind(this);
+    }
+
+    togglePlayOn(event) {
+        console.log("Play On Fired")
+        event.currentTarget.classList.add("playing")
+    }
+
+    togglePlayOff(event) {
+        console.log("Play Off Fired")
+        event.currentTarget.classList.remove("playing")
     }
 
     setActiveMovie() {
@@ -23,26 +35,24 @@ class Movie extends React.Component {
         let moviePreview;
 
         if (!activeRow) {
-            // Default zoom behavior
-
             moviePreview = (
                 <div className="movie-preview-default">
                     {this.props.title}
                 </div>
             )
         } else if (activeRow && activeMovie) {
-            // thumbnail + play button/link
             moviePreview = (
-                <div className="movie-preview-active">
-                    Movie Preview ACTIVE
+                <div className="movie-preview-active playing" onMouseEnter={this.togglePlayOn} onMouseLeave={this.togglePlayOff}>
+                    <img src="/assets/rogue_one_thumbnail.jpg" className="thumbnail-active"/>
+                    <i className="fas fa-play-circle fa-6x preview-play-button hov-button"></i>
                 </div>
             )
 
         } else if (activeRow && !activeMovie) {
-            // thumbnail + down chev/link
             moviePreview = (
-                <div className="movie-preview-inactive">
-                    Movie Preview INACTIVE
+                <div className="movie-preview-inactive" onMouseEnter={this.togglePlayOn} onMouseLeave={this.togglePlayOff} >
+                    <img src="/assets/rogue_one_thumbnail.jpg" className="thumbnail-inactive"/>
+                    <div className="chev-down hov-button"></div>
                 </div>
             )
         }
