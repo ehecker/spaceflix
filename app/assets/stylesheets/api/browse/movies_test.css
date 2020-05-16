@@ -1,30 +1,26 @@
+/* MOVIE-PREVIEW GENERAL =================================== */
+
 .movie-main {
     background-color: #555;
     flex-shrink: 0;
-
     margin-right: 5px;
     cursor: pointer;
 }
 
-.movie-preview-default {
+.thumbnail {
     height: 168px;
     width: 300px;
 }
 
-.movie-preview-default:hover {
-    animation: 1s ease 0s 1 normal both running zoom;
-}
+.thumbnail:hover {
+    transition: 1000ms ease all;
+    height: 280px;
+    width: 500px;
+    opacity: 0;
 
-@keyframes zoom {
-    from {
-        height: 168px;
-        width: 300px;
-    }
-
-    to {
-        height: 280px;
-        width: 500px;
-    }
+    transition: height 1s, width 1s, opacity .5s;
+    transition-property: height, width, opacity;
+    transition-delay: 0s, 0s, 1s;
 }
 
 .thumbnail-active {
@@ -39,6 +35,9 @@
     width: 300px;
     opacity: 0.7;
 }
+
+/* MOVIE-PREVIEW ACTIVE =================================== */
+
 
 .movie-preview-active {
     height: 162px;
@@ -64,15 +63,17 @@
     position: absolute;
     height: 16px;
     width: 55px;
+
     visibility: hidden;
     opacity: 0;
-    margin-top: 40px;
-    
+    margin-top: 45px;
 }
+
+/* MOVIE-PREVIEW INACTIVE ===================================== */
 
 .movie-preview-inactive:hover .chev-down {
     transition: 500ms ease all;
-    transform: translate(0, 25px);
+    transform: translate(0, 20px);
     opacity: 1;
 }
 
@@ -84,6 +85,40 @@
     align-items: center;
     justify-content: center;
 }
+
+
+
+
+
+/* MOVIE-PREVIEW DEFAULT ====================================== */
+
+.movie-preview-default {
+    height: 168px;
+    width: 300px;
+}
+
+.movie-preview-default:hover {
+    animation: 1s ease 0s 1 normal both running zoom;
+}
+
+@keyframes zoom {
+    from {
+        height: 168px;
+        width: 300px;
+    }
+
+    to {
+        height: 280px;
+        width: 500px;
+    }
+}
+
+
+
+
+
+
+/* MOVIE-SHOW SECTION */
 
 .movie-show { 
     width: 100vw;

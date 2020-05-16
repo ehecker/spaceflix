@@ -24,13 +24,6 @@ class MovieRow extends React.Component {
         })
     }
 
-    closeShow() {
-        this.setState({
-            activeMovie: null,
-            activeRow: false
-        })
-    }
-
     shiftBack() {
         const { name } = this.props
         let row = document.getElementById(`${name}-carousel`)
@@ -47,6 +40,13 @@ class MovieRow extends React.Component {
 
         row.classList.add("move-right")
         carousel.classList.add("unhidden")
+    }
+
+    closeShow() {
+        this.setState({
+            activeMovie: null,
+            activeRow: false
+        })
     }
 
 

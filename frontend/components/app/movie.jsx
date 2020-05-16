@@ -15,29 +15,28 @@ class Movie extends React.Component {
     }
 
     togglePlayOn(event) {
-        console.log("Play On Fired")
         event.currentTarget.classList.add("playing")
     }
 
     togglePlayOff(event) {
-        console.log("Play Off Fired")
         event.currentTarget.classList.remove("playing")
     }
 
     setActiveMovie() {
-        console.log("Setting active movie")
         this.props.setActiveMovie(this.props.details);
     }
 
     render() {
 
-        let { activeMovie, activeRow } = this.props;
+        let { activeRow, activeMovie } = this.props;
         let moviePreview;
 
         if (!activeRow) {
             moviePreview = (
                 <div className="movie-preview-default">
-                    {this.props.title}
+
+                    <img src="/assets/rogue_one_thumbnail.jpg" className="thumbnail"/>
+                    
                 </div>
             )
         } else if (activeRow && activeMovie) {
