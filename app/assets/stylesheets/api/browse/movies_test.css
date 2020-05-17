@@ -59,23 +59,72 @@
     width: 100%;
 
     display: flex;
+    flex-direction: column;
 }
 
-.trailer-details {
+.preview-details-container {
+    /* background-color: red; */
+    height: 85%;
+    width: 100%;
+    display: flex;
+}
+
+.preview-details {
+    /* background-color: green; */
     height: 100%;
     width: 80%;
 
-    background-color: red;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    margin-left: 30px;
 }
 
-.trailer-buttons {
+.fa-play-circle {
+    width: 48px;
+}
+
+.fa-play-circle:hover {
+    /* background-color: yellow; */
+    opacity: 0.8;
+}
+
+.preview-title {
+    font-size: 24px;
+    font-weight: 600;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+.preview-details-box {
+    display: flex;
+    align-items: center;
+}
+
+.preview-rating {
+    font-size: 16px;
+    border: 1px solid white;
+    padding: 2px 5px 2px 5px;
+    margin-right: 12px;
+}
+
+.preview-duration {
+    font-size: 16px;
+}
+
+.preview-buttons {
+    /* background-color: blue; */
     width: 20%;
     height: 100%;
-    background-color: blue;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: flex-end;
+}
+
+.gap {
+    height: 6px;
+    width: 100%;
 }
 
 .add-btn {
@@ -109,6 +158,26 @@
 
 .sound-btn-on:hover {
     background-image: url("/assets/sound-on-hovered");
+}
+
+.preview-show-link {
+    width: 100%;
+    height: 15%;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.preview-chev-down {
+    background-image: url("/assets/chev-down-white");
+    background-size: cover;
+    height: 16px;
+    width: 55px;
+}
+
+.preview-show-link:hover .preview-chev-down {
+    background-image: url("/assets/chev-down-red");
 }
 
 .trailer {

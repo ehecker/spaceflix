@@ -5,7 +5,7 @@ class Movie extends React.Component {
         super(props)
         
         this.state = {
-            muted: false
+            muted: true
         }
 
         this.setActiveMovie = this.setActiveMovie.bind(this);
@@ -37,8 +37,11 @@ class Movie extends React.Component {
     render() {
 
         let { activeRow, activeMovie } = this.props;
+        let { title, details} = this.props;
         let { muted } = this.state;
         let moviePreview;
+
+        let mutedStatus = muted ? "muted" : "";
 
         let soundButton = muted ? (
             <div className="sound-btn-off" onClick={this.toggleSound} ></div>
@@ -54,12 +57,24 @@ class Movie extends React.Component {
 
                     <div className="trailer-container">
                         <div className="trailer-info">
-                            <div className="trailer-details">
-
+                            <div className="preview-details-container">
+                                <div className="preview-details">
+                                    <i className="fas fa-play-circle fa-3x"></i>
+                                    <div className="preview-title">{title}</div>
+                                    <div className="preview-details-box">
+                                        <div className="preview-rating">{details.maturity_rating}</div>
+                                        <div className="preview-duration">{details.duration}</div>
+                                    </div>
+                                </div>
+                                <div className="preview-buttons">
+                                    {soundButton}
+                                    <div className="gap"></div>
+                                    <div className="add-btn"></div>
+                                </div>
                             </div>
-                            <div className="trailer-buttons">
-                                {soundButton}
-                                <div className="add-btn"></div>
+
+                            <div className="preview-show-link">
+                                <div className="preview-chev-down"></div>
                             </div>
                         </div>
 
@@ -85,6 +100,8 @@ class Movie extends React.Component {
                 </div>
             )
         }
+
+
 
         return (
             <div className="movie-main" onClick={this.setActiveMovie}>
