@@ -1,7 +1,7 @@
 /* MOVIE-PREVIEW GENERAL =================================== */
 
 .movie-main {
-    background-color: #555;
+    /* background-color: #555; */
     /* background-color: green; */
     flex-shrink: 0;
     margin-right: 5px;
@@ -32,9 +32,13 @@
 }
 
 .thumbnail {
+    position: absolute;
+
     height: 168px;
     width: 300px;
     visibility: visible;
+
+    z-index: 10;
 }
 
 .playing .thumbnail {
@@ -50,15 +54,32 @@
 }
 
 .trailer-container {
-    /* position: absolute; */
     height: 100%;
     width: 100%;
+}
+
+.trailer {
+    position: absolute;
+    height: 168px;
+    width: 300px;
+
+    /* z-index: 1; */
+}
+
+.playing .trailer-container .trailer {
+    transition: 1000ms ease all;
+    height: 280px;
+    width: 500px;
+
+    /* display: block; */
 }
 
 .trailer-info {
     height: 100%;
     width: 100%;
+    /* z-index: 5; */
 
+    position: relative;
     display: flex;
     flex-direction: column;
 }
@@ -179,11 +200,6 @@
 
 .preview-show-link:hover .preview-chev-down {
     background-image: url("/assets/chev-down-red");
-}
-
-.trailer {
-    height: 100%;
-    width: 100%;
 }
 
 .thumbnail-active {

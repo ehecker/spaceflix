@@ -9,17 +9,24 @@ class Movie extends React.Component {
         }
 
         this.setActiveMovie = this.setActiveMovie.bind(this);
+        this.toggleSound = this.toggleSound.bind(this);
+
         this.togglePlayOn = this.togglePlayOn.bind(this);
         this.togglePlayOff = this.togglePlayOff.bind(this);
-        this.toggleSound = this.toggleSound.bind(this);
     }
 
     togglePlayOn(event) {
         event.currentTarget.classList.add("playing")
+
+        const video = document.getElementById(this.props.details.id)
+        video.play();
     }
 
     togglePlayOff(event) {
         event.currentTarget.classList.remove("playing")
+
+        const video = document.getElementById(this.props.details.id)
+        video.pause();
     }
 
     toggleSound(event) {
@@ -53,9 +60,18 @@ class Movie extends React.Component {
         if (!activeRow) {
             moviePreview = (
                 <div className="movie-preview-default" onMouseEnter={this.togglePlayOn} onMouseLeave={this.togglePlayOff} >
-                    {/* <img src="/assets/rogue_one_thumbnail.jpg" className="thumbnail"/> */}
+                    <img src="/assets/rogue_one_thumbnail.jpg" className="thumbnail"/>
 
                     <div className="trailer-container">
+                        <video 
+                            className="trailer"
+                            id={details.id}
+                            src="/assets/rogue_one_trailer.mp4" 
+                            loop
+                            muted = "muted"
+                            // autoPlay
+                        />
+
                         <div className="trailer-info">
                             <div className="preview-details-container">
                                 <div className="preview-details">
@@ -72,13 +88,11 @@ class Movie extends React.Component {
                                     <div className="add-btn"></div>
                                 </div>
                             </div>
-
                             <div className="preview-show-link">
                                 <div className="preview-chev-down"></div>
                             </div>
                         </div>
 
-                        {/* <video src="/assets/rogue_one_trailer.mp4" className="trailer"></video> */}
                     </div>
                     
                     

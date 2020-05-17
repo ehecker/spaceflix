@@ -16,7 +16,6 @@ class Browse extends React.Component {
     }
 
     render() {
-
         let { genres } = this.props
         let movieRows = [];
 
