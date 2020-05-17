@@ -9,7 +9,7 @@ class Api::SessionsController < ApplicationController
             # Do I actually need this? Will I even have a users show page?
             render '/api/users/show'
         else
-            render json: ["Invalid username/password combination"], status: 401
+            render json: ["Invalid email/password combination"], status: 401
         end
     end
 

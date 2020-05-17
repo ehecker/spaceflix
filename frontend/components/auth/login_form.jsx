@@ -34,6 +34,18 @@ class LoginForm extends React.Component {
     }
 
     render() {
+        
+        let { errors } = this.props;
+
+        let errorMessage;
+
+        // debugger
+
+        if (errors.session[0]) {
+            errorMessage= (
+                <div className="errors">{errors.session[0]}</div>
+            )
+        }
 
         return(
             <main className="landing extended">
@@ -43,6 +55,7 @@ class LoginForm extends React.Component {
                         <input className="login-input" type="text" value={this.state.email} onChange={this.updateEmail} placeholder="Email Address"/>
                         <input className="login-input" type="password" value={this.state.password} onChange={this.updatePassword} placeholder="Password"/>
                         <input className="login-button" type="submit" value="Sign In"/>
+                        {errorMessage}
                         <div className="form-footer">
                             <p className="form-footer-text">New to Spaceflix? <Link to="/" className="form-footer-link">Sign up now.</Link></p>
                         </div>
