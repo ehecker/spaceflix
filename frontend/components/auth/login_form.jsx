@@ -17,8 +17,7 @@ class LoginForm extends React.Component {
     }
 
     componentWillUnmount() {
-        // if (this.props.errors[0]) this.props.clearErrors();
-        this.props.clearErrors()
+        if (this.props.errors.session[0]) this.props.clearErrors();
     }
 
     updateEmail(event) {

@@ -16,9 +16,7 @@ class Splash extends React.Component {
     }
 
     componentWillUnmount() {
-        // if (this.props.errors[0]) this.props.clearErrors();
-        console.log("splash will unmount")
-        this.props.clearErrors();
+        if (this.props.errors.session[0]) this.props.clearErrors();
     }
 
     updateEmail(event) {
@@ -59,8 +57,14 @@ class Splash extends React.Component {
                 emailError ? emailErrs.push(error) : passwordErrs.push(error);
             })
 
-            emailErrors = emailErrs.map(err => (<div className="signup-errors" key={err.length}>{err}</div>))
-            passwordErrors = passwordErrs.map(err => (<div className="signup-errors" key={err.length} >{err}</div>))
+            if (emailErrs[0]) {
+                emailErrors = emailErrs.map(err => (<div className="signup-errors" key={err.length}>{err}</div>))
+            } 
+
+            if (passwordErrs[0]) {
+                passwordErrors = passwordErrs.map(err => (<div className="signup-errors" key={err.length} >{err}</div>))
+            }
+
         }
 
         if (emailErrors || passwordErrors) {
@@ -93,10 +97,7 @@ class Splash extends React.Component {
 
     render() {
 
-        console.log("Splash is re-rendering")
         let { errorMessages, emailErrors, passwordErrors } = this.parseErrors(this.props.errors);
-
-        // debugger
 
         if (emailErrors) emailErrors = "error-border";
         if (passwordErrors) passwordErrors = "error-border";
