@@ -60,23 +60,41 @@ class Splash extends React.Component {
         }
 
         if (emailErrors || passwordErrors) {
-            return (
-                <div className="errors-container">
-                    <div className="email-errors">
-                        {emailErrors}
-                    </div>
 
-                    <div className="password-errors">
-                        {passwordErrors}
+            return {
+                emailErrors: !!emailErrors,
+                passwordErrors: !!passwordErrors,
+                errorMessages: (
+                    <div className="errors-container">
+                        <div className="email-errors">
+                            {emailErrors}
+                        </div>
+    
+                        <div className="password-errors">
+                            {passwordErrors}
+                        </div>
+    
                     </div>
-
-                </div>
-            )
-        };
+                )
+            }
+             
+        } else {
+            return {
+                emailErrors: !!emailErrors,
+                passwordErrors: !!passwordErrors,
+                errorMessages: undefined
+            }
+        }
     }
 
     render() {
-        let errorMessages = this.parseErrors(this.props.errors);
+
+        let { errorMessages, emailErrors, passwordErrors } = this.parseErrors(this.props.errors);
+
+        // debugger
+
+        if (emailErrors) emailErrors = "error-border";
+        if (passwordErrors) passwordErrors = "error-border";
 
         return (
             <main className="splash-main">
@@ -92,8 +110,8 @@ class Splash extends React.Component {
                                 <div className="black-box">
                                     <p className="signup-info">Ready to watch? Enter your email and password to create or restart your membership.</p>
                                     <div className="signup-inputs-container">
-                                        <input className="signup-input" type="text" placeholder="Email Address" value={this.state.email} onChange={this.updateEmail} />
-                                        <input className="signup-input" type="password" placeholder="Password" value={this.state.password} onChange={this.updatePassword} />
+                                        <input className={`signup-input ${emailErrors}`} type="text" placeholder="Email Address" value={this.state.email} onChange={this.updateEmail} />
+                                        <input className={`signup-input ${passwordErrors}`} type="password" placeholder="Password" value={this.state.password} onChange={this.updatePassword} />
                                     </div>
                                     {errorMessages}
                                 </div>

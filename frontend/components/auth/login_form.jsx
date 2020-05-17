@@ -41,11 +41,14 @@ class LoginForm extends React.Component {
         
         let { errors } = this.props;
         let errorMessage;
+        let errorBorder;
 
         if (errors.session[0]) {
             errorMessage= (
                 <div className="login-errors">{errors.session[0]}</div>
             )
+
+            errorBorder = "login-error-border";
         }
 
         return(
@@ -53,8 +56,8 @@ class LoginForm extends React.Component {
                 <div className="login-content-box">
                     <form className="login-form" onSubmit={this.handleSubmit}>
                         <h2 className="login-title">Sign In</h2>
-                        <input className="login-input" type="text" value={this.state.email} onChange={this.updateEmail} placeholder="Email Address"/>
-                        <input className="login-input" type="password" value={this.state.password} onChange={this.updatePassword} placeholder="Password"/>
+                        <input className={`login-input ${errorBorder}`} type="text" value={this.state.email} onChange={this.updateEmail} placeholder="Email Address"/>
+                        <input className={`login-input ${errorBorder}`} type="password" value={this.state.password} onChange={this.updatePassword} placeholder="Password"/>
                         <input className="login-button" type="submit" value="Sign In"/>
                         {errorMessage}
                         <div className="form-footer">

@@ -2,6 +2,7 @@
 
 .movie-main {
     background-color: #555;
+    /* background-color: green; */
     flex-shrink: 0;
     margin-right: 5px;
     cursor: pointer;
