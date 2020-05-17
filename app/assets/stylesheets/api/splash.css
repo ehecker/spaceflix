@@ -90,12 +90,13 @@
 
 .signup-info {
     font-size: 20px;
+    margin-bottom: 20px;
 }
 
 .signup-inputs-container {
     display: flex;
     justify-content: space-evenly;
-    margin: 20px 0 20px 0;
+    /* margin: 20px 0 20px 0; */
     width: 100%;
 }
 

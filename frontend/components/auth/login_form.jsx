@@ -36,14 +36,11 @@ class LoginForm extends React.Component {
     render() {
         
         let { errors } = this.props;
-
         let errorMessage;
-
-        // debugger
 
         if (errors.session[0]) {
             errorMessage= (
-                <div className="errors">{errors.session[0]}</div>
+                <div className="login-errors">{errors.session[0]}</div>
             )
         }
 

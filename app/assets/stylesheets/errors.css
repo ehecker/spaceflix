@@ -1,0 +1,26 @@
+.errors-container {
+    display: flex;
+    width: 100%;
+    margin-top: 7px;
+}
+
+.email-errors {
+    width: 50%;
+}
+
+.password-errors {
+    width: 50%;
+}
+
+.signup-errors {
+    color: #e50914;
+    font-size: 14px;
+    margin: 0 0 3px 12px;
+}
+
+
+.login-errors {
+    color: #e50914;
+    font-size: 14px;
+    margin: 15px auto 0 auto;
+}

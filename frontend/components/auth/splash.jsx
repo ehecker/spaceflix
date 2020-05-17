@@ -30,10 +30,56 @@ class Splash extends React.Component {
     handleSubmit() {
         const userInfo = Object.assign({}, this.state);
         this.props.signupUser(userInfo)
-        // .then(() => this.props.history.push("/"))
+    }
+
+    parseErrors(errors) {
+
     }
 
     render() {
+
+        let { errors } = this.props;
+        let errorMessages;
+        let emailErrors;
+        let passwordErrors;
+
+        // debugger
+
+        // this.parseErrors(this.props.errors);
+
+        if (errors.session[0]) {
+            let emailErrs = [];
+            let passwordErrs = [];
+
+            errors.session.forEach(error => {
+                let words = error.split(" ");
+                let emailError = false;
+                
+                for (let word of words) {
+                    if (word === "Email") emailError = true;
+                }
+
+                emailError ? emailErrs.push(error) : passwordErrs.push(error);
+            })
+
+            emailErrors = emailErrs.map(err => (<div className="signup-errors" key={err.length}>{err}</div>))
+            passwordErrors = passwordErrs.map(err => (<div className="signup-errors" key={err.length} >{err}</div>))
+        }
+
+        if (emailErrors || passwordErrors) {
+            errorMessages = (
+                <div className="errors-container">
+                    <div className="email-errors">
+                        {emailErrors}
+                    </div>
+
+                    <div className="password-errors">
+                        {passwordErrors}
+                    </div>
+
+                </div>
+            )
+        }
 
         return (
             <main className="splash-main">
@@ -52,6 +98,7 @@ class Splash extends React.Component {
                                         <input className="signup-input" type="text" placeholder="Email Address" value={this.state.email} onChange={this.updateEmail} />
                                         <input className="signup-input" type="password" placeholder="Password" value={this.state.password} onChange={this.updatePassword} />
                                     </div>
+                                    {errorMessages}
                                 </div>
                                 <input className="signup-button" type="submit" value="TRY 30 DAYS FREE" />
                             </form>
