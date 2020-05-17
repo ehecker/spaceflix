@@ -33,19 +33,8 @@ class Splash extends React.Component {
     }
 
     parseErrors(errors) {
-
-    }
-
-    render() {
-
-        let { errors } = this.props;
-        let errorMessages;
         let emailErrors;
         let passwordErrors;
-
-        // debugger
-
-        // this.parseErrors(this.props.errors);
 
         if (errors.session[0]) {
             let emailErrs = [];
@@ -67,7 +56,7 @@ class Splash extends React.Component {
         }
 
         if (emailErrors || passwordErrors) {
-            errorMessages = (
+            return (
                 <div className="errors-container">
                     <div className="email-errors">
                         {emailErrors}
@@ -79,7 +68,11 @@ class Splash extends React.Component {
 
                 </div>
             )
-        }
+        };
+    }
+
+    render() {
+        let errorMessages = this.parseErrors(this.props.errors);
 
         return (
             <main className="splash-main">
