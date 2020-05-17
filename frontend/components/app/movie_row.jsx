@@ -56,19 +56,19 @@ class MovieRow extends React.Component {
         let { activeRow, activeMovie } = this.state;
         let movieItems = [];    
 
-        for (let i = 0; i < 10; i++) {
-            movies.push([`Fake Movie ${i + 1}`, {
-                id: i - 100,
-                cast: "Fake Actor 1, Fake Actor 2, Fake Actor 3",
-                description: "Fake Description",
-                director: "Fake Director",
-                duration: "2h 0m",
-                genre_id: 1,
-                maturity_rating: "R",
-                title: `Fake Movie ${i + 1}`,
-                year: 2020
-            }])
-        }
+        // for (let i = 0; i < 10; i++) {
+        //     movies.push([`Fake Movie ${i + 1}`, {
+        //         id: i - 100,
+        //         cast: "Fake Actor 1, Fake Actor 2, Fake Actor 3",
+        //         description: "Fake Description",
+        //         director: "Fake Director",
+        //         duration: "2h 0m",
+        //         genre_id: 1,
+        //         maturity_rating: "R",
+        //         title: `Fake Movie ${i + 1}`,
+        //         year: 2020
+        //     }])
+        // }
 
         for (let [title, details] of movies) {
 

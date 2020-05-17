@@ -12,10 +12,10 @@
 }
 
 .movies-container {
+    /* background-color: purple;  */
     display: flex;
     align-items: center;
     justify-content: center;
-    /* background-color: purple;  */
     height: 172px;
 }
 
@@ -30,10 +30,10 @@
 }
 
 .carousel {
+    /* background-color: yellow; */
     display: flex;
     transition: 1s ease all; 
     align-items: center;
-    /* background-color: yellow; */
 }
 
 .carousel-left {

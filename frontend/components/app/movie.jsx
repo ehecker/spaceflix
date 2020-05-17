@@ -4,14 +4,14 @@ class Movie extends React.Component {
     constructor(props) {
         super(props)
         
-        // this.state = {
-        //     activeMovie: false,
-        //     activeRow: false
-        // }
+        this.state = {
+            muted: false
+        }
 
         this.setActiveMovie = this.setActiveMovie.bind(this);
         this.togglePlayOn = this.togglePlayOn.bind(this);
         this.togglePlayOff = this.togglePlayOff.bind(this);
+        this.toggleSound = this.toggleSound.bind(this);
     }
 
     togglePlayOn(event) {
@@ -22,6 +22,14 @@ class Movie extends React.Component {
         event.currentTarget.classList.remove("playing")
     }
 
+    toggleSound(event) {
+        event.stopPropagation()
+
+        this.setState({
+            muted: !this.state.muted
+        })
+    }
+
     setActiveMovie() {
         this.props.setActiveMovie(this.props.details);
     }
@@ -29,13 +37,35 @@ class Movie extends React.Component {
     render() {
 
         let { activeRow, activeMovie } = this.props;
+        let { muted } = this.state;
         let moviePreview;
+
+        let soundButton = muted ? (
+            <div className="sound-btn-off" onClick={this.toggleSound} ></div>
+        ) 
+        : (
+            <div className="sound-btn-on" onClick={this.toggleSound} ></div>
+        );
 
         if (!activeRow) {
             moviePreview = (
-                <div className="movie-preview-default">
+                <div className="movie-preview-default" onMouseEnter={this.togglePlayOn} onMouseLeave={this.togglePlayOff} >
+                    {/* <img src="/assets/rogue_one_thumbnail.jpg" className="thumbnail"/> */}
 
-                    <img src="/assets/rogue_one_thumbnail.jpg" className="thumbnail"/>
+                    <div className="trailer-container">
+                        <div className="trailer-info">
+                            <div className="trailer-details">
+
+                            </div>
+                            <div className="trailer-buttons">
+                                {soundButton}
+                                <div className="add-btn"></div>
+                            </div>
+                        </div>
+
+                        {/* <video src="/assets/rogue_one_trailer.mp4" className="trailer"></video> */}
+                    </div>
+                    
                     
                 </div>
             )

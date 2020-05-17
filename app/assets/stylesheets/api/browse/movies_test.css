@@ -7,20 +7,113 @@
     cursor: pointer;
 }
 
-.thumbnail {
+/* MOVIE-PREVIEW DEFAULT ====================================== */
+
+.movie-preview-default {
     height: 168px;
     width: 300px;
 }
 
-.thumbnail:hover {
+.movie-preview-default:hover {
+    animation: 1s ease 0s 1 normal both running zoom;
+}
+
+@keyframes zoom {
+    from {
+        height: 168px;
+        width: 300px;
+    }
+
+    to {
+        height: 280px;
+        width: 500px;
+    }
+}
+
+.thumbnail {
+    height: 168px;
+    width: 300px;
+    visibility: visible;
+}
+
+.playing .thumbnail {
     transition: 1000ms ease all;
     height: 280px;
     width: 500px;
     opacity: 0;
+    visibility: hidden;
 
-    transition: height 1s, width 1s, opacity .5s;
-    transition-property: height, width, opacity;
-    transition-delay: 0s, 0s, 1s;
+    transition: height 1s, width 1s, opacity .5s, visibility 0s;
+    transition-property: height, width, opacity, visibility;
+    transition-delay: 0s, 0s, 1s, 1.5s;
+}
+
+.trailer-container {
+    /* position: absolute; */
+    height: 100%;
+    width: 100%;
+}
+
+.trailer-info {
+    height: 100%;
+    width: 100%;
+
+    display: flex;
+}
+
+.trailer-details {
+    height: 100%;
+    width: 80%;
+
+    background-color: red;
+}
+
+.trailer-buttons {
+    width: 20%;
+    height: 100%;
+    background-color: blue;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-end;
+}
+
+.add-btn {
+    background-image: url("/assets/add-unhovered");
+    background-size: cover;
+    height: 36px;
+    width: 36px;
+}
+
+.add-btn:hover {
+    background-image: url("/assets/add-hovered");
+}
+
+.sound-btn-off {
+    background-image: url("/assets/sound-off-unhovered");
+    background-size: cover;
+    height: 36px;
+    width: 36px;
+}
+
+.sound-btn-off:hover {
+    background-image: url("/assets/sound-off-hovered");
+}
+
+.sound-btn-on {
+    background-image: url("/assets/sound-on-unhovered");
+    background-size: cover;
+    height: 36px;
+    width: 36px;
+}
+
+.sound-btn-on:hover {
+    background-image: url("/assets/sound-on-hovered");
+}
+
+.trailer {
+    height: 100%;
+    width: 100%;
 }
 
 .thumbnail-active {
@@ -85,38 +178,6 @@
     align-items: center;
     justify-content: center;
 }
-
-
-
-
-
-/* MOVIE-PREVIEW DEFAULT ====================================== */
-
-.movie-preview-default {
-    height: 168px;
-    width: 300px;
-}
-
-.movie-preview-default:hover {
-    animation: 1s ease 0s 1 normal both running zoom;
-}
-
-@keyframes zoom {
-    from {
-        height: 168px;
-        width: 300px;
-    }
-
-    to {
-        height: 280px;
-        width: 500px;
-    }
-}
-
-
-
-
-
 
 /* MOVIE-SHOW SECTION */
 
