@@ -15,6 +15,10 @@ class Splash extends React.Component {
         this.handleSubmit = this.handleSubmit.bind(this);
     }
 
+    componentWillUnmount() {
+        this.props.clearErrors();
+    }
+
     updateEmail(event) {
         this.setState({
             email: event.target.value

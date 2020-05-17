@@ -1,6 +1,6 @@
 import { connect } from "react-redux";
 import Splash from "./splash";
-import { signup } from "../../actions/session_actions";
+import { signup, clearErrors } from "../../actions/session_actions";
 
 const msp = (state, ownProps) => ({
     errors: state.errors,
@@ -9,6 +9,7 @@ const msp = (state, ownProps) => ({
 
 const mdp = (dispatch, ownProps) => ({
     signupUser: user => dispatch(signup(user)),
+    clearErrors: () => dispatch(clearErrors()),
     ownProps
 })
 
