@@ -17,7 +17,8 @@ class LoginForm extends React.Component {
     }
 
     componentWillUnmount() {
-        this.props.clearErrors();
+        // if (this.props.errors[0]) this.props.clearErrors();
+        this.props.clearErrors()
     }
 
     updateEmail(event) {
@@ -32,7 +33,9 @@ class LoginForm extends React.Component {
         })
     }
 
-    handleSubmit() {
+    handleSubmit(e) {
+        e.preventDefault();
+
         const userInfo = Object.assign({}, this.state);
         this.props.loginUser(userInfo)
     }
@@ -51,7 +54,7 @@ class LoginForm extends React.Component {
             errorBorder = "login-error-border";
         }
 
-        return(
+        return (
             <main className="landing extended">
                 <div className="login-content-box">
                     <form className="login-form" onSubmit={this.handleSubmit}>

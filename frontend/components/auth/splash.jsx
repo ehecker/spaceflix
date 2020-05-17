@@ -16,6 +16,8 @@ class Splash extends React.Component {
     }
 
     componentWillUnmount() {
+        // if (this.props.errors[0]) this.props.clearErrors();
+        console.log("splash will unmount")
         this.props.clearErrors();
     }
 
@@ -31,7 +33,9 @@ class Splash extends React.Component {
         })
     }
 
-    handleSubmit() {
+    handleSubmit(e) {
+        e.preventDefault();
+
         const userInfo = Object.assign({}, this.state);
         this.props.signupUser(userInfo)
     }
@@ -89,6 +93,7 @@ class Splash extends React.Component {
 
     render() {
 
+        console.log("Splash is re-rendering")
         let { errorMessages, emailErrors, passwordErrors } = this.parseErrors(this.props.errors);
 
         // debugger
