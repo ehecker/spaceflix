@@ -1,8 +1,6 @@
 /* MOVIE-PREVIEW GENERAL =================================== */
 
 .movie-main {
-    /* background-color: #555; */
-    /* background-color: green; */
     flex-shrink: 0;
     margin-right: 5px;
     cursor: pointer;
@@ -16,7 +14,7 @@
 }
 
 .movie-preview-default:hover {
-    animation: 1s ease 0s 1 normal both running zoom;
+    animation: 1000ms ease 0s 1 normal both running zoom;
 }
 
 @keyframes zoom {
@@ -50,7 +48,7 @@
 
     transition: height 1s, width 1s, opacity .5s, visibility 0s;
     transition-property: height, width, opacity, visibility;
-    transition-delay: 0s, 0s, 1s, 1.5s;
+    transition-delay: 0s, 0s, 750ms, 1.25s;
 }
 
 .trailer-container {
@@ -63,7 +61,6 @@
     height: 168px;
     width: 300px;
 
-    /* z-index: 1; */
 }
 
 .playing .trailer-container .trailer {
@@ -71,17 +68,22 @@
     height: 280px;
     width: 500px;
 
-    /* display: block; */
 }
 
 .trailer-info {
     height: 100%;
     width: 100%;
-    /* z-index: 5; */
 
     position: relative;
     display: flex;
     flex-direction: column;
+}
+
+.fade-trailer-info {
+    
+    opacity: 0;
+    transition: 1000ms ease all;
+
 }
 
 .preview-details-container {

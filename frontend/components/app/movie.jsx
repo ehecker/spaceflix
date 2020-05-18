@@ -18,15 +18,19 @@ class Movie extends React.Component {
     togglePlayOn(event) {
         event.currentTarget.classList.add("playing")
 
-        const video = document.getElementById(this.props.details.id)
-        video.play();
+        if (!this.props.activeRow) {
+            const video = document.getElementById(this.props.details.id)
+            video.play();
+        }
     }
 
     togglePlayOff(event) {
         event.currentTarget.classList.remove("playing")
 
-        const video = document.getElementById(this.props.details.id)
-        video.pause();
+        if (!this.props.activeRow) {
+            const video = document.getElementById(this.props.details.id)
+            video.pause();
+        }
     }
 
     toggleSound(event) {
@@ -48,8 +52,6 @@ class Movie extends React.Component {
         let { muted } = this.state;
         let moviePreview;
 
-        let mutedStatus = muted ? "muted" : "";
-
         let soundButton = muted ? (
             <div className="sound-btn-off" onClick={this.toggleSound} ></div>
         ) 
@@ -66,10 +68,9 @@ class Movie extends React.Component {
                         <video 
                             className="trailer"
                             id={details.id}
-                            src="/assets/rogue_one_trailer.mp4" 
+                            src="/assets/rogue_one_trailer.mp4"
                             loop
-                            muted = "muted"
-                            // autoPlay
+                            muted={muted}
                         />
 
                         <div className="trailer-info">
