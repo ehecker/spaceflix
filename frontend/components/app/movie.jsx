@@ -8,11 +8,20 @@ class Movie extends React.Component {
             muted: true
         }
 
+        this.fadeTime = 0;
+        this.fadeInterval;
+
         this.setActiveMovie = this.setActiveMovie.bind(this);
         this.toggleSound = this.toggleSound.bind(this);
 
         this.togglePlayOn = this.togglePlayOn.bind(this);
         this.togglePlayOff = this.togglePlayOff.bind(this);
+
+        this.fadeInfo = this.fadeInfo.bind(this);
+        this.incrementFade = this.incrementFade.bind(this);
+        this.startFadeTimer = this.startFadeTimer.bind(this);
+        this.resetFadeTimer = this.resetFadeTimer.bind(this);
+        this.endFadeTimer = this.endFadeTimer.bind(this);
     }
 
     togglePlayOn(event) {
@@ -45,6 +54,46 @@ class Movie extends React.Component {
         this.props.setActiveMovie(this.props.details);
     }
 
+    
+    // Fade Timing Functions
+    incrementFade() {
+        this.fadeTime++;
+        console.log(`Incremented to: ${this.fadeTime}`)
+        if (this.fadeTime >= 3) {
+            this.fadeInfo();
+            this.fadeTime = 0;
+        }
+            
+    }
+
+    startFadeTimer(event) {
+        console.log("Fade timer started")
+        this.fadeInterval = window.setInterval(this.incrementFade, 1000)
+    }
+
+    resetFadeTimer(event) {
+        console.log("Fade timer reset")
+
+        let container = document.getElementById(`${this.props.title}-info-container`)
+        container.classList.remove("trigger-fade")
+
+        this.fadeTime = 0;
+        clearInterval(this.fadeInterval);
+        this.fadeInterval = window.setInterval(this.incrementFade, 1000)
+    }
+
+    endFadeTimer(event) {
+        console.log("Fade Timer Ended")
+        this.fadeTime = 0;
+        clearInterval(this.fadeInterval)
+    }
+
+    fadeInfo() {
+        console.log("Fade info fired")
+        let container = document.getElementById(`${this.props.title}-info-container`)
+        container.classList.add("trigger-fade")
+    }
+
     render() {
 
         let { activeRow, activeMovie } = this.props;
@@ -62,9 +111,17 @@ class Movie extends React.Component {
         if (!activeRow) {
             moviePreview = (
                 <div className="movie-preview-default" onMouseEnter={this.togglePlayOn} onMouseLeave={this.togglePlayOff} >
-                    <img src="/assets/rogue_one_thumbnail.jpg" className="thumbnail"/>
+                    <img src="/assets/rogue_one_thumbnail.jpg" 
+                    className="thumbnail" 
+                    onMouseEnter={this.startFadeTimer} 
+                    />
 
-                    <div className="trailer-container">
+                    <div id={`${title}-info-container`}
+                    className="trailer-container" 
+                    // onMouseEnter={this.startFadeTimer}
+                    onMouseMove={this.resetFadeTimer} 
+                    onMouseLeave={this.endFadeTimer}
+                    >
                         <video 
                             className="trailer"
                             id={details.id}

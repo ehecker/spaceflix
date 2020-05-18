@@ -3,7 +3,7 @@
 .movie-main {
     flex-shrink: 0;
     margin-right: 5px;
-    cursor: pointer;
+    /* cursor: pointer; */
 }
 
 /* MOVIE-PREVIEW DEFAULT ====================================== */
@@ -35,6 +35,8 @@
     height: 168px;
     width: 300px;
     visibility: visible;
+    cursor: pointer;
+
 
     z-index: 10;
 }
@@ -77,13 +79,16 @@
     position: relative;
     display: flex;
     flex-direction: column;
+    cursor: pointer;
+
 }
 
-.fade-trailer-info {
-    
-    opacity: 0;
-    transition: 1000ms ease all;
+.trigger-fade .trailer-info {
+    cursor: none;
 
+    opacity: 0;
+    transition: 2000ms ease;
+    transition-property: opacity;
 }
 
 .preview-details-container {
