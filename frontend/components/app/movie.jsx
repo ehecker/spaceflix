@@ -57,11 +57,13 @@ class Movie extends React.Component {
     
     // Fade Timing Functions
     incrementFade() {
-        this.fadeTime++;
-
-        if (this.fadeTime >= 3) {
-            this.fadeInfo();
-            this.fadeTime = 0;
+        if (!this.props.activeRow) {
+            this.fadeTime++;
+    
+            if (this.fadeTime >= 3) {
+                this.fadeInfo();
+                this.fadeTime = 0;
+            }
         }
     }
 

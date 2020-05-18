@@ -228,6 +228,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    cursor: pointer;
 }
 
 .preview-play-button {
@@ -266,6 +267,7 @@
     flex-direction: column;
     align-items: center;
     justify-content: center;
+    cursor: pointer;
 }
 
 /* MOVIE-SHOW SECTION */
