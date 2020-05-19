@@ -166,7 +166,9 @@ class Movie extends React.Component {
             moviePreview = (
                 <div className="movie-preview-active playing" onMouseEnter={this.togglePlayOn} onMouseLeave={this.togglePlayOff}>
                     <img src="/assets/rogue_one_thumbnail.jpg" className="thumbnail-active"/>
-                    <i className="fas fa-play-circle fa-6x preview-play-button hov-button"></i>
+                    <div className="play-container">
+                        <i className="fas fa-play-circle fa-6x preview-play-button hov-button"></i>
+                    </div>
                 </div>
             )
 

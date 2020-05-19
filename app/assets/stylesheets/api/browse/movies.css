@@ -229,13 +229,23 @@
     justify-content: center;
     align-items: center;
     cursor: pointer;
+
+    position: relative;
+}
+
+.play-container {
+    position: absolute;
+    height: inherit;
+    width: inherit;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .preview-play-button {
-    position: absolute;
     visibility: hidden;
-
-
+    height: 96px;
+    width: 96px;
 }
 
 .preview-play-button:hover {
