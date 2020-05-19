@@ -285,24 +285,3 @@
 .playing .hov-button {
     visibility: visible;
 }
-
-/* MOVIE-SHOW SECTION */
-
-.movie-show { 
-    width: 100vw;
-    height: 500px;
-    background-color: black;
-    display: flex;
-    justify-content: space-between;
-}
-
-.show-close-btn {
-    background-color: blue;
-    border-radius: 5px;
-    height: 20px;
-    padding: 10px;
-    margin: 20px;
-    cursor: pointer;
-    text-align: center;
-}
-

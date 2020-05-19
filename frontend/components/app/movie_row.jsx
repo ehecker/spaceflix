@@ -1,5 +1,7 @@
 import React from "react";
 import Movie from "./movie";
+import MovieShow from "./movie_show";
+
 
 class MovieRow extends React.Component {
 
@@ -94,10 +96,7 @@ class MovieRow extends React.Component {
 
         if (this.state.activeRow) {
             movieShow = (
-                <div className="movie-show">
-                    {this.state.activeMovie.title}
-                    <div className="show-close-btn" onClick={this.closeShow}>Close</div>
-                </div>
+                <MovieShow genre={name} details={activeMovie} />
             )
         }
 
