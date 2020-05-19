@@ -11,9 +11,10 @@ class Movie extends React.Component {
         this.fadeTime = 0;
         this.fadeInterval;
 
+
+        // Function Binds
         this.setActiveMovie = this.setActiveMovie.bind(this);
         this.toggleSound = this.toggleSound.bind(this);
-
         this.togglePlayOn = this.togglePlayOn.bind(this);
         this.togglePlayOff = this.togglePlayOff.bind(this);
 
@@ -22,6 +23,10 @@ class Movie extends React.Component {
         this.startFadeTimer = this.startFadeTimer.bind(this);
         this.resetFadeTimer = this.resetFadeTimer.bind(this);
         this.endFadeTimer = this.endFadeTimer.bind(this);
+    }
+
+    componentWillUnmount() {
+        this.endFadeTimer();
     }
 
     togglePlayOn(event) {
@@ -69,6 +74,9 @@ class Movie extends React.Component {
 
     startFadeTimer() {
         this.fadeInterval = window.setInterval(this.incrementFade, 1000)
+
+        let container = document.getElementById(`${this.props.title}-info-container`)
+        container.classList.remove("trigger-fade")
     }
 
     resetFadeTimer() {
@@ -83,6 +91,9 @@ class Movie extends React.Component {
     endFadeTimer() {
         this.fadeTime = 0;
         clearInterval(this.fadeInterval)
+
+        let container = document.getElementById(`${this.props.title}-info-container`)
+        container.classList.remove("trigger-fade")
     }
 
     fadeInfo() {

@@ -234,6 +234,8 @@
 .preview-play-button {
     position: absolute;
     visibility: hidden;
+
+
 }
 
 .preview-play-button:hover {
@@ -270,6 +272,10 @@
     cursor: pointer;
 }
 
+.playing .hov-button {
+    visibility: visible;
+}
+
 /* MOVIE-SHOW SECTION */
 
 .movie-show { 
@@ -290,6 +296,3 @@
     text-align: center;
 }
 
-.playing .hov-button {
-    visibility: visible;
-}
