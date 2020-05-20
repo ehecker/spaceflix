@@ -54,7 +54,7 @@ class MovieShow extends React.Component {
                             <div className="show-close-btn"></div>  
                             <div className="show-mute-btn"></div>
                         </div>                        
-                        <video src="" className="show-trailer"></video>
+                        <video src="/assets/rogue_one_trailer.mp4" autoPlay muted loop className="show-trailer"></video>
                     </section>
                 </main>
         )
