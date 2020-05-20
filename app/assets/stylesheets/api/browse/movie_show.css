@@ -7,8 +7,6 @@
 }
 
 .show-info-container {
-    /* background-color: black; */
-    /* background: rgb(0,0,0); */
     background: linear-gradient(90deg, rgba(0,0,0,1) 85%, rgba(0,0,0,0) 95%);
     height: inherit;
     display: flex;
@@ -20,7 +18,6 @@
 }
 
 .show-trailer-container {
-    background-color: green;
     height: inherit;
     width: 65%;
 
@@ -35,7 +32,6 @@
 /* SHOW-INFO ================================================= */
 
 .show-info-box {
-    /* background-color: red; */
     margin-left: 48px;
 }
 
@@ -141,7 +137,6 @@
 /* SHOW-TRAILER */
 
 .show-trailer-btns {
-    /* background-color: blue; */
     width: 10%;
     height: 100%;
     display: flex;
@@ -154,14 +149,44 @@
 }
 
 .show-close-btn {
+    background-image: url("/assets/show-close");
+    background-size: cover;
+    height: 30px;
+    width: 30px;
     margin-top: 20px;
+    cursor: pointer;
+    z-index: 5;
 }
 
-.show-mute-btn {
+.show-mute-btn-off {
+    background-image: url("/assets/sound-off-unhovered");
+    background-size: cover;
+    height: 40px;
+    width: 40px;
     margin-bottom: 40px;
+    cursor: pointer;
+    z-index: 5;
+}
+
+.show-mute-btn-off:hover {
+    background-image: url("/assets/sound-off-hovered");
+}
+
+.show-mute-btn-on {
+    background-image: url("/assets/sound-on-unhovered");
+    background-size: cover;
+    height: 40px;
+    width: 40px;
+    margin-bottom: 40px;
+    cursor: pointer;
+    z-index: 5;
+}
+
+.show-mute-btn-on:hover {
+    background-image: url("/assets/sound-on-hovered");
 }
 
 .show-trailer {
-    height: 130%;
-    width: 100%;
+    height: 135%;
+    width: auto;
 }

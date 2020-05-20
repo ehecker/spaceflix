@@ -96,7 +96,7 @@ class MovieRow extends React.Component {
 
         if (this.state.activeRow) {
             movieShow = (
-                <MovieShow genre={name} details={activeMovie} />
+                <MovieShow genre={name} details={activeMovie} close={this.closeShow} />
             )
         }
 

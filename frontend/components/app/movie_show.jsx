@@ -9,6 +9,8 @@ class MovieShow extends React.Component {
         this.state = {
             muted: true
         }
+
+        this.toggleMute = this.toggleMute.bind(this);
     }
 
     toggleMute() {
@@ -21,6 +23,19 @@ class MovieShow extends React.Component {
 
         let { id, cast, description, director, duration, maturity_rating, title, year } = this.props.details;
         let { genre } = this.props;
+        let { muted } = this.state;
+
+        let muteButton;
+
+        if (muted) {
+            muteButton=(
+                <div className="show-mute-btn-off" onClick={this.toggleMute} ></div>
+            )
+        } else {
+            muteButton=(
+                <div className="show-mute-btn-on" onClick={this.toggleMute}></div>
+            )
+        }
 
         return(
                 <main className="movie-show-main">
@@ -51,10 +66,16 @@ class MovieShow extends React.Component {
 
                     <section className="show-trailer-container">
                         <div className="show-trailer-btns">
-                            <div className="show-close-btn"></div>  
-                            <div className="show-mute-btn"></div>
+                            <div className="show-close-btn" onClick={this.props.close}></div>
+                            {muteButton}
                         </div>                        
-                        <video src="/assets/rogue_one_trailer.mp4" autoPlay muted loop className="show-trailer"></video>
+                        <video 
+                            className="show-trailer"
+                            src="/assets/rogue_one_trailer.mp4" 
+                            autoPlay
+                            muted={muted}
+                            loop 
+                        />
                     </section>
                 </main>
         )
