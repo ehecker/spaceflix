@@ -66,7 +66,7 @@ movie3 = Movie.create!({
 
 movie4 = Movie.create!({
     title: "The Last Man on the Moon",
-    description: "Apollo astronaut Gene Cernan shares his epic story of fulfillment, love, and loss as the last astronaut to set foor on the moon.",
+    description: "Apollo astronaut Gene Cernan shares his epic story of fulfillment, love, and loss as the last astronaut to set foot on the moon.",
     year: 2014,
     duration: "1h 35m",
     maturity_rating: "TV-MA",
