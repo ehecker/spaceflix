@@ -14,8 +14,14 @@ class Watch extends React.Component {
     }
 
     togglePlay() {
+        let { playing } = this.state
+        let video = document.getElementsByTagName("video")[0];
+
+        if (playing) video.pause();
+        if (!playing) video.play();
+
         this.setState({
-            playing: !this.state.playing
+            playing: !playing
         })
     }
 
@@ -58,26 +64,28 @@ class Watch extends React.Component {
         return(
             <main className="watch-main">
                 <section className="watch-movie-container">
-
+                    <div className="back-button"></div>
+                    <video src="/assets/rogue_one_trailer" autoPlay muted={muted} loop className="watch-movie"></video>
                 </section>
+
                 <section className="watch-info-container">
-                    <section className="watch-controls-container">
+                    <div className="watch-controls-container">
                         <div className="controls-top">
-                            <div className="progress-bar"></div>
+                            <progress className="progress-bar" min='0' max='100' value='0'></progress>
                             <p className="time-remaining"></p>
                         </div>
                         <div className="controls-bottom">
                             <div className="control-btns-left">
                                 {playButton}
                                 {muteButton}
-                                {title}
+                                <p className="watch-title unselectable-text">{title}</p>
                             </div>
                             <div className="control-btns-right">
                                 <div className="subtitles-btn"></div>
                                 <div className="fullscreen-btn"></div>
                             </div>
                         </div>
-                    </section>
+                    </div>
                 </section>
             </main>
         )

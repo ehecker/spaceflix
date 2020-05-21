@@ -11,7 +11,7 @@
     height: 100vh;
     width: 100vw;
     position: absolute;
-
+    overflow: hidden;
 }
 
 .watch-info-container {
@@ -26,15 +26,35 @@
 }
 
 .watch-controls-container {
-    background-color: green;
-    width: 98%;
+    /* background-color: green; */
+    width: 96%;
     height: 120px;
+    margin-bottom: 10px;
 }
 
-/* WATCH CONTROLS ============================================ */
+.watch-movie {
+    height: 135%;
+    width: auto;
+    /* height: 100vh;
+    width: auto; */
+} 
+
+.back-button {
+    background-image: url("/assets/back-btn");
+    background-size: cover;
+    height: 31px;
+    width: 35px;
+    position: absolute;
+    cursor: pointer;
+    z-index: 10;
+    margin-top: 50px;
+    margin-left: 50px;
+}
+
+/* WATCH CONTROLS STRUCTURE ==================================== */
 
 .controls-top {
-    background-color: magenta;
+    /* background-color: magenta; */
     height: 30px;
     width: 100%;
     display: flex;
@@ -42,7 +62,7 @@
 }
 
 .controls-bottom {
-    background-color: purple;
+    /* background-color: purple; */
     width: 100%;
     height: 90px;
     display: flex;
@@ -50,7 +70,7 @@
 }
 
 .control-btns-left {
-    background-color: maroon;
+    /* background-color: maroon; */
     height: 100%;
     width: 50%;
     display: flex;
@@ -58,9 +78,23 @@
 }
 
 .control-btns-right {
-    background-color: yellowgreen;
+    /* background-color: yellowgreen; */
     height: 100%;
     width: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+}
+
+/* WATCH CONTROLS */
+
+.progress-bar {
+    width: 95%;
+}
+
+.watch-title {
+    font-size: 18px;
+    font-weight: 700;
 }
 
 .watch-pause-btn {
@@ -69,7 +103,7 @@
     height: 28px;
     width: 14px;
     cursor: pointer;
-    margin-right: 40px;
+    margin-right: 50px;
     opacity: 0.7;
 }
 
@@ -77,7 +111,7 @@
     opacity: 1;
     height: 32px;
     width: 16px;
-    transition-property: opacity, height width;
+    transition-property: opacity, height, width;
     transition-duration: 300ms;
 }
 
@@ -87,7 +121,7 @@
     height: 32px;
     width: 24px;
     cursor: pointer;
-    margin-right: 40px;
+    margin-right: 50px;
     opacity: 0.7;
 }
 
@@ -95,7 +129,7 @@
     opacity: 1;
     height: 36px;
     width: 26px;
-    transition-property: opacity, height width;
+    transition-property: opacity, height, width;
     transition-duration: 300ms;
 }
 
@@ -105,7 +139,7 @@
     height: 27px;
     width: 27px;
     cursor: pointer;
-    margin-right: 40px;
+    margin-right: 50px;
     opacity: 0.7;
 }
 
@@ -113,7 +147,7 @@
     opacity: 1;
     height: 30px;
     width: 30px;
-    transition-property: opacity, height width;
+    transition-property: opacity, height, width;
     transition-duration: 300ms;
 }
 
@@ -123,7 +157,7 @@
     height: 27px;
     width: 27px;
     cursor: pointer;
-    margin-right: 40px;
+    margin-right: 50px;
     opacity: 0.7;
 }
 
@@ -131,6 +165,43 @@
     opacity: 1;
     height: 30px;
     width: 30px;
-    transition-property: opacity, height width;
+    transition-property: opacity, height, width;
     transition-duration: 300ms;
+}
+
+.subtitles-btn {
+    background-image: url("/assets/subtitle-box");
+    background-size: cover;
+    height: 29px;
+    width: 48px;
+    opacity: 0.7;
+    cursor: pointer;
+    margin-top: 5px;
+}
+
+.subtitles-btn:hover {
+    transition-property: opacity, height, width;
+    transition-duration: 300ms;
+    height: 31px;
+    width: 50px;
+    opacity: 1;
+}
+
+.fullscreen-btn {
+    background-image: url(/assets/full-screen);
+    background-size: cover;
+    height: 24px;
+    width: 40px;
+    margin-top: 3px;
+    margin-left: 40px;
+    opacity: 0.7;
+    cursor: pointer;
+}
+
+.fullscreen-btn:hover {
+    transition-property: opacity, height, width;
+    transition-duration: 300ms;
+    height: 27px;
+    width: 45px;
+    opacity: 1;
 }
