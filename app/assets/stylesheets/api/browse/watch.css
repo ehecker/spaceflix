@@ -62,3 +62,75 @@
     height: 100%;
     width: 50%;
 }
+
+.watch-pause-btn {
+    background-image: url("/assets/watch-pause");
+    background-size: cover;
+    height: 28px;
+    width: 14px;
+    cursor: pointer;
+    margin-right: 40px;
+    opacity: 0.7;
+}
+
+.watch-pause-btn:hover {
+    opacity: 1;
+    height: 32px;
+    width: 16px;
+    transition-property: opacity, height width;
+    transition-duration: 300ms;
+}
+
+.watch-play-btn {
+    background-image: url("/assets/watch-play");
+    background-size: cover;
+    height: 32px;
+    width: 24px;
+    cursor: pointer;
+    margin-right: 40px;
+    opacity: 0.7;
+}
+
+.watch-play-btn:hover {
+    opacity: 1;
+    height: 36px;
+    width: 26px;
+    transition-property: opacity, height width;
+    transition-duration: 300ms;
+}
+
+.watch-sound-on {
+    background-image: url("/assets/watch-sound-on");
+    background-size: cover;
+    height: 27px;
+    width: 27px;
+    cursor: pointer;
+    margin-right: 40px;
+    opacity: 0.7;
+}
+
+.watch-sound-on:hover {
+    opacity: 1;
+    height: 30px;
+    width: 30px;
+    transition-property: opacity, height width;
+    transition-duration: 300ms;
+}
+
+.watch-sound-off {
+    background-image: url("/assets/watch-sound-off");
+    background-size: cover;
+    height: 27px;
+    width: 27px;
+    cursor: pointer;
+    margin-right: 40px;
+    opacity: 0.7;
+}
+
+.watch-sound-off:hover {
+    opacity: 1;
+    height: 30px;
+    width: 30px;
+    transition-property: opacity, height width;
+    transition-duration: 300ms;
+}
