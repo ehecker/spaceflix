@@ -1,5 +1,5 @@
 .watch-main {
-    background-color: red;
+    /* background-color: red; */
     color: white;
     height: 100vh;
     width: 100vw;
@@ -7,11 +7,14 @@
 }
 
 .watch-movie-container {
-    background-color: blue;
+    /* background-color: blue; */
     height: 100vh;
     width: 100vw;
     position: absolute;
     overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .watch-info-container {
@@ -21,8 +24,9 @@
     position: relative;
 
     display: flex;
-    align-items: flex-end;
-    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
 }
 
 .watch-controls-container {
@@ -33,22 +37,59 @@
 }
 
 .watch-movie {
-    height: 135%;
+    height: 120%;
     width: auto;
     /* height: 100vh;
     width: auto; */
 } 
 
+.back-container {
+    /* background-color: blue; */
+    width: 96%;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    margin-top: 70px;
+}
+
+.back-small-container {
+    /* background-color: green; */
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+}
+
 .back-button {
+    /* background-color: red; */
     background-image: url("/assets/back-btn");
     background-size: cover;
     height: 31px;
     width: 35px;
-    position: absolute;
     cursor: pointer;
     z-index: 10;
-    margin-top: 50px;
-    margin-left: 50px;
+}
+
+.back-button:hover {
+    transition-property: height, width;
+    transition-duration: 300ms;
+    height: 35px;
+    width: 39px;
+}
+
+.back-text {
+    /* background-color: orange; */
+    font-size: 22px;
+    color: white;
+    opacity: 0;
+    margin-left: 0;
+}
+
+.back-hover .back-text {
+    transition-property: opacity, margin-left;
+    transition-duration: 300ms;
+
+    opacity: 1;
+    margin-left: 15px;
 }
 
 /* WATCH CONTROLS STRUCTURE ==================================== */
@@ -87,10 +128,6 @@
 }
 
 /* WATCH CONTROLS */
-
-.progress-bar {
-    width: 95%;
-}
 
 .watch-title {
     font-size: 18px;

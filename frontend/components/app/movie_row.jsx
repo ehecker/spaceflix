@@ -1,7 +1,7 @@
 import React from "react";
 import Movie from "./movie";
 import MovieShow from "./movie_show";
-import {Redirect, Link} from "react-router";
+import {Redirect, Link} from "react-router-dom";
 
 class MovieRow extends React.Component {
 

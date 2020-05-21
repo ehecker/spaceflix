@@ -1,4 +1,6 @@
 import React from "react"
+import ProgressBar from "./progress_bar";
+import { Link } from "react-router-dom";
 
 class Watch extends React.Component {
     constructor(props) {
@@ -9,8 +11,26 @@ class Watch extends React.Component {
             muted: true
         }
 
+        this.startBackHover = this.startBackHover.bind(this);
+        this.endBackHover = this.endBackHover.bind(this);
+        this.handleFullscreen = this.handleFullscreen.bind(this);
         this.togglePlay = this.togglePlay.bind(this);
         this.toggleMute = this.toggleMute.bind(this);
+    }
+
+    startBackHover(e) {
+        let backButton = document.getElementsByClassName("back-button")[0];
+        e.currentTarget.classList.add("back-hover");
+    }
+
+    endBackHover(e) {
+        let backButton = document.getElementsByClassName("back-button")[0];
+        e.currentTarget.classList.remove("back-hover");
+    }
+
+    handleFullscreen() {
+        let video = document.getElementsByTagName("video")[0];
+        video.requestFullscreen();
     }
 
     togglePlay() {
@@ -64,15 +84,20 @@ class Watch extends React.Component {
         return(
             <main className="watch-main">
                 <section className="watch-movie-container">
-                    <div className="back-button"></div>
                     <video src="/assets/rogue_one_trailer" autoPlay muted={muted} loop className="watch-movie"></video>
                 </section>
 
                 <section className="watch-info-container">
+                    <div className="back-container">
+                        <Link className="back-small-container" to={"/browse"} onMouseEnter={this.startBackHover} onMouseLeave={this.endBackHover}>
+                            <div className="back-button"></div>
+                            <p className="back-text">Back to Browse</p>
+                        </Link>
+                    </div>
+
                     <div className="watch-controls-container">
                         <div className="controls-top">
-                            <progress className="progress-bar" min='0' max='100' value='0'></progress>
-                            <p className="time-remaining"></p>
+                            <ProgressBar />
                         </div>
                         <div className="controls-bottom">
                             <div className="control-btns-left">
@@ -82,7 +107,7 @@ class Watch extends React.Component {
                             </div>
                             <div className="control-btns-right">
                                 <div className="subtitles-btn"></div>
-                                <div className="fullscreen-btn"></div>
+                                <div className="fullscreen-btn" onClick={this.handleFullscreen}></div>
                             </div>
                         </div>
                     </div>
