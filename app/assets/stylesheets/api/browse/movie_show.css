@@ -18,6 +18,7 @@
 }
 
 .show-trailer-container {
+    /* background-color: green; */
     height: inherit;
     width: 65%;
 
@@ -189,4 +190,7 @@
 .show-trailer {
     height: 135%;
     width: auto;
+
+    /* height: 1100px;
+    width: 1300px; */
 }

@@ -7,7 +7,7 @@ class MovieShow extends React.Component {
         super(props)
 
         this.state = {
-            muted: true
+            muted: false
         }
 
         this.toggleMute = this.toggleMute.bind(this);

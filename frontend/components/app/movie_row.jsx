@@ -1,7 +1,7 @@
 import React from "react";
 import Movie from "./movie";
 import MovieShow from "./movie_show";
-
+import {Redirect, Link} from "react-router";
 
 class MovieRow extends React.Component {
 
@@ -20,6 +20,8 @@ class MovieRow extends React.Component {
     }
 
     setActiveMovie(movie) {
+        this.props.history.push(`/browse/${movie.id}`)
+
         this.setState({
             activeMovie: movie,
             activeRow: true
@@ -45,6 +47,8 @@ class MovieRow extends React.Component {
     }
 
     closeShow() {
+        this.props.history.push("/browse")
+
         this.setState({
             activeMovie: null,
             activeRow: false
@@ -98,6 +102,14 @@ class MovieRow extends React.Component {
             movieShow = (
                 <MovieShow genre={name} details={activeMovie} close={this.closeShow} />
             )
+            // movieShow=(
+            //     <Link to={{
+            //         pathname: `/browse/${activeMovie.id}`,
+            //         genre: name,
+            //         details: activeMovie,
+            //         close: this.closeShow
+            // }}/>
+            // )
         }
 
         return (

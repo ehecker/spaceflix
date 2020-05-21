@@ -30,14 +30,18 @@ class Nav extends React.Component {
 
     render() {
 
+        let {currentUser, location} = this.props;
         let logo;
         let navBg;
         let navRightItems;
 
-        // Make navRight back into buttonsBox?
-        // It feels wrong to be making these decisions by props here?? Is this bad practice?
+        if (location.includes("watch")) {
+            return(
+                <div></div>
+            )
+        }
 
-        if (!!this.props.currentUser) {
+        if (!!currentUser) {
 
             logo = <div className="logo-small"></div>
             navBg = "nav-bg";
@@ -47,7 +51,7 @@ class Nav extends React.Component {
                 </div>
             )
 
-        } else if (this.props.location === "/login") {
+        } else if (location === "/login") {
 
             logo = <div className="logo-big"></div>;
             navRightItems = (

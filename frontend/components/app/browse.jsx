@@ -1,5 +1,6 @@
 import React from "react";
 import MovieRow from "./movie_row";
+import Footer from "../footer";
 
 class Browse extends React.Component {
 
@@ -23,7 +24,7 @@ class Browse extends React.Component {
             for (let [name, movies] of genres) {
                 movies = Object.entries(movies)
                 let movieRow = (
-                    <MovieRow key={name} name={name} movies={movies} />
+                    <MovieRow key={name} name={name} movies={movies} history={this.props.history}/>
                 )
                 movieRows.push(movieRow);
             }
@@ -43,6 +44,7 @@ class Browse extends React.Component {
                 <section className="browse-rows-container">
                     {movieRows}
                 </section>
+                <Footer />
             </main>
         )
     }

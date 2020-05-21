@@ -1,4 +1,5 @@
 import React from "react";
+import Footer from "../footer";
 
 class Splash extends React.Component {
 
@@ -172,6 +173,7 @@ class Splash extends React.Component {
                         </div>
                     </div>
                 </section>
+                <Footer />
             </main>
         )
     }
