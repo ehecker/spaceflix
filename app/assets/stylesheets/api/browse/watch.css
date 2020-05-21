@@ -49,7 +49,7 @@
     display: flex;
     justify-content: flex-start;
     align-items: center;
-    margin-top: 70px;
+    margin-top: 75px;
 }
 
 .back-small-container {
@@ -69,7 +69,7 @@
     z-index: 10;
 }
 
-.back-button:hover {
+.back-hover .back-button {
     transition-property: height, width;
     transition-duration: 300ms;
     height: 35px;

@@ -11,6 +11,8 @@ class Watch extends React.Component {
             muted: true
         }
 
+        this.video;
+
         this.startBackHover = this.startBackHover.bind(this);
         this.endBackHover = this.endBackHover.bind(this);
         this.handleFullscreen = this.handleFullscreen.bind(this);
@@ -18,27 +20,27 @@ class Watch extends React.Component {
         this.toggleMute = this.toggleMute.bind(this);
     }
 
+    componentDidMount() {
+        this.video = document.getElementsByTagName("video")[0];
+    }
+
     startBackHover(e) {
-        let backButton = document.getElementsByClassName("back-button")[0];
         e.currentTarget.classList.add("back-hover");
     }
 
     endBackHover(e) {
-        let backButton = document.getElementsByClassName("back-button")[0];
         e.currentTarget.classList.remove("back-hover");
     }
 
     handleFullscreen() {
-        let video = document.getElementsByTagName("video")[0];
-        video.requestFullscreen();
+        this.video.requestFullscreen();
     }
 
     togglePlay() {
         let { playing } = this.state
-        let video = document.getElementsByTagName("video")[0];
 
-        if (playing) video.pause();
-        if (!playing) video.play();
+        if (playing) this.video.pause();
+        if (!playing) this.video.play();
 
         this.setState({
             playing: !playing
