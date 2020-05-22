@@ -1,0 +1,26 @@
+.feature-main {
+    background-color: red;
+    height: 100%;
+    width: 100%;
+    position: relative;
+}
+
+.feature-movie-container {
+    background-color: blueviolet;
+    height: 100%;
+    width: 100%;
+    position: absolute;
+}
+
+.feature-movie {
+    background-color: green;
+    height: 100%;
+    width: 100%;
+}
+
+.feature-overlay {
+    /* background-color: goldenrod; */
+    height: 100%;
+    width: 100%;
+    position: relative;
+}

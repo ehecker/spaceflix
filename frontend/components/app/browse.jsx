@@ -33,7 +33,8 @@ class Browse extends React.Component {
             return;
         }
 
-        let featuredMovie = genres[0][1];
+        let featuredMovie;
+        if (genres[0]) featuredMovie = genres[0][1];
 
         return (
             <main className="browse-main">

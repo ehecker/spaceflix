@@ -1,12 +1,11 @@
 .browse-main {
     width: 100%;
     background-color: #141414;
-    /* background-color: black; */
 }
 
 .browse-hero-container {
     background-color: darkblue;
-    height: 85vh;
+    height: 90vh;
     width: 100vw;
 }
 
