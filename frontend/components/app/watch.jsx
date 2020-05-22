@@ -1,4 +1,4 @@
-import React from "react"
+import React from "react";
 import ProgressBar from "./progress_bar";
 import { Link } from "react-router-dom";
 
@@ -12,12 +12,22 @@ class Watch extends React.Component {
         }
 
         this.video;
+        this.fadeTime;
+        this.fadeInterval;
 
+        // Controls Binds
         this.startBackHover = this.startBackHover.bind(this);
         this.endBackHover = this.endBackHover.bind(this);
         this.handleFullscreen = this.handleFullscreen.bind(this);
         this.togglePlay = this.togglePlay.bind(this);
         this.toggleMute = this.toggleMute.bind(this);
+
+        // Fading Binds
+        this.fadeControls = this.fadeControls.bind(this);
+        this.incrementFade = this.incrementFade.bind(this);
+        this.startFadeTimer = this.startFadeTimer.bind(this);
+        this.resetFadeTimer = this.resetFadeTimer.bind(this);
+        this.endFadeTimer = this.endFadeTimer.bind(this);
     }
 
     componentDidMount() {
@@ -53,16 +63,52 @@ class Watch extends React.Component {
         })
     }
 
+    // Timer Functions
+    incrementFade() {
+        this.fadeTime++;
+
+        if (this.fadeTime >= 3) {
+            this.fadeControls();
+            this.fadeTime = 0;
+        }        
+    }
+
+    startFadeTimer(event) {
+        this.fadeInterval = window.setInterval(this.incrementFade, 1000)
+        event.currentTarget.classList.remove("fade-controls")
+    }
+
+    resetFadeTimer(event) {
+        event.currentTarget.classList.remove("fade-controls")
+
+        this.fadeTime = 0;
+        clearInterval(this.fadeInterval);
+        this.fadeInterval = window.setInterval(this.incrementFade, 1000)
+    }
+
+    endFadeTimer(event) {
+        this.fadeTime = 0;
+        clearInterval(this.fadeInterval)
+
+        event.currentTarget.classList.remove("fade-controls")
+    }
+
+    fadeControls() {
+        let watchMain = document.getElementsByClassName("watch-main")[0];
+        watchMain.classList.add("fade-controls");
+    }
+
     render() {
         
         // let title = this.props.details.title;
         let title = "Rogue One: A Star Wars Story";
 
         let { playing, muted } = this.state; 
-        let infoOverlay;
         let playButton;
         let muteButton;
 
+
+        // Make these ternaries
         if (playing) {
             playButton=(
                 <div className="watch-pause-btn" onClick={this.togglePlay}></div>
@@ -84,7 +130,7 @@ class Watch extends React.Component {
         }
 
         return(
-            <main className="watch-main">
+            <main className="watch-main" onMouseEnter={this.startFadeTimer} onMouseMove={this.resetFadeTimer} onMouseLeave={this.endFadeTimer} >
                 <section className="watch-movie-container">
                     <video src="/assets/rogue_one_trailer" autoPlay muted={muted} loop className="watch-movie"></video>
                 </section>

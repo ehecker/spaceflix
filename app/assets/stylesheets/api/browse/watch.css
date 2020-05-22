@@ -1,5 +1,4 @@
 .watch-main {
-    /* background-color: red; */
     color: white;
     height: 100vh;
     width: 100vw;
@@ -7,7 +6,6 @@
 }
 
 .watch-movie-container {
-    /* background-color: blue; */
     height: 100vh;
     width: 100vw;
     position: absolute;
@@ -18,7 +16,6 @@
 }
 
 .watch-info-container {
-    /* background-color: orange; */
     height: 100vh;
     width: 100vw;
     position: relative;
@@ -30,7 +27,6 @@
 }
 
 .watch-controls-container {
-    /* background-color: green; */
     width: 96%;
     height: 120px;
     margin-bottom: 10px;
@@ -39,12 +35,9 @@
 .watch-movie {
     height: 120%;
     width: auto;
-    /* height: 100vh;
-    width: auto; */
 } 
 
 .back-container {
-    /* background-color: blue; */
     width: 96%;
     display: flex;
     justify-content: flex-start;
@@ -53,14 +46,12 @@
 }
 
 .back-small-container {
-    /* background-color: green; */
     display: flex;
     align-items: center;
     text-decoration: none;
 }
 
 .back-button {
-    /* background-color: red; */
     background-image: url("/assets/back-btn");
     background-size: cover;
     height: 31px;
@@ -77,7 +68,6 @@
 }
 
 .back-text {
-    /* background-color: orange; */
     font-size: 22px;
     color: white;
     opacity: 0;
@@ -95,7 +85,6 @@
 /* WATCH CONTROLS STRUCTURE ==================================== */
 
 .controls-top {
-    /* background-color: magenta; */
     height: 30px;
     width: 100%;
     display: flex;
@@ -103,7 +92,6 @@
 }
 
 .controls-bottom {
-    /* background-color: purple; */
     width: 100%;
     height: 90px;
     display: flex;
@@ -111,7 +99,6 @@
 }
 
 .control-btns-left {
-    /* background-color: maroon; */
     height: 100%;
     width: 50%;
     display: flex;
@@ -119,7 +106,6 @@
 }
 
 .control-btns-right {
-    /* background-color: yellowgreen; */
     height: 100%;
     width: 50%;
     display: flex;
@@ -225,7 +211,7 @@
 }
 
 .fullscreen-btn {
-    background-image: url(/assets/full-screen);
+    background-image: url("/assets/full-screen");
     background-size: cover;
     height: 24px;
     width: 40px;
@@ -241,4 +227,14 @@
     height: 27px;
     width: 45px;
     opacity: 1;
+}
+
+/* FADING CLASSES */
+
+.fade-controls .watch-info-container {
+    cursor: none;
+
+    opacity: 0;
+    transition: 2000ms ease;
+    transition-property: opacity;
 }
