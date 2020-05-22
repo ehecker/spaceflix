@@ -19,6 +19,11 @@ class ProgressBar extends React.Component {
         video.addEventListener("timeupdate", this.updateProgressBar);
     }
 
+    componentWillUnmount() {
+        let video = document.getElementsByTagName("video")[0];
+        video.removeEventListener("timeupdate", this.updateProgressBar);
+    }
+
     clockify(baseSeconds) {
         let hours = 0;
         let minutes = 0;

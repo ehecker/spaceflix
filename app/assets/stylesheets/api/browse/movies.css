@@ -240,12 +240,15 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    text-decoration: none;
 }
 
 .preview-play-button {
     visibility: hidden;
     height: 96px;
     width: 96px;
+    color: white;
+    text-decoration: none;
 }
 
 .preview-play-button:hover {

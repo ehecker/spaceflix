@@ -8,7 +8,7 @@ class Watch extends React.Component {
 
         this.state = {
             playing: true,
-            muted: true
+            muted: false
         }
 
         this.video;
@@ -32,6 +32,10 @@ class Watch extends React.Component {
 
     componentDidMount() {
         this.video = document.getElementsByTagName("video")[0];
+    }
+
+    componentWillUnmount() {
+        this.endFadeTimer();
     }
 
     startBackHover(e) {
@@ -90,7 +94,8 @@ class Watch extends React.Component {
         this.fadeTime = 0;
         clearInterval(this.fadeInterval)
 
-        event.currentTarget.classList.remove("fade-controls")
+        let watchMain = document.getElementsByClassName("watch-main")[0];
+        watchMain.classList.remove("fade-controls");
     }
 
     fadeControls() {

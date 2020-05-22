@@ -1,6 +1,7 @@
 import React from "react";
 import MovieRow from "./movie_row";
 import Footer from "../footer";
+import Feature from "./feature";
 
 class Browse extends React.Component {
 
@@ -32,13 +33,12 @@ class Browse extends React.Component {
             return;
         }
 
+        let featuredMovie = genres[0][1];
+
         return (
             <main className="browse-main">
                 <section className="browse-hero-container">
-                    <div className="hero-info-container">
-                        
-                    </div>
-                    <div className="hero-video"></div>
+                    <Feature movie={featuredMovie} />
                 </section>
 
                 <section className="browse-rows-container">

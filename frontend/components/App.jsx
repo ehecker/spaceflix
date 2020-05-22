@@ -1,5 +1,5 @@
 import React from "react";
-import { Route } from "react-router-dom";
+import { Route, Switch } from "react-router-dom";
 import { AuthRoute, ProtectedRoute } from "../util/route_util";
 
 import NavContainer from "./nav_container";
@@ -17,9 +17,11 @@ const App = () => (
         <Route path="/" component={NavContainer} />
         <AuthRoute exact path="/" component={SplashContainer} />
         <AuthRoute exact path="/login" component={LoginFormContainer} />
-        <ProtectedRoute exact path="/browse" component={BrowseContainer} />
+        <Switch>
+            <ProtectedRoute exact path="/browse/:id/watch" component={Watch} />
+            <ProtectedRoute path="/browse" component={BrowseContainer} />
+        </Switch>
         {/* <ProtectedRoute path="/browse/:id" component={MovieShow} /> */}
-        <ProtectedRoute exact path="/browse/:id/watch" component={Watch} />
     </main>
 )
 

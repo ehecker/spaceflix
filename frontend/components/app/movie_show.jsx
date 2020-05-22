@@ -1,5 +1,5 @@
 import React from "react";
-
+import { Link } from "react-router-dom";
 
 class MovieShow extends React.Component {
 
@@ -7,7 +7,7 @@ class MovieShow extends React.Component {
         super(props)
 
         this.state = {
-            muted: false
+            muted: true
         }
 
         this.toggleMute = this.toggleMute.bind(this);
@@ -49,10 +49,10 @@ class MovieShow extends React.Component {
                             </div>
                             <div className="show-description">{description}</div>
                             <div className="show-buttons-container">
-                                <div className="show-play-button">
+                                <Link to={`/browse/${id}/watch`} className="show-play-button">
                                     <div className="show-play-icon"></div>
                                     <p className="show-btn-text">Play</p>
-                                </div>
+                                </Link>
                                 <div className="show-list-button">
                                     <div className="show-list-icon"></div>
                                     <p className="show-btn-text">My List</p>

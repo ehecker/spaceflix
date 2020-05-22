@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 class Movie extends React.Component {
     constructor(props) {
@@ -17,6 +18,7 @@ class Movie extends React.Component {
         this.toggleSound = this.toggleSound.bind(this);
         this.togglePlayOn = this.togglePlayOn.bind(this);
         this.togglePlayOff = this.togglePlayOff.bind(this);
+        // this.handleClick = this.handleClick.bind(this);
 
         this.fadeInfo = this.fadeInfo.bind(this);
         this.incrementFade = this.incrementFade.bind(this);
@@ -28,6 +30,11 @@ class Movie extends React.Component {
     componentWillUnmount() {
         this.endFadeTimer();
     }
+
+    // handleClick() {
+    //     console.log("Active Movie has been clicked")
+    //     this.props.history.push(`/browse/${this.props.details.id}/watch`)
+    // }
 
     togglePlayOn(event) {
         event.currentTarget.classList.add("playing")
@@ -90,10 +97,10 @@ class Movie extends React.Component {
 
     endFadeTimer() {
         this.fadeTime = 0;
-        clearInterval(this.fadeInterval)
+        clearInterval(this.fadeInterval);
 
-        let container = document.getElementById(`${this.props.title}-info-container`)
-        container.classList.remove("trigger-fade")
+        let container = document.getElementById(`${this.props.title}-info-container`);
+        if (container) container.classList.remove("trigger-fade");
     }
 
     fadeInfo() {
@@ -164,12 +171,12 @@ class Movie extends React.Component {
             )
         } else if (activeRow && activeMovie) {
             moviePreview = (
-                <div className="movie-preview-active playing" onMouseEnter={this.togglePlayOn} onMouseLeave={this.togglePlayOff}>
+                <Link className="movie-preview-active playing" onClick={this.handleClick} to={`/browse/${details.id}/watch`} onMouseEnter={this.togglePlayOn} onMouseLeave={this.togglePlayOff}>
                     <img src="/assets/rogue_one_thumbnail.jpg" className="thumbnail-active"/>
                     <div className="play-container">
                         <i className="fas fa-play-circle fa-6x preview-play-button hov-button"></i>
                     </div>
-                </div>
+                </Link>
             )
 
         } else if (activeRow && !activeMovie) {
