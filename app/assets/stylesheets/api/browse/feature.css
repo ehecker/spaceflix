@@ -10,13 +10,25 @@
     height: 100%;
     width: 100%;
     position: absolute;
+    overflow: hidden;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .feature-movie {
     background-color: green;
-    height: 100%;
+    /* height: auto;
     width: 100%;
-}
+    margin-top: -40px; */
+   
+    /* height: auto;
+    width: 100%; */
+
+    height: 130%;
+    width: 100%;
+} 
 
 .feature-overlay {
     /* background-color: goldenrod; */

@@ -8,11 +8,37 @@ class Nav extends React.Component {
 
         this.state = {
             loggedIn: !!this.props.currentUser,
-            currentPage: this.props.location
+            currentPage: this.props.location,
         }
-        
+
+        this.scrollValue = 0;
+
+        this.handleScroll = this.handleScroll.bind(this);
         this.handleDemo = this.handleDemo.bind(this);
         this.handleLogout = this.handleLogout.bind(this);
+    }
+
+    componentDidMount() {
+        window.addEventListener("scroll", this.handleScroll);
+    }
+
+    componentWillUnmount() {
+        window.removeEventListener("scroll", this.handleScroll);
+    }
+
+    handleScroll() {
+        let root = document.getElementsByTagName("html")[0];
+
+        if (this.scrollValue < 70 && root.scrollTop >= 70) {
+            let nav = document.getElementsByTagName("nav")[0];
+            nav.classList.add("nav-scrolled")
+            this.scrollValue = root.scrollTop;
+
+        } else if (this.scrollValue > 70 && root.scrollTop <= 70 ) {
+            let nav = document.getElementsByTagName("nav")[0];
+            nav.classList.remove("nav-scrolled")
+            this.scrollValue = root.scrollTop;
+        }
     }
 
     handleLogout() {
@@ -32,7 +58,7 @@ class Nav extends React.Component {
 
         let {currentUser, location} = this.props;
         let logo;
-        let navBg;
+        let navClasses;
         let navRightItems;
 
         if (location.includes("watch")) {
@@ -44,7 +70,7 @@ class Nav extends React.Component {
         if (!!currentUser) {
 
             logo = <div className="logo-small"></div>
-            navBg = "nav-bg";
+            navClasses = "nav-fixed";
             navRightItems = (
                 <div className="nav-buttons-box">
                     <div onClick={this.handleLogout} className="nav-button unselectable-text">Logout</div>
@@ -74,7 +100,7 @@ class Nav extends React.Component {
         }
 
         return (
-            <nav className={`nav-main ${navBg}`}>
+            <nav className={`nav-main ${navClasses}`}>
                 <div className="nav-left">
                     <Link className="logo-box" to="/">
                         {logo}

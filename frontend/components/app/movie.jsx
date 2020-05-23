@@ -32,8 +32,11 @@ class Movie extends React.Component {
     }
 
     // handleClick() {
-    //     console.log("Active Movie has been clicked")
-    //     this.props.history.push(`/browse/${this.props.details.id}/watch`)
+        
+    //     if (this.props.activeRow && this.props.activeMovie) {
+    //         console.log("Active Movie has been clicked")
+    //         window.location = `/#/browse/${this.props.details.id}/watch`
+    //     }
     // }
 
     togglePlayOn(event) {
@@ -124,10 +127,11 @@ class Movie extends React.Component {
 
         if (!activeRow) {
             moviePreview = (
-                <div className="movie-preview-default" onMouseEnter={this.togglePlayOn} onMouseLeave={this.togglePlayOff} >
-                    <img src="/assets/rogue_one_thumbnail.jpg" 
-                    className="thumbnail" 
-                    onMouseEnter={this.startFadeTimer} 
+                <div className="movie-preview-default" onClick={this.setActiveMovie} onMouseEnter={this.togglePlayOn} onMouseLeave={this.togglePlayOff} >
+                    <img 
+                        src="/assets/rogue_one_thumbnail.jpg" 
+                        className="thumbnail" 
+                        onMouseEnter={this.startFadeTimer} 
                     />
 
                     <div id={`${title}-info-container`}
@@ -165,13 +169,11 @@ class Movie extends React.Component {
                         </div>
 
                     </div>
-                    
-                    
                 </div>
             )
         } else if (activeRow && activeMovie) {
             moviePreview = (
-                <Link className="movie-preview-active playing" onClick={this.handleClick} to={`/browse/${details.id}/watch`} onMouseEnter={this.togglePlayOn} onMouseLeave={this.togglePlayOff}>
+                <Link className="movie-preview-active playing" to={`/browse/${details.id}/watch`} onMouseEnter={this.togglePlayOn} onMouseLeave={this.togglePlayOff}>
                     <img src="/assets/rogue_one_thumbnail.jpg" className="thumbnail-active"/>
                     <div className="play-container">
                         <i className="fas fa-play-circle fa-6x preview-play-button hov-button"></i>
@@ -179,9 +181,18 @@ class Movie extends React.Component {
                 </Link>
             )
 
+            // moviePreview = (
+            //     <div className="movie-preview-active playing" onClick={this.handleClick} onMouseEnter={this.togglePlayOn} onMouseLeave={this.togglePlayOff}>
+            //         <img src="/assets/rogue_one_thumbnail.jpg" className="thumbnail-active"/>
+            //         <div className="play-container">
+            //             <i className="fas fa-play-circle fa-6x preview-play-button hov-button"></i>
+            //         </div>
+            //     </div>
+            // )
+
         } else if (activeRow && !activeMovie) {
             moviePreview = (
-                <div className="movie-preview-inactive" onMouseEnter={this.togglePlayOn} onMouseLeave={this.togglePlayOff} >
+                <div className="movie-preview-inactive" onClick={this.setActiveMovie} onMouseEnter={this.togglePlayOn} onMouseLeave={this.togglePlayOff} >
                     <img src="/assets/rogue_one_thumbnail.jpg" className="thumbnail-inactive"/>
                     <div className="chev-down hov-button"></div>
                 </div>
@@ -191,9 +202,9 @@ class Movie extends React.Component {
 
 
         return (
-            <div className="movie-main" onClick={this.setActiveMovie}>
+            <main className="movie-main">
                 {moviePreview}
-            </div>
+            </main>
         )
     }
 

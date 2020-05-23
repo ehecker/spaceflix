@@ -5,21 +5,28 @@ class Feature extends React.Component {
         super(props);
 
         this.state = {
-            muted: false
+            muted: true
         };
     }
 
     render() {
 
         let { movie } = this.props;
+        let { muted } = this.state;
 
         return(
             <main className="feature-main">
                 <div className="feature-movie-container">
-                    <video src="" className="feature-movie"></video>
+                    <video 
+                        src="/assets/interstellar_trailer" 
+                        autoPlay 
+                        loop 
+                        muted={muted}
+                        className="feature-movie"
+                    />
                 </div>
                 <div className="feature-overlay">
-                    
+
                 </div>
             </main>
         )

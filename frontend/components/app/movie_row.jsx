@@ -102,6 +102,7 @@ class MovieRow extends React.Component {
             movieShow = (
                 <MovieShow genre={name} details={activeMovie} close={this.closeShow} />
             )
+            
             // movieShow=(
             //     <Link to={{
             //         pathname: `/browse/${activeMovie.id}`,

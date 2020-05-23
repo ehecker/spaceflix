@@ -19,7 +19,15 @@
     width: 50%;
 }
 
-.nav-bg {
+.nav-fixed {
+    position: fixed;
+    z-index: 50;
+    background: rgb(0,0,0);
+    background: linear-gradient(180deg, rgba(0,0,0,1) 0%, rgba(0,0,0,0) 100%);
+}
+
+.nav-scrolled {
+    transition: 300ms ease all;
     background-color: rgb(20, 20, 20);
 }
 
