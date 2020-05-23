@@ -28,7 +28,7 @@
 
 .nav-scrolled {
     transition: 300ms ease all;
-    background-color: rgb(20, 20, 20);
+    background: rgb(20, 20, 20);
 }
 
 .logo-box {

@@ -1,5 +1,6 @@
 import React from "react";
 import Footer from "../footer";
+import NavContainer from "../nav_container";
 
 class Splash extends React.Component {
 
@@ -105,6 +106,7 @@ class Splash extends React.Component {
 
         return (
             <main className="splash-main">
+                <NavContainer page="splash" />
                 <section className="landing">
                     <div className="splash-main-content">
                         <div className="slogan-container">

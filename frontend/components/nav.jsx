@@ -56,60 +56,121 @@ class Nav extends React.Component {
 
     render() {
 
-        let {currentUser, location} = this.props;
-        let logo;
+        let {currentUser, page} = this.props;
+
         let navClasses;
-        let navRightItems;
+        let navLeft;
+        let navRight;
 
-        if (location.includes("watch")) {
-            return(
-                <div></div>
-            )
-        }
-
-        if (!!currentUser) {
-
-            logo = <div className="logo-small"></div>
-            navClasses = "nav-fixed";
-            navRightItems = (
-                <div className="nav-buttons-box">
-                    <div onClick={this.handleLogout} className="nav-button unselectable-text">Logout</div>
+        if (page === "splash") {
+            navLeft=(
+                <div className="nav-left">
+                    <Link className="logo-box" to="/">
+                        <div className="logo-big"></div>
+                    </Link>
                 </div>
             )
 
-        } else if (location === "/login") {
+            navRight=(
+                <div className="nav-right">
+                    <div className="nav-buttons-box">
+                        <Link className="nav-link" to="/login">
+                            <div className="nav-button unselectable-text">Sign In</div>
+                        </Link>                    
+                        <div onClick={this.handleDemo} className="nav-button unselectable-text">Demo Login</div>
+                    </div>
+                </div>
+            )
 
-            logo = <div className="logo-big"></div>;
-            navRightItems = (
-                <div className="nav-buttons-box">
-                    <div onClick={this.handleDemo} className="nav-button unselectable-text">Demo Login</div>
+        } else if (page === "login") {
+            navLeft=(
+                <div className="nav-left">
+                    <Link className="logo-box" to="/">
+                        <div className="logo-big"></div>
+                    </Link>
+                </div>
+            )
+
+            navRight=(
+                <div className="nav-right">
+                    <div className="nav-buttons-box">
+                        <div onClick={this.handleDemo} className="nav-button unselectable-text">Demo Login</div>
+                    </div>
                 </div>
             )
             
-        } else {
-
-            logo = (<div className="logo-big"></div>);
-            navRightItems = (
-                <div className="nav-buttons-box">
-                    <Link className="nav-link" to="/login">
-                        <div className="nav-button unselectable-text">Sign In</div>
-                    </Link>                    
-                    <div onClick={this.handleDemo} className="nav-button unselectable-text">Demo Login</div>
+        } else if (page === "browse") {
+            navClasses = "nav-fixed";
+            navLeft=(
+                <div className="nav-left">
+                    <Link className="logo-box" to="/">
+                        <div className="logo-small"></div>
+                    </Link>
                 </div>
             )
+
+            navRight=(
+                <div className="nav-right">
+                     <div className="nav-buttons-box">
+                        <div onClick={this.handleLogout} className="nav-button unselectable-text">Logout</div>
+                    </div>
+                </div>
+            )
+
         }
+
+        // if (location.includes("watch")) {
+        //     return(
+        //         <div></div>
+        //     )
+        // }
+
+        // if (!!currentUser) {
+
+        //     logo = <div className="logo-small"></div>
+        //     navClasses = "nav-fixed";
+        //     navRightItems = (
+        //         <div className="nav-buttons-box">
+        //             <div onClick={this.handleLogout} className="nav-button unselectable-text">Logout</div>
+        //         </div>
+        //     )
+
+        // } else if (location === "/login") {
+
+        //     logo = <div className="logo-big"></div>;
+        //     navRightItems = (
+        //         <div className="nav-buttons-box">
+        //             <div onClick={this.handleDemo} className="nav-button unselectable-text">Demo Login</div>
+        //         </div>
+        //     )
+            
+        // } else {
+
+        //     logo = (<div className="logo-big"></div>);
+        //     navRightItems = (
+        //         <div className="nav-buttons-box">
+        //             <Link className="nav-link" to="/login">
+        //                 <div className="nav-button unselectable-text">Sign In</div>
+        //             </Link>                    
+        //             <div onClick={this.handleDemo} className="nav-button unselectable-text">Demo Login</div>
+        //         </div>
+        //     )
+        // }
 
         return (
             <nav className={`nav-main ${navClasses}`}>
-                <div className="nav-left">
+                {navLeft}
+                {navRight}
+
+                {/* <div className="nav-left">
                     <Link className="logo-box" to="/">
                         {logo}
                     </Link>
-                </div>
+                </div> */}
 
-                <div className="nav-right">
+                {/* <div className="nav-right">
                     {navRightItems}
-                </div>
+                </div> */}
             </nav>
         )
     }

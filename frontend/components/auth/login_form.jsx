@@ -1,5 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import NavContainer from "../nav_container";
 import Footer from "../footer";
 
 class LoginForm extends React.Component {
@@ -55,8 +56,9 @@ class LoginForm extends React.Component {
         }
 
         return (
-            <div>
-                <main className="landing extended">
+            <main className="login-main">
+                <NavContainer page="login" />
+                <div className="landing extended">
                     <div className="login-content-box">
                         <form className="login-form" onSubmit={this.handleSubmit}>
                             <h2 className="login-title">Sign In</h2>
@@ -69,9 +71,9 @@ class LoginForm extends React.Component {
                             </div>
                         </form>
                     </div>
-                </main>
+                </div>
                 <Footer />
-            </div>
+            </main>
             
         )
     }
