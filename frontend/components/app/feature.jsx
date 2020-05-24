@@ -39,7 +39,7 @@ class Feature extends React.Component {
             <main className="feature-main">
                 <div className="feature-movie-container">
                     <video 
-                        src="/assets/life_beyond_new_trailer" 
+                        src="/assets/life_beyond_trailer" 
                         autoPlay 
                         loop 
                         muted={muted}
