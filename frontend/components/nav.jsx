@@ -134,7 +134,7 @@ class Nav extends React.Component {
                                                 <p className="dropdown-text">Steve</p>
                                             </div>
                                         </div>
-                                        <p className="manage-link">Manage Profiles</p>
+                                        <Link to="/profiles" className="manage-link">Manage Profiles</Link>
                                     </div>
                                     <div className="dropdown-main-bottom">
                                         <div className="dropdown-section">

@@ -7,18 +7,39 @@ class Feature extends React.Component {
         this.state = {
             muted: true
         };
+
+        this.toggleMute = this.toggleMute.bind(this);
+    }
+
+    toggleMute() {
+        this.setState({
+            muted: !this.state.muted
+        })
     }
 
     render() {
 
-        let { movie } = this.props;
+        let movie;
+        if (this.props.movie) movie = this.props.movie;
         let { muted } = this.state;
+
+        let muteButton;
+
+        if (muted) {
+            muteButton=(
+                <div className="feature-mute-off" onClick={this.toggleMute}></div>
+            )
+        } else {
+            muteButton=(
+                <div className="feature-mute-on" onClick={this.toggleMute}></div>
+            )
+        }
 
         return(
             <main className="feature-main">
-                {/* <div className="feature-movie-container">
+                <div className="feature-movie-container">
                     <video 
-                        src="/assets/interstellar_trailer" 
+                        src="/assets/life_beyond_new_trailer" 
                         autoPlay 
                         loop 
                         muted={muted}
@@ -26,8 +47,30 @@ class Feature extends React.Component {
                     />
                 </div>
                 <div className="feature-overlay">
-
-                </div> */}
+                    <div className="feature-info">
+                        <h2 className="feature-title unselectable-text">LIFE BEYOND</h2>
+                        <div className="feature-description unselectable-text">
+                            The biggest question of our time. Are we alone?
+                            New research and technologies have brought us closer than ever to an answer - only a few decades in the eyes of some NASA scientists.
+                        </div>
+                        <div className="feature-buttons">
+                            <div className="feature-buttons-left">
+                                <div className="feature-play-btn">
+                                    <div className="feature-play-icon"></div>
+                                    <div className="feature-play-text">Play</div>
+                                </div>
+                                <div className="feature-add-btn">
+                                    <div className="feature-add-icon"></div>
+                                    <div className="feature-add-text">My List</div>
+                                </div>
+                            </div>
+                            <div className="feature-buttons-right">
+                                {muteButton}
+                                <div className="feature-rating">TV-G</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </main>
         )
     }

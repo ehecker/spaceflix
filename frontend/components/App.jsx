@@ -8,6 +8,7 @@ import SplashContainer from "./auth/splash_container";
 import LoginFormContainer from "./auth/login_form_container";
 import BrowseContainer from "./app/browse_container";
 import Watch from "./app/watch";
+import Profiles from "./app/profiles";
 
 // AuthRoutes are for non-logged in users, ProtectedRoutes are for logged-in users.
 
@@ -20,6 +21,7 @@ const App = () => (
             <ProtectedRoute exact path="/browse/:id/watch" component={Watch} />
             <ProtectedRoute path="/browse" component={BrowseContainer} />
         </Switch>
+        <ProtectedRoute path="/profiles" component={Profiles} />
         {/* <ProtectedRoute path="/browse/:id" component={MovieShow} /> */}
     </main>
 )

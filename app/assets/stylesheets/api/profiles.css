@@ -1,0 +1,62 @@
+.profiles-main {
+    background-color: #141414;
+    height: 100vh;
+    width: 100vw;
+    color: #808080;
+}
+
+.profiles-logo-container {
+    width: 100%;
+    height: 70px;
+    display: flex;
+    align-items: center;
+    position: absolute;
+}
+
+.profiles-logo {
+    background-image: url("/assets/spaceflix-logo-small.png");
+    background-size: cover;
+    height: 40px;
+    width: 137px;
+    margin-left: 70px;
+}
+
+.profiles-outer-container {
+    /* background-color: blue; */
+    height: 100%;
+    width: 100%;
+    display: flex;
+    align-items: center;
+}
+
+.profiles-inner-container {
+    /* background-color: red; */
+    width: 100%;
+    height: 500px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.profiles-header {
+    color: white;
+    font-size: 65px;
+}
+
+.profiles-list {
+
+}
+
+.manage-button{
+    font-size: 24px;
+    padding: 10px 30px 10px 30px;
+    border: 1px solid #808080;
+    letter-spacing: 2px;
+}
+
+.manage-button:hover {
+    border: 1px solid white;
+    color: white;
+    cursor: pointer;
+}
