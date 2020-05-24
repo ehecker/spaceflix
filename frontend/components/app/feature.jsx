@@ -16,7 +16,7 @@ class Feature extends React.Component {
 
         return(
             <main className="feature-main">
-                <div className="feature-movie-container">
+                {/* <div className="feature-movie-container">
                     <video 
                         src="/assets/interstellar_trailer" 
                         autoPlay 
@@ -27,7 +27,7 @@ class Feature extends React.Component {
                 </div>
                 <div className="feature-overlay">
 
-                </div>
+                </div> */}
             </main>
         )
     }

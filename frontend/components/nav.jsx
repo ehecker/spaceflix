@@ -1,5 +1,5 @@
 import React from "react";
-import { Link, useLocation } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 class Nav extends React.Component {
 
@@ -11,7 +11,7 @@ class Nav extends React.Component {
             currentPage: this.props.location,
         }
 
-        this.scrollValue = 0;
+        this.scrollValue = document.getElementsByTagName("html")[0].scrollTop;
 
         this.handleScroll = this.handleScroll.bind(this);
         this.handleDemo = this.handleDemo.bind(this);
@@ -19,7 +19,9 @@ class Nav extends React.Component {
     }
 
     componentDidMount() {
-        window.addEventListener("scroll", this.handleScroll);
+        if (this.props.page === "browse") {
+            window.addEventListener("scroll", this.handleScroll);
+        }
     }
 
     componentWillUnmount() {
@@ -27,14 +29,14 @@ class Nav extends React.Component {
     }
 
     handleScroll() {
-        let root = document.getElementsByTagName("html")[0];
+        const root = document.getElementsByTagName("html")[0];
 
-        if (this.scrollValue < 70 && root.scrollTop >= 70) {
+        if (this.scrollValue < 50 && root.scrollTop >= 50) {
             let nav = document.getElementsByTagName("nav")[0];
             nav.classList.add("nav-scrolled")
             this.scrollValue = root.scrollTop;
 
-        } else if (this.scrollValue > 70 && root.scrollTop <= 70 ) {
+        } else if (this.scrollValue >= 50 && root.scrollTop <= 50 ) {
             let nav = document.getElementsByTagName("nav")[0];
             nav.classList.remove("nav-scrolled")
             this.scrollValue = root.scrollTop;
@@ -116,61 +118,12 @@ class Nav extends React.Component {
                     </div>
                 </div>
             )
-
         }
-
-        // if (location.includes("watch")) {
-        //     return(
-        //         <div></div>
-        //     )
-        // }
-
-        // if (!!currentUser) {
-
-        //     logo = <div className="logo-small"></div>
-        //     navClasses = "nav-fixed";
-        //     navRightItems = (
-        //         <div className="nav-buttons-box">
-        //             <div onClick={this.handleLogout} className="nav-button unselectable-text">Logout</div>
-        //         </div>
-        //     )
-
-        // } else if (location === "/login") {
-
-        //     logo = <div className="logo-big"></div>;
-        //     navRightItems = (
-        //         <div className="nav-buttons-box">
-        //             <div onClick={this.handleDemo} className="nav-button unselectable-text">Demo Login</div>
-        //         </div>
-        //     )
-            
-        // } else {
-
-        //     logo = (<div className="logo-big"></div>);
-        //     navRightItems = (
-        //         <div className="nav-buttons-box">
-        //             <Link className="nav-link" to="/login">
-        //                 <div className="nav-button unselectable-text">Sign In</div>
-        //             </Link>                    
-        //             <div onClick={this.handleDemo} className="nav-button unselectable-text">Demo Login</div>
-        //         </div>
-        //     )
-        // }
 
         return (
             <nav className={`nav-main ${navClasses}`}>
                 {navLeft}
                 {navRight}
-
-                {/* <div className="nav-left">
-                    <Link className="logo-box" to="/">
-                        {logo}
-                    </Link>
-                </div> */}
-
-                {/* <div className="nav-right">
-                    {navRightItems}
-                </div> */}
             </nav>
         )
     }

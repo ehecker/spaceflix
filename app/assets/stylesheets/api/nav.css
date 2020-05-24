@@ -20,15 +20,27 @@
 }
 
 .nav-fixed {
+    background: linear-gradient(180deg, rgba(20,20,20,1) 0%, rgba(0,0,0,0) 100%);
     position: fixed;
     z-index: 50;
-    background: rgb(0,0,0);
-    background: linear-gradient(180deg, rgba(0,0,0,1) 0%, rgba(0,0,0,0) 100%);
 }
 
-.nav-scrolled {
-    transition: 300ms ease all;
-    background: rgb(20, 20, 20);
+.nav-fixed::before {
+    background: linear-gradient(180deg, rgba(20,20,20,1) 0%, rgba(20,20,20,1) 100%);
+    content: "";
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    z-index: -1;
+
+    transition: opacity 0.5s ease;
+    opacity: 0;
+}
+
+.nav-scrolled.nav-fixed::before {
+    opacity: 1;
 }
 
 .logo-box {
