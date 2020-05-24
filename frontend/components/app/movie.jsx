@@ -31,14 +31,6 @@ class Movie extends React.Component {
         this.endFadeTimer();
     }
 
-    // handleClick() {
-        
-    //     if (this.props.activeRow && this.props.activeMovie) {
-    //         console.log("Active Movie has been clicked")
-    //         window.location = `/#/browse/${this.props.details.id}/watch`
-    //     }
-    // }
-
     togglePlayOn(event) {
         event.currentTarget.classList.add("playing")
 
@@ -108,7 +100,7 @@ class Movie extends React.Component {
 
     fadeInfo() {
         let container = document.getElementById(`${this.props.title}-info-container`)
-        container.classList.add("trigger-fade")
+        if (container) container.classList.add("trigger-fade")
     }
 
     render() {
