@@ -58,7 +58,7 @@ class Nav extends React.Component {
 
     render() {
 
-        let {currentUser, page} = this.props;
+        let { page } = this.props;
 
         let navClasses;
         let navLeft;
@@ -118,15 +118,35 @@ class Nav extends React.Component {
             navRight=(
                 <div className="nav-right">
                     <div className="profiles-dropdown-container">
-                        <div className="current-profile">
-                            <div className="dropdown-outer-container">
+                        <div className="profiles-dropdown-top">
+                            <p className="nav-welcome">Welcome back, Ezra</p>
+                            <div className="current-profile"></div>
+                            <div className="dropdown-down-carrot"></div>
+                        </div>
+                        <div className="profiles-dropdown-bottom">
+                            <div className="dropdown-bottom-box">
                                 <div className="dropdown-up-carrot"></div>
-                                <div className="dropdown-main"></div>
+                                <div className="dropdown-main">
+                                    <div className="dropdown-main-top">
+                                        <div className="dropdown-section">
+                                            <div className="dropdown-profile">
+                                                <div className="profile-pic"></div>
+                                                <p className="dropdown-text">Apolis</p>
+                                            </div>
+                                        </div>
+                                        <p className="manage-link">Manage Profiles</p>
+                                    </div>
+                                    <div className="dropdown-main-bottom">
+                                        <div className="dropdown-section">
+                                            <p className="dropdown-link">Account</p>
+                                            <p className="dropdown-link">Help Center</p>
+                                            <p className="dropdown-link last" onClick={this.handleLogout}>Sign out of Spaceflix</p>
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
                         </div>
-                        <div className="dropdown-down-carrot"></div>
                     </div>
-                    {/* <div onClick={this.handleLogout} className="nav-button unselectable-text">Logout</div> */}
                 </div>
             )
         }
