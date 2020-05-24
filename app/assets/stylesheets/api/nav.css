@@ -19,30 +19,6 @@
     width: 50%;
 }
 
-.nav-fixed {
-    background: linear-gradient(180deg, rgba(20,20,20,1) 0%, rgba(0,0,0,0) 100%);
-    position: fixed;
-    z-index: 50;
-}
-
-.nav-fixed::before {
-    background: linear-gradient(180deg, rgba(20,20,20,1) 0%, rgba(20,20,20,1) 100%);
-    content: "";
-    position: absolute;
-    top: 0;
-    right: 0;
-    bottom: 0;
-    left: 0;
-    z-index: -1;
-
-    transition: opacity 0.5s ease;
-    opacity: 0;
-}
-
-.nav-scrolled.nav-fixed::before {
-    opacity: 1;
-}
-
 .logo-box {
     margin-left: 70px;
 }
@@ -56,7 +32,6 @@
     width: 229px;
     margin: 20px 0 5px 0px;
 }
-
 
 .nav-buttons-box {
     display: flex;
@@ -91,3 +66,107 @@
 .logout-button {
     background-color: #E50914;
 }
+
+.nav-fixed {
+    background: linear-gradient(180deg, rgba(20,20,20,1) 0%, rgba(0,0,0,0) 100%);
+    position: fixed;
+    z-index: 50;
+}
+
+.nav-fixed::before {
+    background: linear-gradient(180deg, rgba(20,20,20,1) 0%, rgba(20,20,20,1) 100%);
+    content: "";
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    z-index: -1;
+
+    transition: opacity 0.5s ease;
+    opacity: 0;
+}
+
+.nav-scrolled.nav-fixed::before {
+    opacity: 1;
+}
+
+/* LINKS SECTION */
+
+.browse-links-container {
+    display: flex;
+    color: white;
+    font-size: 15px;
+    margin-left: 50px;
+}
+
+.browse-link {
+    margin-right: 20px;
+    cursor: pointer;
+}
+
+.browse-link-active {
+    font-weight: 600;
+}
+
+.browse-link:hover {
+    transition-property: opacity;
+    transition-duration: 300ms;
+    opacity: 0.7;
+}
+
+/* PROFILES DROPDOWN */
+
+.profiles-dropdown-container {
+    display: flex;
+    align-items: center;
+    margin-right: 60px;
+    cursor: pointer;
+}
+
+.current-profile {
+    background-color: blue;
+    border-radius: 3px;
+    height: 35px;
+    width: 35px;
+}
+
+.dropdown-down-carrot {
+    width: 0;
+    height: 0;
+    border-left: 5px solid transparent;
+    border-right: 5px solid transparent;
+    border-top: 5px solid white;
+    margin-left: 10px;
+}
+
+.profiles-dropdown-container:hover .dropdown-outer-container {
+    visibility: visible;
+}
+
+.dropdown-outer-container {
+    visibility: hidden;
+    display: flex;
+    flex-direction: column;
+    background-color: green;
+    position: absolute;
+    top: 75px;
+    right: 60px;
+}
+
+.dropdown-up-carrot {
+    display: inline-block;
+    width: 0;
+    height: 0;
+    border-left: 7px solid transparent;
+    border-right: 7px solid transparent;
+    border-bottom: 7px solid white;
+}
+
+.dropdown-main {
+    display: inline-block;
+    background-color: rgba(0, 0, 0, 0.85);
+    height: 300px;
+    width: 200px;
+}
+

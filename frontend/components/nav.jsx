@@ -108,14 +108,25 @@ class Nav extends React.Component {
                     <Link className="logo-box" to="/">
                         <div className="logo-small"></div>
                     </Link>
+                    <div className="browse-links-container">
+                        <p className="browse-link browse-link-active">Home</p>
+                        <p className="browse-link">My List</p>
+                    </div>
                 </div>
             )
 
             navRight=(
                 <div className="nav-right">
-                     <div className="nav-buttons-box">
-                        <div onClick={this.handleLogout} className="nav-button unselectable-text">Logout</div>
+                    <div className="profiles-dropdown-container">
+                        <div className="current-profile">
+                            <div className="dropdown-outer-container">
+                                <div className="dropdown-up-carrot"></div>
+                                <div className="dropdown-main"></div>
+                            </div>
+                        </div>
+                        <div className="dropdown-down-carrot"></div>
                     </div>
+                    {/* <div onClick={this.handleLogout} className="nav-button unselectable-text">Logout</div> */}
                 </div>
             )
         }
