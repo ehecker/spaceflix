@@ -5,7 +5,7 @@ class Feature extends React.Component {
         super(props);
 
         this.state = {
-            muted: true
+            muted: false
         };
 
         this.toggleMute = this.toggleMute.bind(this);
@@ -57,11 +57,11 @@ class Feature extends React.Component {
                             <div className="feature-buttons-left">
                                 <div className="feature-play-btn">
                                     <div className="feature-play-icon"></div>
-                                    <div className="feature-play-text">Play</div>
+                                    <div className="feature-play-text unselectable-text">Play</div>
                                 </div>
                                 <div className="feature-add-btn">
                                     <div className="feature-add-icon"></div>
-                                    <div className="feature-add-text">My List</div>
+                                    <div className="feature-add-text unselectable-text">My List</div>
                                 </div>
                             </div>
                             <div className="feature-buttons-right">

@@ -78,7 +78,6 @@ class MovieRow extends React.Component {
 
         for (let [title, details] of movies) {
 
-
             let activeStatus;
             
             if (activeMovie) {
@@ -102,15 +101,6 @@ class MovieRow extends React.Component {
             movieShow = (
                 <MovieShow genre={name} details={activeMovie} close={this.closeShow} />
             )
-            
-            // movieShow=(
-            //     <Link to={{
-            //         pathname: `/browse/${activeMovie.id}`,
-            //         genre: name,
-            //         details: activeMovie,
-            //         close: this.closeShow
-            // }}/>
-            // )
         }
 
         return (

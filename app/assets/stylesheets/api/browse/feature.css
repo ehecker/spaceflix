@@ -1,5 +1,5 @@
 .feature-main {
-    background-color: red;
+    /* background-color: red; */
     color: white;
     height: 100%;
     width: 100%;
@@ -7,7 +7,7 @@
 }
 
 .feature-movie-container {
-    background-color: blueviolet;
+    /* background-color: blueviolet; */
     height: 100%;
     width: 100%;
     position: absolute;
@@ -19,7 +19,7 @@
 }
 
 .feature-movie {
-    background-color: green;
+    /* background-color: green; */
     /* height: auto;
     width: 100%;
     margin-top: -40px; */
@@ -37,13 +37,14 @@
     width: 100%;
     position: relative;
     display: flex;
-    align-items: center;
+    align-items: flex-end;
     justify-content: flex-end;
 }
 
 .feature-info {
     /* background-color: green; */
-    margin-top: 350px;
+    /* margin-top: 350px; */
+    margin-bottom: 170px;
     margin-left: 70px;
     width: 97%;
     display: flex;

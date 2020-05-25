@@ -4,16 +4,18 @@
 }
 
 .browse-hero-container {
-    background-color: darkblue;
+    /* background-color: darkblue; */
     height: 100vh;
     width: 100vw;
 }
 
 .browse-rows-container {
     width: 100%;
-    margin-top: 50px;
-    /* position: relative; */
+    margin-top: -100px;
+    /* margin-top: 50px; */
+    position: relative;
 
     display: flex;
     flex-direction: column;
+    z-index: 100;
 }
