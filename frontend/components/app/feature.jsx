@@ -17,6 +17,14 @@ class Feature extends React.Component {
         })
     }
 
+    componentDidMount() {
+        const video = document.getElementsByClassName("feature-movie")[0];
+        if (video) {
+            console.log("Adjusting volume!")
+            video.volume = 0.5;
+        } 
+    }
+
     render() {
 
         let movie;

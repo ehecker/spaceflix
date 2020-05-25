@@ -43,8 +43,7 @@
 
 .feature-info {
     /* background-color: green; */
-    /* margin-top: 350px; */
-    margin-bottom: 170px;
+    margin-bottom: 140px;
     margin-left: 70px;
     width: 97%;
     display: flex;
@@ -52,7 +51,7 @@
 }
 
 .feature-title {
-    font-size: 65px;
+    font-size: 60px;
     font-weight: 700;
     margin-bottom: 30px;
     font-family: 'Quicksand', sans-serif;
