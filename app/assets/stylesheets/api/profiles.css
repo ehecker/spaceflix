@@ -45,7 +45,49 @@
 }
 
 .profiles-list {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    margin: 35px 0 60px 0;
+}
 
+.profile-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 0 30px;
+    cursor: pointer;
+}
+
+.profile-container:hover .profile-box {
+    border: 3px solid white;
+}
+
+.profile-container:hover .profile-name {
+    color: white;
+}
+
+.profile-box {
+    height: 200px;
+    width: 200px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    /* background-color: blue; */
+    border: 3px solid #333;
+    margin-bottom: 20px;
+}
+
+.profile-icon {
+    background-image: url("/assets/rocket-icon");
+    background-size: cover;
+    height: 175px;
+    width: 175px;
+}
+
+.profile-name {
+    font-size: 22px;
+    font-weight: 500;
 }
 
 .manage-button{
@@ -59,4 +101,26 @@
     border: 1px solid white;
     color: white;
     cursor: pointer;
+}
+
+/* GRADIENTS */
+
+.gradient-1 {
+    background: linear-gradient(0deg, rgba(114,155,244,1) 0%, rgba(49,107,212,1) 40%);
+}
+
+.gradient-2 {
+    background: linear-gradient(0deg, rgba(231,109,109,1) 0%, rgba(163,7,38,1) 40%);
+}
+
+.gradient-3 {
+    background: linear-gradient(0deg, rgba(138,231,109,1) 0%, rgba(7,163,41,1) 40%);
+}
+
+.gradient-4 {
+    background: linear-gradient(0deg, rgba(109,111,231,1) 0%, rgba(14,7,163,1) 40%);
+}
+
+.gradient-5 {
+    background: linear-gradient(0deg, rgba(231,211,109,1) 0%, rgba(163,138,7,1) 40%);
 }

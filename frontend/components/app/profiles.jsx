@@ -6,18 +6,24 @@ class Profiles extends React.Component {
         super(props)
 
         this.state = {
-            name: ""
+            managementStatus: false
         }
 
         this.updateName = this.updateName.bind(this);
         this.createProfile = this.createProfile.bind(this);
+
+        this.toggleManagement = this.toggleManagement.bind(this);
     }
 
     updateName(e) {
-        // debugger
-
         this.setState({
             name: e.currentTarget.value
+        })
+    }
+
+    toggleManagement() {
+        this.setState({
+            managementStatus: !this.state.managementStatus
         })
     }
 
@@ -32,7 +38,27 @@ class Profiles extends React.Component {
 
     render() {
 
-        let { name } = this.state;
+        let { currentUser } = this.props;
+
+        let profiles = Object.values(currentUser)[0].profiles;
+        let numProfiles;
+        let styledProfiles;
+
+        let profilesHeader = this.state.managementStatus ? "Manage Profiles:" : "Who's watching?";
+
+        if (profiles) {
+            numProfiles = profiles.length;
+            styledProfiles = profiles.map((profile, index) => {
+                return(
+                    <div className="profile-container" key={profile.name}>
+                        <div className={`profile-box gradient-${index + 1}`}>
+                            <div className="profile-icon"></div>
+                        </div>
+                        <div className="profile-name">{profile.name}</div>
+                    </div>
+                )
+            })
+        }
 
         return(
             <div className="profiles-main">
@@ -41,12 +67,11 @@ class Profiles extends React.Component {
                 </div>
                 <div className="profiles-outer-container">
                     <div className="profiles-inner-container">
-                        <h1 className="profiles-header unselectable-text">Who's watching?</h1>
+                        <h1 className="profiles-header unselectable-text">{profilesHeader}</h1>
                         <div className="profiles-list">
-                            <input onChange={this.updateName} type="text" value={name} className="profile-name"/>
-                            <button onClick={this.createProfile} className="make-profiles">Create New Profile!</button>
+                            {styledProfiles}
                         </div>
-                        <div className="manage-button">MANAGE PROFILES</div>
+                        <div className="manage-button unselectable-text" onClick={this.toggleManagement} >MANAGE PROFILES</div>
                     </div>
                 </div>
 
