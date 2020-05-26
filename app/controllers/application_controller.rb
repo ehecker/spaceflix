@@ -1,6 +1,5 @@
 class ApplicationController < ActionController::Base
-    # All other controllers are already receiving these functions because they inherit from Application Controller.
-    # So why do I need to use helper_method here? Where does this make these functions available?
+    
     helper_method :current_user, :logged_in?
 
     def logged_in?

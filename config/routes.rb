@@ -7,6 +7,8 @@ Rails.application.routes.draw do
 
     resources :movies, only: [:show, :index]
     resources :genres, only: [:show, :index]
+
+    resources :profiles, only: [:create, :destroy, :show]
   end
 
 end
