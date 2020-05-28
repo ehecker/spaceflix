@@ -6,7 +6,6 @@ class Api::SessionsController < ApplicationController
         if @user
             login(@user)
 
-            # Do I actually need this? Will I even have a users show page?
             render '/api/users/show'
         else
             render json: ["Invalid email/password combination"], status: 401
@@ -19,8 +18,7 @@ class Api::SessionsController < ApplicationController
         if @user
             logout
 
-            # Same ? as above
-            # render "api/users/show"
+            # render "/api/users/show"
             
             render json: {}
         else

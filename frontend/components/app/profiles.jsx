@@ -15,12 +15,18 @@ class Profiles extends React.Component {
 
         this.createProfile = this.createProfile.bind(this);
         this.deleteProfile = this.deleteProfile.bind(this);
-
+        this.setActiveProfile = this.setActiveProfile.bind(this);
         this.toggleManagement = this.toggleManagement.bind(this);
         this.toggleCreateSection = this.toggleCreateSection.bind(this);
     }
 
+    setActiveProfile() {
+        console.log("Setting active profile!")
+    }
+
     updateName(e) {
+        if (this.state.newProfileName.length >= 13) return;
+
         this.setState({
             newProfileName: e.currentTarget.value
         })
@@ -38,13 +44,37 @@ class Profiles extends React.Component {
         })
     }
 
+    startAddHover(e) {
+        e.currentTarget.classList.add("add-hover")
+    }
+
+    endAddHover(e) {
+        e.currentTarget.classList.remove("add-hover")
+    }
+
     createProfile() {
+        let newProfName = this.state.newProfileName;
+        if (newProfName.length === 0) return;
+
+        newProfName = this.titleize(newProfName)
+
         let newProfileData = {
-            name: this.state.newProfileName,
+            name: newProfName,
             user_id: this.props.currentUserId
         }
 
         this.props.createProfile(newProfileData)
+
+        this.setState({
+            createSectionActive: false
+        })
+    }
+
+    titleize(name) {
+        let firstLetter = name[0].toUpperCase();
+        let otherLetters = name.slice(1).toLowerCase();
+
+        return firstLetter + otherLetters;
     }
 
     deleteProfile() {
@@ -53,24 +83,21 @@ class Profiles extends React.Component {
 
     render() {
 
-        let { managementStatus } = this.state;
         let { currentUser } = this.props;
-
+        let { managementStatus, createSectionActive } = this.state;
         let profiles = Object.values(currentUser)[0].profiles;
-        let numProfiles;
+        let numProfiles = profiles.length;
+
+        let profilesLogo;
+        let profilesHeader;
+        let listContents;
         let styledProfiles;
-        
-        let manageBtn = managementStatus ? (
-            <div className="profiles-done-btn unselectable-text" onClick={this.toggleManagement} >DONE</div>
-        ) : (
-            <div className="manage-button unselectable-text" onClick={this.toggleManagement}>MANAGE PROFILES</div>
-        ) 
+        let manageBtn;
+        let deleteBtn;
 
-        let profilesHeader = managementStatus ? "Manage Profiles:" : "Who's watching?";
-        let deleteBtn = managementStatus ? <div className="delete-btn" onClick={this.deleteProfile}></div> : "";
 
+        // Style Profiles
         if (profiles) {
-            numProfiles = profiles.length;
             styledProfiles = profiles.map((profile, index) => {
                 return(
                     <div className="profile-container" key={profile.name}>
@@ -86,23 +113,99 @@ class Profiles extends React.Component {
             })
         }
 
+        // Style Other Elements
+        if (numProfiles < 1) {
+            profilesLogo = (<div className="profiles-logo"></div>);
+            profilesHeader = "Create your first Profile";
+            listContents = (
+                <div className="first-profile-form">
+                    <div className="first-prof-header">Profile Name:</div>
+                    <input onChange={this.updateName} type="text" className="first-prof-input"/>
+                    <div className="first-prof-create" onClick={this.createProfile}>Submit</div>
+                </div>
+            )
+
+        } else if (!managementStatus) {
+            profilesLogo = (<Link to="/browse" className="profiles-logo"></Link>);
+            profilesHeader = "Who's watching?";
+            manageBtn = (<div className="manage-button unselectable-text" onClick={this.toggleManagement}>MANAGE PROFILES</div>);
+            listContents = styledProfiles;
+
+        } else if (managementStatus && createSectionActive) {
+            profilesLogo = (<Link to="/browse" className="profiles-logo"></Link>);
+            profilesHeader = "Manage Profiles:";
+            manageBtn = (<div className="profiles-done-btn unselectable-text" onClick={this.toggleManagement}>DONE</div>);
+            deleteBtn = (<div className="delete-btn" onClick={this.deleteProfile}></div>);
+            listContents = styledProfiles;
+
+        } else if (managementStatus && !createSectionActive) {
+            profilesLogo = (<Link to="/browse" className="profiles-logo"></Link>);
+            profilesHeader = "Manage Profiles:";
+            manageBtn = (<div className="profiles-done-btn unselectable-text" onClick={this.toggleManagement}>DONE</div>);
+            deleteBtn = (<div className="delete-btn" onClick={this.deleteProfile}></div>);
+            listContents = styledProfiles;
+
+        }
+
+    
+
         return(
             <div className="profiles-main">
                 <div className="profiles-logo-container">
-                    <Link to="/browse" className="profiles-logo"></Link>
+                    {profilesLogo}
                 </div>
-                <div className="profiles-outer-container">
-                    <div className="profiles-inner-container">
+                <div className="profiles-overlay">
+                    <div className="profiles-container">
                         <h1 className="profiles-header unselectable-text">{profilesHeader}</h1>
                         <div className="profiles-list">
-                            {styledProfiles}
+                            {listContents}
                         </div>
                         {manageBtn}
                     </div>
                 </div>
-
             </div>
         )
+
+
+
+
+
+
+
+
+
+
+        // return(
+        //     <div className="profiles-main">
+        //         <div className="profiles-logo-container">
+        //             <Link to="/browse" className="profiles-logo"></Link>
+        //         </div>
+        //         <div className="profiles-outer-container">
+        //             <div className="profiles-inner-container">
+        //                 <h1 className="profiles-header unselectable-text">{profilesHeader}</h1>
+        //                 <div className="profiles-list">
+        //                     {styledProfiles}
+        //                     <div className="add-profile-box">
+        //                         {/* <div className="add-button-box" onMouseEnter={this.startAddHover} onMouseLeave={this.endAddHover}>
+        //                             <div className="add-profile-btn" onClick={this.toggleCreateSection}></div>
+        //                             <div className="add-profile-text">Create New Profile</div>
+        //                         </div> */}
+        //                         <div className="add-profile-form">
+        //                             <div className="add-header">New Profile Name:</div>
+        //                             <input type="text" onChange={this.updateName} className="add-profile-input"/>
+        //                             <div className="add-submit" onClick={this.createProfile}>Create Profile</div>
+        //                         </div>
+        //                     </div>
+
+        //                 </div>
+        //                 {manageBtn}
+        //             </div>
+        //         </div>
+
+        //     </div>
+        // )
+
+
     }
 }
 

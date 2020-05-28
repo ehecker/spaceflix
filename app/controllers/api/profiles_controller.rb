@@ -5,6 +5,7 @@ class Api::ProfilesController < ApplicationController
 
         if @profile.save
             puts "profile created"
+            render "/api/users/show"
         else
             puts "profile creation failed"
             render json: @profile.errors.full_messages, status: 422
@@ -12,7 +13,7 @@ class Api::ProfilesController < ApplicationController
     end
 
     def destroy
-        debugger
+        # debugger
         @profile = current_user.profiles.find_by(id: params[:id])
 
         if @profile && @profile.destroy
