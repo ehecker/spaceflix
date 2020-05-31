@@ -10,6 +10,12 @@ class Api::UsersController < ApplicationController
         end
     end
 
+    def show
+        # debugger
+        @user = User.find_by(id: params[:id])
+        render 'api/profiles/show'
+    end
+
     private
     def user_params
         params.require(:user).permit(:email, :password)

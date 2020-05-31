@@ -20,12 +20,38 @@ class Profiles extends React.Component {
         this.toggleCreateSection = this.toggleCreateSection.bind(this);
     }
 
+    componentDidMount() {
+        this.props.getUserProfiles(this.props.currentUserId);
+    }
+
+    createProfile() {
+        let newProfName = this.state.newProfileName;
+        if (newProfName.length === 0) return;
+
+        newProfName = this.titleize(newProfName);
+
+        let newProfileData = {
+            name: newProfName,
+            user_id: this.props.currentUserId
+        }
+
+        this.props.createProfile(newProfileData);
+
+        this.setState({
+            createSectionActive: false
+        })
+    }
+
+    deleteProfile() {
+        console.log("Deleting Profile")
+    }
+
     setActiveProfile() {
         console.log("Setting active profile!")
     }
 
     updateName(e) {
-        if (this.state.newProfileName.length >= 13) return;
+        if (e.currentTarget.value.length >= 13) return;
 
         this.setState({
             newProfileName: e.currentTarget.value
@@ -35,7 +61,8 @@ class Profiles extends React.Component {
     toggleManagement() {
         this.setState({
             managementStatus: !this.state.managementStatus,
-            createSectionActive: false
+            createSectionActive: false,
+            newProfileName: ""
         })
     }
 
@@ -53,33 +80,11 @@ class Profiles extends React.Component {
         e.currentTarget.classList.remove("add-hover")
     }
 
-    createProfile() {
-        let newProfName = this.state.newProfileName;
-        if (newProfName.length === 0) return;
-
-        newProfName = this.titleize(newProfName)
-
-        let newProfileData = {
-            name: newProfName,
-            user_id: this.props.currentUserId
-        }
-
-        this.props.createProfile(newProfileData)
-
-        this.setState({
-            createSectionActive: false
-        })
-    }
-
     titleize(name) {
         let firstLetter = name[0].toUpperCase();
         let otherLetters = name.slice(1).toLowerCase();
 
         return firstLetter + otherLetters;
-    }
-
-    deleteProfile() {
-        console.log("Deleting Profile")
     }
 
     render() {
@@ -120,8 +125,8 @@ class Profiles extends React.Component {
                     <div className="create-prof-main">
                         <div className="create-form">
                             <div className="create-prof-header">New Profile Name:</div>
-                            <input type="text" className="create-input"/>
-                            <div className="create-submit">Submit</div>
+                            <input onChange={this.updateName} type="text" className="create-input" value={this.state.newProfileName}/>
+                            <div onClick={this.createProfile} className="create-submit">Submit</div>
                         </div>
                     </div>
                     <div className="create-prof-footer"></div>
@@ -134,17 +139,20 @@ class Profiles extends React.Component {
             manageBtn = (<div className="profiles-done-btn unselectable-text" onClick={this.toggleManagement}>DONE</div>);
             deleteBtn = (<div className="delete-btn" onClick={this.deleteProfile}></div>);
             listContents = styledProfiles;
-            createProfileForm=(
-                <div className="create-prof-form">
-                    <div className="create-prof-main">
-                        <div className="create-btns-box" onMouseEnter={this.startAddHover} onMouseLeave={this.endAddHover}>
-                            <div className="profiles-add-btn" onClick={this.toggleCreateSection}></div>
-                            <div className="create-profile-text">Create New Profile</div>
+
+            if (numProfiles <= 5) {
+                createProfileForm=(
+                    <div className="create-prof-form">
+                        <div className="create-prof-main">
+                            <div className="create-btns-box" onMouseEnter={this.startAddHover} onMouseLeave={this.endAddHover}>
+                                <div className="profiles-add-btn" onClick={this.toggleCreateSection}></div>
+                                <div className="create-profile-text">Create New Profile</div>
+                            </div>
                         </div>
+                        <div className="create-prof-footer"></div>
                     </div>
-                    <div className="create-prof-footer"></div>
-                </div>
-            )
+                )
+            }
 
         }
 

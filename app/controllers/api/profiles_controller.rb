@@ -13,7 +13,6 @@ class Api::ProfilesController < ApplicationController
     end
 
     def destroy
-        # debugger
         @profile = current_user.profiles.find_by(id: params[:id])
 
         if @profile && @profile.destroy
@@ -24,7 +23,7 @@ class Api::ProfilesController < ApplicationController
     end
 
     def show
-
+        @profiles = Profile.where(id: params[id])
     end
 
     private

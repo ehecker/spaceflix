@@ -5,3 +5,10 @@ export const createProfile = profile => {
         data: { profile }
     })
 }
+
+export const fetchUserProfiles = id => {
+    return $.ajax({
+        url: `/api/users/${id}`,
+        method: "GET"
+    })
+}
