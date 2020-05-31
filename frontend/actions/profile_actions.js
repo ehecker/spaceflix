@@ -12,10 +12,11 @@ const createProfileAction = profileData => {
     }
 }
 
-const receiveUserProfiles = profiles => {
+const receiveUserProfiles = user => {
+    // debugger
     return {
         type: RECEIVE_USER_PROFILES,
-        profiles
+        profiles: user.profiles
     }
 }
 

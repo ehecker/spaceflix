@@ -4,8 +4,6 @@ import { createProfile, getUserProfiles } from "../../actions/profile_actions";
 
 const msp = state => {
 
-    // debugger
-
     return {
         currentUserId: state.session.id,
         currentUser: state.entities.users,

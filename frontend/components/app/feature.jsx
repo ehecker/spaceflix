@@ -20,7 +20,6 @@ class Feature extends React.Component {
     componentDidMount() {
         const video = document.getElementsByClassName("feature-movie")[0];
         if (video) {
-            console.log("Adjusting volume!")
             video.volume = 0.5;
         } 
     }
@@ -74,7 +73,7 @@ class Feature extends React.Component {
                             </div>
                             <div className="feature-buttons-right">
                                 {muteButton}
-                                <div className="feature-rating">TV-G</div>
+                                <div className="feature-rating unselectable-text">TV-G</div>
                             </div>
                         </div>
                     </div>

@@ -1,2 +1,3 @@
-json.extract! user, :id, :email
-json.set! :profiles, user.profiles
+json.id user.id
+json.email user.email
+json.profiles user.profiles

@@ -5,7 +5,7 @@ const profilesReducer = (oldState = {}, action) => {
 
     switch (action.type) {
         case CREATE_PROFILE:
-            return Object.assign(oldState, action.profileData);
+            return Object.assign({}, oldState, action.profileData);
         case RECEIVE_USER_PROFILES:
             return Object.assign({}, oldState, action.profiles);
         default:

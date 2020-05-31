@@ -11,11 +11,10 @@ class Profiles extends React.Component {
             newProfileName: ""
         }
 
-        this.updateName = this.updateName.bind(this);
-
         this.createProfile = this.createProfile.bind(this);
         this.deleteProfile = this.deleteProfile.bind(this);
         this.setActiveProfile = this.setActiveProfile.bind(this);
+        this.updateName = this.updateName.bind(this);
         this.toggleManagement = this.toggleManagement.bind(this);
         this.toggleCreateSection = this.toggleCreateSection.bind(this);
     }
@@ -23,6 +22,10 @@ class Profiles extends React.Component {
     componentDidMount() {
         this.props.getUserProfiles(this.props.currentUserId);
     }
+    
+    // componentDidUpdate() {
+    //     this.props.getUserProfiles(this.props.currentUserId);
+    // }
 
     createProfile() {
         let newProfName = this.state.newProfileName;
@@ -36,9 +39,11 @@ class Profiles extends React.Component {
         }
 
         this.props.createProfile(newProfileData);
+        this.props.getUserProfiles(this.props.currentUserId);
 
         this.setState({
-            createSectionActive: false
+            createSectionActive: false,
+            managementStatus: false
         })
     }
 
@@ -90,10 +95,20 @@ class Profiles extends React.Component {
     render() {
 
         let { currentUser } = this.props;
-        let { managementStatus, createSectionActive } = this.state;
-        let profiles = Object.values(currentUser)[0].profiles;
-        let numProfiles = profiles.length;
+        // let profiles = Object.values(currentUser)[0].profiles;
         // numProfiles = 0;
+        let { managementStatus, createSectionActive } = this.state;
+        let profiles = Object.values(this.props.userProfiles);
+        let numProfiles = profiles.length;
+
+        console.log(numProfiles)
+
+        let weirdObject = {
+            keyName: "objectVal",
+            secKeyName: "secObjVal"
+        }
+
+        // debugger
 
         let profilesLogo;
         let profilesHeader;
@@ -103,6 +118,7 @@ class Profiles extends React.Component {
         let manageBtn;
         let deleteBtn;
 
+        // this.props.getUserProfiles(this.props.currentUserId);
 
         if (numProfiles < 1) {
             profilesLogo = (<div className="profiles-logo"></div>);
@@ -140,7 +156,7 @@ class Profiles extends React.Component {
             deleteBtn = (<div className="delete-btn" onClick={this.deleteProfile}></div>);
             listContents = styledProfiles;
 
-            if (numProfiles <= 5) {
+            if (numProfiles <= 4) {
                 createProfileForm=(
                     <div className="create-prof-form">
                         <div className="create-prof-main">

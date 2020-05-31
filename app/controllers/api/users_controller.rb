@@ -13,7 +13,7 @@ class Api::UsersController < ApplicationController
     def show
         # debugger
         @user = User.find_by(id: params[:id])
-        render 'api/profiles/show'
+        render 'api/users/show'
     end
 
     private
