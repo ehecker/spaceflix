@@ -14,7 +14,9 @@ class Api::ProfilesController < ApplicationController
     end
 
     def destroy
-        @profile = current_user.profiles.find_by(id: params[:id])
+        # debugger
+        # @profile = current_user.profiles.find_by(id: params[:id])
+        @profile = Profile.find(params[:id])
 
         if @profile && @profile.destroy
             puts "profile destroyed"

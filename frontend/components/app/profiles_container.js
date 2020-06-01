@@ -1,6 +1,6 @@
 import { connect } from "react-redux";
 import Profiles from "./profiles";
-import { createProfile, getUserProfiles } from "../../actions/profile_actions";
+import { createProfile, getUserProfiles, deleteProfile } from "../../actions/profile_actions";
 
 const msp = state => {
 
@@ -14,7 +14,8 @@ const msp = state => {
 const mdp = dispatch => {
     return {
         createProfile: profileData => dispatch(createProfile(profileData)),
-        getUserProfiles: id => dispatch(getUserProfiles(id))
+        getUserProfiles: id => dispatch(getUserProfiles(id)),
+        deleteProfile: profileId => dispatch(deleteProfile(profileId))
     }
 }
 

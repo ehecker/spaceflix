@@ -14,6 +14,7 @@ class Profiles extends React.Component {
         this.createProfile = this.createProfile.bind(this);
         this.deleteProfile = this.deleteProfile.bind(this);
         this.setActiveProfile = this.setActiveProfile.bind(this);
+        this.thenGetProfiles = this.thenGetProfiles.bind(this);
         this.updateName = this.updateName.bind(this);
         this.toggleManagement = this.toggleManagement.bind(this);
         this.toggleCreateSection = this.toggleCreateSection.bind(this);
@@ -47,8 +48,13 @@ class Profiles extends React.Component {
         })
     }
 
-    deleteProfile() {
-        console.log("Deleting Profile")
+    deleteProfile(e) {
+        this.props.deleteProfile(e.currentTarget.id)
+            .then(this.thenGetProfiles)
+    }
+
+    thenGetProfiles() {
+        this.props.getUserProfiles(this.props.currentUserId)
     }
 
     setActiveProfile() {
@@ -94,27 +100,15 @@ class Profiles extends React.Component {
 
     render() {
 
-        let { currentUser } = this.props;
-        // let profiles = Object.values(currentUser)[0].profiles;
-        // numProfiles = 0;
         let { managementStatus, createSectionActive } = this.state;
         let profiles = Object.values(this.props.userProfiles);
         let numProfiles = profiles.length;
 
-        console.log(numProfiles)
-
-        let weirdObject = {
-            keyName: "objectVal",
-            secKeyName: "secObjVal"
-        }
-
-        // debugger
-
         let profilesLogo;
         let profilesHeader;
         let listContents;
-        let createProfileForm;
         let styledProfiles;
+        let createProfileForm;
         let manageBtn;
         let deleteBtn;
 
@@ -134,7 +128,7 @@ class Profiles extends React.Component {
             profilesLogo = (<Link to="/browse" className="profiles-logo"></Link>);
             profilesHeader = "Manage Profiles:";
             manageBtn = (<div className="profiles-done-btn unselectable-text" onClick={this.toggleManagement}>DONE</div>);
-            deleteBtn = (<div className="delete-btn" onClick={this.deleteProfile}></div>);
+            // deleteBtn = (<div className="delete-btn" onClick={this.deleteProfile}></div>);
             listContents = styledProfiles;
             createProfileForm=(
                 <div className="create-prof-form">
@@ -153,7 +147,7 @@ class Profiles extends React.Component {
             profilesLogo = (<Link to="/browse" className="profiles-logo"></Link>);
             profilesHeader = "Manage Profiles:";
             manageBtn = (<div className="profiles-done-btn unselectable-text" onClick={this.toggleManagement}>DONE</div>);
-            deleteBtn = (<div className="delete-btn" onClick={this.deleteProfile}></div>);
+            // deleteBtn = (<div className="delete-btn" onClick={this.deleteProfile}></div>);
             listContents = styledProfiles;
 
             if (numProfiles <= 4) {
@@ -173,9 +167,12 @@ class Profiles extends React.Component {
         }
 
         if (numProfiles > 0) {
+            // debugger
             listContents = profiles.map((profile, index) => {
+                if (managementStatus) deleteBtn = (<div id={profile.id} className="delete-btn" onClick={this.deleteProfile}></div>)
+
                 return(
-                    <div className="profile-container" key={profile.name}>
+                    <div className="profile-container" key={profile.id}>
                         <div className={`profile-box gradient-${index + 1}`}>
                             <div className="profile-icon"></div>
                         </div>

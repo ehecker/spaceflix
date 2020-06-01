@@ -12,3 +12,10 @@ export const fetchUserProfiles = id => {
         method: "GET"
     })
 }
+
+export const deleteUserProfile = id => {
+    return $.ajax({
+        url: `/api/profiles/${id}`,
+        method: "DELETE"
+    })
+}

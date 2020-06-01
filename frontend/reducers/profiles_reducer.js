@@ -1,4 +1,4 @@
-import { CREATE_PROFILE, RECEIVE_USER_PROFILES } from "../actions/profile_actions";
+import { CREATE_PROFILE, RECEIVE_USER_PROFILES, DELETE_PROFILE } from "../actions/profile_actions";
 
 const profilesReducer = (oldState = {}, action) => {
     Object.freeze(oldState);
@@ -8,6 +8,8 @@ const profilesReducer = (oldState = {}, action) => {
             return Object.assign({}, oldState, action.profileData);
         case RECEIVE_USER_PROFILES:
             return Object.assign({}, oldState, action.profiles);
+        case DELETE_PROFILE:
+            return oldState;
         default:
             return oldState;
     }
