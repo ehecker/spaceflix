@@ -8,13 +8,16 @@ class Profiles extends React.Component {
         this.state = {
             managementStatus: false,
             createSectionActive: false,
-            newProfileName: ""
+            newProfileName: "",
         }
+
+        this.firstMount = true;
 
         this.createProfile = this.createProfile.bind(this);
         this.deleteProfile = this.deleteProfile.bind(this);
         this.setActiveProfile = this.setActiveProfile.bind(this);
-        this.thenGetProfiles = this.thenGetProfiles.bind(this);
+        this.refreshProfiles = this.refreshProfiles.bind(this);
+        this.closeManagement = this.closeManagement.bind(this);
         this.updateName = this.updateName.bind(this);
         this.toggleManagement = this.toggleManagement.bind(this);
         this.toggleCreateSection = this.toggleCreateSection.bind(this);
@@ -23,10 +26,6 @@ class Profiles extends React.Component {
     componentDidMount() {
         this.props.getUserProfiles(this.props.currentUserId);
     }
-    
-    // componentDidUpdate() {
-    //     this.props.getUserProfiles(this.props.currentUserId);
-    // }
 
     createProfile() {
         let newProfName = this.state.newProfileName;
@@ -39,22 +38,35 @@ class Profiles extends React.Component {
             user_id: this.props.currentUserId
         }
 
-        this.props.createProfile(newProfileData);
-        this.props.getUserProfiles(this.props.currentUserId);
+        this.props.createProfile(newProfileData)
+            .then(this.refreshProfiles)
+            .then(this.closeManagement)
 
-        this.setState({
-            createSectionActive: false,
-            managementStatus: false
-        })
+        
     }
 
     deleteProfile(e) {
         this.props.deleteProfile(e.currentTarget.id)
-            .then(this.thenGetProfiles)
+            .then(this.refreshProfiles)
+            .then(this.closeManagement)
+
+        // this.setState({
+        //     managementStatus: false,
+        //     createSectionActive: false,
+        //     newProfileName: ""
+        // })
     }
 
-    thenGetProfiles() {
+    refreshProfiles() {
         this.props.getUserProfiles(this.props.currentUserId)
+    }
+
+    closeManagement() {
+        this.setState({
+            createSectionActive: false,
+            managementStatus: false,
+            newProfileName: ""
+        })
     }
 
     setActiveProfile() {
@@ -100,6 +112,11 @@ class Profiles extends React.Component {
 
     render() {
 
+        if (this.firstMount) {
+            this.firstMount = false;
+            return(<div></div>)
+        }
+            
         let { managementStatus, createSectionActive } = this.state;
         let profiles = Object.values(this.props.userProfiles);
         let numProfiles = profiles.length;
@@ -111,8 +128,6 @@ class Profiles extends React.Component {
         let createProfileForm;
         let manageBtn;
         let deleteBtn;
-
-        // this.props.getUserProfiles(this.props.currentUserId);
 
         if (numProfiles < 1) {
             profilesLogo = (<div className="profiles-logo"></div>);
@@ -128,7 +143,6 @@ class Profiles extends React.Component {
             profilesLogo = (<Link to="/browse" className="profiles-logo"></Link>);
             profilesHeader = "Manage Profiles:";
             manageBtn = (<div className="profiles-done-btn unselectable-text" onClick={this.toggleManagement}>DONE</div>);
-            // deleteBtn = (<div className="delete-btn" onClick={this.deleteProfile}></div>);
             listContents = styledProfiles;
             createProfileForm=(
                 <div className="create-prof-form">
@@ -147,7 +161,6 @@ class Profiles extends React.Component {
             profilesLogo = (<Link to="/browse" className="profiles-logo"></Link>);
             profilesHeader = "Manage Profiles:";
             manageBtn = (<div className="profiles-done-btn unselectable-text" onClick={this.toggleManagement}>DONE</div>);
-            // deleteBtn = (<div className="delete-btn" onClick={this.deleteProfile}></div>);
             listContents = styledProfiles;
 
             if (numProfiles <= 4) {
@@ -167,7 +180,6 @@ class Profiles extends React.Component {
         }
 
         if (numProfiles > 0) {
-            // debugger
             listContents = profiles.map((profile, index) => {
                 if (managementStatus) deleteBtn = (<div id={profile.id} className="delete-btn" onClick={this.deleteProfile}></div>)
 
