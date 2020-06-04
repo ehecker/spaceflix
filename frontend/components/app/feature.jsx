@@ -20,7 +20,7 @@ class Feature extends React.Component {
     componentDidMount() {
         const video = document.getElementsByClassName("feature-movie")[0];
         if (video) {
-            video.volume = 0.5;
+            video.volume = 0.2;
         } 
     }
 

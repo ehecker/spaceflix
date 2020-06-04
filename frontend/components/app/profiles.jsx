@@ -41,20 +41,12 @@ class Profiles extends React.Component {
         this.props.createProfile(newProfileData)
             .then(this.refreshProfiles)
             .then(this.closeManagement)
-
-        
     }
 
     deleteProfile(e) {
         this.props.deleteProfile(e.currentTarget.id)
             .then(this.refreshProfiles)
             .then(this.closeManagement)
-
-        // this.setState({
-        //     managementStatus: false,
-        //     createSectionActive: false,
-        //     newProfileName: ""
-        // })
     }
 
     refreshProfiles() {
@@ -114,7 +106,7 @@ class Profiles extends React.Component {
 
         if (this.firstMount) {
             this.firstMount = false;
-            return(<div></div>)
+            return(<div></div>);
         }
             
         let { managementStatus, createSectionActive } = this.state;
@@ -180,6 +172,7 @@ class Profiles extends React.Component {
         }
 
         if (numProfiles > 0) {
+            // debugger
             listContents = profiles.map((profile, index) => {
                 if (managementStatus) deleteBtn = (<div id={profile.id} className="delete-btn" onClick={this.deleteProfile}></div>)
 

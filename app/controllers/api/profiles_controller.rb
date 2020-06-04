@@ -20,6 +20,7 @@ class Api::ProfilesController < ApplicationController
 
         if @profile && @profile.destroy
             puts "profile destroyed"
+            render json: {}
         else
             puts "destroy failed"
         end
