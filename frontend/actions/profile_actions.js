@@ -4,6 +4,7 @@ import * as ProfileAPIUtil from "../util/profiles_api_util";
 export const CREATE_PROFILE = "CREATE_PROFILE";
 export const RECEIVE_USER_PROFILES = "RECEIVE_USER_PROFILES";
 export const DELETE_PROFILE = "DELETE PROFILE"
+export const SET_ACTIVE_PROFILE = "SET_ACTIVE_PROFILE";
 
 // Action Creators
 const createProfileAction = profileData => {
@@ -27,6 +28,15 @@ const deleteProfileAction = profileId => {
     }
 }
 
+const activeProfileAction = profileId => {
+    // debugger
+
+    return {
+        type: SET_ACTIVE_PROFILE,
+        profileId
+    }
+}
+
 // Thunk Action Creators
 export const createProfile = profile => dispatch => ProfileAPIUtil.createProfile(profile)
     .then(profile => dispatch(createProfileAction(profile)), err => console.log(err))
@@ -36,3 +46,5 @@ export const getUserProfiles = id => dispatch => ProfileAPIUtil.fetchUserProfile
 
 export const deleteProfile = profileId => dispatch => ProfileAPIUtil.deleteUserProfile(profileId)
     .then(() => dispatch(deleteProfileAction(profileId)))
+
+export const setActiveProfile = profileId => dispatch => dispatch(activeProfileAction(profileId));

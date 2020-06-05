@@ -61,8 +61,10 @@ class Profiles extends React.Component {
         })
     }
 
-    setActiveProfile() {
-        console.log("Setting active profile!")
+    setActiveProfile(e) {
+        if (this.state.managementStatus) return;
+        const profileNum = Number(e.currentTarget.id.split("-")[1]);
+        this.props.setActiveProfile(profileNum);
     }
 
     updateName(e) {
@@ -172,12 +174,11 @@ class Profiles extends React.Component {
         }
 
         if (numProfiles > 0) {
-            // debugger
             listContents = profiles.map((profile, index) => {
                 if (managementStatus) deleteBtn = (<div id={profile.id} className="delete-btn" onClick={this.deleteProfile}></div>)
 
                 return(
-                    <div className="profile-container" key={profile.id}>
+                    <div id={`profile-${profile.id}`} className="profile-container" onClick={this.setActiveProfile} key={profile.id}>
                         <div className={`profile-box gradient-${index + 1}`}>
                             <div className="profile-icon"></div>
                         </div>
