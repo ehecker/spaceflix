@@ -14,8 +14,6 @@ class Api::ProfilesController < ApplicationController
     end
 
     def destroy
-        # debugger
-        # @profile = current_user.profiles.find_by(id: params[:id])
         @profile = Profile.find(params[:id])
 
         if @profile && @profile.destroy
@@ -23,6 +21,16 @@ class Api::ProfilesController < ApplicationController
             render json: {}
         else
             puts "destroy failed"
+        end
+    end
+
+    def show
+        @profile = Profile.find(params[id])
+
+        if @profile
+            
+        else
+            puts "no profile found"
         end
     end
 

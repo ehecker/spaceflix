@@ -14,7 +14,6 @@ import ProfilesContainer from "./app/profiles_container";
 
 const App = () => (
     <main id="app-main">
-        {/* <Route path="/" component={NavContainer} /> */}
         <AuthRoute exact path="/" component={SplashContainer} />
         <AuthRoute exact path="/login" component={LoginFormContainer} />
         <Switch>
@@ -22,7 +21,6 @@ const App = () => (
             <ProtectedRoute path="/browse" component={BrowseContainer} />
         </Switch>
         <ProtectedRoute path="/profiles" component={ProfilesContainer} />
-        {/* <ProtectedRoute path="/browse/:id" component={MovieShow} /> */}
     </main>
 )
 

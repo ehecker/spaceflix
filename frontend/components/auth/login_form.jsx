@@ -13,6 +13,7 @@ class LoginForm extends React.Component {
             password: ""
         }
 
+        this.redirectToProfiles = this.redirectToProfiles.bind(this);
         this.updateEmail = this.updateEmail.bind(this);
         this.updatePassword = this.updatePassword.bind(this);
         this.handleSubmit = this.handleSubmit.bind(this);
@@ -39,6 +40,12 @@ class LoginForm extends React.Component {
 
         const userInfo = Object.assign({}, this.state);
         this.props.loginUser(userInfo)
+            .then(this.redirectToProfiles)
+    }
+
+    redirectToProfiles() {
+        console.log("Attempting to redirect");
+        this.props.history.push("/profiles");
     }
 
     render() {

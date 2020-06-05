@@ -64,7 +64,8 @@ class Profiles extends React.Component {
     setActiveProfile(e) {
         if (this.state.managementStatus) return;
         const profileNum = Number(e.currentTarget.id.split("-")[1]);
-        this.props.setActiveProfile(profileNum);
+        this.props.setActiveProfile(profileNum)
+        this.props.history.push("/browse")
     }
 
     updateName(e) {

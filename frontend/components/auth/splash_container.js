@@ -4,7 +4,7 @@ import { signup, clearErrors } from "../../actions/session_actions";
 
 const msp = (state, ownProps) => ({
     errors: state.errors,
-    ownProps
+    history: ownProps.history
 })
 
 const mdp = (dispatch, ownProps) => ({
