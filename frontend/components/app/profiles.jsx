@@ -29,12 +29,18 @@ class Profiles extends React.Component {
 
     componentWillUnmount() {
         let { activeProfile, userProfiles } = this.props;
-        let userProfileIds = Object.values(userProfiles).map(profile => profile.id);
-        // let activeProfileExists = userProfileIds.includes(activeProfile.id);
+        let firstProfile = userProfiles[0];
 
-        // if (!activeProfile || !activeProfileExists) {
-        //     this.props.setActiveProfile(this.props.userProfiles[0]);
-        // }
+        if (!activeProfile) {
+            this.props.setActiveProfile(firstProfile);
+            return;
+        } else {
+            let userProfileIds = Object.values(userProfiles).map(profile => profile.id);
+            if (!userProfileIds.includes(activeProfile.id)) {
+                this.props.setActiveProfile(firstProfile);
+                return;
+            }
+        }
     }
 
     createProfile() {
@@ -76,17 +82,17 @@ class Profiles extends React.Component {
 
         const profileNum = Number(e.currentTarget.id.split("-")[1]);
         let { userProfiles } = this.props;
-        let newActiveProfile;
+        let nextActiveProfile;
 
         for (let i = 0; i < userProfiles.length; i++) {
             const currentProf = userProfiles[i];
             if (currentProf.id === profileNum) {
-                newActiveProfile = currentProf
+                nextActiveProfile = currentProf
                 break;
             } 
         }
 
-        this.props.setActiveProfile(newActiveProfile);
+        this.props.setActiveProfile(nextActiveProfile);
         this.props.history.push("/browse");
     }
 

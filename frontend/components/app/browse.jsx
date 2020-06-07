@@ -12,9 +12,15 @@ class Browse extends React.Component {
 
     componentDidMount() {
         this.props.getGenres()
+
+        // if !activeProfile, then redirect to /profiles
+        if (!this.props.activeProfile.profile) this.props.history.push("/profiles");
     }
 
     render() {
+        // debugger
+        if (!this.props.activeProfile.profile) return (<div></div>)
+
         let { genres } = this.props
         let movieRows = [];
 

@@ -25,7 +25,6 @@ class Nav extends React.Component {
             window.addEventListener("scroll", this.handleScroll);
             this.props.getUserProfiles(this.props.currentUserId);
         }
-
     }
 
     componentWillUnmount() {
