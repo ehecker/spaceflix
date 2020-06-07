@@ -13,13 +13,38 @@ class Browse extends React.Component {
     componentDidMount() {
         this.props.getGenres()
 
-        // if !activeProfile, then redirect to /profiles
-        if (!this.props.activeProfile.profile) this.props.history.push("/profiles");
+        let { activeProfile, userProfiles } = this.props;
+        let firstProfile = userProfiles[0];
+
+        if (!activeProfile) {
+            this.props.setActiveProfile(firstProfile);
+            return;
+        } else {
+            let userProfileIds = Object.values(userProfiles).map(profile => profile.id);
+            if (!userProfileIds.includes(activeProfile.id)) {
+                this.props.setActiveProfile(firstProfile);
+                return;
+            }
+        }
+
+        // if (!this.props.activeProfile){
+        //     console.log("Browse mount is setting profile")
+        //     this.props.history.push("/profiles");
+        // } 
     }
 
     render() {
         // debugger
-        if (!this.props.activeProfile.profile) return (<div></div>)
+        let { activeProfile, userProfiles } = this.props;
+        if (!activeProfile) {
+            return (<div></div>);
+        } else {
+            let userProfileIds = Object.values(userProfiles).map(profile => profile.id);
+            if (!userProfileIds.includes(activeProfile.id)) {
+                return (<div></div>);
+            }
+        }
+
 
         let { genres } = this.props
         let movieRows = [];

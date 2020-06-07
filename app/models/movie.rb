@@ -18,6 +18,12 @@ class Movie < ApplicationRecord
         foreign_key: :genre_id,
         class_name: :Genre
         
-    
+    has_many :list_associations,
+        foreign_key: :movie_id,
+        class_name: :ListMovie
+
+    belongs_to :list,
+        through: :list_associations,
+        source: :list
 
 end

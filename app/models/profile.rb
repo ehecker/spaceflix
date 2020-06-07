@@ -13,4 +13,8 @@ class Profile < ApplicationRecord
         foreign_key: :user_id,
         class_name: :User
 
+    has_one :list,
+        foreign_key: :profile_id,
+        class_name: :List
+
 end
