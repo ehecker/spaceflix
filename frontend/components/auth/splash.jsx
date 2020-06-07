@@ -43,7 +43,6 @@ class Splash extends React.Component {
     }
 
     redirectToProfiles() {
-        console.log("Attempting to redirect");
         this.props.history.push("/profiles");
     }
 

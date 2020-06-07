@@ -136,10 +136,20 @@
 
 .current-profile {
     cursor: pointer;
-    background-color: blue;
     border-radius: 3px;
     height: 35px;
     width: 35px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.current-profile-img {
+    background-image: url("/assets/rocket-icon");
+    background-size: cover;
+    height: 80%;
+    width: 80%;
+
 }
 
 .dropdown-down-carrot {
@@ -198,14 +208,23 @@
 .dropdown-profile {
     display: flex;
     align-items: center;
-    margin: 0 10px 0 10px;
+    margin: 0 10px 10px 10px;
 }
 
 .profile-pic {
-    height: 30px;
-    width: 30px;
-    background-color: red;
+    height: 35px;
+    width: 35px;
     cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.nav-prof-img {
+    background-image: url("/assets/rocket-icon");
+    background-size: cover;
+    height: 80%;
+    width: 80%;
 }
 
 .dropdown-text {
@@ -222,6 +241,7 @@
     font-size: 13px;
     margin-left: 10px;
     margin-bottom: 20px;
+    margin-top: -10px;
     text-decoration: none;
     color: white;
 }

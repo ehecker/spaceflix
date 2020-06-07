@@ -2,8 +2,6 @@ import React from "react";
 import { Route, Switch } from "react-router-dom";
 import { AuthRoute, ProtectedRoute } from "../util/route_util";
 
-// import NavContainer from "./nav_container";
-
 import SplashContainer from "./auth/splash_container";
 import LoginFormContainer from "./auth/login_form_container";
 import BrowseContainer from "./app/browse_container";

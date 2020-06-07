@@ -7,12 +7,13 @@ class Nav extends React.Component {
         super(props)
 
         this.state = {
-            loggedIn: !!this.props.currentUser,
+            loggedIn: !!this.props.currentUserId,
             currentPage: this.props.location,
         }
 
         this.scrollValue = document.getElementsByTagName("html")[0].scrollTop;
 
+        this.setActiveProfile = this.setActiveProfile.bind(this);
         this.redirectToProfiles = this.redirectToProfiles.bind(this);
         this.handleScroll = this.handleScroll.bind(this);
         this.handleDemo = this.handleDemo.bind(this);
@@ -22,7 +23,9 @@ class Nav extends React.Component {
     componentDidMount() {
         if (this.props.page === "browse") {
             window.addEventListener("scroll", this.handleScroll);
+            this.props.getUserProfiles(this.props.currentUserId);
         }
+
     }
 
     componentWillUnmount() {
@@ -62,10 +65,15 @@ class Nav extends React.Component {
         this.props.history.push("/profiles");
     }
 
+    setActiveProfile(e) {
+        const profileId = Number(e.currentTarget.dataset.profId);
+        this.props.setActiveProfile(profileId);
+    }
+
     render() {
+        console.log("Nav re-rendering");
 
         let { page } = this.props;
-
         let navClasses;
         let navLeft;
         let navRight;
@@ -108,7 +116,38 @@ class Nav extends React.Component {
             )
             
         } else if (page === "browse") {
+            let { activeProfileId } = this.props;
+            let profiles = Object.values(this.props.profiles);
+            let activeProfile;
+            let styledProfiles = [];
+
+            for (let i = 0; i < profiles.length; i++) {
+                let currentProf = profiles[i];
+
+                if (currentProf.id === activeProfileId) {
+                    activeProfile=(
+                        <div className="profiles-dropdown-top">
+                            <p className="nav-welcome">Welcome back, {`${currentProf.name}`}</p>
+                            <div className={`current-profile gradient-${i + 1}`}>
+                                <div className="current-profile-img"></div>
+                            </div>
+                            <div className="dropdown-down-carrot"></div>
+                        </div>
+                    )
+                } else {
+                    styledProfiles.push((
+                        <div className="dropdown-profile" key={currentProf.id} > 
+                            <div onClick={this.setActiveProfile} data-prof-id={currentProf.id} className={`profile-pic gradient-${i + 1}`}>
+                                <div className="nav-prof-img"></div>
+                            </div>
+                            <p onClick={this.setActiveProfile} data-prof-id={currentProf.id} className="dropdown-text">{currentProf.name}</p>
+                        </div>
+                    ))
+                }
+            }
+
             navClasses = "nav-fixed";
+
             navLeft=(
                 <div className="nav-left">
                     <Link className="logo-box" to="/">
@@ -124,21 +163,19 @@ class Nav extends React.Component {
             navRight=(
                 <div className="nav-right">
                     <div className="profiles-dropdown-container">
-                        <div className="profiles-dropdown-top">
+                        {/* <div className="profiles-dropdown-top">
                             <p className="nav-welcome">Welcome back, Ezra</p>
                             <div className="current-profile"></div>
                             <div className="dropdown-down-carrot"></div>
-                        </div>
+                        </div> */}
+                        {activeProfile} 
                         <div className="profiles-dropdown-bottom">
                             <div className="dropdown-bottom-box">
                                 <div className="dropdown-up-carrot"></div>
                                 <div className="dropdown-main">
                                     <div className="dropdown-main-top">
                                         <div className="dropdown-section">
-                                            <div className="dropdown-profile">
-                                                <div className="profile-pic"></div>
-                                                <p className="dropdown-text">Steve</p>
-                                            </div>
+                                            {styledProfiles}
                                         </div>
                                         <Link to="/profiles" className="manage-link">Manage Profiles</Link>
                                     </div>

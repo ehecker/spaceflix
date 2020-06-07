@@ -44,7 +44,6 @@ class LoginForm extends React.Component {
     }
 
     redirectToProfiles() {
-        console.log("Attempting to redirect");
         this.props.history.push("/profiles");
     }
 
@@ -64,7 +63,7 @@ class LoginForm extends React.Component {
 
         return (
             <main className="login-main">
-                <NavContainer page="login" />
+                <NavContainer history={this.props.history} page="login" />
                 <div className="landing extended">
                     <div className="login-content-box">
                         <form className="login-form" onSubmit={this.handleSubmit}>
