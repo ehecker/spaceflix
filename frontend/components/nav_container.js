@@ -6,7 +6,8 @@ import { getUserProfiles, setActiveProfile } from "../actions/profile_actions";
 const mapStateToProps = (state, ownProps) => {
     return {
         currentUserId: state.session.id,
-        activeProfileId: state.entities.activeProfile.id,
+        userProfiles: state.entities.profiles,
+        activeProfile: state.entities.activeProfile.profile,
         profiles: state.entities.profiles
     }
 }
@@ -16,7 +17,7 @@ const mapDispatchToProps = (dispatch, ownProps) => {
         loginUser: user => dispatch(login(user)),
         logoutUser: () => dispatch(logout()),
         getUserProfiles: id => dispatch(getUserProfiles(id)),
-        setActiveProfile: profileId => dispatch(setActiveProfile(profileId))
+        setActiveProfile: profile => dispatch(setActiveProfile(profile))
     }
 }
 

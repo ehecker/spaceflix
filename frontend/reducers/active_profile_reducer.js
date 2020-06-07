@@ -6,7 +6,7 @@ const activeProfileReducer = (oldState = {}, action) => {
 
     switch(action.type) {
         case SET_ACTIVE_PROFILE:
-            return Object.assign({}, oldState, {id: action.profileId});
+            return Object.assign({}, oldState, {profile: action.profile});
         default: 
             return oldState;
     }

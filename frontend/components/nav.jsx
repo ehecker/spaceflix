@@ -67,7 +67,18 @@ class Nav extends React.Component {
 
     setActiveProfile(e) {
         const profileId = Number(e.currentTarget.dataset.profId);
-        this.props.setActiveProfile(profileId);
+        let { userProfiles } = this.props;
+        let newActiveProfile;
+
+        for (let i = 0; i < userProfiles.length; i++) {
+            const currentProf = userProfiles[i];
+            if (currentProf.id === profileId) {
+                newActiveProfile = currentProf;
+                break;
+            } 
+        }
+
+        this.props.setActiveProfile(newActiveProfile);
     }
 
     render() {
@@ -116,16 +127,16 @@ class Nav extends React.Component {
             )
             
         } else if (page === "browse") {
-            let { activeProfileId } = this.props;
+            let { activeProfile } = this.props;
             let profiles = Object.values(this.props.profiles);
-            let activeProfile;
+            let activeProfileStyle;
             let styledProfiles = [];
 
             for (let i = 0; i < profiles.length; i++) {
                 let currentProf = profiles[i];
 
-                if (currentProf.id === activeProfileId) {
-                    activeProfile=(
+                if (currentProf.id === activeProfile.id) {
+                    activeProfileStyle=(
                         <div className="profiles-dropdown-top">
                             <p className="nav-welcome">Welcome back, {`${currentProf.name}`}</p>
                             <div className={`current-profile gradient-${i + 1}`}>
@@ -168,7 +179,7 @@ class Nav extends React.Component {
                             <div className="current-profile"></div>
                             <div className="dropdown-down-carrot"></div>
                         </div> */}
-                        {activeProfile} 
+                        {activeProfileStyle} 
                         <div className="profiles-dropdown-bottom">
                             <div className="dropdown-bottom-box">
                                 <div className="dropdown-up-carrot"></div>

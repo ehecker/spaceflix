@@ -28,7 +28,13 @@ class Profiles extends React.Component {
     }
 
     componentWillUnmount() {
-        // if this.props.userProfiles !includes activeProfile, setActiveProfile(firstProfile)
+        let { activeProfile, userProfiles } = this.props;
+        let userProfileIds = Object.values(userProfiles).map(profile => profile.id);
+        // let activeProfileExists = userProfileIds.includes(activeProfile.id);
+
+        // if (!activeProfile || !activeProfileExists) {
+        //     this.props.setActiveProfile(this.props.userProfiles[0]);
+        // }
     }
 
     createProfile() {
@@ -69,8 +75,19 @@ class Profiles extends React.Component {
         if (this.state.managementStatus) return;
 
         const profileNum = Number(e.currentTarget.id.split("-")[1]);
-        this.props.setActiveProfile(profileNum)
-        this.props.history.push("/browse")
+        let { userProfiles } = this.props;
+        let newActiveProfile;
+
+        for (let i = 0; i < userProfiles.length; i++) {
+            const currentProf = userProfiles[i];
+            if (currentProf.id === profileNum) {
+                newActiveProfile = currentProf
+                break;
+            } 
+        }
+
+        this.props.setActiveProfile(newActiveProfile);
+        this.props.history.push("/browse");
     }
 
     updateName(e) {

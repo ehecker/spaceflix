@@ -28,10 +28,10 @@ const deleteProfileAction = profileId => {
     }
 }
 
-const activeProfileAction = profileId => {
+const activeProfileAction = profile => {
     return {
         type: SET_ACTIVE_PROFILE,
-        profileId
+        profile
     }
 }
 
@@ -45,4 +45,4 @@ export const getUserProfiles = id => dispatch => ProfileAPIUtil.fetchUserProfile
 export const deleteProfile = profileId => dispatch => ProfileAPIUtil.deleteUserProfile(profileId)
     .then(() => dispatch(deleteProfileAction(profileId)))
 
-export const setActiveProfile = profileId => dispatch => dispatch(activeProfileAction(profileId));
+export const setActiveProfile = profile => dispatch => dispatch(activeProfileAction(profile));
