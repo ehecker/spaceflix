@@ -13,7 +13,7 @@ class Profile < ApplicationRecord
         foreign_key: :user_id,
         class_name: :User
 
-    has_one :list,
+    has_one :list, dependent: :destroy,
         foreign_key: :profile_id,
         class_name: :List
 

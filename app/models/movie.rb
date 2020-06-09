@@ -22,8 +22,8 @@ class Movie < ApplicationRecord
         foreign_key: :movie_id,
         class_name: :ListMovie
 
-    belongs_to :list,
-        through: :list_associations,
-        source: :list
+    # belongs_to :list,
+    #     through: :list_associations,
+    #     source: :list
 
 end

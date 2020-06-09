@@ -4,11 +4,8 @@ class Api::ProfilesController < ApplicationController
         @profile = Profile.new(profile_params)
 
         if @profile.save
-            puts "consolelog profile created"
-            # render "/api/users/show"
             render json: {}
         else
-            puts "profile creation failed"
             render json: @profile.errors.full_messages, status: 422
         end
     end
