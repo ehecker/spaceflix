@@ -4,7 +4,8 @@ class Api::ProfilesController < ApplicationController
         @profile = Profile.new(profile_params)
 
         if @profile.save
-            render json: {}
+            # render json: {}
+            render "/api/profiles/list"
         else
             render json: @profile.errors.full_messages, status: 422
         end
@@ -21,15 +22,15 @@ class Api::ProfilesController < ApplicationController
         end
     end
 
-    def show
-        @profile = Profile.find(params[id])
+    # def show
+    #     @profile = Profile.find(params[id])
 
-        if @profile
+    #     if @profile
             
-        else
-            puts "no profile found"
-        end
-    end
+    #     else
+    #         puts "no profile found"
+    #     end
+    # end
 
     private
     def profile_params

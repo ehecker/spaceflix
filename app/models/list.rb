@@ -15,8 +15,8 @@ class List < ApplicationRecord
         foreign_key: :list_id,
         class_name: :ListMovie
 
-    has_many: movies,
-        through: list_movies,
-        source: movie
+    has_many :movies,
+        through: :movie_associations,
+        source: :movie
 
 end
