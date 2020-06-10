@@ -65,23 +65,26 @@ class Profiles extends React.Component {
         //     .then(this.refreshProfiles)
         //     .then(this.closeManagement)
 
+        const createListFunc = this.props.createList;
+
         this.props.createProfile(newProfileData)
             .then(newProf => { 
                 let { profileId } = newProf;
-                this.props.createList(profileId)
+                const newListData = {
+                    profile_id: profileId
+                }
+                
+                createListFunc(newListData)
             })
             .then(this.refreshProfiles)
             .then(this.closeManagement)
 
     }
 
-    createList() {
-        let newestProfileId = this.props.userProfiles
-
-
-
-        this.props.createList(newestProfileId);
-    }
+    // createList() {
+    //     let newestProfileId = this.props.userProfiles
+    //     this.props.createList(newestProfileId);
+    // }
 
     deleteProfile(e) {
         this.props.deleteProfile(e.currentTarget.id)

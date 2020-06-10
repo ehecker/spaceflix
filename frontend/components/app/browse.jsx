@@ -8,11 +8,16 @@ class Browse extends React.Component {
 
     constructor(props) {
         super(props)
+        this.setDefaultProfile = this.setDefaultProfile.bind(this);
     }
 
     componentDidMount() {
-        this.props.getGenres()
+        this.props.getGenres();
+        this.props.getUserProfiles(this.props.currentUserId)
+            .then(this.setDefaultProfile)
+    }
 
+    setDefaultProfile() {
         let { activeProfile, userProfiles } = this.props;
         let firstProfile = userProfiles[0];
 
@@ -26,11 +31,6 @@ class Browse extends React.Component {
                 return;
             }
         }
-
-        // if (!this.props.activeProfile){
-        //     console.log("Browse mount is setting profile")
-        //     this.props.history.push("/profiles");
-        // } 
     }
 
     render() {
