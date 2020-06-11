@@ -69,11 +69,10 @@ class Profiles extends React.Component {
 
         this.props.createProfile(newProfileData)
             .then(newProf => { 
-                let { profileId } = newProf;
                 const newListData = {
-                    profile_id: profileId
+                    profile_id: newProf.profileId
                 }
-                
+
                 createListFunc(newListData)
             })
             .then(this.refreshProfiles)

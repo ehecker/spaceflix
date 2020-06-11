@@ -4,9 +4,9 @@ import * as ListAPIUtil from "../util/list_api_util";
 export const CREATE_LIST = "CREATE_LIST";
 
 // Action Creators
-const createListAction = profileId =>({
+const createListAction = list =>({
     type: CREATE_LIST,
-    profileId
+    list
 })
 
 // Thunk Action Creators

@@ -136,7 +136,7 @@ class Nav extends React.Component {
 
                 if (currentProf.id === activeProfile.id) {
                     activeProfileStyle=(
-                        <div className="profiles-dropdown-top">
+                        <div className="profiles-dropdown-top" key={currentProf.id} >
                             <p className="nav-welcome">Welcome back, {`${currentProf.name}`}</p>
                             <div className={`current-profile gradient-${i + 1}`}>
                                 <div className="current-profile-img"></div>

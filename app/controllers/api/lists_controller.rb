@@ -17,6 +17,7 @@ class Api::ListsController < ApplicationController
 
     private
     def list_params
+        debugger
         params.require(:list).permit(:profile_id)
     end
 

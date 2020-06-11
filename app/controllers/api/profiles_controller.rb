@@ -34,6 +34,7 @@ class Api::ProfilesController < ApplicationController
 
     private
     def profile_params
+        debugger
         params.require(:profile).permit(:name, :user_id)
     end
 

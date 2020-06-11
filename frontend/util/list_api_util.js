@@ -1,7 +1,7 @@
-export const createList = profileId => {
+export const createList = list => {
     return $.ajax({
-        url: `/api/lists`,
+        url: "/api/lists",
         method: "POST",
-        data: { list: profileId }
+        data: { list }
     })
 }
