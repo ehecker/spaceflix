@@ -4,7 +4,7 @@ import * as ListAPIUtil from "../util/list_api_util";
 export const CREATE_LIST = "CREATE_LIST";
 
 // Action Creators
-const createListAction = list =>({
+const createListAction = list => ({
     type: CREATE_LIST,
     list
 })

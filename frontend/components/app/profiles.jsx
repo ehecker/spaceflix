@@ -57,11 +57,7 @@ class Profiles extends React.Component {
             name: newProfName,
             user_id: this.props.currentUserId
         }
-
-        // let newProf = this.props.createProfile(newProfileData);
-        // console.log(`NEW PROFILE INFORMATION:`)
-        // console.log(newProf)
-        // newProf
+        
         //     .then(this.refreshProfiles)
         //     .then(this.closeManagement)
 
@@ -70,7 +66,7 @@ class Profiles extends React.Component {
         this.props.createProfile(newProfileData)
             .then(newProf => { 
                 const newListData = {
-                    profile_id: newProf.profileId
+                    profile_id: newProf.profileData.profileId
                 }
 
                 createListFunc(newListData)
@@ -79,11 +75,6 @@ class Profiles extends React.Component {
             .then(this.closeManagement)
 
     }
-
-    // createList() {
-    //     let newestProfileId = this.props.userProfiles
-    //     this.props.createList(newestProfileId);
-    // }
 
     deleteProfile(e) {
         this.props.deleteProfile(e.currentTarget.id)
