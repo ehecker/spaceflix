@@ -1,6 +1,7 @@
 import React from "react";
 import Movie from "./movie";
 import MovieShow from "./movie_show";
+import MovieShowContainer from "./movie_show_container";
 import {Redirect, Link} from "react-router-dom";
 
 class MovieRow extends React.Component {
@@ -99,7 +100,7 @@ class MovieRow extends React.Component {
 
         if (this.state.activeRow) {
             movieShow = (
-                <MovieShow genre={name} details={activeMovie} close={this.closeShow} />
+                <MovieShowContainer genre={name} details={activeMovie} close={this.closeShow} />
             )
         }
 

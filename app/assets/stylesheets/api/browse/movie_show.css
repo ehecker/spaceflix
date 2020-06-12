@@ -123,6 +123,13 @@
     width: 20px;
 }
 
+.show-check-icon {
+    background-image: url("/assets/checkmark-icon");
+    background-size: cover;
+    height: 25px;
+    width: 25px;
+}
+
 .show-section {
     color: #888;
     font-size: 18px;

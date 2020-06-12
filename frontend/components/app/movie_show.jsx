@@ -3,14 +3,16 @@ import { Link } from "react-router-dom";
 
 class MovieShow extends React.Component {
 
-    constructor(props){
+    constructor(props) {
         super(props)
 
         this.state = {
-            muted: true
+            muted: true,
+            inProfileList: false
         }
 
         this.toggleMute = this.toggleMute.bind(this);
+        this.addMovieToList = this.addMovieToList.bind(this);
     }
 
     toggleMute() {
@@ -19,13 +21,36 @@ class MovieShow extends React.Component {
         })
     }
 
+    addMovieToList(e) {
+
+        const listMovieInfo = {
+            list_id: this.props.activeProfileList.id,
+            movie_id: e.currentTarget.dataset
+        }
+
+        this.props.addMovieToList(listMovieInfo)
+
+        this.setState({
+            inProfileList: true
+        })
+    }
+
+    removeMovieFromList(e) {
+        this.props.removeMovieFromList()
+
+        this.setState({
+            inProfileList: false
+        })
+    }
+
     render() {
 
         let { id, cast, description, director, duration, maturity_rating, title, year } = this.props.details;
         let { genre } = this.props;
-        let { muted } = this.state;
+        let { muted, inProfileList } = this.state;
 
         let muteButton;
+        let addButton;
 
         if (muted) {
             muteButton=(
@@ -36,6 +61,19 @@ class MovieShow extends React.Component {
                 <div className="show-mute-btn-on" onClick={this.toggleMute}></div>
             )
         }
+
+        inProfileList ? addButton=(
+            <div onClick={this.removeMovieFromList} className="show-list-button" >
+                <div className="show-check-icon"></div>
+                <p className="show-btn-text">My List</p>
+            </div>
+        ) :
+        addButton=(
+            <div onClick={this.addMovieToList} className="show-list-button">
+                <div className="show-list-icon"></div>
+                <p className="show-btn-text">My List</p>
+            </div>        
+        );
 
         return(
                 <main className="movie-show-main">
@@ -53,10 +91,7 @@ class MovieShow extends React.Component {
                                     <div className="show-play-icon"></div>
                                     <p className="show-btn-text">Play</p>
                                 </Link>
-                                <div className="show-list-button">
-                                    <div className="show-list-icon"></div>
-                                    <p className="show-btn-text">My List</p>
-                                </div>
+                                {addButton}
                             </div>
                             <div className="show-text"><span className="show-section">Director: </span>{director}</div>
                             <div className="show-text"><span className="show-section">Cast: </span>{cast}</div>
