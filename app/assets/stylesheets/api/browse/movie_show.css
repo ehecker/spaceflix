@@ -126,8 +126,8 @@
 .show-check-icon {
     background-image: url("/assets/checkmark-icon");
     background-size: cover;
-    height: 25px;
-    width: 25px;
+    height: 20px;
+    width: 20px;
 }
 
 .show-section {

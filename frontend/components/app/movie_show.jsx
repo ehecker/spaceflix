@@ -13,6 +13,7 @@ class MovieShow extends React.Component {
 
         this.toggleMute = this.toggleMute.bind(this);
         this.addMovieToList = this.addMovieToList.bind(this);
+        this.removeMovieFromList = this.removeMovieFromList.bind(this);
     }
 
     toggleMute() {
@@ -25,8 +26,9 @@ class MovieShow extends React.Component {
 
         const listMovieInfo = {
             list_id: this.props.activeProfileList.id,
-            movie_id: e.currentTarget.dataset
+            movie_id: e.currentTarget.dataset.movieId
         }
+
 
         this.props.addMovieToList(listMovieInfo)
 
@@ -36,7 +38,7 @@ class MovieShow extends React.Component {
     }
 
     removeMovieFromList(e) {
-        this.props.removeMovieFromList()
+        // this.props.removeMovieFromList()
 
         this.setState({
             inProfileList: false
@@ -69,7 +71,7 @@ class MovieShow extends React.Component {
             </div>
         ) :
         addButton=(
-            <div onClick={this.addMovieToList} className="show-list-button">
+            <div onClick={this.addMovieToList} data-movie-id={id} className="show-list-button">
                 <div className="show-list-icon"></div>
                 <p className="show-btn-text">My List</p>
             </div>        

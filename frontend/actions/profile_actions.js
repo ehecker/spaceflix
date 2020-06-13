@@ -29,6 +29,8 @@ const deleteProfileAction = profileId => {
 }
 
 const activeProfileAction = profile => {
+    // debugger
+
     return {
         type: SET_ACTIVE_PROFILE,
         profile

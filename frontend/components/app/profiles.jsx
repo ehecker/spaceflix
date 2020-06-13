@@ -98,8 +98,9 @@ class Profiles extends React.Component {
         if (this.state.managementStatus) return;
 
         const profileNum = Number(e.currentTarget.id.split("-")[1]);
-        let { userProfiles } = this.props;
+        let userProfiles = Object.values(this.props.userProfiles);
         let nextActiveProfile;
+
 
         for (let i = 0; i < userProfiles.length; i++) {
             const currentProf = userProfiles[i];
@@ -109,8 +110,7 @@ class Profiles extends React.Component {
             } 
         }
 
-        // debugger
-
+        
         this.props.setActiveProfile(nextActiveProfile);
         this.props.history.push("/browse");
     }
@@ -158,6 +158,8 @@ class Profiles extends React.Component {
             this.firstMount = false;
             return(<div></div>);
         }
+
+        // debugger
             
         let { managementStatus, createSectionActive } = this.state;
         let profiles = Object.values(this.props.userProfiles);
