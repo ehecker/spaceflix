@@ -5,7 +5,6 @@ import Footer from "../footer";
 import Feature from "./feature";
 
 class Browse extends React.Component {
-
     constructor(props) {
         super(props)
         this.setDefaultProfile = this.setDefaultProfile.bind(this);
@@ -35,7 +34,6 @@ class Browse extends React.Component {
     }
 
     render() {
-        // debugger
         let { activeProfile, userProfiles } = this.props;
         if (!activeProfile) {
             return (<div></div>);

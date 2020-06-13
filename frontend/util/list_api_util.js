@@ -10,6 +10,6 @@ export const addMovieToList = listItemInfo => {
     return $.ajax({
         url: "/api/list_movies",
         method: "POST",
-        data: { listItemInfo }
+        data: { list_movie: listItemInfo }
     })
 }
