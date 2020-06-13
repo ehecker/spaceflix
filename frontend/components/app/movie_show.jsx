@@ -24,11 +24,14 @@ class MovieShow extends React.Component {
 
     addMovieToList(e) {
 
+
+
         const listMovieInfo = {
-            list_id: this.props.activeProfileList.id,
-            movie_id: e.currentTarget.dataset.movieId
+            list_id: this.props.activeProfileList.listId,
+            movie_id: Number(e.currentTarget.dataset.movieId)
         }
 
+        // debugger
 
         this.props.addMovieToList(listMovieInfo)
 
