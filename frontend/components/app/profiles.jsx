@@ -27,26 +27,6 @@ class Profiles extends React.Component {
         this.props.getUserProfiles(this.props.currentUserId);
     }
 
-    componentWillUnmount() {
-        // let { activeProfile, userProfiles } = this.props;
-        // let firstProfile = userProfiles[0];
-
-        // // debugger
-
-        // if (!activeProfile) {
-        //     console.log("Profiles unmount is setting profile due to no active profile")
-        //     this.props.setActiveProfile(firstProfile);
-        //     return;
-        // } else {
-        //     let userProfileIds = Object.values(userProfiles).map(profile => profile.id);
-        //     if (!userProfileIds.includes(activeProfile.id)) {
-        //         console.log("Profiles unmount is setting profile due to active profile not existing")
-        //         this.props.setActiveProfile(firstProfile);
-        //         return;
-        //     }
-        // }
-    }
-
     createProfile() {
         let newProfName = this.state.newProfileName;
         if (newProfName.length === 0) return;
@@ -110,7 +90,7 @@ class Profiles extends React.Component {
             } 
         }
 
-        
+
         this.props.setActiveProfile(nextActiveProfile);
         this.props.history.push("/browse");
     }

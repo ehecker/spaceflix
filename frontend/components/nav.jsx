@@ -81,8 +81,6 @@ class Nav extends React.Component {
     }
 
     render() {
-        console.log("Nav re-rendering");
-
         let { page } = this.props;
         let navClasses;
         let navLeft;

@@ -18,7 +18,8 @@ class Browse extends React.Component {
     }
 
     setDefaultProfile() {
-        let { activeProfile, userProfiles } = this.props;
+        let { activeProfile } = this.props;
+        let userProfiles = Object.values(this.props.userProfiles);
         let firstProfile = userProfiles[0];
 
         if (!activeProfile) {

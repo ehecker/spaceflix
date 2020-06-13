@@ -6,7 +6,6 @@ json.profiles do
             json.id profile.id
             json.name profile.name
             json.user_id profile.user_id
-        
             json.list profile.list
         end
     end
