@@ -53,8 +53,6 @@ class MovieShow extends React.Component {
         let listMovies = this.props.activeProfileList.movies; // Array of movie objects
         let listMovieAssociations = this.props.activeProfileList.movieAssociations;
         
-        // debugger
-
         let muteButton;
         let addButton;
 

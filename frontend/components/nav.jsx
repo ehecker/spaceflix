@@ -66,7 +66,8 @@ class Nav extends React.Component {
 
     setActiveProfile(e) {
         const profileId = Number(e.currentTarget.dataset.profId);
-        let { userProfiles } = this.props;
+        // let { userProfiles } = this.props;
+        let userProfiles = Object.values(this.props.userProfiles);
         let newActiveProfile;
 
         for (let i = 0; i < userProfiles.length; i++) {

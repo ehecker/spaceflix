@@ -15,6 +15,7 @@ class Api::ListMoviesController < ApplicationController
 
         if @list_movie.destroy
             puts "Removed from list"
+            render json: {}
         else
             puts "Removal failed"
         end
