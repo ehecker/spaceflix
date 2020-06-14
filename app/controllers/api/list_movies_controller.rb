@@ -11,7 +11,13 @@ class Api::ListMoviesController < ApplicationController
     end
 
     def destroy
+        @list_movie = ListMovie.find(params[:id])
 
+        if @list_movie.destroy
+            puts "Removed from list"
+        else
+            puts "Removal failed"
+        end
     end
 
     private

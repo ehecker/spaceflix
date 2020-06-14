@@ -13,3 +13,11 @@ export const addMovieToList = listItemInfo => {
         data: { list_movie: listItemInfo }
     })
 }
+
+export const removeMovieFromList = id => {
+    return $.ajax({
+        url: `/api/list_movies/${id}`,
+        method: "DELETE",
+        data: { id }
+    })
+}

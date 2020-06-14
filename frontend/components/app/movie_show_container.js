@@ -1,6 +1,6 @@
 import { connect } from "react-redux";
 import MovieShow from "./movie_show"
-import { addMovieToList } from "../../actions/list_actions";
+import { addMovieToList, removeMovieFromList } from "../../actions/list_actions";
 
 const msp = (state, ownProps) => {
     return {
@@ -12,7 +12,7 @@ const msp = (state, ownProps) => {
 const mdp = (dispatch, ownProps) => {
     return {
         addMovieToList: listItemInfo => dispatch(addMovieToList(listItemInfo)),
-        // removeMovieFromList: listItemId => dispatch()
+        removeMovieFromList: listItemId => dispatch(removeMovieFromList(listItemId))
     }
 }
 

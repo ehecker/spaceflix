@@ -8,12 +8,13 @@ class MovieShow extends React.Component {
 
         this.state = {
             muted: true,
-            inProfileList: false
+            reRender: false
         }
 
         this.toggleMute = this.toggleMute.bind(this);
         this.addMovieToList = this.addMovieToList.bind(this);
         this.removeMovieFromList = this.removeMovieFromList.bind(this);
+        this.triggerRender = this.triggerRender.bind(this);
     }
 
     toggleMute() {
@@ -24,27 +25,23 @@ class MovieShow extends React.Component {
 
     addMovieToList(e) {
 
-
-
         const listMovieInfo = {
             list_id: this.props.activeProfileList.listId,
             movie_id: Number(e.currentTarget.dataset.movieId)
         }
 
-        // debugger
-
         this.props.addMovieToList(listMovieInfo)
-
-        this.setState({
-            inProfileList: true
-        })
+            .then(this.triggerRender)
     }
 
     removeMovieFromList(e) {
-        // this.props.removeMovieFromList()
+        this.props.removeMovieFromList(e.currentTarget.dataset.movieAssociation)
+            .then(this.triggerRender)
+    }
 
+    triggerRender() {
         this.setState({
-            inProfileList: false
+            reRender: !this.state.reRender
         })
     }
 
@@ -52,7 +49,11 @@ class MovieShow extends React.Component {
 
         let { id, cast, description, director, duration, maturity_rating, title, year } = this.props.details;
         let { genre } = this.props;
-        let { muted, inProfileList } = this.state;
+        let { muted } = this.state;
+        let listMovies = this.props.activeProfileList.movies; // Array of movie objects
+        let listMovieAssociations = this.props.activeProfileList.movieAssociations;
+        
+        // debugger
 
         let muteButton;
         let addButton;
@@ -67,19 +68,27 @@ class MovieShow extends React.Component {
             )
         }
 
-        inProfileList ? addButton=(
-            <div onClick={this.removeMovieFromList} className="show-list-button" >
-                <div className="show-check-icon"></div>
-                <p className="show-btn-text">My List</p>
-            </div>
-        ) :
-        addButton=(
-            <div onClick={this.addMovieToList} data-movie-id={id} className="show-list-button">
-                <div className="show-list-icon"></div>
-                <p className="show-btn-text">My List</p>
-            </div>        
-        );
+        let inProfileList = listMovies.map(movie => movie.id).includes(id);
 
+        if (inProfileList) {
+            let movieAssociation = listMovieAssociations.filter(assoc => assoc.movie_id === id)[0];
+
+            addButton=(
+                <div onClick={this.removeMovieFromList} data-movie-association={movieAssociation.id} className="show-list-button" >
+                    <div className="show-check-icon"></div>
+                    <p className="show-btn-text">My List</p>
+                </div>
+            )
+        } else {
+            addButton=(
+                <div onClick={this.addMovieToList} data-movie-id={id} className="show-list-button">
+                    <div className="show-list-icon"></div>
+                    <p className="show-btn-text">My List</p>
+                </div>        
+            )
+        }
+
+     
         return(
                 <main className="movie-show-main">
                     <section className="show-info-container">

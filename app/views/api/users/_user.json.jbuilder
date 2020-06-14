@@ -10,6 +10,7 @@ json.profiles do
                 json.list_id profile.list.id
                 json.profile_id profile.list.profile_id
                 json.movies profile.list.movies
+                json.movie_associations profile.list.movie_associations
             end
         end
     end
