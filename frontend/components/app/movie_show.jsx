@@ -7,15 +7,12 @@ class MovieShow extends React.Component {
         super(props)
 
         this.state = {
-            muted: true,
-            reRender: false
+            muted: true
         }
 
         this.toggleMute = this.toggleMute.bind(this);
         this.addMovieToList = this.addMovieToList.bind(this);
         this.removeMovieFromList = this.removeMovieFromList.bind(this);
-        this.triggerRender = this.triggerRender.bind(this);
-        this.refreshActiveProfile = this.refreshActiveProfile.bind(this);
     }
 
     toggleMute() {
@@ -25,7 +22,6 @@ class MovieShow extends React.Component {
     }
 
     addMovieToList(e) {
-
         const listMovieInfo = {
             list_id: this.props.activeProfileList.listId,
             movie_id: Number(e.currentTarget.dataset.movieId)
@@ -38,24 +34,13 @@ class MovieShow extends React.Component {
 
         this.props.addMovieToList(listMovieInfo)
             .then(() => refresh(userId))
-            // .then(() => {
-            //     let newActiveProfile = Object.values(this.props.userProfiles).filter(prof => prof.id === profileId)[0];
-            //     return newActiveProfile;
-            // })
-            // .then(newProf => setActive(newProf))
             .then(() => {
                 let newActiveProfile = Object.values(this.props.userProfiles).filter(prof => prof.id === profileId)[0];
                 setActive(newActiveProfile)
             })
-            // .then(this.triggerRender)
     }
 
     removeMovieFromList(e) {
-        // this.props.removeMovieFromList(e.currentTarget.dataset.movieAssociation)
-        //     .then(this.props.refreshUserProfiles(this.props.currentUserId))
-        //     .then(this.refreshActiveProfile(this.props.activeProfileId))
-        //     .then(this.triggerRender)
-
         let refresh = this.props.refreshUserProfiles;
         let userId = this.props.currentUserId;
         let profileId = this.props.activeProfileId;
@@ -67,20 +52,6 @@ class MovieShow extends React.Component {
                 let newActiveProfile = Object.values(this.props.userProfiles).filter(prof => prof.id === profileId)[0];
                 setActive(newActiveProfile)
             })
-
-    }
-
-    refreshActiveProfile(profileId) {
-        let newActiveProfile = Object.values(this.props.userProfiles).filter(prof => prof.id === profileId)[0];
-        this.props.setActiveProfile(newActiveProfile);
-    }
-
-
-
-    triggerRender() {
-        this.setState({
-            reRender: !this.state.reRender
-        })
     }
 
     render() {
@@ -167,4 +138,4 @@ class MovieShow extends React.Component {
     }
 }
 
-export default MovieShow
+export default MovieShow;
