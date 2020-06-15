@@ -51,10 +51,23 @@ class MovieShow extends React.Component {
     }
 
     removeMovieFromList(e) {
+        // this.props.removeMovieFromList(e.currentTarget.dataset.movieAssociation)
+        //     .then(this.props.refreshUserProfiles(this.props.currentUserId))
+        //     .then(this.refreshActiveProfile(this.props.activeProfileId))
+        //     .then(this.triggerRender)
+
+        let refresh = this.props.refreshUserProfiles;
+        let userId = this.props.currentUserId;
+        let profileId = this.props.activeProfileId;
+        let setActive = this.props.setActiveProfile;
+
         this.props.removeMovieFromList(e.currentTarget.dataset.movieAssociation)
-            .then(this.props.refreshUserProfiles(this.props.currentUserId))
-            .then(this.refreshActiveProfile(this.props.activeProfileId))
-            .then(this.triggerRender)
+            .then(() => refresh(userId))
+            .then(() => {
+                let newActiveProfile = Object.values(this.props.userProfiles).filter(prof => prof.id === profileId)[0];
+                setActive(newActiveProfile)
+            })
+
     }
 
     refreshActiveProfile(profileId) {
