@@ -18,7 +18,8 @@ class Movie extends React.Component {
         this.toggleSound = this.toggleSound.bind(this);
         this.togglePlayOn = this.togglePlayOn.bind(this);
         this.togglePlayOff = this.togglePlayOff.bind(this);
-        // this.handleClick = this.handleClick.bind(this);
+        this.addMovieToList = this.addMovieToList.bind(this);
+        this.removeMovieFromList = this.removeMovieFromList.bind(this);
 
         this.fadeInfo = this.fadeInfo.bind(this);
         this.incrementFade = this.incrementFade.bind(this);
@@ -103,6 +104,43 @@ class Movie extends React.Component {
         if (container) container.classList.add("trigger-fade")
     }
 
+    addMovieToList(e) {
+        e.stopPropagation();
+
+        const listMovieInfo = {
+            list_id: this.props.activeProfileList.listId,
+            movie_id: Number(e.currentTarget.dataset.movieId)
+        }
+
+        let refresh = this.props.refreshUserProfiles;
+        let userId = this.props.currentUserId;
+        let profileId = this.props.activeProfileId;
+        let setActive = this.props.setActiveProfile;
+
+        this.props.addMovieToList(listMovieInfo)
+            .then(() => refresh(userId))
+            .then(() => {
+                let newActiveProfile = Object.values(this.props.userProfiles).filter(prof => prof.id === profileId)[0];
+                setActive(newActiveProfile)
+            })
+    }
+
+    removeMovieFromList(e) {
+        e.stopPropagation();
+
+        let refresh = this.props.refreshUserProfiles;
+        let userId = this.props.currentUserId;
+        let profileId = this.props.activeProfileId;
+        let setActive = this.props.setActiveProfile;
+
+        this.props.removeMovieFromList(e.currentTarget.dataset.movieAssociation)
+            .then(() => refresh(userId))
+            .then(() => {
+                let newActiveProfile = Object.values(this.props.userProfiles).filter(prof => prof.id === profileId)[0];
+                setActive(newActiveProfile)
+            })
+    }
+
     render() {
 
         let { activeRow, activeMovie } = this.props;
@@ -118,6 +156,24 @@ class Movie extends React.Component {
         );
 
         if (!activeRow) {
+            let listMovies = this.props.activeProfileList.movies; // Array of movie objects
+            let listMovieAssociations = this.props.activeProfileList.movieAssociations;
+
+            let addBtn;
+            let inProfileList = listMovies.map(movie => movie.id).includes(details.id);
+
+            if (inProfileList) {
+                let movieAssociation = listMovieAssociations.filter(assoc => assoc.movie_id === details.id)[0];
+
+                addBtn=(
+                    <div onClick={this.removeMovieFromList} data-movie-association={movieAssociation.id} className="remove-movie-btn"></div>
+                )
+            } else {
+                addBtn=(
+                    <div onClick={this.addMovieToList} data-movie-id={details.id} className="add-btn"></div>
+                )
+            }
+
             moviePreview = (
                 <div className="movie-preview-default" onClick={this.setActiveMovie} onMouseEnter={this.togglePlayOn} onMouseLeave={this.togglePlayOff} >
                     <img 
@@ -152,7 +208,7 @@ class Movie extends React.Component {
                                 <div className="preview-buttons">
                                     {soundButton}
                                     <div className="gap"></div>
-                                    <div className="add-btn"></div>
+                                    {addBtn}
                                 </div>
                             </div>
                             <div className="preview-show-link">
@@ -181,7 +237,6 @@ class Movie extends React.Component {
                 </div>
             )
         }
-
 
 
         return (

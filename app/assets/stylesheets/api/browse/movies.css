@@ -163,6 +163,17 @@
     background-image: url("/assets/add-hovered");
 }
 
+.remove-movie-btn {
+    background-image: url("/assets/movie-add-unhov");
+    background-size: cover;
+    height: 36px;
+    width: 36px;
+}
+
+.remove-movie-btn:hover {
+    background-image: url("/assets/movie-add-hov");
+}
+
 .sound-btn-off {
     background-image: url("/assets/sound-off-unhovered");
     background-size: cover;

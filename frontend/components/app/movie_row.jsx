@@ -2,6 +2,7 @@ import React from "react";
 import Movie from "./movie";
 import MovieShow from "./movie_show";
 import MovieShowContainer from "./movie_show_container";
+import MovieContainer from "./movie_container";
 import {Redirect, Link} from "react-router-dom";
 
 class MovieRow extends React.Component {
@@ -86,7 +87,7 @@ class MovieRow extends React.Component {
             }
 
             let movieItem = (
-                <Movie key={details.id} 
+                <MovieContainer key={details.id} 
                 title={title} 
                 details={details} 
                 activeRow={activeRow}
