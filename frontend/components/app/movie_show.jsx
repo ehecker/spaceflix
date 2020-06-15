@@ -15,6 +15,7 @@ class MovieShow extends React.Component {
         this.addMovieToList = this.addMovieToList.bind(this);
         this.removeMovieFromList = this.removeMovieFromList.bind(this);
         this.triggerRender = this.triggerRender.bind(this);
+        this.refreshActiveProfile = this.refreshActiveProfile.bind(this);
     }
 
     toggleMute() {
@@ -30,14 +31,38 @@ class MovieShow extends React.Component {
             movie_id: Number(e.currentTarget.dataset.movieId)
         }
 
+        let refresh = this.props.refreshUserProfiles;
+        let userId = this.props.currentUserId;
+        let profileId = this.props.activeProfileId;
+        let setActive = this.props.setActiveProfile;
+
         this.props.addMovieToList(listMovieInfo)
-            .then(this.triggerRender)
+            .then(() => refresh(userId))
+            // .then(() => {
+            //     let newActiveProfile = Object.values(this.props.userProfiles).filter(prof => prof.id === profileId)[0];
+            //     return newActiveProfile;
+            // })
+            // .then(newProf => setActive(newProf))
+            .then(() => {
+                let newActiveProfile = Object.values(this.props.userProfiles).filter(prof => prof.id === profileId)[0];
+                setActive(newActiveProfile)
+            })
+            // .then(this.triggerRender)
     }
 
     removeMovieFromList(e) {
         this.props.removeMovieFromList(e.currentTarget.dataset.movieAssociation)
+            .then(this.props.refreshUserProfiles(this.props.currentUserId))
+            .then(this.refreshActiveProfile(this.props.activeProfileId))
             .then(this.triggerRender)
     }
+
+    refreshActiveProfile(profileId) {
+        let newActiveProfile = Object.values(this.props.userProfiles).filter(prof => prof.id === profileId)[0];
+        this.props.setActiveProfile(newActiveProfile);
+    }
+
+
 
     triggerRender() {
         this.setState({
