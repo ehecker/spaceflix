@@ -57,6 +57,24 @@ class Browse extends React.Component {
                 )
                 movieRows.push(movieRow);
             }
+
+            if (this.props.activeProfile.list.movies.length > 0) {
+                let listMovies = this.props.activeProfile.list.movies;
+                let formattedMovies = {};
+
+                listMovies.forEach(movie => {
+                    formattedMovies[movie.title] = movie
+                })
+
+                formattedMovies = Object.entries(formattedMovies);
+
+                let listMovieRow = (
+                    <MovieRow key={"myList"} name={"My List"} movies={formattedMovies} />
+                )
+
+                movieRows.unshift(listMovieRow);
+            }
+
         } else {
             return;
         }

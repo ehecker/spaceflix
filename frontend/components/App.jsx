@@ -19,6 +19,7 @@ const App = () => (
             <ProtectedRoute path="/browse" component={BrowseContainer} />
         </Switch>
         <ProtectedRoute path="/profiles" component={ProfilesContainer} />
+        <ProtectedRoute path="/my-list" component={myListContainer} />
     </main>
 )
 

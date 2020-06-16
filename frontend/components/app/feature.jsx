@@ -33,7 +33,6 @@ class Feature extends React.Component {
         let setActive = this.props.setActiveProfile;
         let profileId = this.props.activeProfileId;
 
-        // debugger
         let featuredMovie = Object.values(this.props.genres[0][1])[0];
 
         const listMovieInfo = {
@@ -67,28 +66,23 @@ class Feature extends React.Component {
     render() {
 
         let { genres } = this.props;
-
-        // debugger
-
         if (!genres[0]) return (<div></div>);
 
-        let featuredMovie = Object.values(genres[0][1])[0];
-
-        // let { movie } = this.props;
+        
         let { muted } = this.state;
-
-
+        let featuredMovie = Object.values(genres[0][1])[0];
+        
         let muteButton;
         if (muted) {
             muteButton=(
                 <div className="feature-mute-off" onClick={this.toggleMute}></div>
-            )
-        } else {
-            muteButton=(
-                <div className="feature-mute-on" onClick={this.toggleMute}></div>
-            )
-        }
-
+                )
+            } else {
+                muteButton=(
+                    <div className="feature-mute-on" onClick={this.toggleMute}></div>
+                    )
+                }
+                
         let addBtn;
         let listMovies = this.props.activeProfileList.movies;
         let inProfileList = listMovies.map(movie => movie.id).includes(featuredMovie.id);

@@ -213,7 +213,7 @@ class Profiles extends React.Component {
                             <div className="profile-icon"></div>
                         </div>
                         <div className="name-container">
-                            <div className="profile-name">{profile.name}</div>
+                            <div className="profile-name unselectable-text">{profile.name}</div>
                             {deleteBtn}
                         </div>
                     </div>

@@ -78,10 +78,11 @@ class MovieRow extends React.Component {
         //     }])
         // }
 
+        // debugger
+
         for (let [title, details] of movies) {
 
             let activeStatus;
-            
             if (activeMovie) {
                 activeStatus = activeMovie.id === details.id;
             }
