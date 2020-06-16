@@ -7,6 +7,7 @@ import LoginFormContainer from "./auth/login_form_container";
 import BrowseContainer from "./app/browse_container";
 import Watch from "./app/watch";
 import ProfilesContainer from "./app/profiles_container";
+import MyListContainer from "./app/my_list_container";
 
 // AuthRoutes are for non-logged in users, ProtectedRoutes are for logged-in users.
 
@@ -19,7 +20,7 @@ const App = () => (
             <ProtectedRoute path="/browse" component={BrowseContainer} />
         </Switch>
         <ProtectedRoute path="/profiles" component={ProfilesContainer} />
-        <ProtectedRoute path="/my-list" component={myListContainer} />
+        <ProtectedRoute path="/my-list" component={MyListContainer} />
     </main>
 )
 

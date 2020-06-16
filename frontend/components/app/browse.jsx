@@ -69,7 +69,7 @@ class Browse extends React.Component {
                 formattedMovies = Object.entries(formattedMovies);
 
                 let listMovieRow = (
-                    <MovieRow key={"myList"} name={"My List"} movies={formattedMovies} />
+                    <MovieRow key={"myList"} name={"My List"} movies={formattedMovies} history={this.props.history} />
                 )
 
                 movieRows.unshift(listMovieRow);
