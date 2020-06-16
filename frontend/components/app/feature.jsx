@@ -24,14 +24,29 @@ class Feature extends React.Component {
         } 
     }
 
+    addMovieToList(e) {
+
+
+
+    }
+
+    removeMovieFromList(e) {
+
+
+
+    }
+
     render() {
 
-        let movie;
-        if (this.props.movie) movie = this.props.movie;
+        // let movie;
+        // if (this.props.movie) movie = this.props.movie;
+        if (!this.props.movie) return (<div></div>);
+
+        let { movie } = this.props;
         let { muted } = this.state;
 
-        let muteButton;
 
+        let muteButton;
         if (muted) {
             muteButton=(
                 <div className="feature-mute-off" onClick={this.toggleMute}></div>
@@ -41,6 +56,30 @@ class Feature extends React.Component {
                 <div className="feature-mute-on" onClick={this.toggleMute}></div>
             )
         }
+
+        let addBtn;
+        let listMovies = this.props.activeProfileList.movies;
+        let inProfileList = listMovies.map(movie => movie.id).includes(movie.id);
+
+        if (inProfileList) {
+            let listMovieAssociations = this.props.activeProfileList.movieAssociations;
+            let movieAssociation = listMovieAssociations.filter(assoc => assoc.movie_id === details.id)[0];
+
+            addBtn=(
+                <div className="feature-add-btn" onClick={this.removeMovieFromList} >
+                    <div className="feature-check-icon"></div>
+                    <div className="feature-add-text unselectable-text">My List</div>
+                </div>
+            )
+        } else {
+            addBtn=(
+                <div className="feature-add-btn" onClick={this.addMovieToList} >
+                    <div className="feature-add-icon"></div>
+                    <div className="feature-add-text unselectable-text">My List</div>
+                </div>
+            )
+        }
+
 
         return(
             <main className="feature-main">
@@ -66,10 +105,7 @@ class Feature extends React.Component {
                                     <div className="feature-play-icon"></div>
                                     <div className="feature-play-text unselectable-text">Play</div>
                                 </div>
-                                <div className="feature-add-btn">
-                                    <div className="feature-add-icon"></div>
-                                    <div className="feature-add-text unselectable-text">My List</div>
-                                </div>
+                                {addBtn}
                             </div>
                             <div className="feature-buttons-right">
                                 {muteButton}

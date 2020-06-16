@@ -3,6 +3,7 @@ import NavContainer from "../nav_container";
 import MovieRow from "./movie_row";
 import Footer from "../footer";
 import Feature from "./feature";
+import FeatureContainer from "./feature_container";
 
 class Browse extends React.Component {
     constructor(props) {
@@ -67,7 +68,7 @@ class Browse extends React.Component {
             <main className="browse-main">
                 <NavContainer page="browse" />
                 <section className="browse-hero-container">
-                    <Feature movie={featuredMovie} />
+                    <FeatureContainer movie={featuredMovie} />
                 </section>
 
                 <section className="browse-rows-container">

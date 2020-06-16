@@ -126,6 +126,13 @@
     width: 20px;
 }
 
+.feature-check-icon {
+    background-image: url("/assets/checkmark-icon");
+    background-size: cover;
+    height: 35px;
+    width: 35px;
+}
+
 .feature-add-text {
     font-size: 20px;
     font-weight: 600;

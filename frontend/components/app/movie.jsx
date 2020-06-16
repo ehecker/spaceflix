@@ -156,7 +156,7 @@ class Movie extends React.Component {
         );
 
         if (!activeRow) {
-            let listMovies = this.props.activeProfileList.movies; // Array of movie objects
+            let listMovies = this.props.activeProfileList.movies;
             let listMovieAssociations = this.props.activeProfileList.movieAssociations;
 
             let addBtn;
