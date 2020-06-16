@@ -61,14 +61,11 @@ class Browse extends React.Component {
             return;
         }
 
-        let featuredMovie;
-        if (genres[0]) featuredMovie = genres[0][1];
-
         return (
             <main className="browse-main">
                 <NavContainer page="browse" />
                 <section className="browse-hero-container">
-                    <FeatureContainer movie={featuredMovie} />
+                    <FeatureContainer />
                 </section>
 
                 <section className="browse-rows-container">

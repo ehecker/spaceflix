@@ -129,8 +129,8 @@
 .feature-check-icon {
     background-image: url("/assets/checkmark-icon");
     background-size: cover;
-    height: 35px;
-    width: 35px;
+    height: 20px;
+    width: 20px;
 }
 
 .feature-add-text {

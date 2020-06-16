@@ -9,6 +9,8 @@ class Feature extends React.Component {
         };
 
         this.toggleMute = this.toggleMute.bind(this);
+        this.addMovieToList = this.addMovieToList.bind(this);
+        this.removeMovieFromList = this.removeMovieFromList.bind(this);
     }
 
     toggleMute() {
@@ -25,24 +27,54 @@ class Feature extends React.Component {
     }
 
     addMovieToList(e) {
+        
+        let refresh = this.props.refreshUserProfiles;
+        let userId = this.props.currentUserId;
+        let setActive = this.props.setActiveProfile;
+        let profileId = this.props.activeProfileId;
 
+        // debugger
+        let featuredMovie = Object.values(this.props.genres[0][1])[0];
 
+        const listMovieInfo = {
+            list_id: this.props.activeProfileList.listId,
+            movie_id: featuredMovie.id
+        }
 
+        this.props.addMovieToList(listMovieInfo)
+            .then(() => refresh(userId))
+            .then(() => {
+                let newActiveProfile = Object.values(this.props.userProfiles).filter(prof => prof.id === profileId)[0];
+                setActive(newActiveProfile)
+            })   
     }
 
     removeMovieFromList(e) {
 
+        let refresh = this.props.refreshUserProfiles;
+        let userId = this.props.currentUserId;
+        let profileId = this.props.activeProfileId;
+        let setActive = this.props.setActiveProfile;
 
-
+        this.props.removeMovieFromList(e.currentTarget.dataset.associationId)
+            .then(() => refresh(userId))
+            .then(() => {
+                let newActiveProfile = Object.values(this.props.userProfiles).filter(prof => prof.id === profileId)[0];
+                setActive(newActiveProfile)
+            })
     }
 
     render() {
 
-        // let movie;
-        // if (this.props.movie) movie = this.props.movie;
-        if (!this.props.movie) return (<div></div>);
+        let { genres } = this.props;
 
-        let { movie } = this.props;
+        // debugger
+
+        if (!genres[0]) return (<div></div>);
+
+        let featuredMovie = Object.values(genres[0][1])[0];
+
+        // let { movie } = this.props;
         let { muted } = this.state;
 
 
@@ -59,14 +91,14 @@ class Feature extends React.Component {
 
         let addBtn;
         let listMovies = this.props.activeProfileList.movies;
-        let inProfileList = listMovies.map(movie => movie.id).includes(movie.id);
+        let inProfileList = listMovies.map(movie => movie.id).includes(featuredMovie.id);
 
         if (inProfileList) {
             let listMovieAssociations = this.props.activeProfileList.movieAssociations;
-            let movieAssociation = listMovieAssociations.filter(assoc => assoc.movie_id === details.id)[0];
+            let movieAssociation = listMovieAssociations.filter(assoc => assoc.movie_id === featuredMovie.id)[0];
 
             addBtn=(
-                <div className="feature-add-btn" onClick={this.removeMovieFromList} >
+                <div className="feature-add-btn" onClick={this.removeMovieFromList} data-association-id={movieAssociation.id} >
                     <div className="feature-check-icon"></div>
                     <div className="feature-add-text unselectable-text">My List</div>
                 </div>
