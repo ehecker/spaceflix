@@ -148,6 +148,10 @@ class Movie extends React.Component {
         let { muted } = this.state;
         let moviePreview;
 
+        // FOR TESTING
+        let thumbnail = "/assets/movies/the_martian_thumbnail";
+        let trailer = "/assets/movies/the_martian_trailer";
+
         let soundButton = muted ? (
             <div className="sound-btn-off" onClick={this.toggleSound} ></div>
         ) 
@@ -177,7 +181,7 @@ class Movie extends React.Component {
             moviePreview = (
                 <div className="movie-preview-default" onClick={this.setActiveMovie} onMouseEnter={this.togglePlayOn} onMouseLeave={this.togglePlayOff} >
                     <img 
-                        src="/assets/rogue_one_thumbnail.jpg" 
+                        src={thumbnail} 
                         className="thumbnail" 
                         onMouseEnter={this.startFadeTimer} 
                     />
@@ -190,7 +194,7 @@ class Movie extends React.Component {
                         <video 
                             className="trailer"
                             id={details.id}
-                            src="/assets/rogue_one_trailer.mp4"
+                            src={trailer}
                             loop
                             muted={muted}
                         />
@@ -222,7 +226,7 @@ class Movie extends React.Component {
         } else if (activeRow && activeMovie) {
             moviePreview = (
                 <Link className="movie-preview-active playing" to={`/browse/${details.id}/watch`} onMouseEnter={this.togglePlayOn} onMouseLeave={this.togglePlayOff}>
-                    <img src="/assets/rogue_one_thumbnail.jpg" className="thumbnail-active"/>
+                    <img src={thumbnail} className="thumbnail-active"/>
                     <div className="play-container">
                         <i className="fas fa-play-circle fa-6x preview-play-button hov-button"></i>
                     </div>
@@ -232,7 +236,7 @@ class Movie extends React.Component {
         } else if (activeRow && !activeMovie) {
             moviePreview = (
                 <div className="movie-preview-inactive" onClick={this.setActiveMovie} onMouseEnter={this.togglePlayOn} onMouseLeave={this.togglePlayOff} >
-                    <img src="/assets/rogue_one_thumbnail.jpg" className="thumbnail-inactive"/>
+                    <img src={thumbnail} className="thumbnail-inactive"/>
                     <div className="chev-down hov-button"></div>
                 </div>
             )

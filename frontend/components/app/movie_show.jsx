@@ -65,6 +65,10 @@ class MovieShow extends React.Component {
         let muteButton;
         let addButton;
 
+        // FOR TESTING
+        let trailer = "/assets/movies/the_martian_trailer";
+        let movTitle = "/assets/movies/the_martian_title";
+
         if (muted) {
             muteButton=(
                 <div className="show-mute-btn-off" onClick={this.toggleMute} ></div>
@@ -100,7 +104,7 @@ class MovieShow extends React.Component {
                 <main className="movie-show-main">
                     <section className="show-info-container">
                         <div className="show-info-box">
-                            <img src="/assets/movies/rogue-one-title.png" className="show-title"/>
+                            <img src={movTitle} className="show-title"/>
                             <div className="show-details-container">
                                 <p className="show-details-text">{year}</p>
                                 <p className="show-details-text show-rating">{maturity_rating}</p>
@@ -127,7 +131,7 @@ class MovieShow extends React.Component {
                         </div>                        
                         <video 
                             className="show-trailer"
-                            src="/assets/rogue_one_trailer.mp4" 
+                            src={trailer}
                             autoPlay
                             muted={muted}
                             loop 
