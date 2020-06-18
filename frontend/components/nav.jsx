@@ -156,14 +156,25 @@ class Nav extends React.Component {
 
             navClasses = "nav-fixed";
 
+            let homeLink;
+            let listLink;
+            if (this.props.onList) {
+                homeLink = (<Link to="/browse" className="browse-link unselectable-text">Home</Link>)
+                listLink = (<p className="browse-link browse-link-active unselectable-text">My List</p>)
+
+            } else {   
+                homeLink= (<p className="browse-link browse-link-active unselectable-text">Home</p>)
+                listLink = (<Link to="/my-list" className="browse-link unselectable-text">My List</Link>)
+            }
+
             navLeft=(
                 <div className="nav-left">
                     <Link className="logo-box" to="/">
                         <div className="logo-small"></div>
                     </Link>
                     <div className="browse-links-container">
-                        <p className="browse-link browse-link-active">Home</p>
-                        <p className="browse-link">My List</p>
+                        {homeLink}
+                        {listLink}
                     </div>
                 </div>
             )
@@ -171,11 +182,6 @@ class Nav extends React.Component {
             navRight=(
                 <div className="nav-right">
                     <div className="profiles-dropdown-container">
-                        {/* <div className="profiles-dropdown-top">
-                            <p className="nav-welcome">Welcome back, Ezra</p>
-                            <div className="current-profile"></div>
-                            <div className="dropdown-down-carrot"></div>
-                        </div> */}
                         {activeProfileStyle} 
                         <div className="profiles-dropdown-bottom">
                             <div className="dropdown-bottom-box">

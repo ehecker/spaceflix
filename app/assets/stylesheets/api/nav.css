@@ -99,6 +99,8 @@
 .browse-link {
     margin-right: 20px;
     cursor: pointer;
+    text-decoration: none;
+    color: white;
 }
 
 .browse-link-active {

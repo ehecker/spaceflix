@@ -22,10 +22,10 @@ class Browse extends React.Component {
         let userProfiles = Object.values(this.props.userProfiles);
         let firstProfile = userProfiles[0];
 
-        if (!activeProfile) {
+        if (!activeProfile) { // If there is no active profile, set one
             this.props.setActiveProfile(firstProfile);
             return;
-        } else {
+        } else { // Make sure the active profile exists, if not set one
             let userProfileIds = Object.values(userProfiles).map(profile => profile.id);
             if (!userProfileIds.includes(activeProfile.id)) {
                 this.props.setActiveProfile(firstProfile);
@@ -58,8 +58,8 @@ class Browse extends React.Component {
                 movieRows.push(movieRow);
             }
 
-            if (this.props.activeProfile.list.movies.length > 0) {
-                let listMovies = this.props.activeProfile.list.movies;
+            if (activeProfile.list.movies.length > 0) {
+                let listMovies = activeProfile.list.movies;
                 let formattedMovies = {};
 
                 listMovies.forEach(movie => {
