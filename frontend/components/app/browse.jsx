@@ -14,7 +14,7 @@ class Browse extends React.Component {
     componentDidMount() {
         this.props.getGenres();
         this.props.getUserProfiles(this.props.currentUserId)
-            .then(this.setDefaultProfile)
+            .then(this.setDefaultProfile);
     }
 
     setDefaultProfile() {
@@ -24,12 +24,10 @@ class Browse extends React.Component {
 
         if (!activeProfile) { // If there is no active profile, set one
             this.props.setActiveProfile(firstProfile);
-            return;
         } else { // Make sure the active profile exists, if not set one
             let userProfileIds = Object.values(userProfiles).map(profile => profile.id);
             if (!userProfileIds.includes(activeProfile.id)) {
                 this.props.setActiveProfile(firstProfile);
-                return;
             }
         }
     }

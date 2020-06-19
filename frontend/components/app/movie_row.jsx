@@ -64,22 +64,6 @@ class MovieRow extends React.Component {
         let { activeRow, activeMovie } = this.state;
         let movieItems = [];    
 
-        // for (let i = 0; i < 10; i++) {
-        //     movies.push([`Fake Movie ${i + 1}`, {
-        //         id: i - 100,
-        //         cast: "Fake Actor 1, Fake Actor 2, Fake Actor 3",
-        //         description: "Fake Description",
-        //         director: "Fake Director",
-        //         duration: "2h 0m",
-        //         genre_id: 1,
-        //         maturity_rating: "R",
-        //         title: `Fake Movie ${i + 1}`,
-        //         year: 2020
-        //     }])
-        // }
-
-        // debugger
-
         for (let [title, details] of movies) {
 
             let activeStatus;
@@ -102,19 +86,26 @@ class MovieRow extends React.Component {
 
         if (this.state.activeRow) {
             movieShow = (
-                <MovieShowContainer genre={name} details={activeMovie} close={this.closeShow} />
+                <MovieShowContainer genre={name} details={activeMovie} close={this.closeShow} onList={this.props.onList} />
             )
+        }
+
+        let titleDiv;
+
+        if (this.props.onList) {
+            titleDiv=(<div></div>)
+        } else {
+            titleDiv=(<h2 className="genre-title" >{name}</h2>);
         }
 
         return (
             <main className="movie-row-main">
-                <h2 className="genre-title" >{name}</h2>
-
+                {titleDiv}
                 <div className="movies-container">
                     <div id={`${name}-carousel-btn`} className="carousel-left" onClick={this.shiftBack}></div>
                     
                     <div className="carousel-wrapper">
-                        <div id={`${name}-carousel`} className="carousel">  
+                        <div id={`${name}-carousel`} className="carousel">
                             {movieItems}
                         </div>
                     </div>

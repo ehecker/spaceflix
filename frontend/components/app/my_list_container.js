@@ -6,7 +6,8 @@ import { setActiveProfile, getUserProfiles } from "../../actions/profile_actions
 const msp = (state, ownProps) => ({
     activeProfile: state.entities.activeProfile.profile,
     currentUserId: state.session.id,
-    userProfiles: state.entities.profiles
+    userProfiles: state.entities.profiles,
+    history: ownProps.history
 })
 
 const mdp = (dispatch, ownProps) => ({

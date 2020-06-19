@@ -66,7 +66,7 @@ class MovieShow extends React.Component {
         let addButton;
 
         // FOR TESTING
-        let trailer = "/assets/movies/the_martian_trailer";
+        let trailer = "/assets/the_martian_trailer";
         let movTitle = "/assets/movies/the_martian_title";
 
         if (muted) {
@@ -99,6 +99,15 @@ class MovieShow extends React.Component {
             )
         }
 
+        let genreDiv;
+        if (this.props.onList) {
+            genreDiv=(<div></div>)
+        } else {
+            genreDiv=(
+                <div className="show-text"><span className="show-section">Genre: </span>{genre}</div>
+            )
+        }
+
      
         return(
                 <main className="movie-show-main">
@@ -120,7 +129,7 @@ class MovieShow extends React.Component {
                             </div>
                             <div className="show-text"><span className="show-section">Director: </span>{director}</div>
                             <div className="show-text"><span className="show-section">Cast: </span>{cast}</div>
-                            <div className="show-text"><span className="show-section">Genre: </span>{genre}</div>
+                            {genreDiv}
                         </div>
                     </section>
 

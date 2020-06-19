@@ -150,7 +150,7 @@ class Movie extends React.Component {
 
         // FOR TESTING
         let thumbnail = "/assets/movies/the_martian_thumbnail";
-        let trailer = "/assets/movies/the_martian_trailer";
+        let trailer = "/assets/the_martian_trailer";
 
         let soundButton = muted ? (
             <div className="sound-btn-off" onClick={this.toggleSound} ></div>
