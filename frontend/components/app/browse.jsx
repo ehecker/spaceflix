@@ -28,6 +28,9 @@ class Browse extends React.Component {
             let userProfileIds = Object.values(userProfiles).map(profile => profile.id);
             if (!userProfileIds.includes(activeProfile.id)) {
                 this.props.setActiveProfile(firstProfile);
+            } else {
+                let activeProf = Object.values(userProfiles).filter(prof => prof.id === activeProfile.id)[0]
+                this.props.setActiveProfile(activeProf)
             }
         }
     }
