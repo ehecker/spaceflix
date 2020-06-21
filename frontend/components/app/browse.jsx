@@ -54,7 +54,7 @@ class Browse extends React.Component {
             for (let [name, movies] of genres) {
                 movies = Object.entries(movies)
                 let movieRow = (
-                    <MovieRow key={name} name={name} movies={movies} history={this.props.history}/>
+                    <MovieRow key={name} name={name} movies={movies} history={this.props.history} />
                 )
                 movieRows.push(movieRow);
             }
@@ -70,7 +70,7 @@ class Browse extends React.Component {
                 formattedMovies = Object.entries(formattedMovies);
 
                 let listMovieRow = (
-                    <MovieRow key={"myList"} name={"My List"} movies={formattedMovies} history={this.props.history} />
+                    <MovieRow key={"myList"} name={"My List"} movies={formattedMovies} history={this.props.history} hideTitle={false} hideGenre={true} />
                 )
 
                 movieRows.unshift(listMovieRow);

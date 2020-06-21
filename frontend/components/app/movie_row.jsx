@@ -86,13 +86,13 @@ class MovieRow extends React.Component {
 
         if (this.state.activeRow) {
             movieShow = (
-                <MovieShowContainer genre={name} details={activeMovie} close={this.closeShow} onList={this.props.onList} />
+                <MovieShowContainer genre={name} details={activeMovie} close={this.closeShow} hideGenre={this.props.hideGenre} />
             )
         }
 
         let titleDiv;
 
-        if (this.props.onList) {
+        if (this.props.hideTitle) {
             titleDiv=(<div></div>)
         } else {
             titleDiv=(<h2 className="genre-title" >{name}</h2>);

@@ -14,8 +14,8 @@ class MyList extends React.Component {
     componentDidMount() {
         // let setDefault = this.setDefaultProfile;
 
-        // this.props.getUserProfiles(this.props.currentUserId)
-            // .then(this.setDefaultProfile)
+        this.props.getUserProfiles(this.props.currentUserId)
+            .then(this.setDefaultProfile);
             // .then(() => setDefault());
     }
 
@@ -30,6 +30,9 @@ class MyList extends React.Component {
             let userProfileIds = Object.values(userProfiles).map(profile => profile.id);
             if (!userProfileIds.includes(activeProfile.id)) {
                 this.props.setActiveProfile(firstProfile);
+            } else {
+                let activeProf = Object.values(userProfiles).filter(prof => prof.id === activeProfile.id)[0]
+                this.props.setActiveProfile(activeProf)
             }
         }
     }
@@ -59,7 +62,7 @@ class MyList extends React.Component {
                 moviesObj = Object.entries(moviesObj)
 
                 return (
-                    <MovieRow key={`mylist-${index}`} name={"My List"} movies={moviesObj} history={this.props.history} onList={true}  />
+                    <MovieRow key={`mylist-${index}`} name={"My List"} movies={moviesObj} history={this.props.history} hideTitle={true} hideGenre={true} />
                 )
             })
 

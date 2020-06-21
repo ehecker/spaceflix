@@ -100,7 +100,8 @@ class MovieShow extends React.Component {
         }
 
         let genreDiv;
-        if (this.props.onList) {
+
+        if (this.props.hideGenre) {
             genreDiv=(<div></div>)
         } else {
             genreDiv=(

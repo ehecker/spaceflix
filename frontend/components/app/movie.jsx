@@ -36,6 +36,7 @@ class Movie extends React.Component {
         event.currentTarget.classList.add("playing")
 
         if (!this.props.activeRow) {
+            // Need to update this to account for list
             const video = document.getElementById(this.props.details.id)
             video.play();
         }
@@ -45,6 +46,7 @@ class Movie extends React.Component {
         event.currentTarget.classList.remove("playing")
 
         if (!this.props.activeRow) {
+            // Need to update this to account for list
             const video = document.getElementById(this.props.details.id)
             video.pause();
         }
@@ -67,7 +69,7 @@ class Movie extends React.Component {
     incrementFade() {
         if (!this.props.activeRow) {
             this.fadeTime++;
-    
+            
             if (this.fadeTime >= 3) {
                 this.fadeInfo();
                 this.fadeTime = 0;
