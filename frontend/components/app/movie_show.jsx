@@ -46,11 +46,17 @@ class MovieShow extends React.Component {
         let profileId = this.props.activeProfileId;
         let setActive = this.props.setActiveProfile;
 
+        let shouldClose = this.props.hideGenre || this.props.hideTitle;
+        let closeShow = this.props.close;
+
         this.props.removeMovieFromList(e.currentTarget.dataset.movieAssociation)
             .then(() => refresh(userId))
             .then(() => {
                 let newActiveProfile = Object.values(this.props.userProfiles).filter(prof => prof.id === profileId)[0];
                 setActive(newActiveProfile)
+            })
+            .then(() => {
+                if (shouldClose) closeShow();
             })
     }
 
