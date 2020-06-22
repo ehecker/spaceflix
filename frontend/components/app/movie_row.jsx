@@ -22,7 +22,10 @@ class MovieRow extends React.Component {
     }
 
     setActiveMovie(movie) {
-        this.props.history.push(`/browse/${movie.id}`)
+
+        if (!this.props.hideTitle) {
+            this.props.history.push(`/browse/${movie.id}`)
+        }
 
         this.setState({
             activeMovie: movie,
@@ -49,7 +52,10 @@ class MovieRow extends React.Component {
     }
 
     closeShow() {
-        this.props.history.push("/browse")
+
+        if (!this.props.hideTitle) {
+            this.props.history.push("/browse")
+        }
 
         this.setState({
             activeMovie: null,
@@ -91,11 +97,14 @@ class MovieRow extends React.Component {
         }
 
         let titleDiv;
+        let moveButton;
 
         if (this.props.hideTitle) {
             titleDiv=(<div></div>)
+            moveButton=(<div></div>)
         } else {
             titleDiv=(<h2 className="genre-title" >{name}</h2>);
+            moveButton=(<div className="carousel-right" onClick={this.shiftForward}></div>)
         }
 
         return (
@@ -110,7 +119,7 @@ class MovieRow extends React.Component {
                         </div>
                     </div>
 
-                    <div className="carousel-right" onClick={this.shiftForward}></div>
+                    {moveButton}
                 </div>
 
                 {movieShow}

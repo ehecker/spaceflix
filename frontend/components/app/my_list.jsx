@@ -12,11 +12,8 @@ class MyList extends React.Component {
     }
 
     componentDidMount() {
-        // let setDefault = this.setDefaultProfile;
-
         this.props.getUserProfiles(this.props.currentUserId)
             .then(this.setDefaultProfile);
-            // .then(() => setDefault());
     }
 
     setDefaultProfile() {
@@ -39,8 +36,8 @@ class MyList extends React.Component {
 
     render() {
         if (!this.props.activeProfile) return (<div></div>);
-        let listMovies = this.props.activeProfile.list.movies;
 
+        let listMovies = this.props.activeProfile.list.movies;
         let listRows = {};
 
         if (listMovies.length > 0) {
@@ -50,7 +47,7 @@ class MyList extends React.Component {
 
                 listRows[i] = rowMovies;
                 i++;
-            }    
+            }
 
             listRows = Object.values(listRows).map((rowMovies, index) => {
                 let moviesObj = {};
@@ -77,7 +74,7 @@ class MyList extends React.Component {
 
         return (
             <div className="my-list-main">
-                <Nav page="browse" onList={true} /> 
+                <Nav page="browse" onList={true} />
                 <div className="list-container">
                     <div className="list-header unselectable-text">My List</div>
                     <div className="list-rows-container">
