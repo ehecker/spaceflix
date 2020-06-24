@@ -38,6 +38,8 @@ class MovieShow extends React.Component {
                 let newActiveProfile = Object.values(this.props.userProfiles).filter(prof => prof.id === profileId)[0];
                 setActive(newActiveProfile)
             })
+
+
     }
 
     removeMovieFromList(e) {

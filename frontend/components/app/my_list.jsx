@@ -40,6 +40,8 @@ class MyList extends React.Component {
         let listMovies = this.props.activeProfile.list.movies;
         let listRows = {};
 
+        debugger
+
         if (listMovies.length > 0) {
             let i = 0;
             while (listMovies.length > 0) {
