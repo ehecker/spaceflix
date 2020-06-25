@@ -41,4 +41,8 @@ export const removeMovieFromList = movieId => dispatch => ListAPIUtil.removeMovi
     .then(movieId => dispatch(removeMovieAction(movieId)))
 
 export const getProfileList = listId => dispatch => ListAPIUtil.fetchList(listId)
-    .then(list => dispatch(getListAction(list)))
+    .then(list => {
+        // debugger
+        return dispatch(getListAction(list))
+    })
+    

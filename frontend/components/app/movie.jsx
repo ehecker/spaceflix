@@ -167,6 +167,8 @@ class Movie extends React.Component {
             let listMovies = this.props.profileList.movies;
             let listMovieAssociations = this.props.profileList.movieAssociations;
 
+            // debugger
+
             let addBtn;
             let inProfileList = listMovies.map(movie => movie.id).includes(details.id);
 

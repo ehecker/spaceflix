@@ -67,8 +67,8 @@ class MovieShow extends React.Component {
         let { id, cast, description, director, duration, maturity_rating, title, year } = this.props.details;
         let { genre } = this.props;
         let { muted } = this.state;
-        let listMovies = this.props.activeProfileList.movies; // Array of movie objects
-        let listMovieAssociations = this.props.activeProfileList.movieAssociations;
+        let listMovies = this.props.profileList.movies; // Array of movie objects
+        let listMovieAssociations = this.props.profileList.movieAssociations;
         
         let muteButton;
         let addButton;

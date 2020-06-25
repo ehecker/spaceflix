@@ -39,7 +39,10 @@ class MyList extends React.Component {
             } else {
                 let activeProf = Object.values(userProfiles).filter(prof => prof.id === activeProfile.id)[0]
                 this.props.setActiveProfile(activeProf)
+
+                // debugger
                 this.props.getProfileList(activeProf.listId)
+                // debugger
                 
                     // .then(nextProfile => {
                     //     getProfileList(nextProfile.list_id)

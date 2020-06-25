@@ -68,7 +68,9 @@ class MovieRow extends React.Component {
 
         let { name, movies } = this.props;
         let { activeRow, activeMovie } = this.state;
-        let movieItems = [];    
+        let movieItems = [];   
+        
+        // debugger
 
         for (let [title, details] of movies) {
 
