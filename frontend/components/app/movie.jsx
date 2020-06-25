@@ -109,8 +109,10 @@ class Movie extends React.Component {
     addMovieToList(e) {
         e.stopPropagation();
 
+        // debugger
+
         const listMovieInfo = {
-            list_id: this.props.activeProfileList.listId,
+            list_id: this.props.profileList.id,
             movie_id: Number(e.currentTarget.dataset.movieId)
         }
 
@@ -162,8 +164,8 @@ class Movie extends React.Component {
         );
 
         if (!activeRow) {
-            let listMovies = this.props.activeProfileList.movies;
-            let listMovieAssociations = this.props.activeProfileList.movieAssociations;
+            let listMovies = this.props.profileList.movies;
+            let listMovieAssociations = this.props.profileList.movieAssociations;
 
             let addBtn;
             let inProfileList = listMovies.map(movie => movie.id).includes(details.id);

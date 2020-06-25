@@ -1,7 +1,8 @@
 import { connect } from "react-redux";
 import Profiles from "./profiles";
 import { createProfile, getUserProfiles, deleteProfile, setActiveProfile } from "../../actions/profile_actions";
-import { createList } from "../../actions/list_actions";
+import { createList, getProfileList } from "../../actions/list_actions";
+
 
 const msp = (state, ownProps) => {
 
@@ -20,7 +21,8 @@ const mdp = dispatch => {
         getUserProfiles: id => dispatch(getUserProfiles(id)),
         deleteProfile: profileId => dispatch(deleteProfile(profileId)),
         setActiveProfile: profile => dispatch(setActiveProfile(profile)),
-        createList: profileId => dispatch(createList(profileId))
+        createList: profileId => dispatch(createList(profileId)),
+        getProfileList: listId => dispatch(getProfileList(listId))
     }
 }
 

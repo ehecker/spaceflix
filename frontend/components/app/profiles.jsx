@@ -33,15 +33,12 @@ class Profiles extends React.Component {
 
         newProfName = this.titleize(newProfName);
 
-        let newProfileData = {
+        const newProfileData = {
             name: newProfName,
             user_id: this.props.currentUserId
         }
-        
-        //     .then(this.refreshProfiles)
-        //     .then(this.closeManagement)
 
-        const createListFunc = this.props.createList;
+        const createList = this.props.createList;
 
         this.props.createProfile(newProfileData)
             .then(newProf => { 
@@ -49,7 +46,7 @@ class Profiles extends React.Component {
                     profile_id: newProf.profileData.profileId
                 }
 
-                createListFunc(newListData)
+                createList(newListData)
             })
             .then(this.refreshProfiles)
             .then(this.closeManagement)
@@ -77,6 +74,8 @@ class Profiles extends React.Component {
     setActiveProfile(e) {
         if (this.state.managementStatus) return;
 
+        const { getProfileList } = this.props;
+
         const profileNum = Number(e.currentTarget.id.split("-")[1]);
         let userProfiles = Object.values(this.props.userProfiles);
         let nextActiveProfile;
@@ -90,8 +89,13 @@ class Profiles extends React.Component {
             } 
         }
 
+        // debugger
 
-        this.props.setActiveProfile(nextActiveProfile);
+        this.props.setActiveProfile(nextActiveProfile)
+            // .then(nextActive => {
+            //     getProfileList(nextActive.list_id)
+            // })
+        this.props.getProfileList(nextActiveProfile.listId)
         this.props.history.push("/browse");
     }
 

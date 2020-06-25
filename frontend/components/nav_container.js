@@ -2,6 +2,7 @@ import { connect } from "react-redux"
 import Nav from "./nav";
 import { login, logout } from "../actions/session_actions";
 import { getUserProfiles, setActiveProfile } from "../actions/profile_actions";
+import { getProfileList } from "../actions/list_actions"
 
 const mapStateToProps = (state, ownProps) => {
     return {
@@ -17,7 +18,8 @@ const mapDispatchToProps = (dispatch, ownProps) => {
         loginUser: user => dispatch(login(user)),
         logoutUser: () => dispatch(logout()),
         getUserProfiles: id => dispatch(getUserProfiles(id)),
-        setActiveProfile: profile => dispatch(setActiveProfile(profile))
+        setActiveProfile: profile => dispatch(setActiveProfile(profile)),
+        getProfileList: listId => dispatch(getProfileList(listId))
     }
 }
 

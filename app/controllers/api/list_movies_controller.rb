@@ -1,21 +1,33 @@
 class Api::ListMoviesController < ApplicationController
 
     def create
+
+        # debugger
+
         @list_movie = ListMovie.new(list_movie_params)
 
+        listId = params[:list_movie][:list_id]
+        @list = List.find(listId)
+
         if @list_movie && @list_movie.save!
-            render json: {}
+            render '/api/lists/show'
         else
             puts "listmovie creation failed"
         end
     end
 
     def destroy
+        # @list = List.find(params[:list_id])
         @list_movie = ListMovie.find(params[:id])
 
-        if @list_movie.destroy
-            puts "Removed from list"
-            render json: {}
+        # if @list_movie.destroy
+        if @list_movie
+            list_id = @list_movie.list.id
+            @list_movie.destroy
+
+            @list = List.find(list_id)
+            render '/api/lists/show'
+            # render json: {}
         else
             puts "Removal failed"
         end

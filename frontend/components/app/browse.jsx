@@ -2,7 +2,6 @@ import React from "react";
 import NavContainer from "../nav_container";
 import MovieRow from "./movie_row";
 import Footer from "../footer";
-import Feature from "./feature";
 import FeatureContainer from "./feature_container";
 
 class Browse extends React.Component {
@@ -18,25 +17,39 @@ class Browse extends React.Component {
     }
 
     setDefaultProfile() {
-        let { activeProfile } = this.props;
+        const { activeProfile, getProfileList } = this.props;
         let userProfiles = Object.values(this.props.userProfiles);
         let firstProfile = userProfiles[0];
 
         if (!activeProfile) { // If there is no active profile, set one
-            this.props.setActiveProfile(firstProfile);
+            this.props.setActiveProfile(firstProfile)
+            this.props.getProfileList(firstProfile.listId)
+
+                // .then(nextActive => {
+                //     getProfileList(nextActive.list_id)
+                // })
         } else { // Make sure the active profile exists, if not set one
             let userProfileIds = Object.values(userProfiles).map(profile => profile.id);
             if (!userProfileIds.includes(activeProfile.id)) {
-                this.props.setActiveProfile(firstProfile);
+                this.props.setActiveProfile(firstProfile)
+                this.props.getProfileList(firstProfile.listId)
+                    // .then(nextActive => {
+                    //     getProfileList(nextActive.list_id)
+                    // })
             } else {
                 let activeProf = Object.values(userProfiles).filter(prof => prof.id === activeProfile.id)[0]
                 this.props.setActiveProfile(activeProf)
+                this.props.getProfileList(activeProf.listId)
+
+                    // .then(nextActive => {
+                    //     getProfileList(nextActive.list_id)
+                    // })
             }
         }
     }
 
     render() {
-        let { activeProfile, userProfiles } = this.props;
+        let { activeProfile, userProfiles, profileList } = this.props;
         if (!activeProfile) {
             return (<div></div>);
         } else {
@@ -46,6 +59,7 @@ class Browse extends React.Component {
             }
         }
 
+        // debugger
 
         let { genres } = this.props
         let movieRows = [];
@@ -59,8 +73,8 @@ class Browse extends React.Component {
                 movieRows.push(movieRow);
             }
 
-            if (activeProfile.list.movies.length > 0) {
-                let listMovies = activeProfile.list.movies;
+            if (profileList.movies && profileList.movies.length > 0) {
+                let listMovies = profileList.movies;
                 let formattedMovies = {};
 
                 listMovies.forEach(movie => {

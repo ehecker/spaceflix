@@ -9,6 +9,7 @@ const profilesReducer = (oldState = {}, action) => {
         case CREATE_PROFILE:
             return Object.assign({}, oldState, action.profileData);
         case RECEIVE_USER_PROFILES:
+            // debugger
             return Object.assign({}, action.profiles)
             // return action.profiles;
         case DELETE_PROFILE:

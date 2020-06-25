@@ -1,1 +1,0 @@
-json.set! :profile_id, @profile.id

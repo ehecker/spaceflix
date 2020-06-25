@@ -8,7 +8,8 @@ const msp = state => ({
         activeProfileId: state.entities.activeProfile.profile.id,
         activeProfileList: state.entities.activeProfile.profile.list,
         currentUserId: state.session.id,
-        userProfiles: state.entities.profiles
+        userProfiles: state.entities.profiles,
+        profileList: state.entities.list
 })
 
 const mdp = dispatch => ({

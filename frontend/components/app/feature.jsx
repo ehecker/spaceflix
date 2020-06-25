@@ -84,11 +84,11 @@ class Feature extends React.Component {
                 }
                 
         let addBtn;
-        let listMovies = this.props.activeProfileList.movies;
+        let listMovies = this.props.profileList.movies;
         let inProfileList = listMovies.map(movie => movie.id).includes(featuredMovie.id);
 
         if (inProfileList) {
-            let listMovieAssociations = this.props.activeProfileList.movieAssociations;
+            let listMovieAssociations = this.props.profileList.movieAssociations;
             let movieAssociation = listMovieAssociations.filter(assoc => assoc.movie_id === featuredMovie.id)[0];
 
             addBtn=(

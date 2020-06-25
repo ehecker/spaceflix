@@ -4,7 +4,6 @@ class Api::GenresController < ApplicationController
         @genres = Genre.all
 
         render :index
-        # render '/api/genres/index'
     end
 
     def show

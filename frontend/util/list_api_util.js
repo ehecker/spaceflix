@@ -21,3 +21,11 @@ export const removeMovieFromList = id => {
         data: { id }
     })
 }
+
+export const fetchList = listId => {
+    return $.ajax({
+        url: `/api/lists/${listId}`,
+        method: "GET",
+        data: {id: listId}
+    })
+}
