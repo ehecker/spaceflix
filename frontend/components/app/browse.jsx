@@ -11,9 +11,12 @@ class Browse extends React.Component {
     }
 
     componentDidMount() {
-        this.props.getGenres();
-        this.props.getUserProfiles(this.props.currentUserId)
-            .then(this.setDefaultProfile);
+        // this.props.getGenres();
+        // this.props.getUserProfiles(this.props.currentUserId)
+        //     .then(this.setDefaultProfile);
+        this.props.getGenres()
+        .then(() => this.props.getUserProfiles(this.props.currentUserId))
+        .then(() => this.setDefaultProfile());
     }
 
     setDefaultProfile() {
@@ -25,25 +28,16 @@ class Browse extends React.Component {
             this.props.setActiveProfile(firstProfile)
             this.props.getProfileList(firstProfile.listId)
 
-                // .then(nextActive => {
-                //     getProfileList(nextActive.list_id)
-                // })
         } else { // Make sure the active profile exists, if not set one
             let userProfileIds = Object.values(userProfiles).map(profile => profile.id);
             if (!userProfileIds.includes(activeProfile.id)) {
                 this.props.setActiveProfile(firstProfile)
                 this.props.getProfileList(firstProfile.listId)
-                    // .then(nextActive => {
-                    //     getProfileList(nextActive.list_id)
-                    // })
+
             } else {
                 let activeProf = Object.values(userProfiles).filter(prof => prof.id === activeProfile.id)[0]
                 this.props.setActiveProfile(activeProf)
                 this.props.getProfileList(activeProf.listId)
-
-                    // .then(nextActive => {
-                    //     getProfileList(nextActive.list_id)
-                    // })
             }
         }
     }

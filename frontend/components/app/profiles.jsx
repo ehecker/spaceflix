@@ -38,7 +38,7 @@ class Profiles extends React.Component {
             user_id: this.props.currentUserId
         }
 
-        const createList = this.props.createList;
+        const { createList } = this.props;
 
         this.props.createProfile(newProfileData)
             .then(newProf => { 
@@ -88,8 +88,6 @@ class Profiles extends React.Component {
                 break;
             } 
         }
-
-        // debugger
 
         this.props.setActiveProfile(nextActiveProfile)
             // .then(nextActive => {

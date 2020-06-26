@@ -5,7 +5,7 @@ class Api::ProfilesController < ApplicationController
 
         if @profile.save
             # render json: {}
-            render "/api/profiles/list"
+            render "/api/profiles/new_profile"
         else
             render json: @profile.errors.full_messages, status: 422
         end

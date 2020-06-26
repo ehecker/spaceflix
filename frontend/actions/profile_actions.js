@@ -15,7 +15,6 @@ const createProfileAction = profileData => {
 }
 
 const receiveUserProfiles = user => {
-
     // debugger
     return {
         type: RECEIVE_USER_PROFILES,

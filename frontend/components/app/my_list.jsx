@@ -13,7 +13,7 @@ class MyList extends React.Component {
 
     componentDidMount() {
         this.props.getUserProfiles(this.props.currentUserId)
-            .then(this.setDefaultProfile);
+            .then(() => this.setDefaultProfile());
     }
 
     setDefaultProfile() {
@@ -24,31 +24,24 @@ class MyList extends React.Component {
         if (!activeProfile) {
             this.props.setActiveProfile(firstProfile)
             this.props.getProfileList(firstProfile.listId)
-
-                // .then(nextProfile => {
-                //     getProfileList(nextProfile.list_id)
-                // })
+   
         } else {
             let userProfileIds = Object.values(userProfiles).map(profile => profile.id);
             if (!userProfileIds.includes(activeProfile.id)) {
                 this.props.setActiveProfile(firstProfile)
                 this.props.getProfileList(firstProfile.listId)
-                    // .then(nextProfile => {
-                    //     getProfileList(nextProfile.list_id)
-                    // })
+       
             } else {
                 let activeProf = Object.values(userProfiles).filter(prof => prof.id === activeProfile.id)[0]
                 this.props.setActiveProfile(activeProf)
-
-                // debugger
                 this.props.getProfileList(activeProf.listId)
-                // debugger
                 
-                    // .then(nextProfile => {
-                    //     getProfileList(nextProfile.list_id)
-                    // })
             }
         }
+    }
+
+    parseMovies(movies) {
+        
     }
 
     render() {
@@ -56,9 +49,6 @@ class MyList extends React.Component {
 
         let listMovies = this.props.profileList.movies;
         let listRows = {};
-
-        // let listMovies = this.props.profileList.movies;
-        // debugger
 
         if (listMovies.length > 0) {
             let i = 0;
