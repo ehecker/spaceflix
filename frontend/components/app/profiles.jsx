@@ -28,23 +28,21 @@ class Profiles extends React.Component {
     }
 
     createProfile() {
-        let newProfName = this.state.newProfileName;
-        if (newProfName.length === 0) return;
-
-        newProfName = this.titleize(newProfName);
-
-        const newProfileData = {
-            name: newProfName,
-            user_id: this.props.currentUserId
-        }
-
-        const { createList } = this.props;
+        const { createProfile, createList, currentUserId } = this.props;
+        const { newProfileName } = this.state;
         const closeManagement = this.closeManagement;
 
-        this.props.createProfile(newProfileData)
-            .then(newProf => { 
+        if (newProfileName.length === 0) return;
+
+        const newProfileData = {
+            name: newProfileName,
+            user_id: currentUserId
+        }
+
+        createProfile(newProfileData)
+            .then(newProfileInfo => { 
                 const newListData = {
-                    profile_id: newProf.updatedProfiles.newProfileId
+                    profile_id: newProfileInfo.updatedProfiles.newProfileId
                 }
 
                 createList(newListData)
@@ -125,13 +123,6 @@ class Profiles extends React.Component {
 
     endAddHover(e) {
         e.currentTarget.classList.remove("add-hover")
-    }
-
-    titleize(name) {
-        let firstLetter = name[0].toUpperCase();
-        let otherLetters = name.slice(1).toLowerCase();
-
-        return firstLetter + otherLetters;
     }
 
     render() {
