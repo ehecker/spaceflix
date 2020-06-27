@@ -7,8 +7,6 @@ json.profiles do
             json.name profile.name
             json.user_id profile.user_id
             json.list_id profile.list.id
-            # json.profile_movies profile.movies
-            # debugger
             # json.list do
             #     json.list_id profile.list.id
             #     json.profile_id profile.list.profile_id

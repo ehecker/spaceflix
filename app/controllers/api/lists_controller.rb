@@ -5,7 +5,6 @@ class Api::ListsController < ApplicationController
 
         if @list && @list.save!
             render json: {}
-        else
         end
     end
 

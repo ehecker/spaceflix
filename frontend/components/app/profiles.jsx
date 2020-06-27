@@ -39,24 +39,24 @@ class Profiles extends React.Component {
         }
 
         const { createList } = this.props;
+        const closeManagement = this.closeManagement;
 
         this.props.createProfile(newProfileData)
             .then(newProf => { 
                 const newListData = {
-                    profile_id: newProf.profileData.profileId
+                    profile_id: newProf.updatedProfiles.newProfileId
                 }
 
                 createList(newListData)
             })
-            .then(this.refreshProfiles)
-            .then(this.closeManagement)
-
+            .then(() => closeManagement())
     }
 
     deleteProfile(e) {
+        const closeManagement = this.closeManagement;
+
         this.props.deleteProfile(e.currentTarget.id)
-            .then(this.refreshProfiles)
-            .then(this.closeManagement)
+            .then(() => closeManagement())
     }
 
     refreshProfiles() {
