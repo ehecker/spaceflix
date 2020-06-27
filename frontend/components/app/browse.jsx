@@ -7,6 +7,7 @@ import FeatureContainer from "./feature_container";
 class Browse extends React.Component {
     constructor(props) {
         super(props)
+
         this.setDefaultProfile = this.setDefaultProfile.bind(this);
     }
 
@@ -15,31 +16,18 @@ class Browse extends React.Component {
         // this.props.getUserProfiles(this.props.currentUserId)
         //     .then(this.setDefaultProfile);
         this.props.getGenres()
-        .then(() => this.props.getUserProfiles(this.props.currentUserId))
-        .then(() => this.setDefaultProfile());
+            .then(() => this.props.getUserProfiles(this.props.currentUserId))
+            .then(() => this.setDefaultProfile());
     }
 
     setDefaultProfile() {
-        const { activeProfile, getProfileList } = this.props;
-        let userProfiles = Object.values(this.props.userProfiles);
-        let firstProfile = userProfiles[0];
+        const { activeProfile, userProfiles, setActiveProfile, getProfileList } = this.props;
+        const firstProfile = Object.values(userProfiles)[0];
 
-        if (!activeProfile) { // If there is no active profile, set one
-            this.props.setActiveProfile(firstProfile)
-            this.props.getProfileList(firstProfile.listId)
-
-        } else { // Make sure the active profile exists, if not set one
-            let userProfileIds = Object.values(userProfiles).map(profile => profile.id);
-            if (!userProfileIds.includes(activeProfile.id)) {
-                this.props.setActiveProfile(firstProfile)
-                this.props.getProfileList(firstProfile.listId)
-
-            } else {
-                let activeProf = Object.values(userProfiles).filter(prof => prof.id === activeProfile.id)[0]
-                this.props.setActiveProfile(activeProf)
-                this.props.getProfileList(activeProf.listId)
-            }
-        }
+        if (!activeProfile) {
+            setActiveProfile(firstProfile)
+            getProfileList(firstProfile.listId)
+        } 
     }
 
     render() {
@@ -52,8 +40,6 @@ class Browse extends React.Component {
                 return (<div></div>);
             }
         }
-
-        // debugger
 
         let { genres } = this.props
         let movieRows = [];

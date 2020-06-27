@@ -170,7 +170,11 @@ class Movie extends React.Component {
             // debugger
 
             let addBtn;
-            let inProfileList = listMovies.map(movie => movie.id).includes(details.id);
+            let inProfileList;
+
+            if (listMovies) {
+                inProfileList = listMovies.map(movie => movie.id).includes(details.id);
+            }
 
             if (inProfileList) {
                 let movieAssociation = listMovieAssociations.filter(assoc => assoc.movie_id === details.id)[0];

@@ -16,11 +16,11 @@ class Profiles extends React.Component {
         this.createProfile = this.createProfile.bind(this);
         this.deleteProfile = this.deleteProfile.bind(this);
         this.setActiveProfile = this.setActiveProfile.bind(this);
-        this.refreshProfiles = this.refreshProfiles.bind(this);
+        this.setDefaultProfile = this.setDefaultProfile.bind(this);
         this.closeManagement = this.closeManagement.bind(this);
         this.updateName = this.updateName.bind(this);
         this.toggleManagement = this.toggleManagement.bind(this);
-        this.toggleCreateSection = this.toggleCreateSection.bind(this);
+        this.toggleCreateForm = this.toggleCreateForm.bind(this);
     }
 
     componentDidMount() {
@@ -28,11 +28,11 @@ class Profiles extends React.Component {
     }
 
     createProfile() {
+        if (this.state.newProfileName.length === 0) return;
+
         const { createProfile, createList, currentUserId } = this.props;
         const { newProfileName } = this.state;
         const closeManagement = this.closeManagement;
-
-        if (newProfileName.length === 0) return;
 
         const newProfileData = {
             name: newProfileName,
@@ -52,13 +52,11 @@ class Profiles extends React.Component {
 
     deleteProfile(e) {
         const closeManagement = this.closeManagement;
+        const setDefaultProfile = this.setDefaultProfile;
 
         this.props.deleteProfile(e.currentTarget.id)
             .then(() => closeManagement())
-    }
-
-    refreshProfiles() {
-        this.props.getUserProfiles(this.props.currentUserId)
+            .then(() => setDefaultProfile())
     }
 
     closeManagement() {
@@ -72,12 +70,9 @@ class Profiles extends React.Component {
     setActiveProfile(e) {
         if (this.state.managementStatus) return;
 
-        const { getProfileList } = this.props;
-
+        const userProfiles = Object.values(this.props.userProfiles);
         const profileNum = Number(e.currentTarget.id.split("-")[1]);
-        let userProfiles = Object.values(this.props.userProfiles);
         let nextActiveProfile;
-
 
         for (let i = 0; i < userProfiles.length; i++) {
             const currentProf = userProfiles[i];
@@ -88,11 +83,15 @@ class Profiles extends React.Component {
         }
 
         this.props.setActiveProfile(nextActiveProfile)
-            // .then(nextActive => {
-            //     getProfileList(nextActive.list_id)
-            // })
         this.props.getProfileList(nextActiveProfile.listId)
         this.props.history.push("/browse");
+    }
+
+    setDefaultProfile() {
+        if (Object.values(this.props.userProfiles).length < 1) return;
+
+        const firstUserProfile = Object.values(this.props.userProfiles)[0];
+        this.props.setActiveProfile(firstUserProfile)
     }
 
     updateName(e) {
@@ -111,7 +110,7 @@ class Profiles extends React.Component {
         })
     }
 
-    toggleCreateSection() {
+    toggleCreateForm() {
         this.setState({
             createSectionActive: !this.state.createSectionActive
         })
@@ -131,8 +130,6 @@ class Profiles extends React.Component {
             this.firstMount = false;
             return(<div></div>);
         }
-
-        // debugger
             
         let { managementStatus, createSectionActive } = this.state;
         let profiles = Object.values(this.props.userProfiles);
@@ -185,7 +182,7 @@ class Profiles extends React.Component {
                     <div className="create-prof-form">
                         <div className="create-prof-main">
                             <div className="create-btns-box" onMouseEnter={this.startAddHover} onMouseLeave={this.endAddHover}>
-                                <div className="profiles-add-btn" onClick={this.toggleCreateSection}></div>
+                                <div className="profiles-add-btn" onClick={this.toggleCreateForm}></div>
                                 <div className="create-profile-text">Create New Profile</div>
                             </div>
                         </div>

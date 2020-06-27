@@ -17,27 +17,13 @@ class MyList extends React.Component {
     }
 
     setDefaultProfile() {
-        let { activeProfile, getProfileList } = this.props;
-        let userProfiles = Object.values(this.props.userProfiles);
-        let firstProfile = userProfiles[0];
+        let { activeProfile, userProfiles, getProfileList, setActiveProfile } = this.props;
+        const firstProfile = Object.values(userProfiles)[0];
 
         if (!activeProfile) {
-            this.props.setActiveProfile(firstProfile)
-            this.props.getProfileList(firstProfile.listId)
-   
-        } else {
-            let userProfileIds = Object.values(userProfiles).map(profile => profile.id);
-            if (!userProfileIds.includes(activeProfile.id)) {
-                this.props.setActiveProfile(firstProfile)
-                this.props.getProfileList(firstProfile.listId)
-       
-            } else {
-                let activeProf = Object.values(userProfiles).filter(prof => prof.id === activeProfile.id)[0]
-                this.props.setActiveProfile(activeProf)
-                this.props.getProfileList(activeProf.listId)
-                
-            }
-        }
+            setActiveProfile(firstProfile)
+            getProfileList(firstProfile.listId)
+        } 
     }
 
     parseMovies(movies) {
@@ -50,7 +36,7 @@ class MyList extends React.Component {
         let listMovies = this.props.profileList.movies;
         let listRows = {};
 
-        if (listMovies.length > 0) {
+        if (listMovies && listMovies.length > 0) {
             let i = 0;
             while (listMovies.length > 0) {
                 let rowMovies = listMovies.splice(0, 6);
