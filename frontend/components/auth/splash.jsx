@@ -37,9 +37,11 @@ class Splash extends React.Component {
     handleSubmit(e) {
         e.preventDefault();
 
+        const redirectToProfiles = this.redirectToProfiles;
+
         const userInfo = Object.assign({}, this.state);
         this.props.signupUser(userInfo)
-            .then(this.redirectToProfiles);
+            .then(() => redirectToProfiles());
     }
 
     redirectToProfiles() {

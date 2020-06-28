@@ -9,9 +9,6 @@ const profilesReducer = (oldState = {}, action) => {
         case RECEIVE_USER_PROFILES:
             return Object.assign({}, action.profiles);
         case DELETE_PROFILE:
-            // let nextState = Object.assign({}, oldState);
-            // delete nextState[action.profileId];
-            // return nextState;
             return Object.assign({}, action.updatedProfiles.userProfiles);
         default:
             return oldState;

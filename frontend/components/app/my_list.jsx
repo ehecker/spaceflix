@@ -17,7 +17,7 @@ class MyList extends React.Component {
     }
 
     setDefaultProfile() {
-        let { activeProfile, userProfiles, getProfileList, setActiveProfile } = this.props;
+        const { activeProfile, userProfiles, getProfileList, setActiveProfile } = this.props;
         const firstProfile = Object.values(userProfiles)[0];
 
         if (!activeProfile) {

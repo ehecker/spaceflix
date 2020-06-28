@@ -16,10 +16,10 @@ const App = () => (
         <AuthRoute exact path="/" component={SplashContainer} />
         <AuthRoute exact path="/login" component={LoginFormContainer} />
         <Switch>
+            <ProtectedRoute path="/profiles" component={ProfilesContainer} />
             <ProtectedRoute exact path="/browse/:id/watch" component={Watch} />
             <ProtectedRoute path="/browse" component={BrowseContainer} />
         </Switch>
-        <ProtectedRoute path="/profiles" component={ProfilesContainer} />
         <ProtectedRoute path="/my-list" component={MyListContainer} />
     </main>
 )

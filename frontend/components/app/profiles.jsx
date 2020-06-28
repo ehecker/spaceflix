@@ -82,6 +82,8 @@ class Profiles extends React.Component {
             } 
         }
 
+        // debugger
+
         this.props.setActiveProfile(nextActiveProfile)
         this.props.getProfileList(nextActiveProfile.listId)
         this.props.history.push("/browse");

@@ -23,7 +23,6 @@ class Nav extends React.Component {
     componentDidMount() {
         if (this.props.page === "browse") {
             window.addEventListener("scroll", this.handleScroll);
-            // this.props.getUserProfiles(this.props.currentUserId);
         }
     }
 
@@ -56,8 +55,10 @@ class Nav extends React.Component {
             password: "password321"
         }
 
+        const redirectToProfiles = this.redirectToProfiles;
+
         this.props.loginUser(demoUser)
-            .then(this.redirectToProfiles);
+            .then(() => redirectToProfiles());
     }
 
     redirectToProfiles() {

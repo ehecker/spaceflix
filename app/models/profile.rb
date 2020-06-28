@@ -17,8 +17,4 @@ class Profile < ApplicationRecord
         foreign_key: :profile_id,
         class_name: :List
 
-    
-    # def movies
-    #   list.movies
-    # end
 end

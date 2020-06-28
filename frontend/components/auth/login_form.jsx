@@ -37,10 +37,12 @@ class LoginForm extends React.Component {
 
     handleSubmit(e) {
         e.preventDefault();
-
+        
+        const redirectToProfiles = this.redirectToProfiles;
         const userInfo = Object.assign({}, this.state);
+
         this.props.loginUser(userInfo)
-            .then(this.redirectToProfiles)
+            .then(() => redirectToProfiles())
     }
 
     redirectToProfiles() {
