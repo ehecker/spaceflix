@@ -12,7 +12,6 @@ class Movie extends React.Component {
         this.fadeTime = 0;
         this.fadeInterval;
 
-
         // Function Binds
         this.setActiveMovie = this.setActiveMovie.bind(this);
         this.toggleSound = this.toggleSound.bind(this);
@@ -73,6 +72,8 @@ class Movie extends React.Component {
             if (this.fadeTime >= 3) {
                 this.fadeInfo();
                 this.fadeTime = 0;
+                // need to also add clear interval here?
+                // this.resetFadeTimer();
             }
         }
     }
@@ -109,40 +110,19 @@ class Movie extends React.Component {
     addMovieToList(e) {
         e.stopPropagation();
 
-        // debugger
-
         const listMovieInfo = {
             list_id: this.props.profileList.id,
             movie_id: Number(e.currentTarget.dataset.movieId)
         }
 
-        let refresh = this.props.refreshUserProfiles;
-        let userId = this.props.currentUserId;
-        let profileId = this.props.activeProfileId;
-        let setActive = this.props.setActiveProfile;
-
         this.props.addMovieToList(listMovieInfo)
-            .then(() => refresh(userId))
-            .then(() => {
-                let newActiveProfile = Object.values(this.props.userProfiles).filter(prof => prof.id === profileId)[0];
-                setActive(newActiveProfile)
-            })
     }
 
     removeMovieFromList(e) {
         e.stopPropagation();
 
-        let refresh = this.props.refreshUserProfiles;
-        let userId = this.props.currentUserId;
-        let profileId = this.props.activeProfileId;
-        let setActive = this.props.setActiveProfile;
-
-        this.props.removeMovieFromList(e.currentTarget.dataset.movieAssociation)
-            .then(() => refresh(userId))
-            .then(() => {
-                let newActiveProfile = Object.values(this.props.userProfiles).filter(prof => prof.id === profileId)[0];
-                setActive(newActiveProfile)
-            })
+        const associationId = e.currentTarget.dataset.movieAssociation;
+        this.props.removeMovieFromList(associationId)
     }
 
     render() {

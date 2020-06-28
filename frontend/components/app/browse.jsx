@@ -15,6 +15,8 @@ class Browse extends React.Component {
         // this.props.getGenres();
         // this.props.getUserProfiles(this.props.currentUserId)
         //     .then(this.setDefaultProfile);
+        // debugger
+
         const { getGenres, getUserProfiles, currentUserId } = this.props;
         const setDefaultProfile = this.setDefaultProfile;
 
@@ -24,12 +26,9 @@ class Browse extends React.Component {
     }
 
     setDefaultProfile() {
-
         const { activeProfile, userProfiles, setActiveProfile, getProfileList } = this.props;
         const firstProfile = Object.values(userProfiles)[0];
         
-        debugger
-
         if (!activeProfile) {
             setActiveProfile(firstProfile)
             getProfileList(firstProfile.listId)
@@ -37,15 +36,10 @@ class Browse extends React.Component {
     }
 
     render() {
-        let { activeProfile, userProfiles, profileList } = this.props;
+        let { activeProfile, profileList } = this.props;
         if (!activeProfile) {
             return (<div></div>);
-        } else {
-            let userProfileIds = Object.values(userProfiles).map(profile => profile.id);
-            if (!userProfileIds.includes(activeProfile.id)) {
-                return (<div></div>);
-            }
-        }
+        } 
 
         let { genres } = this.props
         let movieRows = [];

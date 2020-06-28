@@ -11,7 +11,7 @@ class Profiles extends React.Component {
             newProfileName: "",
         }
 
-        this.firstMount = true;
+        this.firstRender = true;
 
         this.createProfile = this.createProfile.bind(this);
         this.deleteProfile = this.deleteProfile.bind(this);
@@ -82,7 +82,7 @@ class Profiles extends React.Component {
             } 
         }
 
-        // debugger
+        debugger
 
         this.props.setActiveProfile(nextActiveProfile)
         this.props.getProfileList(nextActiveProfile.listId)
@@ -127,9 +127,8 @@ class Profiles extends React.Component {
     }
 
     render() {
-
-        if (this.firstMount) {
-            this.firstMount = false;
+        if (this.firstRender) {
+            this.firstRender = false;
             return(<div></div>);
         }
             

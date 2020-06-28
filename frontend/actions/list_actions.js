@@ -7,9 +7,9 @@ export const REMOVE_MOVIE_FROM_LIST = "REMOVE_MOVIE_FROM_LIST";
 export const RECEIVE_PROFILE_LIST = "RECEIVE_PROFILE_LIST";
 
 // Action Creators
-const createListAction = list => ({
+const createListAction = updatedUser => ({
     type: CREATE_LIST,
-    list
+    updatedProfiles: updatedUser.profiles
 });
 
 const addMovieAction = updatedList => ({
@@ -42,7 +42,6 @@ export const removeMovieFromList = movieId => dispatch => ListAPIUtil.removeMovi
 
 export const getProfileList = listId => dispatch => ListAPIUtil.fetchList(listId)
     .then(list => {
-        // debugger
         return dispatch(getListAction(list))
     })
     

@@ -4,7 +4,11 @@ class Api::ListsController < ApplicationController
         @list = List.new(list_params)
 
         if @list && @list.save!
-            render json: {}
+            prof = Profile.find(params[:list][:profile_id])
+
+            @user = prof.user
+            # render '/api/lists/create'
+            render '/api/users/show'
         end
     end
 
