@@ -7,7 +7,6 @@ class Api::ListsController < ApplicationController
             prof = Profile.find(params[:list][:profile_id])
 
             @user = prof.user
-            # render '/api/lists/create'
             render '/api/users/show'
         end
     end
