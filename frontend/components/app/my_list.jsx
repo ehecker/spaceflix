@@ -23,7 +23,7 @@ class MyList extends React.Component {
         if (!activeProfile) {
             setActiveProfile(firstProfile)
             getProfileList(firstProfile.listId)
-        } 
+        }
     }
 
     parseMovies(movies) {
@@ -33,7 +33,7 @@ class MyList extends React.Component {
     render() {
         if (!this.props.activeProfile) return (<div></div>);
 
-        let listMovies = this.props.profileList.movies;
+        let listMovies = this.props.profileList.movies.slice();
         let listRows = {};
 
         if (listMovies && listMovies.length > 0) {

@@ -126,10 +126,8 @@ class Movie extends React.Component {
     }
 
     render() {
-
-        let { activeRow, activeMovie } = this.props;
-        let { title, details} = this.props;
-        let { muted } = this.state;
+        const { activeRow, activeMovie, title, details } = this.props;
+        const { muted } = this.state;
         let moviePreview;
 
         // FOR TESTING
@@ -149,8 +147,8 @@ class Movie extends React.Component {
 
             // debugger
 
-            let addBtn;
             let inProfileList;
+            let addBtn;
 
             if (listMovies) {
                 inProfileList = listMovies.map(movie => movie.id).includes(details.id);

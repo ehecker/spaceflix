@@ -71,18 +71,9 @@ class Profiles extends React.Component {
         if (this.state.managementStatus) return;
 
         const userProfiles = Object.values(this.props.userProfiles);
-        const profileNum = Number(e.currentTarget.id.split("-")[1]);
-        let nextActiveProfile;
+        const nextProfileId = Number(e.currentTarget.id.split("-")[1]);
 
-        for (let i = 0; i < userProfiles.length; i++) {
-            const currentProf = userProfiles[i];
-            if (currentProf.id === profileNum) {
-                nextActiveProfile = currentProf
-                break;
-            } 
-        }
-
-        // debugger
+        const nextActiveProfile = userProfiles.filter(profile => profile.id === nextProfileId)[0];
 
         this.props.setActiveProfile(nextActiveProfile)
         this.props.getProfileList(nextActiveProfile.listId)
