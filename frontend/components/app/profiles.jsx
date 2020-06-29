@@ -82,7 +82,7 @@ class Profiles extends React.Component {
             } 
         }
 
-        debugger
+        // debugger
 
         this.props.setActiveProfile(nextActiveProfile)
         this.props.getProfileList(nextActiveProfile.listId)

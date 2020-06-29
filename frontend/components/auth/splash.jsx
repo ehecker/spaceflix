@@ -12,7 +12,6 @@ class Splash extends React.Component {
             password: ""
         };
 
-        this.redirectToProfiles = this.redirectToProfiles.bind(this);
         this.updateEmail = this.updateEmail.bind(this);
         this.updatePassword = this.updatePassword.bind(this);
         this.handleSubmit = this.handleSubmit.bind(this);
@@ -37,15 +36,8 @@ class Splash extends React.Component {
     handleSubmit(e) {
         e.preventDefault();
 
-        const redirectToProfiles = this.redirectToProfiles;
-
         const userInfo = Object.assign({}, this.state);
         this.props.signupUser(userInfo)
-            .then(() => redirectToProfiles());
-    }
-
-    redirectToProfiles() {
-        this.props.history.push("/profiles");
     }
 
     parseErrors(errors) {

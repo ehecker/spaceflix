@@ -14,7 +14,6 @@ class Nav extends React.Component {
         this.scrollValue = document.getElementsByTagName("html")[0].scrollTop;
 
         this.setActiveProfile = this.setActiveProfile.bind(this);
-        this.redirectToProfiles = this.redirectToProfiles.bind(this);
         this.handleScroll = this.handleScroll.bind(this);
         this.handleDemo = this.handleDemo.bind(this);
         this.handleLogout = this.handleLogout.bind(this);
@@ -55,14 +54,7 @@ class Nav extends React.Component {
             password: "password321"
         }
 
-        const redirectToProfiles = this.redirectToProfiles;
-
         this.props.loginUser(demoUser)
-            .then(() => redirectToProfiles());
-    }
-
-    redirectToProfiles() {
-        this.props.history.push("/profiles");
     }
 
     setActiveProfile(e) {
