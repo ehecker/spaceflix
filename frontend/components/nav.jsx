@@ -62,8 +62,6 @@ class Nav extends React.Component {
         let userProfiles = Object.values(this.props.userProfiles);
         let nextActiveProfile;
 
-        const { getProfileList } = this.props;
-
         for (let i = 0; i < userProfiles.length; i++) {
             const currentProf = userProfiles[i];
             if (currentProf.id === profileId) {
@@ -73,15 +71,11 @@ class Nav extends React.Component {
         }
 
         this.props.setActiveProfile(nextActiveProfile)
-            // .then(nextActive => {
-            //     getProfileList(nextActive.list_id)
-            // })
         this.props.getProfileList(nextActiveProfile.listId)
-
     }
 
     render() {
-        let { page } = this.props;
+        const { page } = this.props;
         let navClasses;
         let navLeft;
         let navRight;
@@ -124,7 +118,7 @@ class Nav extends React.Component {
             )
             
         } else if (page === "browse") {
-            let { activeProfile } = this.props;
+            const { activeProfile } = this.props;
             let profiles = Object.values(this.props.profiles);
             let activeProfileStyle;
             let styledProfiles = [];
@@ -169,7 +163,7 @@ class Nav extends React.Component {
 
             navLeft=(
                 <div className="nav-left">
-                    <Link className="logo-box" to="/">
+                    <Link className="logo-box" to="/browse">
                         <div className="logo-small"></div>
                     </Link>
                     <div className="browse-links-container">
