@@ -53,8 +53,14 @@ class Movie extends React.Component {
         event.currentTarget.classList.add("playing")
 
         if (!this.props.activeRow) {
-            // Need to update this to account for list
-            const video = document.getElementById(this.props.details.id)
+            let videoId;
+            if (this.props.inProfileList) {
+                videoId = `mylist-${this.props.details.id}`
+            } else {
+                videoId = this.props.details.id;
+            }
+
+            const video = document.getElementById(videoId)
             video.play();
         }
     }
@@ -63,8 +69,14 @@ class Movie extends React.Component {
         event.currentTarget.classList.remove("playing")
 
         if (!this.props.activeRow) {
-            // Need to update this to account for list
-            const video = document.getElementById(this.props.details.id)
+            let videoId;
+            if (this.props.inProfileList) {
+                videoId = `mylist-${this.props.details.id}`
+            } else {
+                videoId = this.props.details.id;
+            }
+
+            const video = document.getElementById(videoId)
             video.pause();
         }
     }
@@ -164,6 +176,13 @@ class Movie extends React.Component {
                 )
             }
 
+            let videoId;
+            if (this.props.inProfileList) {
+                videoId = `mylist-${details.id}`
+            } else {
+                videoId = details.id;
+            }
+
             moviePreview = (
                 <div className="movie-preview-default" onClick={this.setActiveMovie} onMouseEnter={this.togglePlayOn} onMouseLeave={this.togglePlayOff} >
                     <img 
@@ -179,7 +198,7 @@ class Movie extends React.Component {
                     >
                         <video 
                             className="trailer"
-                            id={details.id}
+                            id={videoId}
                             src={trailer}
                             loop
                             muted={muted}

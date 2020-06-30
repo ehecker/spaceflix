@@ -1,9 +1,6 @@
 import React from "react";
-import Movie from "./movie";
-import MovieShow from "./movie_show";
 import MovieShowContainer from "./movie_show_container";
 import MovieContainer from "./movie_container";
-import {Redirect, Link} from "react-router-dom";
 
 class MovieRow extends React.Component {
 
@@ -84,13 +81,17 @@ class MovieRow extends React.Component {
                 activeStatus = activeMovie.id === details.id;
             }
 
+            let inProfileList = this.props.hideGenre;
+
             let movieItem = (
                 <MovieContainer key={details.id} 
-                title={title} 
-                details={details} 
-                activeRow={activeRow}
-                activeMovie={activeStatus}
-                setActiveMovie={this.setActiveMovie} />
+                    title={title} 
+                    details={details} 
+                    activeRow={activeRow}
+                    activeMovie={activeStatus}
+                    setActiveMovie={this.setActiveMovie}
+                    inProfileList={inProfileList}
+                />
             )
             movieItems.push(movieItem)
         }
