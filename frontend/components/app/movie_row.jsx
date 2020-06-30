@@ -21,8 +21,15 @@ class MovieRow extends React.Component {
         this.shiftForward = this.shiftForward.bind(this);
     }
 
-    setActiveMovie(movie) {
+    componentDidMount() {
+        this.mounted = true;
+    }
 
+    componentWillUnmount() {
+        this.mounted = false;
+    }
+
+    setActiveMovie(movie) {
         if (!this.props.hideTitle) {
             this.props.history.push(`/browse/${movie.id}`)
         }
@@ -52,15 +59,16 @@ class MovieRow extends React.Component {
     }
 
     closeShow() {
-
         if (!this.props.hideTitle) {
             this.props.history.push("/browse")
         }
 
-        this.setState({
-            activeMovie: null,
-            activeRow: false
-        })
+        if (this.mounted) {
+            this.setState({
+                activeMovie: null,
+                activeRow: false
+            })
+        }
     }
 
 
