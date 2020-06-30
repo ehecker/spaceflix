@@ -80,7 +80,6 @@ class MyList extends React.Component {
                 <Footer />
             </div>
         )
-
     }
 }
 

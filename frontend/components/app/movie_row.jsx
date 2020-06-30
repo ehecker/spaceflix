@@ -65,15 +65,12 @@ class MovieRow extends React.Component {
 
 
     render() {
-
         let { name, movies } = this.props;
         let { activeRow, activeMovie } = this.state;
         let movieItems = [];   
         
-        // debugger
-
+        // Create individual movies 
         for (let [title, details] of movies) {
-
             let activeStatus;
             if (activeMovie) {
                 activeStatus = activeMovie.id === details.id;
@@ -90,21 +87,20 @@ class MovieRow extends React.Component {
             movieItems.push(movieItem)
         }
 
+        // Create movie show section, if row is active
         let movieShow;
-
-        if (this.state.activeRow) {
+        if (activeRow) {
             movieShow = (
                 <MovieShowContainer genre={name} details={activeMovie} close={this.closeShow} hideGenre={this.props.hideGenre} />
             )
         }
 
+
+        // Hide title and carousel buttons if on myList page
         let titleDiv;
         let moveButton;
 
-        if (this.props.hideTitle) {
-            titleDiv=(<div></div>)
-            moveButton=(<div></div>)
-        } else {
+        if (!this.props.hideTitle) {
             titleDiv=(<h2 className="genre-title" >{name}</h2>);
             moveButton=(<div className="carousel-right" onClick={this.shiftForward}></div>)
         }
