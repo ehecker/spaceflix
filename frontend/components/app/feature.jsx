@@ -26,41 +26,19 @@ class Feature extends React.Component {
         } 
     }
 
-    addMovieToList(e) {
-        
-        let refresh = this.props.refreshUserProfiles;
-        let userId = this.props.currentUserId;
-        let setActive = this.props.setActiveProfile;
-        let profileId = this.props.activeProfileId;
-
-        let featuredMovie = Object.values(this.props.genres[0][1])[0];
+    addMovieToList() {
+        const featuredMovie = Object.values(this.props.genres[0][1])[0];
 
         const listMovieInfo = {
-            list_id: this.props.activeProfileList.listId,
+            list_id: this.props.profileList.id,
             movie_id: featuredMovie.id
         }
 
         this.props.addMovieToList(listMovieInfo)
-            .then(() => refresh(userId))
-            .then(() => {
-                let newActiveProfile = Object.values(this.props.userProfiles).filter(prof => prof.id === profileId)[0];
-                setActive(newActiveProfile)
-            })   
     }
 
     removeMovieFromList(e) {
-
-        let refresh = this.props.refreshUserProfiles;
-        let userId = this.props.currentUserId;
-        let profileId = this.props.activeProfileId;
-        let setActive = this.props.setActiveProfile;
-
         this.props.removeMovieFromList(e.currentTarget.dataset.associationId)
-            .then(() => refresh(userId))
-            .then(() => {
-                let newActiveProfile = Object.values(this.props.userProfiles).filter(prof => prof.id === profileId)[0];
-                setActive(newActiveProfile)
-            })
     }
 
     render() {

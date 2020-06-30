@@ -112,7 +112,7 @@ class Nav extends React.Component {
             
         } else if (page === "browse") {
             const { activeProfile } = this.props;
-            let profiles = Object.values(this.props.profiles);
+            let profiles = Object.values(this.props.userProfiles);
             let activeProfileStyle;
             let styledProfiles = [];
 

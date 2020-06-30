@@ -6,7 +6,6 @@ import { setActiveProfile, getUserProfiles } from "../../actions/profile_actions
 import { getProfileList } from "../../actions/list_actions";
 
 const msp = (state, ownProps) => {
-    // debugger
     return {
         genres: Object.entries(state.entities.genres),
         history: ownProps.history,

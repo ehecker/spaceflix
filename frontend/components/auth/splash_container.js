@@ -9,8 +9,7 @@ const msp = (state, ownProps) => ({
 
 const mdp = (dispatch, ownProps) => ({
     signupUser: user => dispatch(signup(user)),
-    clearErrors: () => dispatch(clearErrors()),
-    ownProps
+    clearErrors: () => dispatch(clearErrors())
 })
 
 export default connect(msp, mdp)(Splash);

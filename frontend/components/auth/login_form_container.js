@@ -9,8 +9,7 @@ const msp = (state, ownProps) => ({
 
 const mdp = (dispatch, ownProps) => ({
     loginUser: user => dispatch(login(user)),
-    clearErrors: () => dispatch(clearErrors()),
-    ownProps
+    clearErrors: () => dispatch(clearErrors())
 });
 
 export default connect(msp, mdp)(LoginForm);

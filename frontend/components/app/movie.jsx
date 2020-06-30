@@ -31,6 +31,24 @@ class Movie extends React.Component {
         this.endFadeTimer();
     }
 
+    addMovieToList(e) {
+        e.stopPropagation();
+
+        const listMovieInfo = {
+            list_id: this.props.profileList.id,
+            movie_id: Number(e.currentTarget.dataset.movieId)
+        }
+
+        this.props.addMovieToList(listMovieInfo)
+    }
+
+    removeMovieFromList(e) {
+        e.stopPropagation();
+
+        const associationId = e.currentTarget.dataset.movieAssociation;
+        this.props.removeMovieFromList(associationId)
+    }
+
     togglePlayOn(event) {
         event.currentTarget.classList.add("playing")
 
@@ -107,24 +125,6 @@ class Movie extends React.Component {
         if (container) container.classList.add("trigger-fade")
     }
 
-    addMovieToList(e) {
-        e.stopPropagation();
-
-        const listMovieInfo = {
-            list_id: this.props.profileList.id,
-            movie_id: Number(e.currentTarget.dataset.movieId)
-        }
-
-        this.props.addMovieToList(listMovieInfo)
-    }
-
-    removeMovieFromList(e) {
-        e.stopPropagation();
-
-        const associationId = e.currentTarget.dataset.movieAssociation;
-        this.props.removeMovieFromList(associationId)
-    }
-
     render() {
         const { activeRow, activeMovie, title, details } = this.props;
         const { muted } = this.state;
@@ -144,8 +144,6 @@ class Movie extends React.Component {
         if (!activeRow) {
             let listMovies = this.props.profileList.movies;
             let listMovieAssociations = this.props.profileList.movieAssociations;
-
-            // debugger
 
             let inProfileList;
             let addBtn;
