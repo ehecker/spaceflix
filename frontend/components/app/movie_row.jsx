@@ -81,7 +81,7 @@ class MovieRow extends React.Component {
                 activeStatus = activeMovie.id === details.id;
             }
 
-            let inProfileList = this.props.hideGenre;
+            let inProfileListRow = this.props.hideGenre;
 
             let movieItem = (
                 <MovieContainer key={details.id} 
@@ -90,7 +90,7 @@ class MovieRow extends React.Component {
                     activeRow={activeRow}
                     activeMovie={activeStatus}
                     setActiveMovie={this.setActiveMovie}
-                    inProfileList={inProfileList}
+                    inProfileListRow={inProfileListRow}
                 />
             )
             movieItems.push(movieItem)
