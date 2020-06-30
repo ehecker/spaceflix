@@ -4,27 +4,19 @@ import { createProfile, getUserProfiles, deleteProfile, setActiveProfile } from 
 import { createList, getProfileList } from "../../actions/list_actions";
 
 
-const msp = (state, ownProps) => {
+const msp = (state, ownProps) => ({
+    currentUserId: state.session.id,
+    userProfiles: state.entities.profiles,
+    history: ownProps.history
+})
 
-    return {
-        currentUserId: state.session.id,
-        currentUser: state.entities.users,
-        userProfiles: state.entities.profiles,
-        activeProfile: state.entities.activeProfile.profile,
-        history: ownProps.history
-    }
-}
-
-const mdp = dispatch => {
-    return {
+const mdp = dispatch => ({
         createProfile: profileData => dispatch(createProfile(profileData)),
         getUserProfiles: id => dispatch(getUserProfiles(id)),
         deleteProfile: profileId => dispatch(deleteProfile(profileId)),
         setActiveProfile: profile => dispatch(setActiveProfile(profile)),
         createList: profileId => dispatch(createList(profileId)),
         getProfileList: listId => dispatch(getProfileList(listId))
-    }
-}
-
+})
 
 export default connect(msp, mdp)(Profiles);

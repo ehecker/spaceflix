@@ -23,43 +23,19 @@ class MovieShow extends React.Component {
 
     addMovieToList(e) {
         const listMovieInfo = {
-            list_id: this.props.activeProfileList.listId,
+            list_id: this.props.profileList.id,
             movie_id: Number(e.currentTarget.dataset.movieId)
         }
 
-        let refresh = this.props.refreshUserProfiles;
-        let userId = this.props.currentUserId;
-        let profileId = this.props.activeProfileId;
-        let setActive = this.props.setActiveProfile;
-
         this.props.addMovieToList(listMovieInfo)
-            .then(() => refresh(userId))
-            .then(() => {
-                let newActiveProfile = Object.values(this.props.userProfiles).filter(prof => prof.id === profileId)[0];
-                setActive(newActiveProfile)
-            })
-
-
     }
 
     removeMovieFromList(e) {
-        let refresh = this.props.refreshUserProfiles;
-        let userId = this.props.currentUserId;
-        let profileId = this.props.activeProfileId;
-        let setActive = this.props.setActiveProfile;
+        const { hideGenre, hideTitle, close, removeMovieFromList } = this.props;
+        const shouldClose = hideGenre || hideTitle;
 
-        let shouldClose = this.props.hideGenre || this.props.hideTitle;
-        let closeShow = this.props.close;
-
-        this.props.removeMovieFromList(e.currentTarget.dataset.movieAssociation)
-            .then(() => refresh(userId))
-            .then(() => {
-                let newActiveProfile = Object.values(this.props.userProfiles).filter(prof => prof.id === profileId)[0];
-                setActive(newActiveProfile)
-            })
-            .then(() => {
-                if (shouldClose) closeShow();
-            })
+        removeMovieFromList(e.currentTarget.dataset.movieAssociation)
+            .then(() => { if (shouldClose) close()})
     }
 
     render() {
@@ -74,8 +50,8 @@ class MovieShow extends React.Component {
         let addButton;
 
         // FOR TESTING
-        let trailer = "/assets/the_martian_trailer";
-        let movTitle = "/assets/movies/the_martian_title";
+        const trailer = "/assets/the_martian_trailer";
+        const movTitle = "/assets/movies/the_martian_title";
 
         if (muted) {
             muteButton=(
@@ -87,7 +63,7 @@ class MovieShow extends React.Component {
             )
         }
 
-        let inProfileList = listMovies.map(movie => movie.id).includes(id);
+        const inProfileList = listMovies.map(movie => movie.id).includes(id);
 
         if (inProfileList) {
             let movieAssociation = listMovieAssociations.filter(assoc => assoc.movie_id === id)[0];
@@ -108,10 +84,7 @@ class MovieShow extends React.Component {
         }
 
         let genreDiv;
-
-        if (this.props.hideGenre) {
-            genreDiv=(<div></div>)
-        } else {
+        if (!this.props.hideGenre) {
             genreDiv=(
                 <div className="show-text"><span className="show-section">Genre: </span>{genre}</div>
             )

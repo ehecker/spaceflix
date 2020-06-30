@@ -7,7 +7,7 @@ const msp = (state, ownProps) => ({
     history: ownProps.history
 })
 
-const mdp = (dispatch, ownProps) => ({
+const mdp = dispatch => ({
     signupUser: user => dispatch(signup(user)),
     clearErrors: () => dispatch(clearErrors())
 })

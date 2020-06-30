@@ -14,11 +14,11 @@ class Movie extends React.Component {
 
         // Function Binds
         this.setActiveMovie = this.setActiveMovie.bind(this);
+        this.addMovieToList = this.addMovieToList.bind(this);
+        this.removeMovieFromList = this.removeMovieFromList.bind(this);
         this.toggleSound = this.toggleSound.bind(this);
         this.togglePlayOn = this.togglePlayOn.bind(this);
         this.togglePlayOff = this.togglePlayOff.bind(this);
-        this.addMovieToList = this.addMovieToList.bind(this);
-        this.removeMovieFromList = this.removeMovieFromList.bind(this);
 
         this.fadeInfo = this.fadeInfo.bind(this);
         this.incrementFade = this.incrementFade.bind(this);

@@ -12,10 +12,10 @@ class MyList extends React.Component {
     }
 
     componentDidMount() {
-        const { activeProfile } = this.props;
+        const { activeProfile, currentUserId } = this.props;
 
         if (!activeProfile) {
-            this.props.getUserProfiles(this.props.currentUserId)
+            this.props.getUserProfiles(currentUserId)
                 .then(() => this.setDefaultProfile());
         }
     }
@@ -53,8 +53,6 @@ class MyList extends React.Component {
     }
 
     render() {
-        // debugger
-        // if (!this.props.profileList) return (<div></div>);
         if (typeof this.props.profileList.movies !== "object") return (<div></div>);
 
         let listMovies = this.props.profileList.movies.slice();
