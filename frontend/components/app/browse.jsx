@@ -12,17 +12,15 @@ class Browse extends React.Component {
     }
 
     componentDidMount() {
-        // this.props.getGenres();
-        // this.props.getUserProfiles(this.props.currentUserId)
-        //     .then(this.setDefaultProfile);
-        // debugger
-
-        const { getGenres, getUserProfiles, currentUserId } = this.props;
+        const { getGenres, getUserProfiles, currentUserId, activeProfile } = this.props;
         const setDefaultProfile = this.setDefaultProfile;
 
-        getGenres()
-            .then(() => getUserProfiles(currentUserId))
-            .then(() => setDefaultProfile())
+        getGenres();
+
+        if (!activeProfile) {
+            getUserProfiles(currentUserId)
+                .then(() => setDefaultProfile())
+        }
     }
 
     setDefaultProfile() {

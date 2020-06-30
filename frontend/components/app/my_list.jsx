@@ -12,8 +12,12 @@ class MyList extends React.Component {
     }
 
     componentDidMount() {
-        this.props.getUserProfiles(this.props.currentUserId)
-            .then(() => this.setDefaultProfile());
+        const { activeProfile } = this.props;
+
+        if (!activeProfile) {
+            this.props.getUserProfiles(this.props.currentUserId)
+                .then(() => this.setDefaultProfile());
+        }
     }
 
     setDefaultProfile() {
@@ -37,10 +41,7 @@ class MyList extends React.Component {
         let movieRowElements = movieRowArrays.map((rowMovies, index) => {
             let moviesObj = {};
 
-            rowMovies.forEach(movie => {
-                moviesObj[movie.title] = movie
-            })
-
+            rowMovies.forEach(movie => moviesObj[movie.title] = movie)
             moviesObj = Object.entries(moviesObj)
 
             return (
@@ -52,10 +53,13 @@ class MyList extends React.Component {
     }
 
     render() {
-        if (!this.props.activeProfile) return (<div></div>);
+        // debugger
+        // if (!this.props.profileList) return (<div></div>);
+        if (typeof this.props.profileList.movies !== "object") return (<div></div>);
 
         let listMovies = this.props.profileList.movies.slice();
         let listRows;
+
 
         if (listMovies && listMovies.length > 0) {
             listRows = this.parseMovies(listMovies)
