@@ -27,38 +27,38 @@ class MyList extends React.Component {
     }
 
     parseMovies(movies) {
-        
+        let movieRowArrays = [];
+
+        while (movies.length > 0) {
+            let row = movies.splice(0, 6);
+            movieRowArrays.push(row);
+        }
+
+        let movieRowElements = movieRowArrays.map((rowMovies, index) => {
+            let moviesObj = {};
+
+            rowMovies.forEach(movie => {
+                moviesObj[movie.title] = movie
+            })
+
+            moviesObj = Object.entries(moviesObj)
+
+            return (
+                <MovieRow key={`mylist-${index}`} name={"My List"} movies={moviesObj} history={this.props.history} hideTitle={true} hideGenre={true} />
+            )
+        })
+
+        return movieRowElements;
     }
 
     render() {
         if (!this.props.activeProfile) return (<div></div>);
 
         let listMovies = this.props.profileList.movies.slice();
-        let listRows = {};
+        let listRows;
 
         if (listMovies && listMovies.length > 0) {
-            let i = 0;
-            while (listMovies.length > 0) {
-                let rowMovies = listMovies.splice(0, 6);
-
-                listRows[i] = rowMovies;
-                i++;
-            }
-
-            listRows = Object.values(listRows).map((rowMovies, index) => {
-                let moviesObj = {};
-
-                for (let j = 0; j < rowMovies.length; j++) {
-                    moviesObj[rowMovies[j].title] = rowMovies[j];
-                }
-
-                moviesObj = Object.entries(moviesObj)
-
-                return (
-                    <MovieRow key={`mylist-${index}`} name={"My List"} movies={moviesObj} history={this.props.history} hideTitle={true} hideGenre={true} />
-                )
-            })
-
+            listRows = this.parseMovies(listMovies)
         } else {
             listRows=(
                 <div className="no-movies-text-box">
