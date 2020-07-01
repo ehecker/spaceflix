@@ -6,8 +6,7 @@ import thunk from "../middleware/thunk_middleware";
 
 
 const configureStore = (preloadedState = {}) => {
-    // debugger
     return createStore(rootReducer, preloadedState, applyMiddleware(thunk, logger));
 }
 
-export default configureStore;
+export default configureStore;``

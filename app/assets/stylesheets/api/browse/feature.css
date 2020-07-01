@@ -1,5 +1,4 @@
 .feature-main {
-    /* background-color: red; */
     color: white;
     height: 100%;
     width: 100%;
@@ -7,7 +6,6 @@
 }
 
 .feature-movie-container {
-    /* background-color: blueviolet; */
     height: 100%;
     width: 100%;
     position: absolute;
@@ -19,20 +17,14 @@
 }
 
 .feature-movie {
-    /* background-color: green; */
-    /* height: auto;
-    width: 100%;
-    margin-top: -40px; */
-   
-    /* height: auto;
+    /* height: 130%;
     width: 100%; */
 
     height: 130%;
-    width: 100%;
+    width: auto;
 } 
 
 .feature-overlay {
-    /* background-color: goldenrod; */
     height: 100%;
     width: 100%;
     position: relative;
@@ -42,7 +34,6 @@
 }
 
 .feature-info {
-    /* background-color: green; */
     margin-bottom: 140px;
     margin-left: 70px;
     width: 97%;
@@ -140,7 +131,6 @@
 }
 
 .feature-buttons-right {
-    /* background-color: red; */
     display: flex;
     align-items: center;
     height: 50px;

@@ -42,11 +42,9 @@ class Feature extends React.Component {
     }
 
     render() {
-
         let { genres } = this.props;
         if (!genres[0]) return (<div></div>);
 
-        
         let { muted } = this.state;
         let featuredMovie = Object.values(genres[0][1])[0];
         
@@ -91,7 +89,7 @@ class Feature extends React.Component {
 
 
         return(
-            <main className="feature-main">
+            <div className="feature-main">
                 <div className="feature-movie-container">
                     <video 
                         className="feature-movie"
@@ -123,7 +121,7 @@ class Feature extends React.Component {
                         </div>
                     </div>
                 </div>
-            </main>
+            </div>
         )
     }
 }

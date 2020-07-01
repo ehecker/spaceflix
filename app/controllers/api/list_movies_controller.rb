@@ -1,9 +1,6 @@
 class Api::ListMoviesController < ApplicationController
 
     def create
-
-        # debugger
-
         @list_movie = ListMovie.new(list_movie_params)
 
         listId = params[:list_movie][:list_id]
