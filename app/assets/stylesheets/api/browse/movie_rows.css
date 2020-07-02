@@ -2,7 +2,6 @@
     color: white;
     width: 100%;
     margin-bottom: 55px;
-    /* background-color: orange; */
 }
 
 .genre-title {
@@ -12,7 +11,6 @@
 }
 
 .movies-container {
-    /* background-color: purple;  */
     display: flex;
     align-items: center;
     justify-content: center;

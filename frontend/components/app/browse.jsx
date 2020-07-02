@@ -69,7 +69,7 @@ class Browse extends React.Component {
             }
 
         } else {
-            return;
+            return (<div></div>)
         }
 
         return (

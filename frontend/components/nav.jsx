@@ -33,12 +33,12 @@ class Nav extends React.Component {
         const root = document.getElementsByTagName("html")[0];
 
         if (this.scrollValue < 30 && root.scrollTop >= 30) {
-            let nav = document.getElementsByTagName("nav")[0];
+            const nav = document.getElementsByTagName("nav")[0];
             nav.classList.add("nav-scrolled")
             this.scrollValue = root.scrollTop;
 
         } else if (this.scrollValue >= 30 && root.scrollTop <= 30 ) {
-            let nav = document.getElementsByTagName("nav")[0];
+            const nav = document.getElementsByTagName("nav")[0];
             nav.classList.remove("nav-scrolled")
             this.scrollValue = root.scrollTop;
         }

@@ -115,7 +115,7 @@ class MovieRow extends React.Component {
         }
 
         return (
-            <main className="movie-row-main">
+            <div className="movie-row-main">
                 {titleDiv}
                 <div className="movies-container">
                     <div id={`${name}-carousel-btn`} className="carousel-left" onClick={this.shiftBack}></div>
@@ -130,7 +130,7 @@ class MovieRow extends React.Component {
                 </div>
 
                 {movieShow}
-            </main>
+            </div>
         )
     }
 

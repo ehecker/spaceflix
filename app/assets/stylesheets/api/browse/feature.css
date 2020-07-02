@@ -34,7 +34,7 @@
 }
 
 .feature-info {
-    margin-bottom: 140px;
+    margin-bottom: 130px;
     margin-left: 70px;
     width: 97%;
     display: flex;
@@ -44,7 +44,7 @@
 .feature-title {
     font-size: 60px;
     font-weight: 700;
-    margin-bottom: 30px;
+    margin-bottom: 25px;
     font-family: 'Quicksand', sans-serif;
     letter-spacing: 15px;
 }

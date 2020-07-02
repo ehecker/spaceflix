@@ -10,6 +10,8 @@
 .movie-preview-default {
     height: 168px;
     width: 300px;
+
+    overflow: hidden;
 }
 
 .movie-preview-default:hover {
@@ -36,7 +38,6 @@
     visibility: visible;
     cursor: pointer;
 
-
     z-index: 10;
 }
 
@@ -61,7 +62,9 @@
     position: absolute;
     height: 168px;
     width: 300px;
-
+    
+    /* height: 200px;
+    width: 357px; */
 }
 
 .playing .trailer-container .trailer {
@@ -111,7 +114,6 @@
 }
 
 .fa-play-circle:hover {
-    /* background-color: yellow; */
     opacity: 0.8;
 }
 
