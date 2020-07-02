@@ -50,7 +50,7 @@ movie1 = Movie.create!({
 
 movie1.trailer.attach(io: open("https://spaceflix-seeds.s3-us-west-1.amazonaws.com/interstellar_trailer.mp4"), filename: "interstellar_trailer.mp4")
 movie1.thumbnail.attach(io: open("https://spaceflix-seeds.s3-us-west-1.amazonaws.com/interstellar_thumbnail.jpg"), filename: "interstellar_thumbnail.jpg")
-movie1.logo.attach(io: open("https://spaceflix-seeds.s3-us-west-1.amazonaws.com/interstellar_title.png"), filename: "interstellar_title.png")
+movie1.logo.attach(io: open("https://spaceflix-seeds.s3-us-west-1.amazonaws.com/interstellar_logo.png"), filename: "interstellar_logo.png")
 
 movie2 = Movie.create!({
     title: "The Martian",

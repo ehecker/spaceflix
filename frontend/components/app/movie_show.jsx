@@ -46,25 +46,23 @@ class MovieShow extends React.Component {
         let listMovies = this.props.profileList.movies; // Array of movie objects
         let listMovieAssociations = this.props.profileList.movieAssociations;
         
-        let muteButton;
-        let addButton;
-
         // FOR TESTING
         // const trailer = "/assets/the_martian_trailer";
         // const movTitle = "/assets/movies/the_martian_title";
 
+        debugger
+        
         const trailer = this.props.details.trailer;
-        const logo = this.props.details.logo;
+        const logo = this.props.details.logo ? <img src={this.props.details.logo} className="show-logo"/> 
+        : (<div className="logo-backup">{title.toUpperCase()}</div>);
+        // const logo = this.props.details.logo;
+        // const logo = "/assets/interstellar_logo.png"
 
-        if (muted) {
-            muteButton=(
-                <div className="show-mute-btn-off" onClick={this.toggleMute} ></div>
-            )
-        } else {
-            muteButton=(
-                <div className="show-mute-btn-on" onClick={this.toggleMute}></div>
-            )
-        }
+        let muteButton;
+        let addButton;
+
+        muted ? muteButton=(<div className="show-mute-btn-off" onClick={this.toggleMute} ></div>)
+            : muteButton=(<div className="show-mute-btn-on" onClick={this.toggleMute}></div>)
 
         const inProfileList = listMovies.map(movie => movie.id).includes(id);
 
@@ -87,17 +85,15 @@ class MovieShow extends React.Component {
         }
 
         let genreDiv;
-        if (!this.props.hideGenre) {
-            genreDiv=(
-                <div className="show-text"><span className="show-section">Genre: </span>{genre}</div>
-            )
-        }
+        if (!this.props.hideGenre) genreDiv=(<div className="show-text"><span className="show-section">Genre: </span>{genre}</div>)
+        
      
         return(
                 <main className="movie-show-main">
                     <section className="show-info-container">
                         <div className="show-info-box">
-                            <img src={logo} className="show-title"/>
+                            {/* <img src={logo} className="show-title"/> */}
+                            {logo}
                             <div className="show-details-container">
                                 <p className="show-details-text">{year}</p>
                                 <p className="show-details-text show-rating">{maturity_rating}</p>

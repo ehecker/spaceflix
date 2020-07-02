@@ -35,8 +35,20 @@
     margin-left: 48px;
 }
 
-.show-title {
+.show-logo {
+    /* max-height: 150px;
+    min-width: 80%; */
     width: 80%;
+
+}
+
+.logo-backup {
+    font-size: 50px;
+    font-weight: 700;
+    margin-top: 25px;
+    margin-bottom: 25px;
+    font-family: 'Quicksand', sans-serif;
+    letter-spacing: 10px;
 }
 
 .show-details-container {
