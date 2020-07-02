@@ -13,4 +13,7 @@ const receiveGenres = genres => {
 
 // Thunk Action Creators
 export const getGenres = () => dispatch => GenresAPIUtil.fetchGenres()
-    .then(genres => dispatch(receiveGenres(genres)))
+    .then(genres => {
+        // debugger
+        dispatch(receiveGenres(genres))
+    })

@@ -50,8 +50,11 @@ class MovieShow extends React.Component {
         let addButton;
 
         // FOR TESTING
-        const trailer = "/assets/the_martian_trailer";
-        const movTitle = "/assets/movies/the_martian_title";
+        // const trailer = "/assets/the_martian_trailer";
+        // const movTitle = "/assets/movies/the_martian_title";
+
+        const trailer = this.props.details.trailer;
+        const logo = this.props.details.logo;
 
         if (muted) {
             muteButton=(
@@ -89,13 +92,12 @@ class MovieShow extends React.Component {
                 <div className="show-text"><span className="show-section">Genre: </span>{genre}</div>
             )
         }
-
      
         return(
                 <main className="movie-show-main">
                     <section className="show-info-container">
                         <div className="show-info-box">
-                            <img src={movTitle} className="show-title"/>
+                            <img src={logo} className="show-title"/>
                             <div className="show-details-container">
                                 <p className="show-details-text">{year}</p>
                                 <p className="show-details-text show-rating">{maturity_rating}</p>

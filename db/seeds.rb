@@ -6,10 +6,14 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
+require 'open-uri'
 
 User.destroy_all
 Genre.destroy_all
 Movie.destroy_all
+Profile.destroy_all
+List.destroy_all
+ListMovie.destroy_all
 
 # USERS
 
@@ -28,6 +32,10 @@ genre3 = Genre.create!({name: "Star Wars"})
 
 # MOVIES
 
+# movie1.trailer.attach()
+# movie1.thumbnail.attach()
+# movie1.logo.attach()
+
 # Adventure
 movie1 = Movie.create!({
     title: "Interstellar",
@@ -37,8 +45,12 @@ movie1 = Movie.create!({
     maturity_rating: "PG-13",
     director: "Christopher Nolan",
     cast: "Matthew McConaughey, Anne Hatheway, Jessica Chastain, Mackenzie Foy, John Lithgow, Timothée Chalamet, Michael Caine",
-    genre_id: 1
+    genre_id: genre1.id
 })
+
+movie1.trailer.attach(io: open("https://spaceflix-seeds.s3-us-west-1.amazonaws.com/interstellar_trailer.mp4"), filename: "interstellar_trailer.mp4")
+movie1.thumbnail.attach(io: open("https://spaceflix-seeds.s3-us-west-1.amazonaws.com/interstellar_thumbnail.jpg"), filename: "interstellar_thumbnail.jpg")
+movie1.logo.attach(io: open("https://spaceflix-seeds.s3-us-west-1.amazonaws.com/interstellar_title.png"), filename: "interstellar_title.png")
 
 movie2 = Movie.create!({
     title: "The Martian",
@@ -48,9 +60,12 @@ movie2 = Movie.create!({
     maturity_rating: "PG-13",
     director: "Ridley Scott",
     cast: "Matt Damon, Jessica Chastain, Kristen Wiig, Jeff Daniels",
-    genre_id: 1
+    genre_id: genre1.id
 })
 
+# movie1.trailer.attach()
+# movie1.thumbnail.attach()
+# movie1.logo.attach()
 
 # Documentary
 movie3 = Movie.create!({
@@ -61,7 +76,7 @@ movie3 = Movie.create!({
     maturity_rating: "G",
     director: "Todd Douglas Miller",
     cast: "Neil Armstrong, Michael Collins, Buzz Aldrin",
-    genre_id: 2
+    genre_id: genre2.id
 })
 
 movie4 = Movie.create!({
@@ -72,7 +87,7 @@ movie4 = Movie.create!({
     maturity_rating: "TV-MA",
     director: "Mark Craig",
     cast: "Alan Bean, Eugene Cernan, Jonathan Cohen",
-    genre_id: 2
+    genre_id: genre2.id
 })
 
 
@@ -85,7 +100,7 @@ movie5 = Movie.create!({
     maturity_rating: "PG-13",
     director: "Gareth Edwards",
     cast: "Felicity Jones, Diego Luna, Alan Tudyk, Donnie Yen, Wen Jiang",
-    genre_id: 3
+    genre_id: genre3.id
 })
 
 movie6 = Movie.create!({
@@ -96,5 +111,5 @@ movie6 = Movie.create!({
     maturity_rating: "PG",
     director: "George Lucas",
     cast: "Mark Hamill, Harrison Ford, Carrie Fisher, Peter Cushing, Alec Guinness",
-    genre_id: 3
+    genre_id: genre3.id
 })

@@ -35,14 +35,15 @@ class Browse extends React.Component {
 
     render() {
         let { activeProfile, profileList } = this.props;
-        if (!activeProfile) {
-            return (<div></div>);
-        } 
+        if (!activeProfile) return (<div></div>);
 
         let { genres } = this.props
         let movieRows = [];
 
+
         if (genres) {
+            // debugger
+
             for (let [name, movies] of genres) {
                 movies = Object.entries(movies)
                 let movieRow = (

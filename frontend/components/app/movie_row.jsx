@@ -81,6 +81,8 @@ class MovieRow extends React.Component {
                 activeStatus = activeMovie.id === details.id;
             }
 
+            // debugger
+
             let inProfileListRow = this.props.hideGenre;
 
             let movieItem = (
