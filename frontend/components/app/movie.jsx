@@ -13,6 +13,7 @@ class Movie extends React.Component {
         this.fadeInterval;
 
         // Function Binds
+        this.redirectToWatch = this.redirectToWatch.bind(this);
         this.setActiveMovie = this.setActiveMovie.bind(this);
         this.addMovieToList = this.addMovieToList.bind(this);
         this.removeMovieFromList = this.removeMovieFromList.bind(this);
@@ -85,6 +86,12 @@ class Movie extends React.Component {
         this.props.setActiveMovie(this.props.details);
     }
 
+    redirectToWatch(e) {
+        e.stopPropagation()
+
+
+    }
+
     
     // Fade Timing Functions
     incrementFade() {
@@ -155,9 +162,7 @@ class Movie extends React.Component {
             let inProfileList;
             let addBtn;
 
-            if (listMovies) {
-                inProfileList = listMovies.map(movie => movie.id).includes(details.id);
-            }
+            if (listMovies) inProfileList = listMovies.map(movie => movie.id).includes(details.id);
 
             if (inProfileList) {
                 let movieAssociation = listMovieAssociations.filter(assoc => assoc.movie_id === details.id)[0];
@@ -198,7 +203,7 @@ class Movie extends React.Component {
                         <div className="trailer-info">
                             <div className="preview-details-container">
                                 <div className="preview-details">
-                                    <i className="fas fa-play-circle fa-3x"></i>
+                                    <Link onClick={this.redirectToWatch} to={{pathname: `/browse/${details.id}/watch`, movieDetails: details}} className="preview-play-small" />
                                     <div className="preview-title">{title}</div>
                                     <div className="preview-details-box">
                                         <div className="preview-rating">{details.maturity_rating}</div>
@@ -224,7 +229,7 @@ class Movie extends React.Component {
                 <Link className="movie-preview-active playing" to={{pathname: `/browse/${details.id}/watch`, movieDetails: details}} onMouseEnter={this.togglePlayOn} onMouseLeave={this.togglePlayOff}>
                     <img src={thumbnail} className="thumbnail-active"/>
                     <div className="play-container">
-                        <i className="fas fa-play-circle fa-6x preview-play-button hov-button"></i>
+                        <div className="preview-play-button hov-button"></div>
                     </div>
                 </Link>
             )

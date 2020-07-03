@@ -113,7 +113,7 @@ class Watch extends React.Component {
         // const trailer = this.props.details.trailer;
         const trailer = "/assets/rogue_one_trailer";
 
-        debugger
+        // debugger
 
 
         const { playing, muted } = this.state; 

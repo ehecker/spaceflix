@@ -259,14 +259,29 @@
 }
 
 .preview-play-button {
+    background-image: url("/assets/play-icon");
+    background-size: cover;
+
     visibility: hidden;
     height: 96px;
     width: 96px;
-    color: white;
     text-decoration: none;
 }
 
 .preview-play-button:hover {
+    opacity: 0.7;
+}
+
+.preview-play-small {
+    background-image: url("/assets/play-icon");
+    background-size: cover;
+
+    height: 48px;
+    width: 48px;
+    text-decoration: none;
+}
+
+.preview-play-small:hover {
     opacity: 0.7;
 }
 
