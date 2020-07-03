@@ -75,6 +75,7 @@
     padding: 15px 25px;
     color: black;
     margin-right: 20px;
+    text-decoration: none;
 }
 
 .feature-play-btn:hover {

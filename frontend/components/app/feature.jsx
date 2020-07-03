@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 class Feature extends React.Component {
     constructor(props){
@@ -45,8 +46,8 @@ class Feature extends React.Component {
         let { genres } = this.props;
         if (!genres[0]) return (<div></div>);
 
-        let { muted } = this.state;
-        let featuredMovie = Object.values(genres[0][1])[0];
+        const { muted } = this.state;
+        const featuredMovie = Object.values(genres[0][1])[0];
 
         // const trailer = featuredMovie.trailer;
         const trailer = "/assets/life_beyond_trailer";
@@ -61,24 +62,15 @@ class Feature extends React.Component {
         const rating = "TV-G"
         
         let muteButton;
-        if (muted) {
-            muteButton=(
-                <div className="feature-mute-off" onClick={this.toggleMute}></div>
-                )
-            } else {
-                muteButton=(
-                    <div className="feature-mute-on" onClick={this.toggleMute}></div>
-                    )
-                }
+        muted ? muteButton=(<div className="feature-mute-off" onClick={this.toggleMute}></div>) 
+         : muteButton=(<div className="feature-mute-on" onClick={this.toggleMute}></div>)
                 
         let addBtn;
         
         let listMovies = this.props.profileList.movies;
         let inProfileList;
 
-        if (listMovies) {
-            inProfileList = listMovies.map(movie => movie.id).includes(featuredMovie.id);
-        }
+        if (listMovies) inProfileList = listMovies.map(movie => movie.id).includes(featuredMovie.id);
 
         if (inProfileList) {
             let listMovieAssociations = this.props.profileList.movieAssociations;
@@ -119,10 +111,10 @@ class Feature extends React.Component {
                         </div>
                         <div className="feature-buttons">
                             <div className="feature-buttons-left">
-                                <div className="feature-play-btn">
+                                <Link to={{pathname: `/browse/${featuredMovie.id}/watch`, movieDetails: featuredMovie}} className="feature-play-btn">
                                     <div className="feature-play-icon"></div>
                                     <div className="feature-play-text unselectable-text">Play</div>
-                                </div>
+                                </Link>
                                 {addBtn}
                             </div>
                             <div className="feature-buttons-right">

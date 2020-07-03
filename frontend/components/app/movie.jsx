@@ -148,6 +148,8 @@ class Movie extends React.Component {
         const trailer = details.trailer;
         const thumbnail = details.thumbnail;
 
+        const maturity_rating = details.maturity_rating ? details.maturity_rating : details.maturityRating;
+
         let soundButton = muted ? (
             <div className="sound-btn-off" onClick={this.toggleSound} ></div>
         ) 
@@ -206,7 +208,7 @@ class Movie extends React.Component {
                                     <Link onClick={this.redirectToWatch} to={{pathname: `/browse/${details.id}/watch`, movieDetails: details}} className="preview-play-small" />
                                     <div className="preview-title">{title}</div>
                                     <div className="preview-details-box">
-                                        <div className="preview-rating">{details.maturity_rating}</div>
+                                        <div className="preview-rating">{maturity_rating}</div>
                                         <div className="preview-duration">{details.duration}</div>
                                     </div>
                                 </div>

@@ -105,15 +105,13 @@ class Watch extends React.Component {
 
     render() {
         
-        // const { title, trailer } = this.props.location.movieDetails
+        const { title } = this.props.location.movieDetails
 
         // const title = this.props.details.title;
-        const title = "Rogue One: A Star Wars Story";
+        // const title = "Rogue One: A Star Wars Story";
 
         // const trailer = this.props.details.trailer;
         const trailer = "/assets/rogue_one_trailer";
-
-        // debugger
 
 
         const { playing, muted } = this.state; 
