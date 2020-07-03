@@ -103,12 +103,12 @@ class Movie extends React.Component {
     startFadeTimer() {
         this.fadeInterval = window.setInterval(this.incrementFade, 1000)
 
-        let container = document.getElementById(`${this.props.title}-info-container`)
+        const container = document.getElementById(`${this.props.title}-info-container`)
         container.classList.remove("trigger-fade")
     }
 
     resetFadeTimer() {
-        let container = document.getElementById(`${this.props.title}-info-container`)
+        const container = document.getElementById(`${this.props.title}-info-container`)
         container.classList.remove("trigger-fade")
 
         this.fadeTime = 0;
@@ -120,12 +120,12 @@ class Movie extends React.Component {
         this.fadeTime = 0;
         clearInterval(this.fadeInterval);
 
-        let container = document.getElementById(`${this.props.title}-info-container`);
+        const container = document.getElementById(`${this.props.title}-info-container`);
         if (container) container.classList.remove("trigger-fade");
     }
 
     fadeInfo() {
-        let container = document.getElementById(`${this.props.title}-info-container`)
+        const container = document.getElementById(`${this.props.title}-info-container`)
         if (container) container.classList.add("trigger-fade")
     }
 
@@ -221,7 +221,7 @@ class Movie extends React.Component {
             )
         } else if (activeRow && activeMovie) {
             moviePreview = (
-                <Link className="movie-preview-active playing" to={`/browse/${details.id}/watch`} onMouseEnter={this.togglePlayOn} onMouseLeave={this.togglePlayOff}>
+                <Link className="movie-preview-active playing" to={{pathname: `/browse/${details.id}/watch`, movieDetails: details}} onMouseEnter={this.togglePlayOn} onMouseLeave={this.togglePlayOff}>
                     <img src={thumbnail} className="thumbnail-active"/>
                     <div className="play-container">
                         <i className="fas fa-play-circle fa-6x preview-play-button hov-button"></i>

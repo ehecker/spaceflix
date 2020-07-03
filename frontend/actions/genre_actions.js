@@ -4,16 +4,11 @@ import * as GenresAPIUtil from "../util/genres_api_util";
 export const RECEIVE_GENRES = "RECEIVE_GENRES";
 
 // Action Creators
-const receiveGenres = genres => {
-    return {
+const receiveGenres = genres => ({
         type: RECEIVE_GENRES,
         genres
-    }
-}
+})
 
 // Thunk Action Creators
 export const getGenres = () => dispatch => GenresAPIUtil.fetchGenres()
-    .then(genres => {
-        // debugger
-        dispatch(receiveGenres(genres))
-    })
+    .then(genres => dispatch(receiveGenres(genres)))

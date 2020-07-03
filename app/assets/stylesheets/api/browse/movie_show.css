@@ -36,14 +36,11 @@
 }
 
 .show-logo {
-    /* max-height: 150px;
-    min-width: 80%; */
     width: 80%;
-
 }
 
 .logo-backup {
-    font-size: 50px;
+    font-size: 45px;
     font-weight: 700;
     margin-top: 25px;
     margin-bottom: 25px;

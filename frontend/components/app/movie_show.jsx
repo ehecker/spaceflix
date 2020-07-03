@@ -49,14 +49,11 @@ class MovieShow extends React.Component {
         // FOR TESTING
         // const trailer = "/assets/the_martian_trailer";
         // const movTitle = "/assets/movies/the_martian_title";
-
-        debugger
         
         const trailer = this.props.details.trailer;
         const logo = this.props.details.logo ? <img src={this.props.details.logo} className="show-logo"/> 
         : (<div className="logo-backup">{title.toUpperCase()}</div>);
-        // const logo = this.props.details.logo;
-        // const logo = "/assets/interstellar_logo.png"
+        // const logo = <img src={"/assets/movies/a_new_hope_title.png"} className="show-logo"/>
 
         let muteButton;
         let addButton;
@@ -89,44 +86,43 @@ class MovieShow extends React.Component {
         
      
         return(
-                <main className="movie-show-main">
-                    <section className="show-info-container">
-                        <div className="show-info-box">
-                            {/* <img src={logo} className="show-title"/> */}
-                            {logo}
-                            <div className="show-details-container">
-                                <p className="show-details-text">{year}</p>
-                                <p className="show-details-text show-rating">{maturity_rating}</p>
-                                <p className="show-details-text">{duration}</p>
-                            </div>
-                            <div className="show-description">{description}</div>
-                            <div className="show-buttons-container">
-                                <Link to={`/browse/${id}/watch`} className="show-play-button">
-                                    <div className="show-play-icon"></div>
-                                    <p className="show-btn-text">Play</p>
-                                </Link>
-                                {addButton}
-                            </div>
-                            <div className="show-text"><span className="show-section">Director: </span>{director}</div>
-                            <div className="show-text"><span className="show-section">Cast: </span>{cast}</div>
-                            {genreDiv}
+            <div className="movie-show-main">
+                <section className="show-info-container">
+                    <div className="show-info-box">
+                        {logo}
+                        <div className="show-details-container">
+                            <p className="show-details-text">{year}</p>
+                            <p className="show-details-text show-rating">{maturity_rating}</p>
+                            <p className="show-details-text">{duration}</p>
                         </div>
-                    </section>
+                        <div className="show-description">{description}</div>
+                        <div className="show-buttons-container">
+                            <Link to={{ pathname: `/browse/${id}/watch`, movieDetails: this.props.details}} className="show-play-button">
+                                <div className="show-play-icon"></div>
+                                <p className="show-btn-text">Play</p>
+                            </Link>
+                            {addButton}
+                        </div>
+                        <div className="show-text"><span className="show-section">Director: </span>{director}</div>
+                        <div className="show-text"><span className="show-section">Cast: </span>{cast}</div>
+                        {genreDiv}
+                    </div>
+                </section>
 
-                    <section className="show-trailer-container">
-                        <div className="show-trailer-btns">
-                            <div className="show-close-btn" onClick={this.props.close}></div>
-                            {muteButton}
-                        </div>                        
-                        <video 
-                            className="show-trailer"
-                            src={trailer}
-                            autoPlay
-                            muted={muted}
-                            loop 
-                        />
-                    </section>
-                </main>
+                <section className="show-trailer-container">
+                    <div className="show-trailer-btns">
+                        <div className="show-close-btn" onClick={this.props.close}></div>
+                        {muteButton}
+                    </div>                        
+                    <video 
+                        className="show-trailer"
+                        src={trailer}
+                        autoPlay
+                        muted={muted}
+                        loop 
+                    />
+                </section>
+            </div>
         )
     }
 }

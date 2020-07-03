@@ -47,6 +47,18 @@ class Feature extends React.Component {
 
         let { muted } = this.state;
         let featuredMovie = Object.values(genres[0][1])[0];
+
+        // const trailer = featuredMovie.trailer;
+        const trailer = "/assets/life_beyond_trailer";
+
+        // const title = featuredMovie.title.toUpperCase();
+        const title = "LIFE BEYOND";
+
+        // const description = featuredMovie.description;
+        const description = "The biggest question of our time. Are we alone? New research and technologies have brought us closer than ever to an answer - only a few decades in the eyes of some NASA scientists."
+
+        // const rating = featuredMovie.rating;
+        const rating = "TV-G"
         
         let muteButton;
         if (muted) {
@@ -93,7 +105,7 @@ class Feature extends React.Component {
                 <div className="feature-movie-container">
                     <video 
                         className="feature-movie"
-                        src="/assets/life_beyond_trailer" 
+                        src={trailer} 
                         autoPlay 
                         loop 
                         muted={muted}
@@ -101,10 +113,9 @@ class Feature extends React.Component {
                 </div>
                 <div className="feature-overlay">
                     <div className="feature-info">
-                        <h2 className="feature-title unselectable-text">LIFE BEYOND</h2>
+                        <h2 className="feature-title unselectable-text">{title}</h2>
                         <div className="feature-description unselectable-text">
-                            The biggest question of our time. Are we alone?
-                            New research and technologies have brought us closer than ever to an answer - only a few decades in the eyes of some NASA scientists.
+                            {description}
                         </div>
                         <div className="feature-buttons">
                             <div className="feature-buttons-left">
@@ -116,7 +127,7 @@ class Feature extends React.Component {
                             </div>
                             <div className="feature-buttons-right">
                                 {muteButton}
-                                <div className="feature-rating unselectable-text">TV-G</div>
+                                <div className="feature-rating unselectable-text">{rating}</div>
                             </div>
                         </div>
                     </div>

@@ -2,8 +2,6 @@
     background-color: rgb(20, 20, 20);
     display: flex;
     border-top: 3px solid #333;
-    /* position: relative;
-    bottom: 0; */
 }
 
 .footer-left {
@@ -29,11 +27,35 @@
     margin: 20px 10px 20px 10px;
 }
 
-.fab {
-    color: white;
-    cursor: pointer;
+.angellist-icon {
+    background-image: url("/assets/angellist-icon");
+    background-size: cover;
+    height: 35px;
+    width: 35px;
 }
 
-.fab:hover {
+.angellist-icon:hover {
+    opacity: 0.8;
+}
+
+.linkedin-icon {
+    background-image: url("/assets/linkedin-icon");
+    background-size: cover;
+    height: 35px;
+    width: 35px;
+}
+
+.linkedin-icon:hover {
+    opacity: 0.8;
+}
+
+.github-icon {
+    background-image: url("/assets/github-icon");
+    background-size: cover;
+    height: 37px;
+    width: 37px;
+}
+
+.github-icon:hover {
     opacity: 0.8;
 }

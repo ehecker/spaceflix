@@ -222,13 +222,15 @@
     position: absolute;
     height: 162px;
     width: 294px;
-    opacity: 0.7;
+    /* opacity: 0.7; */
+    filter: brightness(75%);
 }
 
 .thumbnail-inactive {
     height: 168px;
     width: 300px;
-    opacity: 0.7;
+    /* opacity: 0.7; */
+    filter: brightness(75%);
 }
 
 /* MOVIE-PREVIEW ACTIVE =================================== */

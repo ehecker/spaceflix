@@ -42,8 +42,6 @@ class Browse extends React.Component {
 
 
         if (genres) {
-            // debugger
-
             for (let [name, movies] of genres) {
                 movies = Object.entries(movies)
                 let movieRow = (

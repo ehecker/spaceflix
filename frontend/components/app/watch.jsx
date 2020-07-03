@@ -105,39 +105,31 @@ class Watch extends React.Component {
 
     render() {
         
-        // let title = this.props.details.title;
-        let title = "Rogue One: A Star Wars Story";
+        // const { title, trailer } = this.props.location.movieDetails
 
-        let { playing, muted } = this.state; 
+        // const title = this.props.details.title;
+        const title = "Rogue One: A Star Wars Story";
+
+        // const trailer = this.props.details.trailer;
+        const trailer = "/assets/rogue_one_trailer";
+
+        debugger
+
+
+        const { playing, muted } = this.state; 
+        
         let playButton;
+        playing ? playButton=(<div className="watch-pause-btn" onClick={this.togglePlay}></div>)
+            : playButton=(<div className="watch-play-btn" onClick={this.togglePlay}></div>)
+        
         let muteButton;
-
-
-        // Make these ternaries
-        if (playing) {
-            playButton=(
-                <div className="watch-pause-btn" onClick={this.togglePlay}></div>
-            )
-        } else {
-            playButton=(
-                <div className="watch-play-btn" onClick={this.togglePlay}></div>
-            )
-        }
-
-        if (muted) {
-            muteButton=(
-                <div className="watch-sound-off" onClick={this.toggleMute}></div>
-            )
-        } else {
-            muteButton=(
-                <div className="watch-sound-on" onClick={this.toggleMute}></div>
-            )
-        }
+        muted ? muteButton=(<div className="watch-sound-off" onClick={this.toggleMute}></div>)
+            : muteButton=(<div className="watch-sound-on" onClick={this.toggleMute}></div>)
 
         return(
-            <main className="watch-main" onMouseEnter={this.startFadeTimer} onMouseMove={this.resetFadeTimer} onMouseLeave={this.endFadeTimer} >
+            <div className="watch-main" onMouseEnter={this.startFadeTimer} onMouseMove={this.resetFadeTimer} onMouseLeave={this.endFadeTimer} >
                 <section className="watch-movie-container">
-                    <video src="/assets/rogue_one_trailer" autoPlay muted={muted} loop className="watch-movie"></video>
+                    <video src={trailer} autoPlay muted={muted} loop className="watch-movie"></video>
                 </section>
 
                 <section className="watch-info-container">
@@ -165,7 +157,7 @@ class Watch extends React.Component {
                         </div>
                     </div>
                 </section>
-            </main>
+            </div>
         )
     }
 

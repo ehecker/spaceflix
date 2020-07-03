@@ -5,11 +5,6 @@
             json.key_format! ->(key){ key }
             json.set! movie.title do
                 json.extract! movie, :id, :title, :description, :year, :duration, :maturity_rating, :director, :cast, :genre_id
-                # debugger
-                
-                # json.trailer movie.trailer.attached? ? url_for(movie.trailer) : "" 
-                # json.thumbnail url_for(movie.thumbnail) movie.thumbnail.attached? ? url_for(movie.thumbnail) : ""
-                # json.logo url_for(movie.logo) movie.logo.attached? ? url_for(movie.logo) : ""
                 json.trailer movie.trailer.attached? ? url_for(movie.trailer) : "" 
                 json.thumbnail movie.thumbnail.attached? ? url_for(movie.thumbnail) : ""
                 json.logo movie.logo.attached? ? url_for(movie.logo) : ""

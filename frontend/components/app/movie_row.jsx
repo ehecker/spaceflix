@@ -81,8 +81,6 @@ class MovieRow extends React.Component {
                 activeStatus = activeMovie.id === details.id;
             }
 
-            // debugger
-
             let inProfileListRow = this.props.hideGenre;
 
             let movieItem = (
@@ -105,7 +103,6 @@ class MovieRow extends React.Component {
                 <MovieShowContainer genre={name} details={activeMovie} close={this.closeShow} hideGenre={this.props.hideGenre} />
             )
         }
-
 
         // Hide title and carousel buttons if on myList page
         let titleDiv;
