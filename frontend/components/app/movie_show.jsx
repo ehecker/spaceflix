@@ -39,34 +39,27 @@ class MovieShow extends React.Component {
     }
 
     render() {
-
-        let { id, cast, description, director, duration, title, year } = this.props.details;
-        let { genre } = this.props;
-        let { muted } = this.state;
-        let listMovies = this.props.profileList.movies; // Array of movie objects
-        let listMovieAssociations = this.props.profileList.movieAssociations;
-        
+        const { genre, details } = this.props;
+        const { muted } = this.state;
+        const listMovies = this.props.profileList.movies;
+        const listMovieAssociations = this.props.profileList.movieAssociations;
         const maturity_rating = this.props.details.maturity_rating ? this.props.details.maturity_rating : this.props.details.maturityRating;
-
-        // FOR TESTING
-        // const trailer = "/assets/the_martian_trailer";
-        // const movTitle = "/assets/movies/the_martian_title";
         
         const trailer = this.props.details.trailer;
         const logo = this.props.details.logo ? <img src={this.props.details.logo} className="show-logo"/> 
-        : (<div className="logo-backup">{title.toUpperCase()}</div>);
-        // const logo = <img src={"/assets/movies/a_new_hope_title.png"} className="show-logo"/>
+            : <div className="logo-backup">{details.title.toUpperCase()}</div>
 
-        let muteButton;
+        const muteButton = muted ? <div className="show-mute-btn-off" onClick={this.toggleMute} ></div>
+            : <div className="show-mute-btn-on" onClick={this.toggleMute}></div>
+
+        let genreDiv;
+        if (!this.props.hideGenre) genreDiv=(<div className="show-text"><span className="show-section">Genre: </span>{genre}</div>)
+        
         let addButton;
-
-        muted ? muteButton=(<div className="show-mute-btn-off" onClick={this.toggleMute} ></div>)
-            : muteButton=(<div className="show-mute-btn-on" onClick={this.toggleMute}></div>)
-
-        const inProfileList = listMovies.map(movie => movie.id).includes(id);
-
+        const inProfileList = listMovies.map(movie => movie.id).includes(details.id);
+        
         if (inProfileList) {
-            let movieAssociation = listMovieAssociations.filter(assoc => assoc.movie_id === id)[0];
+            let movieAssociation = listMovieAssociations.filter(assoc => assoc.movie_id === details.id)[0];
 
             addButton=(
                 <div onClick={this.removeMovieFromList} data-movie-association={movieAssociation.id} className="show-list-button" >
@@ -76,40 +69,39 @@ class MovieShow extends React.Component {
             )
         } else {
             addButton=(
-                <div onClick={this.addMovieToList} data-movie-id={id} className="show-list-button">
+                <div onClick={this.addMovieToList} data-movie-id={details.id} className="show-list-button">
                     <div className="show-list-icon"></div>
                     <p className="show-btn-text">My List</p>
                 </div>        
             )
         }
 
-        let genreDiv;
-        if (!this.props.hideGenre) genreDiv=(<div className="show-text"><span className="show-section">Genre: </span>{genre}</div>)
-        
-     
+
         return(
             <div className="movie-show-main">
                 <section className="show-info-container">
                     <div className="show-info-box">
                         {logo}
                         <div className="show-details-container">
-                            <p className="show-details-text">{year}</p>
+                            <p className="show-details-text">{details.year}</p>
                             <p className="show-details-text show-rating">{maturity_rating}</p>
-                            <p className="show-details-text">{duration}</p>
+                            <p className="show-details-text">{details.duration}</p>
                         </div>
-                        <div className="show-description">{description}</div>
+                        <div className="show-description">{details.description}</div>
                         <div className="show-buttons-container">
-                            <Link to={{ pathname: `/browse/${id}/watch`, movieDetails: this.props.details}} className="show-play-button">
+                            <Link to={{ pathname: `/browse/${details.id}/watch`, movieDetails: this.props.details}} className="show-play-button">
                                 <div className="show-play-icon"></div>
                                 <p className="show-btn-text">Play</p>
                             </Link>
                             {addButton}
                         </div>
-                        <div className="show-text"><span className="show-section">Director: </span>{director}</div>
-                        <div className="show-text"><span className="show-section">Cast: </span>{cast}</div>
+                        <div className="show-text"><span className="show-section">Director: </span>{details.director}</div>
+                        <div className="show-text"><span className="show-section">Cast: </span>{details.cast}</div>
                         {genreDiv}
                     </div>
                 </section>
+
+                {/* <div className="flex-buffer"></div> */}
 
                 <section className="show-trailer-container">
                     <div className="show-trailer-btns">

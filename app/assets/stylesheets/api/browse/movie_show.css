@@ -9,12 +9,13 @@
 .show-info-container {
     background: linear-gradient(90deg, rgba(0,0,0,1) 85%, rgba(0,0,0,0) 95%);
     height: inherit;
+    width: 40%;
     display: flex;
     flex-direction: column;
-    width: 40%;
 
     position: absolute;
     z-index: 5;
+
 }
 
 .show-trailer-container {
@@ -23,10 +24,22 @@
 
     display: flex;
     align-items: center;
+    justify-content: center;
     overflow: hidden;
 
     position: relative;
     left: 35%;
+}
+
+.show-trailer {
+    height: 135%;
+    width: auto;
+}
+
+.flex-buffer {
+    width: 40%;
+    height: inherit;
+    background-color: red;
 }
 
 /* SHOW-INFO ================================================= */
@@ -203,10 +216,3 @@
     background-image: url("/assets/sound-on-hovered");
 }
 
-.show-trailer {
-    height: 135%;
-    width: auto;
-
-    /* height: 1100px;
-    width: 1300px; */
-}
