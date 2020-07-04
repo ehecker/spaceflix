@@ -97,6 +97,8 @@ class Movie extends React.Component {
     incrementFade() {
         if (!this.props.activeRow) {
             this.fadeTime++;
+
+            // console.log(`${this.props.title} timer incremented to: ${this.fadeTime}`)
             
             if (this.fadeTime >= 3) {
                 this.fadeInfo();
@@ -110,13 +112,17 @@ class Movie extends React.Component {
     startFadeTimer() {
         this.fadeInterval = window.setInterval(this.incrementFade, 1000)
 
-        const container = document.getElementById(`${this.props.title}-info-container`)
+        const containerId = this.props.inProfileListRow ? `list-${this.props.title}-info-container` : `${this.props.title}-info-container`;
+        const container = document.getElementById(containerId)
         container.classList.remove("trigger-fade")
     }
 
     resetFadeTimer() {
-        const container = document.getElementById(`${this.props.title}-info-container`)
+        const containerId = this.props.inProfileListRow ? `list-${this.props.title}-info-container` : `${this.props.title}-info-container`;
+        const container = document.getElementById(containerId)
         container.classList.remove("trigger-fade")
+
+        // console.log("Resetting timer!")
 
         this.fadeTime = 0;
         clearInterval(this.fadeInterval);
@@ -127,13 +133,18 @@ class Movie extends React.Component {
         this.fadeTime = 0;
         clearInterval(this.fadeInterval);
 
-        const container = document.getElementById(`${this.props.title}-info-container`);
+        const containerId = this.props.inProfileListRow ? `list-${this.props.title}-info-container` : `${this.props.title}-info-container`;
+        const container = document.getElementById(containerId);
         if (container) container.classList.remove("trigger-fade");
     }
 
     fadeInfo() {
-        const container = document.getElementById(`${this.props.title}-info-container`)
-        if (container) container.classList.add("trigger-fade")
+        const containerId = this.props.inProfileListRow ? `list-${this.props.title}-info-container` : `${this.props.title}-info-container`;
+        const container = document.getElementById(containerId)
+        if (container) {
+            // console.log("Container found, fading info!")
+            container.classList.add("trigger-fade")
+        } 
     }
 
     render() {
@@ -178,8 +189,8 @@ class Movie extends React.Component {
                 )
             }
 
-            let videoId;
-            this.props.inProfileListRow ? videoId = `mylist-${details.id}` : videoId = details.id;
+            const videoId = this.props.inProfileListRow ? `mylist-${details.id}` : details.id;
+            const containerId = this.props.inProfileListRow ? `list-${title}-info-container` : `${title}-info-container`;
 
             moviePreview = (
                 <div className="movie-preview-default" onClick={this.setActiveMovie} onMouseEnter={this.togglePlayOn} onMouseLeave={this.togglePlayOff} >
@@ -189,7 +200,7 @@ class Movie extends React.Component {
                         onMouseEnter={this.startFadeTimer} 
                     />
 
-                    <div id={`${title}-info-container`}
+                    <div id={containerId}
                     className="trailer-container" 
                     onMouseMove={this.resetFadeTimer} 
                     onMouseLeave={this.endFadeTimer}

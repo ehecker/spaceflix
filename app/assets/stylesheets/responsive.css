@@ -72,3 +72,11 @@
         margin-bottom: 28px;
     }
 }
+
+@media (max-width: 1225px) {
+
+    .feature-description {
+        width: 45%;
+    }
+
+}
