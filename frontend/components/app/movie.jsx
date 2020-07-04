@@ -88,8 +88,6 @@ class Movie extends React.Component {
 
     redirectToWatch(e) {
         e.stopPropagation()
-
-
     }
 
     

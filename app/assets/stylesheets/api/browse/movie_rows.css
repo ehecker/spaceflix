@@ -11,6 +11,7 @@
 }
 
 .movies-container {
+    /* background-color: red; */
     display: flex;
     align-items: center;
     justify-content: center;
@@ -51,7 +52,6 @@
 }
 
 .carousel-right {
-    cursor: pointer;
     background-image: url("/assets/chev-right-white");
     height: 55px;
     width: 16px;
@@ -59,6 +59,7 @@
 
 .carousel-right:hover {
     background-image: url("/assets/chev-right-red");
+    cursor: pointer;
 }
 
 .move-right {

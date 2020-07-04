@@ -15,7 +15,6 @@
 
     position: absolute;
     z-index: 5;
-
 }
 
 .show-trailer-container {
@@ -34,12 +33,6 @@
 .show-trailer {
     height: 135%;
     width: auto;
-}
-
-.flex-buffer {
-    width: 40%;
-    height: inherit;
-    background-color: red;
 }
 
 /* SHOW-INFO ================================================= */

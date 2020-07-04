@@ -101,8 +101,6 @@ class MovieShow extends React.Component {
                     </div>
                 </section>
 
-                {/* <div className="flex-buffer"></div> */}
-
                 <section className="show-trailer-container">
                     <div className="show-trailer-btns">
                         <div className="show-close-btn" onClick={this.props.close}></div>

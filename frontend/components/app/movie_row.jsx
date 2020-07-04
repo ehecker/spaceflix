@@ -39,26 +39,24 @@ class MovieRow extends React.Component {
 
     shiftBack() {
         const { name } = this.props
-        let row = document.getElementById(`${name}-carousel`)
-        let carousel = document.getElementById(`${name}-carousel-btn`)
+        const row = document.getElementById(`${name}-carousel`)
+        const carouselButton = document.getElementById(`${name}-carousel-btn`)
 
         row.classList.remove("move-right")
-        carousel.classList.remove("unhidden")
+        carouselButton.classList.remove("unhidden")
     }
 
     shiftForward() {
         const { name } = this.props
-        let row = document.getElementById(`${this.props.name}-carousel`)
-        let carousel = document.getElementById(`${name}-carousel-btn`)
+        const row = document.getElementById(`${this.props.name}-carousel`)
+        const carouselButton = document.getElementById(`${name}-carousel-btn`)
 
         row.classList.add("move-right")
-        carousel.classList.add("unhidden")
+        carouselButton.classList.add("unhidden")
     }
 
     closeShow() {
-        if (!this.props.hideTitle) {
-            this.props.history.push("/browse")
-        }
+        if (!this.props.hideTitle) this.props.history.push("/browse")
 
         if (this.mounted) {
             this.setState({
@@ -70,9 +68,12 @@ class MovieRow extends React.Component {
 
 
     render() {
-        let { name, movies } = this.props;
-        let { activeRow, activeMovie } = this.state;
+        const { name, movies } = this.props;
+        const { activeRow, activeMovie } = this.state;
         let movieItems = [];   
+
+        const numMovies = this.props.movies.length;
+        // let slideAmount = numMovies * movieWidth / 2; // where movieWidth = 305px;
         
         // Create individual movies 
         for (let [title, details] of movies) {

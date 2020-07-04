@@ -1,6 +1,6 @@
 import React from "react";
 import ProgressBar from "./progress_bar";
-import { Link } from "react-router-dom";
+import { Redirect, Link } from "react-router-dom";
 
 class Watch extends React.Component {
     constructor(props) {
@@ -94,8 +94,8 @@ class Watch extends React.Component {
         this.fadeTime = 0;
         clearInterval(this.fadeInterval)
 
-        let watchMain = document.getElementsByClassName("watch-main")[0];
-        watchMain.classList.remove("fade-controls");
+        const watchMain = document.getElementsByClassName("watch-main")[0];
+        if (watchMain) watchMain.classList.remove("fade-controls");
     }
 
     fadeControls() {
@@ -104,14 +104,19 @@ class Watch extends React.Component {
     }
 
     render() {
+        if (!this.props.location.movieDetails) {
+            return (
+                <Redirect to="/browse"/>
+            )
+        }
         
-        const { title } = this.props.location.movieDetails
+        const { title, trailer } = this.props.location.movieDetails
 
         // const title = this.props.details.title;
         // const title = "Rogue One: A Star Wars Story";
 
         // const trailer = this.props.details.trailer;
-        const trailer = "/assets/rogue_one_trailer";
+        // const trailer = "/assets/rogue_one_trailer";
 
 
         const { playing, muted } = this.state; 

@@ -43,23 +43,23 @@ class Feature extends React.Component {
     }
 
     render() {
-        let { genres } = this.props;
+        const { genres } = this.props;
         if (!genres[0]) return (<div></div>);
 
         const { muted } = this.state;
         const featuredMovie = Object.values(genres[0][1])[0];
 
-        // const trailer = featuredMovie.trailer;
-        const trailer = "/assets/life_beyond_trailer";
+        const trailer = featuredMovie.trailer;
+        // const trailer = "/assets/life_beyond_trailer";
 
-        // const title = featuredMovie.title.toUpperCase();
-        const title = "LIFE BEYOND";
+        const title = featuredMovie.title.toUpperCase();
+        // const title = "LIFE BEYOND";
 
-        // const description = featuredMovie.description;
-        const description = "The biggest question of our time. Are we alone? New research and technologies have brought us closer than ever to an answer - only a few decades in the eyes of some NASA scientists."
+        const description = featuredMovie.description;
+        // const description = "The biggest question of our time. Are we alone? New research and technologies have brought us closer than ever to an answer - only a few decades in the eyes of some NASA scientists."
 
-        // const rating = featuredMovie.rating;
-        const rating = "TV-G"
+        const rating = featuredMovie.maturity_rating ? featuredMovie.maturity_rating : featuredMovie.maturityRating;
+        // const rating = "TV-G"
         
         let muteButton;
         muted ? muteButton=(<div className="feature-mute-off" onClick={this.toggleMute}></div>) 
