@@ -39,17 +39,16 @@ genre4 = Genre.create!({name: "Comedy"})
 # movie1.logo.attach(io: open(""), filename: "")
 
 # Adventure
-
 movie0 = Movie.create!({
-        title: "Life Beyond",
-        description: "The biggest question of our time. Are we alone? New research and technologies have brought us closer than ever to an answer - only a few decades in the eyes of some NASA scientists.",
-        year: 2019,
-        duration: "0h 30m",
-        maturity_rating: "TV-G",
-        director: "melodysheep",
-        cast: "David Christian, Dan Werthimer, Andrew Siemion, Orson Welles, Avi Loeb, Michelle Thaller, Lawrence Krauss",
-        genre_id: genre2.id
-    })
+    title: "Life Beyond",
+    description: "The biggest question of our time. Are we alone? New research and technologies have brought us closer than ever to an answer - only a few decades in the eyes of some NASA scientists.",
+    year: 2019,
+    duration: "0h 30m",
+    maturity_rating: "TV-G",
+    director: "melodysheep",
+    cast: "David Christian, Dan Werthimer, Andrew Siemion, Orson Welles, Avi Loeb, Michelle Thaller, Lawrence Krauss",
+    genre_id: genre2.id
+})
 
 movie0.trailer.attach(io: open("https://spaceflix-seeds.s3-us-west-1.amazonaws.com/life_beyond_trailer.mp4"), filename: "life_beyond_trailer.mp4")
 movie0.thumbnail.attach(io: open("https://spaceflix-seeds.s3-us-west-1.amazonaws.com/life_beyond_thumbnail.jpg"), filename: "life_beyond_thumbnail.jpg")
