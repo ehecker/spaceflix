@@ -41,13 +41,13 @@ genre4 = Genre.create!({name: "Comedy"})
 # Adventure
 movie0 = Movie.create!({
     title: "Life Beyond",
-    description: "The biggest question of our time. Are we alone? New research and technologies have brought us closer than ever to an answer - only a few decades in the eyes of some NASA scientists.",
-    year: 2019,
-    duration: "0h 30m",
-    maturity_rating: "TV-G",
-    director: "melodysheep",
-    cast: "David Christian, Dan Werthimer, Andrew Siemion, Orson Welles, Avi Loeb, Michelle Thaller, Lawrence Krauss",
-    genre_id: genre2.id
+    description: "The biggest question of our time. Are we alone? New research and technologies have brought us closer than ever to an answer - only a few decades in the eyes of some NASA scientists.",
+    year: 2019,
+    duration: "0h 30m",
+    maturity_rating: "TV-G",
+    director: "melodysheep",
+    cast: "David Christian, Dan Werthimer, Andrew Siemion, Orson Welles, Avi Loeb, Michelle Thaller, Lawrence Krauss",
+    genre_id: genre2.id
 })
 
 movie0.trailer.attach(io: open("https://spaceflix-seeds.s3-us-west-1.amazonaws.com/life_beyond_trailer.mp4"), filename: "life_beyond_trailer.mp4")
@@ -145,29 +145,29 @@ movie6.thumbnail.attach(io: open("https://spaceflix-seeds.s3-us-west-1.amazonaws
 movie6.logo.attach(io: open("https://spaceflix-seeds.s3-us-west-1.amazonaws.com/a_new_hope_logo.png"), filename: "a_new_hope_logo.png")
 
 movie7 = Movie.create!({
-    title: "Hidden Figures",
-    description: "The story of a team of female African-American mathematicians who served a vital role in NASA during the early years of the U.S. space program.",
-    year: 2016,
-    duration: "2h 7m",
-    maturity_rating: "PG",
-    director: "Theodore Melfi",
-    cast: "Taraji P. Henson, Octavia Spencer, Janelle Monae, Kevin Costner, Kirsten Dunst",
-    genre_id: genre4.id
+    title: "Hidden Figures",
+    description: "The story of a team of female African-American mathematicians who served a vital role in NASA during the early years of the U.S. space program.",
+    year: 2016,
+    duration: "2h 7m",
+    maturity_rating: "PG",
+    director: "Theodore Melfi",
+    cast: "Taraji P. Henson, Octavia Spencer, Janelle Monae, Kevin Costner, Kirsten Dunst",
+    genre_id: genre4.id
 })
 
 movie7.trailer.attach(io: open("https://spaceflix-seeds.s3-us-west-1.amazonaws.com/hidden_figures_trailer.mp4"), filename: "hidden_figures_trailer.mp4")
 movie7.thumbnail.attach(io: open("https://spaceflix-seeds.s3-us-west-1.amazonaws.com/hidden_figures_thumbnail.jpg"), filename: "hidden_figures_thumbnail.jpg")
 
 movie8 = Movie.create!({
-        title: "Ad Astra",
-        description: "Astronaut Roy McBride undertakes a mission across an unforgiving solar system to uncover the truth about his missing father and his doomed expedition that now, 30 years later, threatens the universe.",
-        year: 2019,
-        duration: "2h 3m",
-        maturity_rating: "PG-13",
-        director: "James Gray",
-        cast: "Brad Pitt, Tommy Lee Jones, Ruth Negga, Donald Sutherland, Kimberly Elise",
-        genre_id: (adventure.id)
-    })
+    title: "Ad Astra",
+    description: "Astronaut Roy McBride undertakes a mission across an unforgiving solar system to uncover the truth about his missing father and his doomed expedition that now, 30 years later, threatens the universe.",
+    year: 2019,
+    duration: "2h 3m",
+    maturity_rating: "PG-13",
+    director: "James Gray",
+    cast: "Brad Pitt, Tommy Lee Jones, Ruth Negga, Donald Sutherland, Kimberly Elise",
+    genre_id: genre1.id
+})
 
 movie8.trailer.attach(io: open("https://spaceflix-seeds.s3-us-west-1.amazonaws.com/ad_astra_trailer.mp4"), filename: "ad_astra_trailer.mp4")
 movie8.thumbnail.attach(io: open("https://spaceflix-seeds.s3-us-west-1.amazonaws.com/ad_astra_thumbnail.jpg"), filename: "ad_astra_thumbnail.jpg")
