@@ -34,42 +34,36 @@ class Browse extends React.Component {
     }
 
     render() {
-        let { activeProfile, profileList } = this.props;
-        if (!activeProfile) return (<div></div>);
+        const { activeProfile, profileList, genres } = this.props;
+        if (!activeProfile || !genres) return (<div></div>);
 
-        let { genres } = this.props
         let movieRows = [];
 
-
-        if (genres) {
-            for (let [name, movies] of genres) {
-                movies = Object.entries(movies)
-                let movieRow = (
-                    <MovieRow key={name} name={name} movies={movies} history={this.props.history} />
-                )
-                movieRows.push(movieRow);
-            }
-
-            if (profileList.movies && profileList.movies.length > 0) {
-                let listMovies = profileList.movies;
-                let formattedMovies = {};
-
-                listMovies.forEach(movie => {
-                    formattedMovies[movie.title] = movie
-                })
-
-                formattedMovies = Object.entries(formattedMovies);
-
-                let listMovieRow = (
-                    <MovieRow key={"myList"} name={"My List"} movies={formattedMovies} history={this.props.history} hideTitle={false} hideGenre={true} />
-                )
-
-                movieRows.unshift(listMovieRow);
-            }
-
-        } else {
-            return (<div></div>)
+        for (let [name, movies] of genres) {
+            movies = Object.entries(movies)
+            let movieRow = (
+                <MovieRow key={name} name={name} movies={movies} history={this.props.history} />
+            )
+            movieRows.push(movieRow);
         }
+
+        if (profileList.movies && profileList.movies.length > 0) {
+            let listMovies = profileList.movies;
+            let formattedMovies = {};
+
+            listMovies.forEach(movie => {
+                formattedMovies[movie.title] = movie
+            })
+
+            formattedMovies = Object.entries(formattedMovies);
+
+            let listMovieRow = (
+                <MovieRow key={"myList"} name={"My List"} movies={formattedMovies} history={this.props.history} hideTitle={false} hideGenre={true} />
+            )
+
+            movieRows.unshift(listMovieRow);
+        }
+
 
         return (
             <main className="browse-main">

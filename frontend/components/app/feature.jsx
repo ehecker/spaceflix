@@ -22,13 +22,11 @@ class Feature extends React.Component {
 
     componentDidMount() {
         const video = document.getElementsByClassName("feature-movie")[0];
-        if (video) {
-            video.volume = 0.2;
-        } 
+        if (video) video.volume = 0.2;
     }
 
     addMovieToList() {
-        const featuredMovie = Object.values(this.props.genres[0][1])[0];
+        const featuredMovie = Object.values(this.props.genres[1][1])[0];
 
         const listMovieInfo = {
             list_id: this.props.profileList.id,
@@ -47,27 +45,20 @@ class Feature extends React.Component {
         if (!genres[0]) return (<div></div>);
 
         const { muted } = this.state;
-        const featuredMovie = Object.values(genres[0][1])[0];
+        const featuredMovie = Object.values(genres[1][1])[0];
 
+        // const title = featuredMovie.logo ? featuredMovie.logo : featuredMovie.title.toUpperCase();
         const trailer = featuredMovie.trailer;
-        // const trailer = "/assets/life_beyond_trailer";
-
         const title = featuredMovie.title.toUpperCase();
-        // const title = "LIFE BEYOND";
-
         const description = featuredMovie.description;
-        // const description = "The biggest question of our time. Are we alone? New research and technologies have brought us closer than ever to an answer - only a few decades in the eyes of some NASA scientists."
-
         const rating = featuredMovie.maturity_rating ? featuredMovie.maturity_rating : featuredMovie.maturityRating;
-        // const rating = "TV-G"
         
         let muteButton;
         muted ? muteButton=(<div className="feature-mute-off" onClick={this.toggleMute}></div>) 
          : muteButton=(<div className="feature-mute-on" onClick={this.toggleMute}></div>)
                 
+         const listMovies = this.props.profileList.movies;
         let addBtn;
-        
-        let listMovies = this.props.profileList.movies;
         let inProfileList;
 
         if (listMovies) inProfileList = listMovies.map(movie => movie.id).includes(featuredMovie.id);
