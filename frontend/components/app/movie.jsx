@@ -209,6 +209,7 @@ class Movie extends React.Component {
                             src={trailer}
                             loop
                             muted={muted}
+                            preload="none"
                         />
 
                         <div className="trailer-info">

@@ -9,17 +9,23 @@ class MovieRow extends React.Component {
 
         this.state = {
             activeMovie: null,
-            activeRow: false
+            activeRow: false,
+            toggle: false
         }
+
+        this.showRightArrow = false;
+        this.showLeftArrow = false;
 
         this.closeShow = this.closeShow.bind(this);
         this.setActiveMovie = this.setActiveMovie.bind(this);
         this.shiftBack = this.shiftBack.bind(this);
         this.shiftForward = this.shiftForward.bind(this);
+        this.updateToggle = this.updateToggle.bind(this);
     }
 
     componentDidMount() {
         this.mounted = true;
+        this.updateRightArrow();
     }
 
     componentWillUnmount() {
@@ -37,22 +43,27 @@ class MovieRow extends React.Component {
         })
     }
 
-    shiftBack() {
-        const { name } = this.props
-        const row = document.getElementById(`${name}-carousel`)
-        const carouselButton = document.getElementById(`${name}-carousel-btn`)
+    shiftForward() {
+        const wrapper = document.getElementById(`${this.props.name}-wrapper`);
+        const carousel = document.getElementById(`${this.props.name}-carousel`);
+        
+        const shiftLength = (carousel.offsetWidth - wrapper.offsetWidth) * -1;
 
-        row.classList.remove("move-right")
-        carouselButton.classList.remove("unhidden")
+        if (shiftLength < 0) {
+            carousel.style.transform = `translateX(${shiftLength + "px"})`;
+            this.showRightArrow = false;
+            this.showLeftArrow = true;
+            this.updateToggle();
+        }
     }
 
-    shiftForward() {
-        const { name } = this.props
-        const row = document.getElementById(`${this.props.name}-carousel`)
-        const carouselButton = document.getElementById(`${name}-carousel-btn`)
+    shiftBack() {
+        const carousel = document.getElementById(`${this.props.name}-carousel`);
+        carousel.style.transform ="";
 
-        row.classList.add("move-right")
-        carouselButton.classList.add("unhidden")
+        this.showRightArrow = true;
+        this.showLeftArrow = false;
+        this.updateToggle();
     }
 
     closeShow() {
@@ -66,14 +77,23 @@ class MovieRow extends React.Component {
         }
     }
 
+    updateRightArrow() {
+        const wrapper = document.getElementById(`${this.props.name}-wrapper`);
+        const carousel = document.getElementById(`${this.props.name}-carousel`);
+        const shiftLength = (carousel.offsetWidth - wrapper.offsetWidth) * -1;
+
+        this.showRightArrow = shiftLength < 0;
+    }
+
+    updateToggle() {
+        this.setState({toggle: !this.state.toggle})
+    }
+
 
     render() {
         const { name, movies } = this.props;
         const { activeRow, activeMovie } = this.state;
         let movieItems = [];   
-
-        const numMovies = this.props.movies.length;
-        // let slideAmount = numMovies * movieWidth / 2; // where movieWidth = 305px;
         
         // Create individual movies 
         for (let [title, details] of movies) {
@@ -82,9 +102,9 @@ class MovieRow extends React.Component {
                 activeStatus = activeMovie.id === details.id;
             }
 
-            let inProfileListRow = this.props.hideGenre;
+            const inProfileListRow = this.props.hideGenre;
 
-            let movieItem = (
+            const movieItem = (
                 <MovieContainer key={details.id} 
                     title={title} 
                     details={details} 
@@ -105,28 +125,26 @@ class MovieRow extends React.Component {
             )
         }
 
-        // Hide title and carousel buttons if on myList page
+        // Determine appropriate arrows and hide genre title if on My List page
         let titleDiv;
-        let moveButton;
+        let rightArrow;
+        let leftArrow;
 
-        if (!this.props.hideTitle) {
-            titleDiv=(<h2 className="genre-title" >{name}</h2>);
-            moveButton=(<div className="carousel-right" onClick={this.shiftForward}></div>)
-        }
+        if (!this.props.hideTitle) titleDiv=(<h2 className="genre-title" >{name}</h2>)
+        if (!this.props.hideTitle && this.showRightArrow) rightArrow=(<div className="carousel-right" onClick={this.shiftForward}></div>)
+        if (this.showLeftArrow) leftArrow = (<div id={`${name}-carousel-btn`} className="carousel-left" onClick={this.shiftBack}></div>);
 
         return (
             <div className="movie-row-main">
                 {titleDiv}
                 <div className="movies-container">
-                    <div id={`${name}-carousel-btn`} className="carousel-left" onClick={this.shiftBack}></div>
-                    
-                    <div className="carousel-wrapper">
+                    {leftArrow}                    
+                    <div id={`${name}-wrapper`} className="carousel-wrapper">
                         <div id={`${name}-carousel`} className="carousel">
                             {movieItems}
                         </div>
                     </div>
-
-                    {moveButton}
+                    {rightArrow}
                 </div>
 
                 {movieShow}

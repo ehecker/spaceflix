@@ -26,6 +26,7 @@
     width: 95%;
     overflow-x: hidden;
     margin: 0 10px 5px 10px;
+    position: relative;
 }
 
 .carousel {
@@ -40,7 +41,7 @@
     background-image: url("/assets/chev-left-white");
     height: 55px;
     width: 16px;
-    visibility: hidden;
+    /* visibility: hidden; */
 }
 
 .unhidden {
