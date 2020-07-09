@@ -11,7 +11,7 @@
 }
 
 .movies-container {
-    /* background-color: red; */
+    background-color: red;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -41,7 +41,6 @@
     background-image: url("/assets/chev-left-white");
     height: 55px;
     width: 16px;
-    /* visibility: hidden; */
 }
 
 .unhidden {

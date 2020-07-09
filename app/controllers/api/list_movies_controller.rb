@@ -8,25 +8,18 @@ class Api::ListMoviesController < ApplicationController
 
         if @list_movie && @list_movie.save!
             render '/api/lists/show'
-        else
-            puts "listmovie creation failed"
         end
     end
 
     def destroy
-        # @list = List.find(params[:list_id])
         @list_movie = ListMovie.find(params[:id])
 
-        # if @list_movie.destroy
         if @list_movie
             list_id = @list_movie.list.id
             @list_movie.destroy
 
             @list = List.find(list_id)
             render '/api/lists/show'
-            # render json: {}
-        else
-            puts "Removal failed"
         end
     end
 

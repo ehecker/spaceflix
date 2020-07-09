@@ -215,4 +215,4 @@ movie10 = Movie.create!({
 
 movie11.trailer.attach(io: open("https://spaceflix-seeds.s3-us-west-1.amazonaws.com/space_odyssey_trailer.mp4"), filename: "space_odyssey_trailer.mp4")
 movie11.thumbnail.attach(io: open("https://spaceflix-seeds.s3-us-west-1.amazonaws.com/space_odyssey_thumbnail.jpg"), filename: "space_odyssey_thumbnail.jpg")
-movie11.logo.attach(io: open("https://spaceflix-seeds.s3-us-west-1.amazonaws.com/space_odyssey_logo.png"), filename: "space_odyssey_logo.png")
+

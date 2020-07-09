@@ -91,6 +91,10 @@ class MovieRow extends React.Component {
         this.setState({toggle: !this.state.toggle})
     }
 
+    stopHoverPropagation(e) {
+        e.stopPropagation()
+    }
+
 
     render() {
         const { name, movies } = this.props;
@@ -148,7 +152,7 @@ class MovieRow extends React.Component {
         return (
             <div className="movie-row-main">
                 {titleDiv}
-                <div className="movies-container">
+                <div className="movies-container" onMouseEnter={this.stopHoverPropagation}>
                     {leftArrow}                    
                     <div id={`${name}-wrapper`} className="carousel-wrapper">
                         <div id={`${name}-carousel`} className="carousel">
