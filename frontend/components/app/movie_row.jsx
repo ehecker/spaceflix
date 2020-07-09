@@ -132,15 +132,12 @@ class MovieRow extends React.Component {
         let rightArrow;
         let leftArrow;
 
-        if (name === "Adventure") debugger
-
         if (!this.props.hideTitle) titleDiv=(<h2 className="genre-title" >{name}</h2>)
         if (!this.props.hideTitle && this.showRightArrow) {
             rightArrow=(<div className="carousel-right" onClick={this.shiftForward}></div>)
         } else {
             rightArrow=(<div className="carousel-right invisible" onClick={this.shiftForward}></div>)
         }
-
 
         if (this.showLeftArrow) {
             leftArrow = (<div id={`${name}-carousel-btn`} className="carousel-left" onClick={this.shiftBack}></div>);

@@ -34,7 +34,7 @@ class MyList extends React.Component {
         let movieRowArrays = [];
 
         while (movies.length > 0) {
-            let row = movies.splice(0, 6);
+            let row = movies.splice(0, 5);
             movieRowArrays.push(row);
         }
 
