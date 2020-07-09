@@ -78,11 +78,13 @@ class MovieRow extends React.Component {
     }
 
     updateRightArrow() {
+        if (this.props.name === "Adventure") debugger
         const wrapper = document.getElementById(`${this.props.name}-wrapper`);
         const carousel = document.getElementById(`${this.props.name}-carousel`);
         const shiftLength = (carousel.offsetWidth - wrapper.offsetWidth) * -1;
 
         this.showRightArrow = shiftLength < 0;
+        this.setState({toggle: !this.state.toggle})
     }
 
     updateToggle() {
@@ -129,6 +131,9 @@ class MovieRow extends React.Component {
         let titleDiv;
         let rightArrow;
         let leftArrow;
+
+        
+        if (name === "Adventure") debugger
 
         if (!this.props.hideTitle) titleDiv=(<h2 className="genre-title" >{name}</h2>)
         if (!this.props.hideTitle && this.showRightArrow) rightArrow=(<div className="carousel-right" onClick={this.shiftForward}></div>)

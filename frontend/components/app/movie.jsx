@@ -20,6 +20,7 @@ class Movie extends React.Component {
         this.toggleSound = this.toggleSound.bind(this);
         this.togglePlayOn = this.togglePlayOn.bind(this);
         this.togglePlayOff = this.togglePlayOff.bind(this);
+        this.updatePlayStatus = this.updatePlayStatus.bind(this);
 
         this.fadeInfo = this.fadeInfo.bind(this);
         this.incrementFade = this.incrementFade.bind(this);
@@ -58,7 +59,7 @@ class Movie extends React.Component {
             this.props.inProfileListRow ? videoId = `mylist-${this.props.details.id}` : videoId = this.props.details.id;
 
             const video = document.getElementById(videoId)
-            video.play();
+            video.play()
         }
     }
 
@@ -90,13 +91,14 @@ class Movie extends React.Component {
         e.stopPropagation()
     }
 
-    
+    updatePlayStatus() {
+        this.playStatus = true;
+    }
+
     // Fade Timing Functions
     incrementFade() {
         if (!this.props.activeRow) {
             this.fadeTime++;
-
-            // console.log(`${this.props.title} timer incremented to: ${this.fadeTime}`)
             
             if (this.fadeTime >= 3) {
                 this.fadeInfo();
@@ -120,8 +122,6 @@ class Movie extends React.Component {
         const container = document.getElementById(containerId)
         container.classList.remove("trigger-fade")
 
-        // console.log("Resetting timer!")
-
         this.fadeTime = 0;
         clearInterval(this.fadeInterval);
         this.fadeInterval = window.setInterval(this.incrementFade, 1000)
@@ -140,7 +140,6 @@ class Movie extends React.Component {
         const containerId = this.props.inProfileListRow ? `list-${this.props.title}-info-container` : `${this.props.title}-info-container`;
         const container = document.getElementById(containerId)
         if (container) {
-            // console.log("Container found, fading info!")
             container.classList.add("trigger-fade")
         } 
     }
@@ -159,7 +158,7 @@ class Movie extends React.Component {
 
         const maturity_rating = details.maturity_rating ? details.maturity_rating : details.maturityRating;
 
-        let soundButton = muted ? (
+        const soundButton = muted ? (
             <div className="sound-btn-off" onClick={this.toggleSound} ></div>
         ) 
         : (
@@ -178,13 +177,9 @@ class Movie extends React.Component {
             if (inProfileList) {
                 let movieAssociation = listMovieAssociations.filter(assoc => assoc.movie_id === details.id)[0];
 
-                addBtn=(
-                    <div onClick={this.removeMovieFromList} data-movie-association={movieAssociation.id} className="remove-movie-btn"></div>
-                )
+                addBtn=(<div onClick={this.removeMovieFromList} data-movie-association={movieAssociation.id} className="remove-movie-btn"></div>)
             } else {
-                addBtn=(
-                    <div onClick={this.addMovieToList} data-movie-id={details.id} className="add-btn"></div>
-                )
+                addBtn=(<div onClick={this.addMovieToList} data-movie-id={details.id} className="add-btn"></div>)
             }
 
             const videoId = this.props.inProfileListRow ? `mylist-${details.id}` : details.id;
@@ -204,6 +199,7 @@ class Movie extends React.Component {
                     onMouseLeave={this.endFadeTimer}
                     >
                         <video 
+                            onCanPlay={this.updatePlayStatus}
                             className="trailer"
                             id={videoId}
                             src={trailer}

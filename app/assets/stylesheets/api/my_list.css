@@ -2,6 +2,7 @@
     background-color: rgb(20, 20, 20);
     /* height: 100vh;
     width: 100vw; */
+    min-height: 100vh;
     display: flex;
     flex-direction: column;
     color: white;
@@ -23,7 +24,6 @@
 .list-rows-container {
     /* margin-left: 70px; */
 }
-
 
 .no-movies-text-box {
     display: flex;
