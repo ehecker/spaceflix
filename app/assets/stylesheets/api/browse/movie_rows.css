@@ -63,6 +63,6 @@
     cursor: pointer;
 }
 
-.move-right {
-    transform: translate(-50%, 0);
+.invisible {
+    visibility: hidden;
 }
