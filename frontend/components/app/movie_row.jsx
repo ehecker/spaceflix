@@ -15,17 +15,24 @@ class MovieRow extends React.Component {
 
         this.showRightArrow = false;
         this.showLeftArrow = false;
+        this.transitioning = false;
 
         this.closeShow = this.closeShow.bind(this);
         this.setActiveMovie = this.setActiveMovie.bind(this);
         this.shiftBack = this.shiftBack.bind(this);
         this.shiftForward = this.shiftForward.bind(this);
         this.updateToggle = this.updateToggle.bind(this);
+        this.switchOnTransition = this.switchOnTransition.bind(this);
+        this.switchOffTransition = this.switchOffTransition.bind(this);
+        this.stopHoverPropagation = this.stopHoverPropagation.bind(this);
     }
 
     componentDidMount() {
         this.mounted = true;
         this.updateRightArrow();
+
+        const carousel = document.getElementById(`${this.props.name}-carousel`);
+        carousel.addEventListener("transitionstart", this.switchOnTransition);
     }
 
     componentWillUnmount() {
@@ -78,7 +85,6 @@ class MovieRow extends React.Component {
     }
 
     updateRightArrow() {
-        if (this.props.name === "Adventure") debugger
         const wrapper = document.getElementById(`${this.props.name}-wrapper`);
         const carousel = document.getElementById(`${this.props.name}-carousel`);
         const shiftLength = (carousel.offsetWidth - wrapper.offsetWidth) * -1;
@@ -92,8 +98,19 @@ class MovieRow extends React.Component {
     }
 
     stopHoverPropagation(e) {
-        e.stopPropagation()
+        if (this.transitioning) e.stopPropagation()
     }
+
+    switchOnTransition(event) {
+        if (event.srcElement.id.includes("carousel")) {
+            this.transitioning = true;
+        } 
+    }
+    
+    switchOffTransition(event) {
+        this.transitioning = false;
+    }
+
 
 
     render() {
@@ -155,7 +172,7 @@ class MovieRow extends React.Component {
                 <div className="movies-container" onMouseEnter={this.stopHoverPropagation}>
                     {leftArrow}                    
                     <div id={`${name}-wrapper`} className="carousel-wrapper">
-                        <div id={`${name}-carousel`} className="carousel">
+                        <div id={`${name}-carousel`} onTransitionEnd={this.switchOffTransition}  className="carousel">
                             {movieItems}
                         </div>
                     </div>

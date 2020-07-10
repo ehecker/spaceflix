@@ -55,10 +55,9 @@ class Movie extends React.Component {
         event.currentTarget.classList.add("playing")
 
         if (!this.props.activeRow) {
-            let videoId;
-            this.props.inProfileListRow ? videoId = `mylist-${this.props.details.id}` : videoId = this.props.details.id;
+            const videoId = this.props.inProfileListRow ? `mylist-${this.props.details.id}` : this.props.details.id;
+            const video = document.getElementById(videoId);
 
-            const video = document.getElementById(videoId)
             video.play()
         }
     }
@@ -199,7 +198,6 @@ class Movie extends React.Component {
                     onMouseLeave={this.endFadeTimer}
                     >
                         <video 
-                            onCanPlay={this.updatePlayStatus}
                             className="trailer"
                             id={videoId}
                             src={trailer}

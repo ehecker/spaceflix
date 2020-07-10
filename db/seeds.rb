@@ -25,11 +25,12 @@ user3 = User.create!({email: "user3@gmail.com", password: "password123"})
 
 #GENRES
 
-genre1 = Genre.create!({name: "Adventure"})
-genre2 = Genre.create!({name: "Documentary"})
-genre3 = Genre.create!({name: "Star Wars"})
-genre4 = Genre.create!({name: "Comedy"})
-
+adventure = Genre.create!({name: "Adventure"})
+reallife = Genre.create!({name: "Based on Real Life"})
+classics = Genre.create!({name: "Classics"})
+starwars = Genre.create!({name: "Star Wars"})
+comedy = Genre.create!({name: "Comedy"})
+scifi = Genre.create!({name: "Sci-Fi"})
 
 # MOVIES
 

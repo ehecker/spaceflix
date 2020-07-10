@@ -47,7 +47,6 @@ class Feature extends React.Component {
         const { muted } = this.state;
         const featuredMovie = Object.values(genres[1][1])[0];
 
-        // const title = featuredMovie.logo ? featuredMovie.logo : featuredMovie.title.toUpperCase();
         const trailer = featuredMovie.trailer;
         const title = featuredMovie.title.toUpperCase();
         const description = featuredMovie.description;
@@ -57,7 +56,7 @@ class Feature extends React.Component {
         muted ? muteButton=(<div className="feature-mute-off" onClick={this.toggleMute}></div>) 
          : muteButton=(<div className="feature-mute-on" onClick={this.toggleMute}></div>)
                 
-         const listMovies = this.props.profileList.movies;
+        const listMovies = this.props.profileList.movies;
         let addBtn;
         let inProfileList;
 
