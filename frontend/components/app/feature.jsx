@@ -90,7 +90,7 @@ class Feature extends React.Component {
                         src={trailer} 
                         autoPlay 
                         loop 
-                        muted={true}
+                        muted={muted}
                     />
                 </div>
                 <div className="feature-overlay">

@@ -34,22 +34,6 @@ scifi = Genre.create!({name: "Sci-Fi"})
 
 # MOVIES
 
-movie7 = Movie.create!({
-    title: "",
-    description: "",
-    year: ,
-    duration: "",
-    maturity_rating: "",
-    director: "",
-    cast: "",
-    genre_id:
-})
-
-movie7.trailer.attach(io: open(""), filename: "")
-movie7.thumbnail.attach(io: open(""), filename: "")
-movie7.logo.attach(io: open(""), filename: "")
-
-
 # Adventure
 movie1 = Movie.create!({
     title: "Interstellar",
