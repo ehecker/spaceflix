@@ -148,7 +148,6 @@ class Movie extends React.Component {
         const { muted } = this.state;
         let moviePreview;
 
-        // const trailer = details.trailer;
         const trailer = details.trailer ? details.trailer : "/assets/backup_trailer.mp4";
         const thumbnail = details.thumbnail;
 
