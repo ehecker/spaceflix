@@ -45,10 +45,10 @@ class MovieShow extends React.Component {
         const listMovieAssociations = this.props.profileList.movieAssociations;
         const maturity_rating = this.props.details.maturity_rating ? this.props.details.maturity_rating : this.props.details.maturityRating;
         
-        const trailer = this.props.details.trailer;
+        // const trailer = this.props.details.trailer;
+        const trailer = this.props.details.trailer ? this.props.details.trailer : "/assets/backup_trailer.mp4";
         const logo = this.props.details.logo ? <img src={this.props.details.logo} className="show-logo"/> 
             : <div className="logo-backup">{details.title.toUpperCase()}</div>
-        // const logo = <img src="/assets/movies/gravity_logo.png" className="show-logo" />;
 
         const muteButton = muted ? <div className="show-mute-btn-off" onClick={this.toggleMute} ></div>
             : <div className="show-mute-btn-on" onClick={this.toggleMute}></div>

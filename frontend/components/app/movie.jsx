@@ -148,21 +148,20 @@ class Movie extends React.Component {
         const { muted } = this.state;
         let moviePreview;
 
-        // FOR TESTING
-        // let thumbnail = "/assets/movies/the_martian_thumbnail";
-        // let trailer = "/assets/the_martian_trailer";
-
-        const trailer = details.trailer;
+        // const trailer = details.trailer;
+        const trailer = details.trailer ? details.trailer : "/assets/backup_trailer.mp4";
         const thumbnail = details.thumbnail;
 
         const maturity_rating = details.maturity_rating ? details.maturity_rating : details.maturityRating;
 
         const soundButton = muted ? (
-            <div className="sound-btn-off" onClick={this.toggleSound} ></div>
+            <div className="sound-btn-off" onClick={this.toggleSound}></div>
         ) 
         : (
-            <div className="sound-btn-on" onClick={this.toggleSound} ></div>
+            <div className="sound-btn-on" onClick={this.toggleSound}></div>
         );
+
+
 
         if (!activeRow) {
             let listMovies = this.props.profileList.movies;

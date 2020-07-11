@@ -104,21 +104,11 @@ class Watch extends React.Component {
     }
 
     render() {
-        if (!this.props.location.movieDetails) {
-            return (
-                <Redirect to="/browse"/>
-            )
-        }
+        if (!this.props.location.movieDetails) return (<Redirect to="/browse"/>);
         
-        const { title, trailer } = this.props.location.movieDetails
-
-        // const title = this.props.details.title;
-        // const title = "Rogue One: A Star Wars Story";
-
-        // const trailer = this.props.details.trailer;
-        // const trailer = "/assets/rogue_one_trailer";
-
-
+        const { title } = this.props.location.movieDetails
+        const trailer = this.props.location.movieDetails.trailer ? this.props.location.movieDetails.trailer : "/assets/backup_trailer.mp4";
+        
         const { playing, muted } = this.state; 
         
         let playButton;
