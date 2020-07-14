@@ -58,7 +58,6 @@ class MyList extends React.Component {
         let listMovies = this.props.profileList.movies.slice();
         let listRows;
 
-
         if (listMovies && listMovies.length > 0) {
             listRows = this.parseMovies(listMovies)
         } else {

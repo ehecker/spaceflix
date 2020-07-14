@@ -28,7 +28,7 @@
 }
 
 .angellist-icon {
-    background-image: url("/assets/angellist-icon");
+    background-image: image-url("angellist-icon");
     background-size: cover;
     height: 35px;
     width: 35px;
@@ -39,7 +39,7 @@
 }
 
 .linkedin-icon {
-    background-image: url("/assets/linkedin-icon");
+    background-image: image-url("linkedin-icon");
     background-size: cover;
     height: 35px;
     width: 35px;
@@ -50,7 +50,7 @@
 }
 
 .github-icon {
-    background-image: url("/assets/github-icon");
+    background-image: image-url("github-icon");
     background-size: cover;
     height: 37px;
     width: 37px;

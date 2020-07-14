@@ -160,47 +160,47 @@
 }
 
 .add-btn {
-    background-image: url("/assets/add-unhovered");
+    background-image: image-url("add-unhovered");
     background-size: cover;
     height: 36px;
     width: 36px;
 }
 
 .add-btn:hover {
-    background-image: url("/assets/add-hovered");
+    background-image: image-url("add-hovered");
 }
 
 .remove-movie-btn {
-    background-image: url("/assets/movie-add-unhov");
+    background-image: image-url("movie-add-unhov");
     background-size: cover;
     height: 36px;
     width: 36px;
 }
 
 .remove-movie-btn:hover {
-    background-image: url("/assets/movie-add-hov");
+    background-image: image-url("movie-add-hov");
 }
 
 .sound-btn-off {
-    background-image: url("/assets/sound-off-unhovered");
+    background-image: image-url("sound-off-unhovered");
     background-size: cover;
     height: 36px;
     width: 36px;
 }
 
 .sound-btn-off:hover {
-    background-image: url("/assets/sound-off-hovered");
+    background-image: image-url("sound-off-hovered");
 }
 
 .sound-btn-on {
-    background-image: url("/assets/sound-on-unhovered");
+    background-image: image-url("sound-on-unhovered");
     background-size: cover;
     height: 36px;
     width: 36px;
 }
 
 .sound-btn-on:hover {
-    background-image: url("/assets/sound-on-hovered");
+    background-image: image-url("sound-on-hovered");
 }
 
 .preview-show-link {
@@ -213,14 +213,14 @@
 }
 
 .preview-chev-down {
-    background-image: url("/assets/chev-down-white");
+    background-image: image-url("chev-down-white");
     background-size: cover;
     height: 16px;
     width: 55px;
 }
 
 .preview-show-link:hover .preview-chev-down {
-    background-image: url("/assets/chev-down-red");
+    background-image: image-url("chev-down-red");
 }
 
 .thumbnail-active {
@@ -262,7 +262,7 @@
 }
 
 .preview-play-button {
-    background-image: url("/assets/play-icon");
+    background-image: image-url("play-icon");
     background-size: cover;
 
     opacity: 0.9;
@@ -277,7 +277,7 @@
 }
 
 .preview-play-small {
-    background-image: url("/assets/play-icon");
+    background-image: image-url("play-icon");
     background-size: cover;
 
     height: 48px;
@@ -290,7 +290,7 @@
 }
 
 .chev-down {
-    background-image: url("/assets/chev-down-white");
+    background-image: image-url("chev-down-white");
     background-size: cover;
     position: absolute;
     height: 16px;

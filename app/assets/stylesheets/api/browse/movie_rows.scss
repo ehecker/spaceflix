@@ -11,7 +11,6 @@
 }
 
 .movies-container {
-    /* background-color: red; */
     display: flex;
     align-items: center;
     justify-content: center;
@@ -19,8 +18,7 @@
 }
 
 .carousel-wrapper {
-    /* background-color: blue; */
-    /* height: 220px; */
+
     display: flex;
     align-items: center;
     width: 95%;
@@ -30,7 +28,6 @@
 }
 
 .carousel {
-    /* background-color: yellow; */
     display: flex;
     transition: 1s ease all; 
     align-items: center;
@@ -38,7 +35,7 @@
 
 .carousel-left {
     cursor: pointer;
-    background-image: url("/assets/chev-left-white");
+    background-image: image-url("chev-left-white");
     height: 55px;
     width: 16px;
 }
@@ -48,17 +45,17 @@
 }
 
 .carousel-left:hover {
-    background-image: url("/assets/chev-left-red");
+    background-image: image-url("chev-left-red");
 }
 
 .carousel-right {
-    background-image: url("/assets/chev-right-white");
+    background-image: image-url("chev-right-white");
     height: 55px;
     width: 16px;
 }
 
 .carousel-right:hover {
-    background-image: url("/assets/chev-right-red");
+    background-image: image-url("chev-right-red");
     cursor: pointer;
 }
 

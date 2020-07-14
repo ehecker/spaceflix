@@ -15,12 +15,12 @@ class ProgressBar extends React.Component {
     }
 
     componentDidMount() {
-        let video = document.getElementsByTagName("video")[0];
+        const video = document.getElementsByTagName("video")[0];
         video.addEventListener("timeupdate", this.updateProgressBar);
     }
 
     componentWillUnmount() {
-        let video = document.getElementsByTagName("video")[0];
+        const video = document.getElementsByTagName("video")[0];
         video.removeEventListener("timeupdate", this.updateProgressBar);
     }
 
@@ -58,8 +58,8 @@ class ProgressBar extends React.Component {
         
         this.maxTime = duration;
 
-        let timeRemaining = this.clockify(duration - currentTime);
-        let value = duration - (duration - currentTime);
+        const timeRemaining = this.clockify(duration - currentTime);
+        const value = duration - (duration - currentTime);
 
         this.setState({
             timeRemaining,
@@ -68,7 +68,7 @@ class ProgressBar extends React.Component {
     }
 
     render() {
-        let { timeRemaining, value } = this.state;
+        const { timeRemaining, value } = this.state;
 
         return(
             <div className="progress-bar-main">

@@ -52,7 +52,7 @@
 }
 
 .back-button {
-    background-image: url("/assets/back-btn");
+    background-image: image-url("back-btn");
     background-size: cover;
     height: 31px;
     width: 35px;
@@ -121,7 +121,7 @@
 }
 
 .watch-pause-btn {
-    background-image: url("/assets/watch-pause");
+    background-image: image-url("watch-pause");
     background-size: cover;
     height: 28px;
     width: 14px;
@@ -139,7 +139,7 @@
 }
 
 .watch-play-btn {
-    background-image: url("/assets/watch-play");
+    background-image: image-url("watch-play");
     background-size: cover;
     height: 32px;
     width: 24px;
@@ -157,7 +157,7 @@
 }
 
 .watch-sound-on {
-    background-image: url("/assets/watch-sound-on");
+    background-image: image-url("watch-sound-on");
     background-size: cover;
     height: 27px;
     width: 27px;
@@ -175,7 +175,7 @@
 }
 
 .watch-sound-off {
-    background-image: url("/assets/watch-sound-off");
+    background-image: image-url("watch-sound-off");
     background-size: cover;
     height: 27px;
     width: 27px;
@@ -193,7 +193,7 @@
 }
 
 .subtitles-btn {
-    background-image: url("/assets/subtitle-box");
+    background-image: image-url("subtitle-box");
     background-size: cover;
     height: 29px;
     width: 48px;
@@ -211,7 +211,7 @@
 }
 
 .fullscreen-btn {
-    background-image: url("/assets/full-screen");
+    background-image: image-url("full-screen");
     background-size: cover;
     height: 24px;
     width: 40px;

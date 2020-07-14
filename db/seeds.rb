@@ -51,6 +51,9 @@ movie1.thumbnail.attach(io: open("https://spaceflix-seeds.s3-us-west-1.amazonaws
 movie1.logo.attach(io: open("https://spaceflix-seeds.s3-us-west-1.amazonaws.com/interstellar_logo.png"), filename: "interstellar_logo.png")
 
 
+
+
+
 movie2 = Movie.create!({
     title: "The Martian",
     description: "An astronaut becomes stranded on Mars after his team assume him dead, and must rely on his ingenuity to find a way to signal to Earth that he is alive.",

@@ -27,7 +27,7 @@
 /* LOGGED OUT ===================================================================================*/
 
 .logo-big {
-    background-image: url("/assets/spaceflix-logo-big.png");
+    background-image: image-url("spaceflix-logo-big.png");
     background-size: cover;
     height: 67px;
     width: 229px;
@@ -57,7 +57,7 @@
 /* LOGGED IN */
 
 .logo-small {
-    background-image: url("/assets/spaceflix-logo-small.png");
+    background-image: image-url("spaceflix-logo-small.png");
     background-size: cover;
     height: 40px;
     width: 137px;
@@ -146,7 +146,7 @@
 }
 
 .current-profile-img {
-    background-image: url("/assets/rocket-icon");
+    background-image: image-url("rocket-icon");
     background-size: cover;
     height: 80%;
     width: 80%;
@@ -222,7 +222,7 @@
 }
 
 .nav-prof-img {
-    background-image: url("/assets/rocket-icon");
+    background-image: image-url("rocket-icon");
     background-size: cover;
     height: 80%;
     width: 80%;

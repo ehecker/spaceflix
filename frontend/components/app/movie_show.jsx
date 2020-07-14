@@ -1,6 +1,8 @@
 import React from "react";
 import { Link } from "react-router-dom";
 
+// import { test} from "../../../public/backup_trailer.mp4"
+
 class MovieShow extends React.Component {
 
     constructor(props) {
@@ -45,7 +47,10 @@ class MovieShow extends React.Component {
         const listMovieAssociations = this.props.profileList.movieAssociations;
         const maturity_rating = this.props.details.maturity_rating ? this.props.details.maturity_rating : this.props.details.maturityRating;
         
-        const trailer = this.props.details.trailer ? this.props.details.trailer : "/assets/backup_trailer.mp4";
+        // const trailer = this.props.details.trailer ? this.props.details.trailer : "/assets/backup_trailer.mp4";
+        const trailer = this.props.details.trailer ? this.props.details.trailer : window.backupTrailerURL;
+
+
         const logo = this.props.details.logo ? <img src={this.props.details.logo} className="show-logo"/> 
             : <div className="logo-backup">{details.title.toUpperCase()}</div>
 

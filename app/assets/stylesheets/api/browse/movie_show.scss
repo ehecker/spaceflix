@@ -131,14 +131,14 @@
 }
 
 .show-list-icon {
-    background-image: url("/assets/add-icon");
+    background-image: image-url("add-icon");
     background-size: cover;
     height: 20px;
     width: 20px;
 }
 
 .show-check-icon {
-    background-image: url("/assets/checkmark-icon");
+    background-image: image-url("checkmark-icon");
     background-size: cover;
     height: 20px;
     width: 20px;
@@ -172,7 +172,7 @@
 }
 
 .show-close-btn {
-    background-image: url("/assets/show-close");
+    background-image: image-url("show-close");
     background-size: cover;
     height: 30px;
     width: 30px;
@@ -182,7 +182,7 @@
 }
 
 .show-mute-btn-off {
-    background-image: url("/assets/sound-off-unhovered");
+    background-image: image-url("sound-off-unhovered");
     background-size: cover;
     height: 40px;
     width: 40px;
@@ -192,11 +192,11 @@
 }
 
 .show-mute-btn-off:hover {
-    background-image: url("/assets/sound-off-hovered");
+    background-image: image-url("sound-off-hovered");
 }
 
 .show-mute-btn-on {
-    background-image: url("/assets/sound-on-unhovered");
+    background-image: image-url("sound-on-unhovered");
     background-size: cover;
     height: 40px;
     width: 40px;
@@ -206,6 +206,5 @@
 }
 
 .show-mute-btn-on:hover {
-    background-image: url("/assets/sound-on-hovered");
+    background-image: image-url("sound-on-hovered");
 }
-

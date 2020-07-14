@@ -25,14 +25,15 @@
     height: 100%;
     z-index: 1;
     opacity: 0.5;
-    background-image: linear-gradient(to top, rgba(0, 0, 0, 0.8) 0%, rgba(0, 0, 0, 0) 60%, rgba(0, 0, 0, 0.8) 100%), url("/assets/splash-bg.jpg");
+    /* background-image: linear-gradient(to top, rgba(0, 0, 0, 0.8) 0%, rgba(0, 0, 0, 0) 60%, rgba(0, 0, 0, 0.8) 100%), url("/assets/splash-bg.jpg"); */
+    background-image: linear-gradient(to top, rgba(0, 0, 0, 0.8) 0%, rgba(0, 0, 0, 0) 60%, rgba(0, 0, 0, 0.8) 100%), image-url("splash-bg.jpg");
     background-repeat: no-repeat;
     background-position: 50% 0;
+    background-size: cover;
     -ms-background-size: cover;
     -o-background-size: cover;
     -moz-background-size: cover;
     -webkit-background-size: cover;
-    background-size: cover;
 }
 
 .landing.extended {
@@ -159,7 +160,7 @@
 /* STORY 1 */
 
 .story-1-gif {
-    background-image: url("/assets/story-1-gif");
+    background-image: image-url("story-1-gif");
     height: 263px;
     width: 466px;
 
@@ -168,7 +169,7 @@
 }
 
 .story-1-img {
-    background-image: url("/assets/story-1-img");
+    background-image: image-url("story-1-img");
     background-size: cover;
     height: 388px;
     width: 640px;
@@ -181,7 +182,7 @@
 /* STORY 2 */
 
 .story-2-img {
-    background-image: url("/assets/story-2-img");
+    background-image: image-url("story-2-img");
     height: 412px;
     width: 640px;
 
@@ -206,7 +207,7 @@
 }
 
 .story-2-img-2{
-    background-image: url("/assets/story-2-img-2");
+    background-image: image-url("story-2-img-2");
     background-size: cover;
     height: 91px;
     width: 65px;
@@ -226,7 +227,7 @@
 }
 
 .story-2-gif {
-    background-image: url("/assets/story-2-gif");
+    background-image: image-url("story-2-gif");
     background-size: cover;
     height: 60px;
     width: 60px;
@@ -235,7 +236,7 @@
 /* STORY 3 */
 
 .story-3-gif {
-    background-image: url("/assets/story-3-gif");
+    background-image: image-url("story-3-gif");
     height: 200px;
     width: 356px;
 
@@ -243,7 +244,7 @@
 }
 
 .story-3-img {
-    background-image: url("/assets/story-3-img");
+    background-image: image-url("story-3-img");
     background-size: cover;
     height: 420px;
     width: 560px;
