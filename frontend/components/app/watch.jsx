@@ -99,7 +99,7 @@ class Watch extends React.Component {
     }
 
     fadeControls() {
-        let watchMain = document.getElementsByClassName("watch-main")[0];
+        const watchMain = document.getElementsByClassName("watch-main")[0];
         watchMain.classList.add("fade-controls");
     }
 
