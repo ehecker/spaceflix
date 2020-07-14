@@ -107,7 +107,7 @@ class Watch extends React.Component {
         if (!this.props.location.movieDetails) return (<Redirect to="/browse"/>);
         
         const { title } = this.props.location.movieDetails
-        const trailer = this.props.location.movieDetails.trailer ? this.props.location.movieDetails.trailer : "/assets/backup_trailer.mp4";
+        const trailer = this.props.location.movieDetails.trailer ? this.props.location.movieDetails.trailer : window.backupTrailerURL;
         
         const { playing, muted } = this.state; 
         
