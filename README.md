@@ -11,7 +11,7 @@ Spaceflix is built with <strong>Ruby on Rails</strong> on the backend and <stron
 
 ## Technical Challenges
 ### Authorizing AWS S3 Requests with proper expiration guidelines
-In the final stages of this project, I noticed that attempts to play videos on the Browse page would return a 403 Forbidden error from AWS S3 a few minutes after the page was initially loaded. To debug this, I began researching pre-signed signatures in AWS and eventually learned that the media request URLs being sent to AWS by way of ActiveStorage were setting a default query parameter of expires_in: 300 - meaning that each request would only remain valid for five minutes. Finally, using the Ruby on Rails and ActiveStorage documentation, I researched and built a custom Ruby on Rails initializer, active_storage.rb, to override that default parameter with the following line of code:
+In the final stages of this project, I noticed that attempts to play videos on the Browse page would return a 403 Forbidden error from AWS S3 a few minutes after the page was initially loaded. To debug this, I began researching pre-signed signatures in AWS and eventually learned that the media request URLs being sent to AWS by way of ActiveStorage were setting a default query parameter of expires_in: 300 - meaning that each request would only remain valid for five minutes. Using the Ruby on Rails and ActiveStorage documentation, I researched and built a custom Ruby on Rails initializer, <em>active_storage.rb</em>, to override that default parameter with the following line of code:
 
     ActiveStorage::Service.url_expires_in = 1.hour
 
