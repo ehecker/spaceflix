@@ -44,12 +44,12 @@ The problem here is pretty straightforward: there is no event listener for the <
         this.fadeTime++;
         
         if (this.fadeTime >= 3) {
-            this.fadeInfo();
+            this.fadeControls();
             this.fadeTime = 0;
         }
     }
 
-    fadeInfo() {
+    fadeControls() {
         this.containerElement.classList.add("fade-trigger")
     }
     
