@@ -12,8 +12,8 @@ Spaceflix is built with <strong>Ruby on Rails</strong> on the backend and <stron
 ## Technical Challenges
 ### Challenge 1
 
-### Challenge 2
-
+### Fading video controls based on user inactivity
+The problem here is pretty straightforward - there is no event listener for the <em>absence</em> of user activity.
 
 ## Upcoming Features
 <ul>
