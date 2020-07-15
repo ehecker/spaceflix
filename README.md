@@ -3,11 +3,11 @@
 
 <a href="https://spaceflix.herokuapp.com" target="_blank" rel="noreferrer">Visit the Live Site here</a>
 
-Spaceflix is a space-themed, pixel-perfect clone of Netflix. Like the real thing, Spaceflix allows users to stream movies (trailers) on demand. Users can create and delete profiles, each of which has their own independent Watch List where they can save movies to watch in the future. Movies can be previewed by hovering over their thumbnails, and additional details can be accessed by opening their respective show-sections. In the future, Spaceflix will feature search functionality as well as recommendations based on movies a profile has already watched.
+Spaceflix is a space-themed, pixel-perfect clone of Netflix. Like the real thing, Spaceflix allows users to stream movies (trailers) on demand. Users can create and delete profiles, each of which has their own independent Watch List where they can save movies to watch later. Movies can be previewed by hovering over their thumbnails, and additional details can be accessed by opening their respective show-sections. In the future, Spaceflix will feature search functionality as well as recommendations based on movies a profile has already watched.
 
 ## Technologies
 
-Spaceflix is built with <strong>Ruby on Rails</strong> on the backend and <strong>React/Redux</strong> on the frontend. User and movie information is stored in a <strong>PostgreSQL</strong> database and <strong>AWS S3 Storage</strong> is used for cloud storage of image and video files. The application is additionally supported by Webpack, Jbuilder, and Bcrypt.
+Spaceflix is built with <strong>Ruby on Rails</strong> on the backend and <strong>React/Redux</strong> on the frontend. User and movie information is stored in a <strong>PostgreSQL</strong> database and <strong>AWS S3</strong> is used for cloud storage of image and video files. Secure user authentication is implemented without any dedicated libraries, but user passwords are stored in hashed + salted format with assistance from BCrypt. The application is additionally supported by Webpack, JQuery, and Jbuilder.
 
 ## Technical Challenges
 ### Authorizing AWS S3 Requests with proper expiration guidelines
@@ -16,7 +16,7 @@ In the final stages of this project, I noticed that attempts to play videos on t
     ActiveStorage::Service.url_expires_in = 1.hour
 
 ### Fading video controls based on user inactivity
-The problem here is pretty straightforward: there is no event listener for the <em>absence</em> of user activity. To implement such behavior, I defined a series of functions which increment a timer while the mouse is not actively moving, and trigger a fade animation when that timer reaches three seconds. The timer starts/ends by hovering over the parent element, and is reset onMouseMove, ensuring that the controls do not disappear too quickly. This timer can be observed in the application when hovering over a movie preview, or on a movie's dedicated Watch page.
+The problem here is pretty straightforward: there is no event listener for the <em>absence</em> of user activity. To implement such behavior, I defined a series of functions which increment a timer while the mouse is not actively moving, and trigger a fade animation when that timer reaches three seconds. The timer starts/ends by hovering over the parent element, and is reset onMouseMove, ensuring that the controls do not disappear too quickly and that they can reappear instantaneously. This functionality can be observed in the application when hovering over a movie preview, or on a movie's dedicated Watch page.
 
 
     // components/movies.jsx
