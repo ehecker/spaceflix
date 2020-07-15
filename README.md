@@ -7,7 +7,7 @@ Spaceflix is a space-themed, pixel-perfect clone of Netflix. Like the real thing
 
 ## Technologies
 
-Spaceflix is built with <strong>Ruby on Rails</strong> on the backend and <strong>React/Redux</strong> on the frontend. User and movie information is stored in a <strong>PostgreSQL</strong> database and <strong>AWS S3 Storage Service</strong> is used for cloud storage of image and video files. The application is additionally supported by Webpack, Jbuilder, and Bcrypt.
+Spaceflix is built with <strong>Ruby on Rails</strong> on the backend and <strong>React/Redux</strong> on the frontend. User and movie information is stored in a <strong>PostgreSQL</strong> database and <strong>AWS S3 Storage</strong> is used for cloud storage of image and video files. The application is additionally supported by Webpack, Jbuilder, and Bcrypt.
 
 ## Technical Challenges
 ### Challenge 1
