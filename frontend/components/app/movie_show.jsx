@@ -1,7 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
 
-// import { test} from "../../../public/backup_trailer.mp4"
 
 class MovieShow extends React.Component {
 
