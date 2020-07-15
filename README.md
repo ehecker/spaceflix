@@ -16,7 +16,7 @@ In the final stages of this project, I noticed that attempts to play videos on t
     ActiveStorage::Service.url_expires_in = 1.hour
 
 ### Fading video controls based on user inactivity
-The problem here is pretty straightforward: there is no event listener for the <em>absence</em> of user activity. To implement such behavior, I defined a series of functions that track the amount of time between user activity, and begin a fade animation when that timer reaches three seconds. The timer starts/ends by hovering over the parent element, and is reset onMouseMove, ensuring that the controls do not disappear too quickly.
+The problem here is pretty straightforward: there is no event listener for the <em>absence</em> of user activity. To implement such behavior, I defined a series of functions which increment a timer while the mouse is not actively moving, and trigger a fade animation when that timer reaches three seconds. The timer starts/ends by hovering over the parent element, and is reset onMouseMove, ensuring that the controls do not disappear too quickly. This timer can be observed in the application when hovering over a movie preview, or on a movie's dedicated Watch page.
 
 
     // components/movies.jsx
