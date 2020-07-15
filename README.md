@@ -1,4 +1,6 @@
 # Spaceflix
+<img src="https://i.imgur.com/sneEo43.jpg">
+
 <a href="https://spaceflix.herokuapp.com" target="_blank" rel="noreferrer" >Live Site</a>
 
 Spaceflix is a space-themed, pixel-perfect clone of Netflix. 
