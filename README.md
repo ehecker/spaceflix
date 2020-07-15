@@ -15,7 +15,6 @@ Spaceflix is built with <strong>Ruby on Rails</strong> on the backend and <stron
 ### Fading video controls based on user inactivity
 The problem here is pretty straightforward: there is no event listener for the <em>absence</em> of user activity. To implement such behavior, I defined a series of functions that track the amount of time between user activity, and begin a fade animation when that timer reaches three seconds. The timer starts/ends by hovering over the parent element, and is reset onMouseMove, ensuring that the controls do not disappear too quickly.
 
-'''
 
     // Fade Timing Functions
     startFadeTimer() {
@@ -50,7 +49,7 @@ The problem here is pretty straightforward: there is no event listener for the <
     fadeInfo() {
         this.containerElement.classList.add("fade-trigger")
     }
-'''
+    
 ## Upcoming Features
 <ul>
   <li>Searchable Movie Database</li>
