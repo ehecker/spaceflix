@@ -16,7 +16,7 @@ Spaceflix is built with <strong>Ruby on Rails</strong> on the backend and <stron
 The problem here is pretty straightforward: there is no event listener for the <em>absence</em> of user activity. To implement such behavior, I defined a series of functions that track the amount of time between user activity, and begin a fade animation when that timer reaches three seconds. The timer starts/ends by hovering over the parent element, and is reset onMouseMove, ensuring that the controls do not disappear too quickly.
 
 
-    // Fade Timing Functions
+    // Movies.jsx
     startFadeTimer() {
         this.fadeInterval = window.setInterval(this.incrementFade, 1000)
         this.containerElement.classList.remove("fade-trigger")
