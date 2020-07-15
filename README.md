@@ -1,9 +1,9 @@
 # Spaceflix
 <img src="https://i.imgur.com/sneEo43.jpg">
 
-<a href="https://spaceflix.herokuapp.com" target="_blank" rel="noreferrer" >Live Site</a>
+<a href="https://spaceflix.herokuapp.com" target="_blank" rel="noreferrer">Live Site</a>
 
-Spaceflix is a space-themed, pixel-perfect clone of Netflix. Like the real thing, Spaceflix allows users to stream movies on demand. Users can create and delete profiles, each of which has their own independent Watch List to save movies to watch in the future. Movies can be previewed by hovering over their thumbnails, and additional details can be accessed by opening their respective show-sections. In the future, Spaceflix will feature search functionality as well as recommendations based on movies a profile has already watched.
+Spaceflix is a space-themed, pixel-perfect clone of Netflix. Like the real thing, Spaceflix allows users to stream movies (trailers) on demand. Users can create and delete profiles, each of which has their own independent Watch List to save movies to watch in the future. Movies can be previewed by hovering over their thumbnails, and additional details can be accessed by opening their respective show-sections. In the future, Spaceflix will feature search functionality as well as recommendations based on movies a profile has already watched.
 
 ## Technologies
 
