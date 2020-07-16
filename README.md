@@ -1,5 +1,5 @@
 # Spaceflix
-<img src="https://i.imgur.com/sneEo43.jpg">
+<img src="https://media.giphy.com/media/J3FbmZnvyUbf9Xs1xv/giphy.gif">
 
 <a href="https://spaceflix.herokuapp.com" target="_blank" rel="noreferrer">Visit the Live Site here</a>
 
