@@ -6,12 +6,12 @@ Spaceflix is a space-themed, pixel-perfect clone of Netflix. Like the real thing
 
 ## Features
 <ul>
-    <li>Secure user authentication with component, model, and database level validations and security measures.</li>
-    <li>User passwords are stored securely in hashed and salted format.</li>
-    <li>Users can create and delete up to 5 custom profiles, each of which has its own dedicated Watch List.</li>
-    <li>Videos can be added or removed from Watch lists from the video preview or show page.</li>
-    <li>Users can switch between profiles seamlessly using the Navigation bar or dedicated Profiles page.</li>
-    <li>Users can watch videos with custom video controls specifically designed for Spaceflix.</li>
+    <li>Secure user authentication with component, model, and database level validations.</li>
+    <li>User passwords are securely stored in hashed and salted format.</li>
+    <li>Ability to create and delete up to 5 custom profiles per user, each of which has its own dedicated Watch List.</li>
+    <li>Ability to add or remove videos from Watch lists from the video preview or show page.</li>
+    <li>Ability to switch between profiles seamlessly using the Navigation bar or dedicated Profiles page.</li>
+    <li>Ability to watch videos with custom video control panel designed specifically for Spaceflix.</li>
     <li>User authentication process includes error handling, rendering descriptive errors to the user for an intuitive signup/login experience.</li>
 </ul>
 
