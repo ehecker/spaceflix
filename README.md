@@ -1,24 +1,23 @@
 # Spaceflix
 <img src="https://i.imgur.com/sneEo43.jpg">
-
 <a href="https://spaceflix.herokuapp.com" target="_blank" rel="noreferrer">Visit the Live Site here</a>
 
-Spaceflix is a space-themed, pixel-perfect clone of Netflix. Like the real thing, Spaceflix allows users to stream movies (trailers) on demand. Users can create and delete profiles, each of which has their own independent Watch List where they can save movies to watch later. Movies can be previewed by hovering over their thumbnails, and additional details can be accessed by opening their respective show-sections. In the future, Spaceflix will feature search functionality as well as recommendations based on movies a profile has already watched.
+Spaceflix is a space-themed, pixel-perfect clone of Netflix. Like the real thing, Spaceflix allows users to stream movies (trailers) on demand. Users can create and delete profiles, each of which has its own independent Watch List where movies can be saved for later viewing. Movies can be previewed by hovering over their thumbnails, and additional details can be accessed by opening their respective show-sections. In the future, Spaceflix will feature search functionality as well as recommendations based on movies a profile has already watched.
 
 ## Features
 <ul>
-    <li>Secure user authentication with component, model, and database level validations and security measures.</li>
-    <li>User passwords are stored securely in hashed and salted format.</li>
-    <li>Users can create and delete up to 5 custom profiles, each of which has its own dedicated Watch List.</li>
-    <li>Videos can be added or removed from Watch lists from the video preview or show page.</li>
-    <li>Users can switch between profiles seamlessly using the Navigation bar or dedicated Profiles page.</li>
-    <li>Users can watch videos with custom video controls specifically designed for Spaceflix.</li>
+    <li>Secure user authentication with component, model, and database level validations.</li>
+    <li>User passwords are securely stored in hashed and salted format.</li>
+    <li>Ability to create and delete up to 5 custom profiles per user, each of which has its own dedicated Watch List.</li>
+    <li>Ability to add or remove videos from Watch lists from the video preview or show page.</li>
+    <li>Ability to switch between profiles seamlessly using the Navigation bar or dedicated Profiles page.</li>
+    <li>Ability to watch videos with custom video control panel designed specifically for Spaceflix.</li>
     <li>User authentication process includes error handling, rendering descriptive errors to the user for an intuitive signup/login experience.</li>
 </ul>
 
 ## Technologies
 
-Spaceflix is built with <strong>Ruby on Rails</strong> on the backend and <strong>React/Redux</strong> on the frontend. User and movie information is stored in a <strong>PostgreSQL</strong> database and <strong>AWS S3</strong> is used for cloud storage of image and video files. Secure user authentication is implemented without any dedicated authentication libraries, but user passwords are stored securely in hashed + salted format with assistance from BCrypt. The application is additionally supported by Webpack, JQuery, and Jbuilder.
+Spaceflix is built with <strong>Ruby on Rails</strong> on the backend and <strong>React/Redux</strong> on the frontend. User and movie information is stored in a <strong>PostgreSQL</strong> database and <strong>AWS S3</strong> is used for cloud storage of image and video files. Secure user authentication is implemented without any dedicated authentication libraries, but user passwords are stored securely in hashed + salted format with assistance from BCrypt. The application is additionally supported by Webpack, jQuery, and Jbuilder.
 
 ## Technical Challenges
 ### Authorizing AWS S3 Requests with proper expiration guidelines
