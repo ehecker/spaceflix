@@ -20,7 +20,7 @@ const logoutCurrentUser = () => {
     }
 }
 
-const receiveErrors = errors => {
+const receiveErrors = (errors) => {
     return {
         type: RECEIVE_ERRORS,
         errors

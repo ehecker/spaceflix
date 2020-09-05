@@ -163,8 +163,8 @@ class Movie extends React.Component {
 
 
         if (!activeRow) {
-            let listMovies = this.props.profileList.movies;
-            let listMovieAssociations = this.props.profileList.movieAssociations;
+            const listMovies = this.props.profileList.movies;
+            const listMovieAssociations = this.props.profileList.movieAssociations;
 
             let inProfileList;
             let addBtn;
